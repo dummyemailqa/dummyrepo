@@ -32,3 +32,10 @@ TCR4-G.Validation of Registration Failure with Password Confirmation Mismatch
     Input Register Form                         ${EmailAddress}  ${FirstName}  ${LastName}  ${Password}  ${LastName}  ${PhoneNumber}
     Click Element                               ${SubmitRegisterButton} 
     Alert Warning Validation Register           ${RegisterAlertMessagePasswordNotMatch}
+
+TCR5-G.Validation of Registration Failure with Duplicate Email/Phone Number
+    [Tags]      register   daily
+    To Register Page
+    Input Register Form                         ${EmailAddressRegistered}  ${FirstName}  ${LastName}  ${Password}  ${Password}  ${PhoneNumber}
+    Click Element                               ${SubmitRegisterButton}
+    Alert Warning Validation Register           ${RegisterAlerrMessageInvalidRegister}     
