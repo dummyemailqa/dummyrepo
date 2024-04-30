@@ -8,7 +8,6 @@ Variables    ../resources/locators/my_account_locator.py
 
 *** Keywords ***
 To Login Page
-    # Sleep    10
     Wait Until Element Is Visible   ${HeaderLinkToLogin}
     Click element   ${HeaderLinkToLogin}
     Wait Until Element Is Visible    ${ButtonSignIn}
