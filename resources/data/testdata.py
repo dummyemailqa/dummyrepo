@@ -10,3 +10,7 @@ OtherPhoneNumber        = '123456789'
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
 URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
+
+#Product
+ProductSimpleSKUForSearch   = 'irj-001'
+ProductSimpleNameForSearch  = 'Ingrid Running Jacket'

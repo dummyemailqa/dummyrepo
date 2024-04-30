@@ -28,3 +28,7 @@ Logout Account
     Wait Until Element Is Enabled   ${ButtonSignOut}
     Click Element   ${ButtonSignOut}
     Wait Until Element Is Not Visible    ${UserLoggedInIcon}
+
+Search Product Not Match 
+    [Arguments]    ${Keyword}    ${Result}
+    Fail                                                    Data Nama Product '${Result}' tidak sesuai dengan katakunci : ${Keyword}
