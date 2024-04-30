@@ -24,4 +24,11 @@ TCR3-G.Validation of Registration Failure with Weak Password
     To Register Page
     Input Register Form                         ${EmailAddress}  ${FirstName}  ${LastName}  ${LastName}  ${LastName}  ${PhoneNumber}
     Click Element                               ${SubmitRegisterButton} 
-    Alert Warning Validation Register           ${RegisterAlerMessageWeakPassword}     
+    Alert Warning Validation Register           ${RegisterAlerMessageWeakPassword}
+
+TCR4-G.Validation of Registration Failure with Password Confirmation Mismatch
+    [Tags]      register   daily
+    To Register Page
+    Input Register Form                         ${EmailAddress}  ${FirstName}  ${LastName}  ${Password}  ${LastName}  ${PhoneNumber}
+    Click Element                               ${SubmitRegisterButton} 
+    Alert Warning Validation Register           ${RegisterAlertMessagePasswordNotMatch}
