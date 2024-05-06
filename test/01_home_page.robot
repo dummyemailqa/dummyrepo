@@ -29,15 +29,15 @@ TCSe1.Search for Product Categories using Website's Search Box
     #search Product Suggestion
     Click On Product Suggestion                             ${ProductSimpleNameForSearch}
 
-TCSe2.Successful Specific Product Search using Website's Search Box
+TCSe3.Successful Specific Product Search using Website's Search Box
+    [Tags]    Header  Search
     #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  ${ProductRandomSKUForSearch}
-    Wait Until Element Is Visible With Long Time            ${AlertProductNotFound}
-    Element Should Be Visible                               ${AlertProductNotFound}
-   
+    Search Product by Keyword in Searchbox                  ${ProductSimpleSKUForSearch}
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
+
     #search Product Simple by Name
     Clear Element Text                                      ${SearchBox}
-    Search Product by Keyword in Searchbox                  ${ProductRandomNameForSearch}
-    Wait Until Element Is Visible With Long Time            ${AlertProductNotFound}
-    Element Should Be Visible                               ${AlertProductNotFound}  
-    
+    Search Product by Keyword in Searchbox                  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
