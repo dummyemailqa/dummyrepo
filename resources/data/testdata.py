@@ -14,3 +14,5 @@ URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
 #Product
 ProductSimpleSKUForSearch   = 'irj-001'
 ProductSimpleNameForSearch  = 'Ingrid Running Jacket'
+ProductRandomSKUForSearch   = 'Kl;!HG*'
+ProductRandomNameForSearch  = 'InvalidkeywordForSearch'
