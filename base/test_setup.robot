@@ -4,12 +4,16 @@ Library     String
 Variables   ../resources/data/testdata.py
 
 *** Variables ***
-${BROWSER}    Chrome
+${BROWSER}    Safari
 ${CromeDriverPath}    ${CURDIR}/../../WebDrivers/chrome/chromedriver.exe
 ${EdgeDriverPath}    ${CURDIR}/../../WebDrivers/edge/msedgedriver.exe
 
 *** Keywords ***
 Start Test Case
+    @{Browser_id}=                                          Get Browser Ids
+    Run Keyword if                                          @{Browser_id}==[]                   Start Test
+
+Start Test
     IF  '${BROWSER}'=='Chrome'
         ${BrowserConfiguration}    Set Variable    chrome_options
         ${ExecutablePath}    Set Variable    ${CromeDriverPath}
