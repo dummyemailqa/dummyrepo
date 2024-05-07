@@ -54,3 +54,16 @@ TCSe4.Validation of Unsuccessful Product Search with Random Characters Appended 
     Search Product by Keyword in Searchbox                  ${ProductSimpleNameWithRandomCharacter}
     Wait Until Element Is Visible With Long Time            ${AlertProductNotFound}
     Element Should Be Visible                               ${AlertProductNotFound}
+
+TCSe5.Validation of Successful Product Search with Special Characters Appended to Product Name
+    [Tags]    Header  Search
+    #search Product Simple by SKU
+    Search Product by Keyword in Searchbox                  ${ProductSpecialSKUForSearch}
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
+   
+    #search Product Simple by Name
+    Clear Element Text                                      ${SearchBox}
+    Search Product by Keyword in Searchbox                  ${ProductSpecialNameForSearch}
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
