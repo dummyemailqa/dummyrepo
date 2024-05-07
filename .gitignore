@@ -1,3 +1,11 @@
+#directory
+/results
+/base/test_setup.robot
+
+#python cache
+/resources/data/__pycache__
+/resources/locators/__pycache__
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
