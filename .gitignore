@@ -1,6 +1,6 @@
 #directory
 /results
-/base/test_setup.robot
+/base/setup.robot
 
 #python cache
 /resources/data/__pycache__
