@@ -1,5 +1,5 @@
 #Account Detail
-EmailAddress            = 'jellyoms@yopmail.com'
+EmailAddress            = 'jellyseller@yopmail.com'
 EmailAddressRegistered  = 'demo@icube.us'
 Password                = 'Password123'
 FirstName               = 'demo'
@@ -14,5 +14,5 @@ URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
 #Product
 ProductSimpleSKUForSearch   = 'irj-001'
 ProductSimpleNameForSearch  = 'Ingrid Running Jacket'
-ProductRandomSKUForSearch   = 'Kl;!HG*'
-ProductRandomNameForSearch  = 'InvalidkeywordForSearch'
+ProductSimpleSKUWithRandomCharacter     = 'irj-001PLO'
+ProductSimpleNameWithRandomCharacter    = 'Ingrid Running JacketJKL'
