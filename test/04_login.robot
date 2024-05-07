@@ -20,3 +20,10 @@ TCL2-G.Validation of Failure Login with Incorrect Email and Password Format
     Input Login Form    ${FirstName}    ${Password}
     Submit Form Login
     Alert Visible Validation    ${AlertInvalidEmailFormat}
+
+TCL3-GValidation of Failure Login with Unregistered Email
+    To Login Page
+    ${randomEmail}=     Generate Random Email
+    Input Login Form    ${randomEmail}    ${Password}
+    Submit Form Login
+    Alert Visible Validation    ${AllertMessageError}

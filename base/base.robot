@@ -37,3 +37,8 @@ Search Product Not Match
 Alert Visible Validation
    [Arguments]                                              ${AlertMessage}
     Wait Until Element Is Visible With Long Time            ${AlertMessage}
+
+Generate Random Email
+    ${randomString}=    Generate Random String              8                                   [LOWER]
+    ${randomEmail}=     Set Variable                        ${randomString}@gmail.com
+    RETURN                                                  ${randomEmail}
