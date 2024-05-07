@@ -18,3 +18,10 @@ TCR2-G.Validation of Registration Failure with Empty Mandatory Fields
     Input Register Form                         ${EmailAddress}    ${Empty}    ${LastName}    ${Empty}    ${Empty}    ${Empty}
     Click Element                               ${SubmitRegisterButton}
     Alert Warning Validation Register           ${RegisterAlertMessageFirtName}
+
+TCR3-G.Validation of Registration Failure with Weak Password
+    [Tags]      register   daily
+    To Register Page
+    Input Register Form                         ${EmailAddress}  ${FirstName}  ${LastName}  ${LastName}  ${LastName}  ${PhoneNumber}
+    Click Element                               ${SubmitRegisterButton} 
+    Alert Warning Validation Register           ${RegisterAlerMessageWeakPassword}     
