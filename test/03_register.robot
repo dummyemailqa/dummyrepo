@@ -3,7 +3,7 @@ Documentation   Suite description
 Variables   ../resources/data/testdata.py
 Variables   ../resources/locators/register_locator.py
 Resource    ../base/common.robot
-Resource    ../base/test_setup.robot
+Resource    ../base/setup.robot
 Resource    ../base/base.robot
 Resource    ../pages/register_page.robot
 

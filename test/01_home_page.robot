@@ -3,7 +3,7 @@ Documentation   Suite description
 Variables   ../resources/locators/product_list_locator.py
 Variables   ../resources/locators/base_locator.py
 Variables   ../resources/data/testdata.py
-Resource    ../base/test_setup.robot
+Resource    ../base/setup.robot
 Resource    ../base/base.robot
 Resource    ../base/common.robot
 Resource    ../pages/home_page.robot
