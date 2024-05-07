@@ -5,6 +5,9 @@ Variables   ../resources/data/testdata.py
 Variables    ../resources/locators/home_locator.py
 
 *** Keywords ***
+Go To Home Page 
+    Go To                                                   ${URLWEB}   
+
 End Test Case
     Go To My Account Page
     ${failed} =  Register Keyword To Run On Failure  NONE
@@ -14,13 +17,14 @@ End Test Case
         Logout Account
     END
     Delete All Cookies
+    Go to Home Page
 
 Go To My Account Page
     Go To                                                   ${URLAccount}
 
 Logout Account
-    Wait Until Element Is Visible   ${UserLoggedInIcon}
-    Click Element   ${UserLoggedInIcon}
+    Wait Until Element Is Visible           ${UserLoggedInIcon}
+    Click Element       ${UserLoggedInIcon}
     Wait Until Element Is Enabled   ${ButtonSignOut}
     Click Element   ${ButtonSignOut}
     Wait Until Element Is Not Visible    ${UserLoggedInIcon}
