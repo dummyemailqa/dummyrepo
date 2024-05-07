@@ -27,3 +27,11 @@ TCL3-GValidation of Failure Login with Unregistered Email
     Input Login Form    ${randomEmail}    ${Password}
     Submit Form Login
     Alert Visible Validation    ${AllertMessageError}
+
+TCL5-G.Unsuccessful Login Using Invalid Phone Number
+    To Login Page
+    Go To Login By Phone Number
+    ${randomEmail}=     Generate Random Email
+    Input Phone Number Login Form    ${randomEmail}
+    Submit Request OTP
+    Alert Visible Validation    ${AllertLoginSMSMessageError}

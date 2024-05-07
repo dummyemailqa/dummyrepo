@@ -4,7 +4,7 @@ Library      Collections
 Variables    ../resources/locators/login_locator.py
 Variables    ../resources/locators/home_locator.py
 Variables    ../resources/locators/my_account_locator.py
-
+Resource    ../base/common.robot
 
 *** Keywords ***
 To Login Page
@@ -28,3 +28,16 @@ Submit Form Login
 Login Validation
     Wait Until Element Is Visible    ${ButtonEditContactInformation}
     Element Should Be Visible   ${ButtonEditContactInformation} 
+
+Go To Login By Phone Number
+    Wait Until Element Is Visible With Long Time    ${ButtonSwitchLoginByPhoneNumber}
+    Click Element    ${ButtonSwitchLoginByPhoneNumber}
+
+Input Phone Number Login Form
+    [Arguments]    ${PhoneNumber}
+    Wait Until Element Is Visible With Long Time    ${LoginPhoneNumber}
+    Input Text    ${LoginPhoneNumber}    ${PhoneNumber}
+
+Submit Request OTP
+    Wait Until Element Is Visible With Long Time    ${ButtonRequestOTP}
+    Click Element    ${ButtonRequestOTP}
