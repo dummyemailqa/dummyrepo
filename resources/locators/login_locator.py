@@ -5,3 +5,4 @@ ButtonLogin     = "//button[@name='send']"
 
 #ErrorMessages
 AlertInvalidEmailFormat    = "//li[@data-msg-field='login[username]']"
+AllertMessageError         = "//div[@ui-id='message-error']"
