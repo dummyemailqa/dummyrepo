@@ -14,3 +14,9 @@ TCL1-G.Succesful Login with Registered Email and Password
     Input Login Form    ${EmailAddress}    ${Password}
     Submit Form Login
     Login Validation
+
+TCL2-G.Validation of Failure Login with Incorrect Email and Password Format
+    To Login Page
+    Input Login Form    ${FirstName}    ${Password}
+    Submit Form Login
+    Alert Visible Validation    ${AlertInvalidEmailFormat}

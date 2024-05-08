@@ -3,6 +3,7 @@ Library     SeleniumLibrary
 Library     String
 Variables   ../resources/data/testdata.py
 Variables    ../resources/locators/home_locator.py
+Resource    ../base/common.robot
 
 *** Keywords ***
 Go To Home Page 
@@ -32,3 +33,7 @@ Logout Account
 Search Product Not Match 
     [Arguments]    ${Keyword}    ${Result}
     Fail                                                    Data Nama Product '${Result}' tidak sesuai dengan katakunci : ${Keyword}
+
+Alert Visible Validation
+   [Arguments]                                              ${AlertMessage}
+    Wait Until Element Is Visible With Long Time            ${AlertMessage}
