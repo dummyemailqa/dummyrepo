@@ -16,20 +16,50 @@ Start Test Case
     Run Keyword if                                          @{Browser_id}==[]                   Start Test
 
 Start Test
-    IF  '${BROWSER}'=='Chrome'
-        ${BrowserConfiguration}    Set Variable    chrome_options
-        ${ExecutablePath}    Set Variable    ${CromeDriverPath}
-        Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-    ELSE IF  '${BROWSER}'=='Edge'
-        ${BrowserConfiguration}    Set Variable    options
-        ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
-        Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-
-    ELSE IF  '${BROWSER}'=='Safari'
-        ${BrowserConfiguration}    Set Variable    options
-        Create WebDriver    ${BROWSER}
-        Maximize Browser Window
+    ${OS}=    Evaluate    platform.system()    platform
+    IF  '${OS}'=="Linux"
+        IF  '${BROWSER}'=='Chrome'
+            Log To Console    "running on Linux - Chrome"
+            ${BrowserConfiguration}    Set Variable    chrome_options
+            ${ExecutablePath}    Set Variable    ${CromeDriverPath}
+            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
+        ELSE IF  '${BROWSER}'=='Edge'
+            Log To Console    "running on Linux - Edge"
+            ${BrowserConfiguration}    Set Variable    options
+            ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
+            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
+        END
+        
+    ELSE IF    '${OS}'=="Windows"
+        IF  '${BROWSER}'=='Chrome'
+            Log To Console    "running on Windows - Chrome"
+            ${BrowserConfiguration}    Set Variable    chrome_options
+            ${ExecutablePath}    Set Variable    ${CromeDriverPath}
+            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
+       ELSE IF  '${BROWSER}'=='Edge'
+            Log To Console    "running on Windows - Edge"
+            ${BrowserConfiguration}    Set Variable    options
+            ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
+            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
+        END
+     ELSE IF    '${OS}'=="Darwin"
+            IF  '${BROWSER}'=='Chrome'
+                Log To Console    "running on MacOS - Chrome"
+                ${BrowserConfiguration}    Set Variable    chrome_options
+                ${ExecutablePath}    Set Variable    ${CromeDriverPath}
+                Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
+            ELSE IF  '${BROWSER}'=='Edge'
+                Log To Console    "running on MacOS - Edge"
+                ${BrowserConfiguration}    Set Variable    options
+                ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
+                Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
+            ELSE IF  '${BROWSER}'=='Safari'
+                Log To Console    "running on MacOS - Safari"
+                ${BrowserConfiguration}    Set Variable    options
+                Create WebDriver    ${BROWSER}
+            END
     END
+    Maximize Browser Window
     Go to   ${URLWEB}
     Execute JavaScript    document.body.style.zoom = "100%"
     Set selenium speed  1    
