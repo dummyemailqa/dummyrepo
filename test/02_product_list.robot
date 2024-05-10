@@ -18,8 +18,8 @@ TCPLP1.Customers able to Change product view as Grid on PLP
     # View as List
     CLick Element    ${MenuWoman}
     Click Element    ${ProductsListViewIcon}
-    Wait Until Page Contains Element    ${ProductListViewContainer}
+    Element Should Be Visible   ${ProductListViewContainer}
 
     # View as Grid
     Click Element    ${ProductsGridViewIcon}
-    Wait Until Page Contains Element    ${ProductGridViewContainer}
+    Element Should Be Visible    ${ProductGridViewContainer}
