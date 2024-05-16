@@ -9,15 +9,13 @@ Resource    ../base/setup.robot
 Resource    ../base/base.robot
 Resource    ../base/common.robot
 Resource    ../pages/home_page.robot
+Resource    ../pages/product_list_page.robot
 
 Test Setup  Start Test Case
 Test Teardown    End Test Case
 
 *** Keywords ***
-Remove Letters
-    [Arguments]    ${text}
-    ${cleaned_text}=    Regexp Replace    ${text}    [^\d.]    ${EMPTY}
-    [Return]    ${cleaned_text}
+
 
 *** Test Cases ***
 TCPLP1.Customers able to Change product view as Grid on PLP
@@ -48,16 +46,5 @@ TCPLP4.Customers sort products
     Element Should Be Visible                               ${ProductItemCard}
     Click Element    //select[@aria-label='Sort By']
     Click Element    //select[@aria-label='Sort By']//option[@value='price']
-    ${price1}=    Get Value    //span[@data-]
-    ${price1}=    Remove Letters    ${price1}
-    Log To Console    ${price1}
-    ${price1}=    Convert To Number    ${price1}
-    
-    ${price2}=    Get Text    //main[@id='maincontent']//form[2]//span[@class='price']
-    ${price2}=    Replace String    ${price1}    'Rp '    ''
-    ${price2}=    Convert To Number    ${price2}
-    
-    ${price3}=    Get Text    //main[@id='maincontent']//form[3]//span[@class='price']
-    ${price3}=    Replace String    ${price1}    'Rp '    ${null}    
-    ${price3}=    Convert To Number    ${price3}
-    Pass Execution if(${price1} <= ${price2} <= ${price3})
+    Sorting Correct Validation  ${SortAsc}    ${productItemPrice.format(1)}   ${productItemPrice.format(2)}    ${productItemPrice.format(3)}
+   
