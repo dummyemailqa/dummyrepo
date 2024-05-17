@@ -42,3 +42,19 @@ Generate Random Email
     ${randomString}=    Generate Random String              8                                   [LOWER]
     ${randomEmail}=     Set Variable                        ${randomString}@gmail.com
     RETURN                                                  ${randomEmail}
+
+Scroll Down To Element
+    [Arguments]  ${locator}
+    ${x}=        Get Horizontal Position  ${locator}
+    ${y}=        Get Vertical Position    ${locator}
+    Execute Javascript  window.scrollTo(${x}, ${y}-100)
+
+Clear Text Field
+    [Arguments]    ${Element}
+    ${OS}=    Evaluate    platform.system()    platform
+    IF  '${OS}'=="Darwin"
+        press keys    ${Element}    COMMAND+a  BACKSPACE
+    ELSE
+        press keys    ${Element}    CTRL+a+BACKSPACE
+    END
+
