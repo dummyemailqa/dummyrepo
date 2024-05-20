@@ -60,7 +60,7 @@ Clear Text Field
 
 Validate Popup Fail Alert Is Visible
     [Arguments]    ${elementjs}
-    ${is_valid}    Execute JavaScript   return window.document.querySelector('${elementjs}').checkValidity();
+    ${is_valid}    Execute JavaScript   return window.document.querySelector("${elementjs}").checkValidity();
     IF     ${is_valid}
         Fail    msg=Alert Message Not Showing
     END
