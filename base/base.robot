@@ -58,3 +58,9 @@ Clear Text Field
         press keys    ${Element}    CTRL+a+BACKSPACE
     END
 
+Validate Popup Fail Alert Is Visible
+    [Arguments]    ${elementjs}
+    ${is_valid}    Execute JavaScript   return window.document.querySelector('${elementjs}').checkValidity();
+    IF     ${is_valid}
+        Fail    msg=Alert Message Not Showing
+    END
