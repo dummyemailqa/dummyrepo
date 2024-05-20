@@ -20,7 +20,4 @@ TCPDP5.Validation Maximum Quantity Validation During Adding Product to Cart
     Go To PDP Product By Index    1
     Input Item Qty    QTY=10001
     Add To Cart
-    Validate Popup Fail Alert Is Visible     elementjs=input[Name="qty"]
-
-
-    
+    Validate Popup Fail Alert Is Visible     elementjs=${ProductQuantityValidation}
