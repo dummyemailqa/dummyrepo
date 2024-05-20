@@ -2,6 +2,7 @@
 Library      SeleniumLibrary
 Library      Collections
 Variables    ../resources/locators/home_locator.py
+Variables    ../resources/locators/product_list_locator.py
 Resource    ../base/common.robot
 Resource    ../base/base.robot
 
@@ -21,6 +22,26 @@ Search Product Suggestion Validation
     ${validasiProduct_name}    Run Keyword And Return Status    Should Contain    ${txtProductSuggestion}    ${keyword}
     IF  '${validasiProduct_name}'=='False'               
         Run Keyword And Continue On Failure   Search Product Not Match    ${keyword}    ${txtProductSuggestion}
+    END
+
+Search Product result Validation by Name
+    [Arguments]    ${keyword}
+    ${txtProductresult}         Get Text                    ${ProductItemCardName}
+    ${keyword} =                Convert To Lower Case       ${keyword}
+    ${txtProductSuggestion} =   Convert To Lower Case       ${txtProductresult}
+    ${validasiProduct_name}    Run Keyword And Return Status    Should Contain    ${txtProductSuggestion}    ${keyword}
+    IF  '${validasiProduct_name}'=='False'               
+        Run Keyword And Continue On Failure   Search Product Not Match    ${keyword}    ${txtProductresult}
+    END
+
+Search Product result Validation by SKU
+    [Arguments]    ${keyword}
+    ${txtProductresult}         Get Text                    ${ProductItemCardName}
+    ${keyword} =                Convert To Lower Case       ${ProductSimpleNameForSearch}
+    ${txtProductSuggestion} =   Convert To Lower Case       ${txtProductresult}
+    ${validasiProduct_name}    Run Keyword And Return Status    Should Contain    ${txtProductSuggestion}    ${keyword}
+    IF  '${validasiProduct_name}'=='False'               
+        Run Keyword And Continue On Failure   Search Product Not Match    ${keyword}    ${txtProductresult}
     END
 
 Click On Product Suggestion
