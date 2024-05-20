@@ -2,6 +2,7 @@
 Library      SeleniumLibrary
 Library      Collections
 Variables    ../resources/locators/home_locator.py
+Variables    ../resources/locators/product_list_locator.py
 Resource    ../base/common.robot
 Resource    ../base/base.robot
 
@@ -53,3 +54,8 @@ validate Search Suggestions
     Wait Until Element Is Visible With Long Time            ${SuggestedProduct}
     ${productname}=    Get Text From Locator                ${SuggestedProduct}
     Validate String contains       ${productname}    ${keyword}
+
+Get Product Name From PLP
+    Wait Until Element Is Visible With Long Time    ${PLPProductName}
+    ${PLPProductNameValue}    Get Text    ${PLPProductName}
+    RETURN    ${PLPProductNameValue}

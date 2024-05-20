@@ -42,3 +42,16 @@ Generate Random Email
     ${randomString}=    Generate Random String              8                                   [LOWER]
     ${randomEmail}=     Set Variable                        ${randomString}@gmail.com
     RETURN                                                  ${randomEmail}
+
+Scroll Down To Element
+    [Arguments]  ${locator}
+    ${x}=        Get Horizontal Position  ${locator}
+    ${y}=        Get Vertical Position    ${locator}
+    Execute Javascript  window.scrollTo(${x}, ${y}-100)
+
+Validate Similarity Of 2 Arguments
+    [Arguments]      ${Argument1}       ${Argument2}
+    ${Argument1} =       Convert To Lower Case              ${Argument1}
+    ${Argument2} =       Convert To Lower Case              ${Argument2}
+    ${ValidateSimilarity}    Run Keyword And Return Status  Should Be Equal     ${Argument1}    ${Argument2}
+    RETURN                                                  ${ValidateSimilarity}
