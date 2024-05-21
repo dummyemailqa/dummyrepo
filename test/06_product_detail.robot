@@ -12,6 +12,29 @@ Test Setup          Start Test Case
 Test Teardown       End Test Case
 
 *** Test Cases ***
+TCPDP2-L.Validation Product Review Submission with Empty Required Fields
+    [Tags]    PDP
+    #search Product Simple by SKU
+    Search Product by Keyword in Searchbox                  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
+    Go To PDP Product By Index    1
+
+    Open Review Product Window
+    Input Review Product    Nickname=${EMPTY}    Title=${EMPTY}    Review=${EMPTY}    Rate=0
+    Validate Popup Fail Alert Is Visible    elementjs=${ReviewNameInputValidation}
+
+    # Open Review Product Window
+    Input Review Product    Nickname=${ProductReviewName}    Rate=0    Title=${EMPTY}    Review=${EMPTY}
+    Validate Popup Fail Alert Is Visible    elementjs=${ReviewRatingInputValidation}
+
+    Input Review Product    Nickname=${ProductReviewName}    Rate=5    Title=${EMPTY}    Review=${EMPTY}
+    Validate Popup Fail Alert Is Visible    elementjs=${ReviewTitleInputValidation}
+    
+    Input Review Product    Nickname=${ProductReviewName}    Rate=5    Title=${ProductReviewTitle}    Review=${EMPTY}
+    Validate Popup Fail Alert Is Visible    elementjs=${ReviewDetailInputValidation}
+    Cancel Review Product
+
 TCPDP5.Validation Maximum Quantity Validation During Adding Product to Cart
     [Tags]    pdp
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
