@@ -1,74 +1,74 @@
 *** Settings ***
-Documentation   Suite description
-Variables   ../resources/locators/product_list_locator.py
-Variables   ../resources/locators/base_locator.py
-Variables   ../resources/locators/compare_locator.py
-Variables   ../resources/data/testdata.py
-Resource    ../base/setup.robot
-Resource    ../base/base.robot
-Resource    ../pages/home_page.robot
-Resource    ../pages/compare_page.robot
+Documentation       Suite description
 
+Variables           ../resources/locators/product_list_locator.py
+Variables           ../resources/locators/base_locator.py
+Variables           ../resources/locators/compare_locator.py
+Variables           ../resources/data/testdata.py
+Resource            ../base/setup.robot
+Resource            ../base/base.robot
+Resource            ../pages/home_page.robot
+Resource            ../pages/compare_page.robot
 
-Test Setup  Start Test Case
-Test Teardown    End Test Case
+Test Setup          Start Test Case
+Test Teardown       End Test Case
+
 
 *** Test Cases ***
-
 TCSe1.Search for Product Categories using Website's Search Box
-    [Tags]    Header  Search
-    #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  ${ProductSimpleSKUForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
-    
-    #search Product Simple by Name
-    Clear Element Text                                      ${SearchBox}
-    Search Product by Keyword in Searchbox                  ${ProductSimpleNameForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
+    [Tags]    header    search
+    # search Product Simple by SKU
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
 
-    #search Product Suggestion
-    Click On Product Suggestion                             ${ProductSimpleNameForSearch}
+    # search Product Simple by Name
+    Clear Element Text    ${SearchBox}
+    Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
+
+    # search Product Suggestion
+    Click On Product Suggestion    ${ProductSimpleNameForSearch}
 
 TCSe3.Successful Specific Product Search using Website's Search Box
-    [Tags]    Header  Search
-    #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  ${ProductSimpleSKUForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
+    [Tags]    header    search
+    # search Product Simple by SKU
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
 
-    #search Product Simple by Name
-    Clear Element Text                                      ${SearchBox}
-    Search Product by Keyword in Searchbox                  ${ProductSimpleNameForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
+    # search Product Simple by Name
+    Clear Element Text    ${SearchBox}
+    Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
 
 TCSe4.Validation of Unsuccessful Product Search with Random Characters Appended to Product Name
-    [Tags]    Header  Search
-    #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  ${ProductSimpleSKUWithRandomCharacter}
-    Wait Until Element Is Visible With Long Time            ${AlertProductNotFound}
-    Element Should Be Visible                               ${AlertProductNotFound}
-   
-    #search Product Simple by Name
-    Clear Element Text                                      ${SearchBox}
-    Search Product by Keyword in Searchbox                  ${ProductSimpleNameWithRandomCharacter}
-    Wait Until Element Is Visible With Long Time            ${AlertProductNotFound}
-    Element Should Be Visible                               ${AlertProductNotFound}
+    [Tags]    header    search
+    # search Product Simple by SKU
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUWithRandomCharacter}
+    Wait Until Element Is Visible With Long Time    ${AlertProductNotFound}
+    Element Should Be Visible    ${AlertProductNotFound}
+
+    # search Product Simple by Name
+    Clear Element Text    ${SearchBox}
+    Search Product by Keyword in Searchbox    ${ProductSimpleNameWithRandomCharacter}
+    Wait Until Element Is Visible With Long Time    ${AlertProductNotFound}
+    Element Should Be Visible    ${AlertProductNotFound}
 
 TCSe5.Validation of Successful Product Search with Special Characters Appended to Product Name
-    [Tags]    Header  Search
-    #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  ${ProductSpecialSKUForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
-   
-    #search Product Simple by Name
-    Clear Element Text                                      ${SearchBox}
-    Search Product by Keyword in Searchbox                  ${ProductSpecialNameForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
+    [Tags]    header    search
+    # search Product Simple by SKU
+    Search Product by Keyword in Searchbox    ${ProductSpecialSKUForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
+
+    # search Product Simple by Name
+    Clear Element Text    ${SearchBox}
+    Search Product by Keyword in Searchbox    ${ProductSpecialNameForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
 
 G-TCH1.Guest customers can access the "Compare Product" page
     Click Element    ${NavMenu2}
@@ -76,7 +76,7 @@ G-TCH1.Guest customers can access the "Compare Product" page
     Click Element    ${CompareButtonFirstProduct}
     Wait Until Element Is Visible    ${MessageSuccessAlert2}
     Click Element    ${NavMenu4}
-     ${PDPProductName2Value} =    Get Product Name From PLP
+    ${PDPProductName2Value} =    Get Product Name From PLP
     Click Element    ${CompareButtonFirstProduct}
     Wait Until Element Is Visible    ${MessageSuccessAlert2}
     Click Element    //a[@id="compare-link"]
