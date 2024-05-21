@@ -11,19 +11,21 @@ Resource    ../base/common.robot
 Resource    ../pages/home_page.robot
 Resource    ../pages/product_list_page.robot
 
-Test Setup  Start Test Case
-Test Teardown    End Test Case
+Test Setup          Start Test Case
+Test Teardown       End Test Case
+
+
 
 *** Keywords ***
 
 
 *** Test Cases ***
 TCPLP1.Customers able to Change product view as Grid on PLP
-    [Tags]    PLP  TCPLP1
+    [Tags]    plp
     # View as List
     CLick Element    ${MenuWoman}
     Click Element    ${ProductsListViewIcon}
-    Wait Until Page Contains Element    ${ProductListViewContainer}
+    Element Should Be Visible    ${ProductListViewContainer}
 
     # View as Grid
     Click Element    ${ProductsGridViewIcon}
@@ -48,3 +50,4 @@ TCPLP4.Customers sort products
     Click Element    //select[@aria-label='Sort By']//option[@value='price']
     Sorting Correct Validation  ${SortAsc}    ${productItemPrice.format(1)}   ${productItemPrice.format(2)}    ${productItemPrice.format(3)}
    
+

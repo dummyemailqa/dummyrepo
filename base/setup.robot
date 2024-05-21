@@ -12,8 +12,8 @@ ${EdgeDriverPath}    ${CURDIR}/../../edgedriver_mac64/msedgedriver
 Start Test Case
     ${OS}=    Evaluate    platform.system()    platform
     Log    "running on ${OS}-${BROWSER}"
-    @{Browser_id}=                                          Get Browser Ids
-    Run Keyword if                                          @{Browser_id}==[]                   Start Test
+    @{Browser_id}=    Get Browser Ids
+    Run Keyword if    @{Browser_id}==[]    Start Test
 
 Start Test
     ${OS}=    Evaluate    platform.system()    platform
