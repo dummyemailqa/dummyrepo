@@ -8,4 +8,3 @@ CompareButtonFirstProduct   = "//form[contains(@class,'product-item')][1]//div[c
 
 # Product Card Detail
 ProductItemCardName         = "//form[contains(@class,'product-item')][{}]//a[@class='product-item-link']"
-
