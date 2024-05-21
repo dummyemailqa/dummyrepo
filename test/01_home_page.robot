@@ -2,11 +2,13 @@
 Documentation   Suite description
 Variables   ../resources/locators/product_list_locator.py
 Variables   ../resources/locators/base_locator.py
+Variables   ../resources/locators/compare_locator.py
 Variables   ../resources/data/testdata.py
 Resource    ../base/setup.robot
 Resource    ../base/base.robot
-Resource    ../base/common.robot
 Resource    ../pages/home_page.robot
+Resource    ../pages/compare_page.robot
+
 
 Test Setup  Start Test Case
 Test Teardown    End Test Case
@@ -67,3 +69,18 @@ TCSe5.Validation of Successful Product Search with Special Characters Appended t
     Search Product by Keyword in Searchbox                  ${ProductSpecialNameForSearch}
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
+
+G-TCH1.Guest customers can access the "Compare Product" page
+    Click Element    ${NavMenu2}
+    ${PDPProductName1Value} =    Get Product Name From PLP
+    Click Element    ${CompareButtonFirstProduct}
+    Wait Until Element Is Visible    ${MessageSuccessAlert2}
+    Click Element    ${NavMenu4}
+     ${PDPProductName2Value} =    Get Product Name From PLP
+    Click Element    ${CompareButtonFirstProduct}
+    Wait Until Element Is Visible    ${MessageSuccessAlert2}
+    Click Element    //a[@id="compare-link"]
+    ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
+    ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
