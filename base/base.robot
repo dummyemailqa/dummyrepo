@@ -49,6 +49,13 @@ Scroll Down To Element
     ${y}=        Get Vertical Position    ${locator}
     Execute Javascript  window.scrollTo(${x}, ${y}-100)
 
+Validate Similarity Of 2 Arguments
+    [Arguments]      ${Argument1}       ${Argument2}
+    ${Argument1} =       Convert To Lower Case              ${Argument1}
+    ${Argument2} =       Convert To Lower Case              ${Argument2}
+    ${ValidateSimilarity}    Run Keyword And Return Status  Should Be Equal     ${Argument1}    ${Argument2}
+    RETURN    ${ValidateSimilarity}
+
 Clear Text Field
     [Arguments]    ${Element}
     ${OS}=    Evaluate    platform.system()    platform
