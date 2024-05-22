@@ -43,6 +43,7 @@ Add To Wishlist From PDP
     Wait Until Element Is Visible With Long Time    ${ProductNameOnPDP}
     Scroll Down To Element    ${AddToWishListButton}
     Click Element    ${AddToWishListButton}
+    Validate Message Success Alert Is Visible
 
 Validate Guest User Add To Wishlist
     Validate Message Error Alert Is Visible
