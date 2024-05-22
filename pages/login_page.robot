@@ -6,6 +6,7 @@ Variables       ../resources/locators/home_locator.py
 Variables       ../resources/locators/my_account_locator.py
 Resource        ../base/common.robot
 
+
 *** Keywords ***
 To Login Page
     Wait Until Element Is Visible    ${HeaderLinkToLogin}
@@ -41,3 +42,10 @@ Input Phone Number Login Form
 Submit Request OTP
     Wait Until Element Is Visible With Long Time    ${ButtonRequestOTP}
     Click Element    ${ButtonRequestOTP}
+
+Login User
+    To Login Page
+    Input Login Form    ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    ${LoggedIn}    Login Validation
+    RETURN    ${LoggedIn}
