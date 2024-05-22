@@ -1,6 +1,10 @@
 # General
 AddToCartButton             = "//button[@id='product-addtocart-button']"
 ProductReviewButton         = "//div[@class='review-modal-wrapper']//button"
+ProductNameOnPDP            = "//h1[contains(@class,'page-title')]//span"
+
+#PDP Action
+AddToWishListButton         = "//button[@id='add-to-wishlist']"
 
 #Quantity
 ProductQuantity             = "//input[@name='qty']"
