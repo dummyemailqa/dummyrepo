@@ -1,5 +1,6 @@
 #Alert
 MessageSuccessAlert                     = "//span[@x-html='message.text']"
+MessageErrorAlert                       = "//div[@ui-id='message-error']"
 MessageSuccessAlert2                    = "//div[@ui-id='message-success']"
 RegisterAlertMessageFirtName            = "//ul[@id='accountcreate-1']"
 RegisterAlerMessageWeakPassword         = "//li[normalize-space()='Please enter at least 8 characters.']"

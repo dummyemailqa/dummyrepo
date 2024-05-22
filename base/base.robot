@@ -63,7 +63,10 @@ Clear Text Field
         press keys    ${Element}    CTRL+a+BACKSPACE
     END
 
-Validate Popup Fail Alert Is Visible
+Validate Popup Fail Alert Is Visible    #digunakan untuk alert Tooltip seperti https://prnt.sc/5tKzCYCVlSkd
     [Arguments]    ${elementjs}
     ${is_valid}=    Execute JavaScript    return window.document.querySelector("${elementjs}").checkValidity();
     IF    ${is_valid}    Fail    msg=Alert Message Not Showing
+
+Validate Message Error Alert Is Visible    #digunakan untuk alert Message seperti https://prnt.sc/QezUR0wVWTcU
+    Wait Until Element Is Visible With Long Time    ${MessageErrorAlert}

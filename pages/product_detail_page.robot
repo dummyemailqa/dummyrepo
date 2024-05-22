@@ -3,6 +3,7 @@ Library         SeleniumLibrary
 Resource        ../base/common.robot
 Resource        ../base/base.robot
 Variables       ../resources/locators/product_detail_locator.py
+Variables       ../resources/locators/login_locator.py
 
 *** Keywords ***
 Input Item Qty
@@ -36,3 +37,12 @@ Cancel Review Product
     Wait Until Element Is Visible With Long Time    ${ReviewCancelSubmitButton}
     Click Element    ${ReviewCancelSubmitButton}
     Wait Until Element Is Not Visible    ${ReviewCancelSubmitButton}
+
+Add To Wishlist From PDP
+    Wait Until Element Is Visible With Long Time    ${ProductNameOnPDP}
+    Scroll Down To Element    ${AddToWishListButton}
+    Click Element    ${AddToWishListButton}
+
+Validate Guest User Add To Wishlist
+    Validate Message Error Alert Is Visible
+    Wait Until Element Is Visible With Long Time    ${FromLogin}
