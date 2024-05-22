@@ -15,9 +15,9 @@ Test Teardown       End Test Case
 TCPDP2-L.Validation Product Review Submission with Empty Required Fields
     [Tags]    PDP
     #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  ${ProductSimpleNameForSearch}
-    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
-    Element Should Be Visible                               ${ProductItemCard}
+    Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible    ${ProductItemCard}
     Go To PDP Product By Index    1
 
     Open Review Product Window
@@ -43,4 +43,15 @@ TCPDP5.Validation Maximum Quantity Validation During Adding Product to Cart
     Go To PDP Product By Index    1
     Input Item Qty    QTY=10001
     Add To Cart
+    Validate Popup Fail Alert Is Visible     elementjs=${ProductQuantityValidation}
+
+TCPDP6.Customers cannot add items to the cart
+    [Tags]    PDP
+    Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible   ${ProductItemCard}
+    Go To PDP Product By Index    1
+    Input Item Qty    QTY=0
+    Add To Cart
+    Validate Popup Fail Alert Is Visible    elementjs=${ProductQuantityValidation}
     Validate Popup Fail Alert Is Visible    elementjs=${ProductQuantityValidation}
