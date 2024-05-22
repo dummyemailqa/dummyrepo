@@ -12,7 +12,7 @@ Test Setup          Start Test Case
 Test Teardown       End Test Case
 
 *** Test Cases ***
-TCPDP2-L.Validation Product Review Submission with Empty Required Fields
+L-TCPDP2.Validation Product Review Submission with Empty Required Fields
     [Tags]    PDP
     #search Product Simple by SKU
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
