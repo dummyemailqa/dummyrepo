@@ -11,7 +11,6 @@ Test Teardown       End Test Case
 
 *** Test Cases ***
 G-TCL1.Succesful Login with Registered Email and Password
-    Sleep    15
     To Login Page
     Input Login Form    ${EmailAddress}    ${Password}
     Submit Form Login
