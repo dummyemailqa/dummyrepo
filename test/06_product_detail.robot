@@ -5,6 +5,7 @@ Resource            ../base/base.robot
 Resource            ../pages/home_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/product_list_page.robot
+Resource            ../pages/login_page.robot
 Variables           ../resources/locators/product_list_locator.py
 Variables           ../resources/data/testdata.py
 
@@ -65,3 +66,14 @@ TCPDP7.cannot add product to wish list and cannot access the wishlist page
 
     Add To Wishlist From PDP
     Validate Guest User Add To Wishlist
+
+TCPDP8.Logged in user is able to add product to wish list and access the wishlist page.
+    [Tags]    PDP
+    Login User
+    Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
+    Element Should Be Visible   ${ProductItemCard}
+    Go To PDP Product By Index    1
+
+    ${ProductName}    Get Product Name From PDP
+    Add To Wishlist From PDP

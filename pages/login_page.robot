@@ -41,3 +41,10 @@ Input Phone Number Login Form
 Submit Request OTP
     Wait Until Element Is Visible With Long Time    ${ButtonRequestOTP}
     Click Element    ${ButtonRequestOTP}
+
+Login User
+    To Login Page
+    Input Login Form    ${Email Address}    ${Password}
+    Submit Form Login
+    ${LoggedIn}    Login Validation
+    RETURN    ${LoggedIn}

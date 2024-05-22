@@ -24,8 +24,8 @@ Go To My Account Page
 Logout Account
     Wait Until Element Is Visible    ${UserLoggedInIcon}
     Click Element    ${UserLoggedInIcon}
-    Wait Until Element Is Enabled    ${ButtonSignOut}
-    Click Element    ${ButtonSignOut}
+    Wait Until Element Is Enabled    ${CustomerMenuSignOut}
+    Click Element    ${CustomerMenuSignOut}
     Wait Until Element Is Not Visible    ${UserLoggedInIcon}
 
 Search Product Not Match
