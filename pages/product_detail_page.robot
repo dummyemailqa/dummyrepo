@@ -4,6 +4,7 @@ Resource        ../base/common.robot
 Resource        ../base/base.robot
 Variables       ../resources/locators/product_detail_locator.py
 Variables       ../resources/locators/login_locator.py
+Variables       ../resources/locators/my_account_locator.py
 
 *** Keywords ***
 Input Item Qty
@@ -42,7 +43,13 @@ Add To Wishlist From PDP
     Wait Until Element Is Visible With Long Time    ${ProductNameOnPDP}
     Scroll Down To Element    ${AddToWishListButton}
     Click Element    ${AddToWishListButton}
+    Validate Message Success Alert Is Visible
 
 Validate Guest User Add To Wishlist
     Validate Message Error Alert Is Visible
     Wait Until Element Is Visible With Long Time    ${FromLogin}
+
+Get Product Name From PDP
+    Wait Until Element Is Visible With Long Time    ${ProductNameOnPDP}
+    ${PDPProductNameValue}    Get Text    ${ProductNameOnPDP}
+    RETURN    ${PDPProductNameValue}

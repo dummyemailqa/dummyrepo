@@ -24,8 +24,8 @@ Go To My Account Page
 Logout Account
     Wait Until Element Is Visible    ${UserLoggedInIcon}
     Click Element    ${UserLoggedInIcon}
-    Wait Until Element Is Enabled    ${ButtonSignOut}
-    Click Element    ${ButtonSignOut}
+    Wait Until Element Is Enabled    ${CustomerMenuSignOut}
+    Click Element    ${CustomerMenuSignOut}
     Wait Until Element Is Not Visible    ${UserLoggedInIcon}
 
 Search Product Not Match
@@ -63,10 +63,18 @@ Clear Text Field
         press keys    ${Element}    CTRL+a+BACKSPACE
     END
 
-Validate Popup Fail Alert Is Visible    #digunakan untuk alert Tooltip seperti https://prnt.sc/5tKzCYCVlSkd
+Validate Popup Fail Alert Is Visible
+# digunakan untuk alert Tooltip seperti https://prnt.sc/5tKzCYCVlSkd
     [Arguments]    ${elementjs}
     ${is_valid}=    Execute JavaScript    return window.document.querySelector("${elementjs}").checkValidity();
     IF    ${is_valid}    Fail    msg=Alert Message Not Showing
 
-Validate Message Error Alert Is Visible    #digunakan untuk alert Message seperti https://prnt.sc/QezUR0wVWTcU
+Validate Message Error Alert Is Visible
+# digunakan untuk alert Message seperti https://prnt.sc/QezUR0wVWTcU
     Wait Until Element Is Visible With Long Time    ${MessageErrorAlert}
+
+Validate Message Success Alert Is Visible
+# digunakan untuk alert Message seperti https://prnt.sc/rLZil7KvCoDv
+    Wait Until Element Is Visible With Long Time    ${MessageSuccessAlert2}
+    Click Element    ${CloseMessageSuccessAlert2Button}
+    Wait Until Element Is Not Visible    ${MessageSuccessAlert2}
