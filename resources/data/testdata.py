@@ -12,8 +12,8 @@ URLWEB                  = 'https://swift-hyva.testingnow.me/'
 URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
 
 #Product
-ProductSimpleSKUForSearch   = 'irj-001'
-ProductSimpleNameForSearch  = 'Ingrid Running Jacket'
+ProductSimpleSKUForSearch   = 'SP-01'
+ProductSimpleNameForSearch  = 'Simple Product Demo'
 ProductSimpleSKUWithRandomCharacter     = 'irj-001PLO'
 ProductSimpleNameWithRandomCharacter    = 'Ingrid Running JacketJKL'
 ProductSpecialSKUForSearch   = 'irj-001;/*'
