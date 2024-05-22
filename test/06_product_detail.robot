@@ -54,7 +54,6 @@ TCPDP6.Customers cannot add items to the cart
     Input Item Qty    QTY=0
     Add To Cart
     Validate Popup Fail Alert Is Visible    elementjs=${ProductQuantityValidation}
-    Validate Popup Fail Alert Is Visible    elementjs=${ProductQuantityValidation}
 
 TCPDP7.cannot add product to wish list and cannot access the wishlist page
     [Tags]    PDP
