@@ -98,3 +98,9 @@ Unselect Phone Number Is Registered In WhatsApp
 Save Information
     Execute Javascript    window.scrollTo(0, 500)
     Click Element                                               ${SaveInfoBtn}
+
+To My Order 
+    Wait Until Element Is Visible With Long Time                ${MyOrdersMenu}
+    Click Element                                               ${MyOrdersMenu}
+    Wait Until Element Is Visible With Long Time                ${MyOrderPage}
+    Element Should Be Visible                                   ${MyOrderPage}
