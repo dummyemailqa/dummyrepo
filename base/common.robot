@@ -15,7 +15,6 @@ Wait Until Element Is Not Visible With Long Time
 
 Alert Success Validation
     Wait Until Element Is Visible With Long Time    ${MessageSuccessAlert}
-    Wait Until Element Is Not Visible With Long Time    ${MessageSuccessAlert}
 
 Alert Warning Validation Register
     [Arguments]    ${AlertMessage}

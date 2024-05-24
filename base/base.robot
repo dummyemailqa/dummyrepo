@@ -78,3 +78,8 @@ Validate Message Success Alert Is Visible
     Wait Until Element Is Visible With Long Time    ${MessageSuccessAlert2}
     Click Element    ${CloseMessageSuccessAlert2Button}
     Wait Until Element Is Not Visible    ${MessageSuccessAlert2}
+
+Generate Random PhoneNumber
+    ${randomString}=                    Generate Random String      10   [NUMBERS]
+    ${PhoneNumber}=                     Set Variable                ${randomString}
+    RETURN                            ${PhoneNumber}
