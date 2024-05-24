@@ -31,3 +31,15 @@ L-TCMy2.Logged In User Can Check History Order
     Submit Form Login
     My Account Page Validation        ${EmailAddressRegistered}
     To My Order
+
+L-TCMy4.Logged In User Can Edit Account Information
+    To Login Page
+    Input Login Form                  ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation        ${EmailAddressRegistered}
+    To Account Information by Main Menu
+    ${NewPhoneNumber}=    Generate Random Phonenumber
+    ${NewWANumber}=    Generate Random Phonenumber
+    Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
+    Save Information
+    Alert Success Validation
