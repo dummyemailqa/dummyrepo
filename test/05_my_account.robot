@@ -23,4 +23,4 @@ L-TCMy1.Logged In User Can Edit Information
     ${NewWANumber}=    Generate Random Phonenumber
     Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
-    Alert Success Validation
+    Validate Message Success Alert Is Visible
