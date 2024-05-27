@@ -11,6 +11,7 @@ AlertProductNotFound                    = "//div[@class='message notice']"
 NavMenu2                                = "//nav[@aria-label='Main menu']//li[contains(@class,'group/parent')][2]"
 NavMenu4                                = "//nav[@aria-label='Main menu']//li[contains(@class,'group/parent')][4]"
 MessageInfoEmty                         = "//div[@class='message info empty']"
+AlertMessage                            = "//li[@ha='req-error']"
 AlertProductNotFound                    = "//div[@class='message notice']"       
 HeaderShoppingCartButton                = "//button[@id='menu-cart-icon']"  
 
