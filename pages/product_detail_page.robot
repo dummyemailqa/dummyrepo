@@ -67,7 +67,7 @@ Add To Cart
     # ELSE IF    ${IsGroupProduct}
     #     Customize Group Product
     END
-    Scroll To Element    ${AddToCartButton}
+    #Scroll To Element    ${AddToCartButton}
     IF    ${IsBundleProduct}
         Click Element        ${AddToCartButtonBundle}
     ELSE
