@@ -23,7 +23,8 @@ L-TCMy1.Logged In User Can Edit Information
     To Account Information
     ${NewPhoneNumber}=    Generate Random Phonenumber
     ${NewWANumber}=    Generate Random Phonenumber
-    Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
+    ${NewName}=    Generate Random Name
+    Change Information        ${FirstName}${NewName}    ${LastName}${NewName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
     Validate Message Success Alert Is Visible
 
@@ -52,7 +53,8 @@ L-TCMy4.Logged In User Can Edit Account Information
     To Account Information by Main Menu
     ${NewPhoneNumber}=    Generate Random Phonenumber
     ${NewWANumber}=    Generate Random Phonenumber
-    Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
+    ${NewName}=    Generate Random Name
+    Change Information        ${FirstName}${NewName}    ${LastName}${NewName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
     Validate Message Success Alert Is Visible
 
