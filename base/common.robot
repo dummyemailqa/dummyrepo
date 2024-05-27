@@ -12,8 +12,8 @@ Alert Success Validation
     Click Element                           ${CloseMessageBtn}
 
 Alert Warning Validation Register
-   [Arguments]                                              ${AlertMessage}
-    Wait Until Element Is Visible With Long Time            ${AlertMessage}
+   [Arguments]                              ${AlertMessage}
+    Wait Until Element Is Visible           ${AlertMessage}
 
 Empty the items in MiniCart
     Go To Home Page
@@ -31,7 +31,7 @@ Open Minicart
     Click Element   ${HeaderShoppingCartButton}
 
 Close The Minicart
-    Wait Until Element Is Visible With Long Time            ${BtnCloseMiniCart}
+    Wait Until Element Is Visible                           ${BtnCloseMiniCart}
     Click Element                                           ${BtnCloseMiniCart}
 
 Scroll To Element

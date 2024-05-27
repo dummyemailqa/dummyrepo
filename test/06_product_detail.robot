@@ -7,6 +7,7 @@ Resource            ../pages/home_page.robot
 Resource            ../pages/login_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/product_list_page.robot
+Resource            ../pages/cart_page.robot
 Resource            ../pages/login_page.robot
 Resource            ../pages/my_account_page.robot
 Variables           ../resources/locators/product_list_locator.py
@@ -78,7 +79,7 @@ TCPDP4-1.Add To Cart Simple Product
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Go To PDP Product
     Search Product Suggestion Validation PDP    ${ProductSimpleNameForSearch}
-    ${PDPProductNameValue} =    Get Product Name From PDP
+    ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Quantity Of Products    2
     Add To Cart
     Alert Success Validation
@@ -94,7 +95,7 @@ TCPDP4-2.Add To Cart Configurable Product
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Wait Until Element Is Visible   ${ProductItemCard}
     Search Product Suggestion Validation PDP    ${ProductConfigNameForSearch}
-    ${PDPProductNameValue} =    Get Product Name From PDP
+    ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Alert Success Validation
     Quantity Of Products    1
     Add To Cart
@@ -112,7 +113,7 @@ TCPDP4-3.Add To Cart Bundle Product
     Wait Until Element Is Visible    ${ProductItemCard}
     Search Product Suggestion Validation PDP    ${ProductBundleNameForSearch}
     Alert Success Validation
-    ${PDPProductNameValue} =    Get Product Name From PDP
+    ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Add To Cart
     Alert Success Validation
     Open Minicart
@@ -128,7 +129,7 @@ TCPDP4-5.Add To Cart Virtual Product
     Wait Until Element Is Visible    ${ProductItemCard}
     Search Product Suggestion Validation PDP    ${ProductVirtualNameForSearch}
     Alert Success Validation
-    ${PDPProductNameValue} =    Get Product Name From PDP
+    ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Quantity Of Products    2
     Add To Cart
     Alert Success Validation
