@@ -8,6 +8,11 @@ InfoWhatsAppNumber              = "//input[@id='whatsapp_number']"
 RegisterWhatsappCheckbox        = "//input[@id='isWhatsapp']"
 SaveInfoBtn                     = "//button[@title='Save']"
 
+#MyOrder
+MyOrdersMenu                    = "//li[@class='nav item']//a[normalize-space()='My Orders']"
+MyOrderPage                     = "//h2[@id='my-orders-title']"
+MyOrderTable                    = "//tr[@class='swift-table-row even:bg-white odd:bg-neutral-50']"
+
 #WishlishPage
 WishlishPage                    = "//body[contains(@class,'wishlist-index-index page')]"
 WishlistPageProductName     	= "//a[contains(@class,'product-item-link')]"

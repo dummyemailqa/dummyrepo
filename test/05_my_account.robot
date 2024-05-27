@@ -24,3 +24,10 @@ L-TCMy1.Logged In User Can Edit Information
     Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
     Validate Message Success Alert Is Visible
+
+L-TCMy2.Logged In User Can Check History Order
+    To Login Page
+    Input Login Form                  ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation        ${EmailAddressRegistered}
+    To My Order

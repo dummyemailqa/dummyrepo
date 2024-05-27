@@ -6,7 +6,7 @@ FirstName               = 'demo'
 LastName                = 'icube'
 PhoneNumber             = '085230233331'
 OtherPhoneNumber        = '123456789'
-EditName                = 'Jelly Edit'
+EditName                = 'Automation Edit'
 EditLastName            = 'QA Edit'
 
 #URL List
