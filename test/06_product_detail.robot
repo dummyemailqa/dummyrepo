@@ -8,11 +8,9 @@ Resource            ../pages/login_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/product_list_page.robot
 Resource            ../pages/cart_page.robot
-Resource            ../pages/login_page.robot
+Resource            ../pages/compare_page.robot
 Resource            ../pages/my_account_page.robot
-Variables           ../resources/locators/product_list_locator.py
-Variables           ../resources/data/testdata.py
-Variables           ../resources/locators/login_locator.py
+Variables           ../resources/locators/compare_locator.py
 
 Test Setup          Start Test Case
 Test Teardown       End Test Case
@@ -179,3 +177,26 @@ TCPDP8.Logged in user is able to add product to wish list and access the wishlis
     Add To Wishlist From PDP
     ${WishlistPageProductName}    Get Product Name From Wishlish Page
     Validate The Similarity Of Item Added To Wishlist    ${PDPProductName}    ${WishlistPageProductName}
+
+G-TCPDP9.Guest can add product and access comparison page
+    Go To Home Page
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Go To PDP Product
+    ${PDPProductName1Value} =    Get Product Name From PDP ATC
+    Click Element    ${CompareButtonPDP}
+    Sleep    2
+    Validate Message Success Alert Is Visible
+    Go To Home Page
+    Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
+    ${PDPProductName2Value} =    Get Product Name From PDP ATC
+    Click Element    ${CompareButtonPDP}
+    Sleep    2
+    Validate Message Success Alert Is Visible
+    Open Compare Page
+    ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
+    ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
+    Go To Home Page
+    Open Compare Page
+    Remove Products in Compare Page

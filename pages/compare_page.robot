@@ -17,3 +17,13 @@ Validate The Similarity Of Item Added To Compare
     IF    '${ValidateResult}'=='False'
         Run Keyword And Continue On Failure    Error Item Added To Compare Not Match    ${Argument1}    ${Argument2}
     END
+
+Remove Products in Compare Page
+    ${present}=     Run Keyword and Return Status           Wait Until Page Contains Element        ${BtnDeleteCompareItem}
+    WHILE  ${present}
+        Click Element                                       ${BtnDeleteCompareItem}
+        Handle Alert    ACCEPT
+        Sleep    5
+        ${present}=     Run Keyword and Return Status       Wait Until Page Contains Element        ${BtnDeleteCompareItem}
+    END
+    Go To Home Page
