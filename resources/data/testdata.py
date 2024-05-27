@@ -6,18 +6,32 @@ FirstName               = 'demo'
 LastName                = 'icube'
 PhoneNumber             = '085230233331'
 OtherPhoneNumber        = '123456789'
+EditName                = 'Automation Edit'
+EditLastName            = 'QA Edit'
 
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
 URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
 
-#Product
-ProductSimpleSKUForSearch   = 'irj-001'
-ProductSimpleNameForSearch  = 'Ingrid Running Jacket'
+# Product SKU
+ProductSimpleSKUForSearch    = 'irj-001'
+ProductConfigSKUForSearch    = 'WT07'
+ProductBundleSKUForSearch    = 'spb-01'
+ProductGroupSKUForSearch     = '24-WG085_Group'
+ProductVirtualSKUForSearch   = 'VP-01'
+
+# Product Name
+ProductSimpleNameForSearch   = 'Ingrid Running Jacket'
+ProductConfigNameForSearch   = 'Maya Tunic'
+ProductBundleNameForSearch   = 'Swift Pear Bundle Kit'
+ProductGroupNameForSearch    = 'Set of Sprite Yoga Straps'
+ProductVirtualNameForSearch  = 'Virtual Product Demo'
+
+# Product Random Name
 ProductSimpleSKUWithRandomCharacter     = 'irj-001PLO'
 ProductSimpleNameWithRandomCharacter    = 'Ingrid Running JacketJKL'
-ProductSpecialSKUForSearch   = 'irj-001;/*'
-ProductSpecialNameForSearch  = 'Ingrid Running Jacket&;*'
+ProductSpecialSKUForSearch              = 'irj-001;/*'
+ProductSpecialNameForSearch             = 'Ingrid Running Jacket&;*'
 
 # Product Review
 ProductReviewName   = "QA Automation"
