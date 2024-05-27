@@ -19,14 +19,24 @@ Test Teardown       End Test Case
 
 
 *** Test Cases ***
-TCPDP1-L.Customer submit product reviews
-    [Tags]  TCPDP1-L
+L-TCPDP1.Customer submit product reviews
+    [Tags]  pdp
     #Login
     To Login Page
     Input Login Form    ${EmailAddressRegistered}  ${Password}
     Submit Form Login
     Login Validation
-    
+    #search Product Simple by SKU
+    Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time  ${ProductItemCard}
+    Element Should Be Visible  ${ProductItemCard}
+    Go To PDP Product By Index  1
+    Open Review Product Window
+    Input Review Product    Nickname=${ProductReviewName}    Title=${ProductReviewTitle}   Review=${ProductReviewDetail}  Rate=4
+    Alert Visible Validation  ${ReviewAlertSuccess} 
+
+G-TCPDP1.Guest customers submit product reviews when feature guest product review configuration enable
+    [Tags]   pdp
     #search Product Simple by SKU
     Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
     Wait Until Element Is Visible With Long Time  ${ProductItemCard}
@@ -37,21 +47,9 @@ TCPDP1-L.Customer submit product reviews
     Input Review Product    Nickname=${ProductReviewName}    Title=${ProductReviewTitle}   Review=${ProductReviewDetail}  Rate=4
     Alert Visible Validation  ${ReviewAlertSuccess} 
 
-TCPDP1-L.Customer submit product reviews
-    [Tags]   TCPDP1-G
-    #search Product Simple by SKU
-    Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
-    Wait Until Element Is Visible With Long Time  ${ProductItemCard}
-    Element Should Be Visible  ${ProductItemCard}
-    Go To PDP Product By Index  1
-
-    Open Review Product Window
-    Input Review Product    Nickname=${ProductReviewName}    Title=${ProductReviewTitle}   Review=${ProductReviewDetail}  Rate=4
-    Alert Visible Validation  ${ReviewAlertSuccess} 
-
-TCPDP2-L.Validation Product Review Submission with Empty Required Fields
+L-TCPDP2.Validation Product Review Submission with Empty Required Fields
     [Tags]    pdp
-    # search Product Simple by SKU
+    #search Product Simple by SKU
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
     Wait Until Element Is Visible With Long Time    ${ProductItemCard}
     Element Should Be Visible    ${ProductItemCard}

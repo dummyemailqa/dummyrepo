@@ -10,26 +10,26 @@ Test Setup          Start Test Case
 Test Teardown       End Test Case
 
 *** Test Cases ***
-TCL1-G.Succesful Login with Registered Email and Password
+G-TCL1.Succesful Login with Registered Email and Password
     To Login Page
     Input Login Form    ${EmailAddress}    ${Password}
     Submit Form Login
     Login Validation
 
-TCL2-G.Validation of Failure Login with Incorrect Email and Password Format
+G-TCL2.Validation of Failure Login with Incorrect Email and Password Format
     To Login Page
     Input Login Form    ${FirstName}    ${Password}
     Submit Form Login
     Alert Visible Validation    ${AlertInvalidEmailFormat}
 
-TCL3-GValidation of Failure Login with Unregistered Email
+G-TCL3.Validation of Failure Login with Unregistered Email
     To Login Page
     ${randomEmail}=    Generate Random Email
     Input Login Form    ${randomEmail}    ${Password}
     Submit Form Login
     Alert Visible Validation    ${AllertMessageError}
 
-TCL5-G.Unsuccessful Login Using Invalid Phone Number
+G-TCL5.Unsuccessful Login Using Invalid Phone Number
     To Login Page
     Go To Login By Phone Number
     ${randomEmail}=    Generate Random Email

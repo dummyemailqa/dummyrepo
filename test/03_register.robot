@@ -13,14 +13,14 @@ Test Teardown       End Test Case
 
 
 *** Test Cases ***
-TCR2-G.Validation of Registration Failure with Empty Mandatory Fields
+G-TCR2.Validation of Registration Failure with Empty Mandatory Fields
     [Tags]    register    daily
     To Register Page
     Input Register Form    ${EmailAddress}    ${Empty}    ${LastName}    ${Empty}    ${Empty}    ${Empty}
     Click Element    ${SubmitRegisterButton}
     Alert Warning Validation Register    ${RegisterAlertMessageFirtName}
 
-TCR3-G.Validation of Registration Failure with Weak Password
+G-TCR3.Validation of Registration Failure with Weak Password
     [Tags]    register    daily
     To Register Page
     Input Register Form
@@ -33,7 +33,7 @@ TCR3-G.Validation of Registration Failure with Weak Password
     Click Element    ${SubmitRegisterButton}
     Alert Warning Validation Register    ${RegisterAlerMessageWeakPassword}
 
-TCR4-G.Validation of Registration Failure with Password Confirmation Mismatch
+G-TCR4.Validation of Registration Failure with Password Confirmation Mismatch
     [Tags]    register    daily
     To Register Page
     Input Register Form
@@ -46,7 +46,7 @@ TCR4-G.Validation of Registration Failure with Password Confirmation Mismatch
     Click Element    ${SubmitRegisterButton}
     Alert Warning Validation Register    ${RegisterAlertMessagePasswordNotMatch}
 
-TCR5-G.Validation of Registration Failure with Duplicate Email/Phone Number
+G-TCR5.Validation of Registration Failure with Duplicate Email/Phone Number
     [Tags]    register    daily
     To Register Page
     Input Register Form
