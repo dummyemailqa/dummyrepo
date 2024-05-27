@@ -23,7 +23,7 @@ L-TCMy1.Logged In User Can Edit Information
     ${NewWANumber}=    Generate Random Phonenumber
     Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
-    Alert Success Validation
+    Validate Message Success Alert Is Visible
 
 L-TCMy2.Logged In User Can Check History Order
     To Login Page
@@ -42,4 +42,4 @@ L-TCMy4.Logged In User Can Edit Account Information
     ${NewWANumber}=    Generate Random Phonenumber
     Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
-    Alert Success Validation
+    Validate Message Success Alert Is Visible

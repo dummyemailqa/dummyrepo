@@ -77,11 +77,11 @@ G-TCH1.Guest customers can access the "Compare Product" page
     Click Element    ${NavMenu2}
     ${PDPProductName1Value} =    Get Product Name From PLP
     Click Element    ${CompareButtonFirstProduct}
-    Wait Until Element Is Visible    ${MessageSuccessAlert2}
+    Validate Message Success Alert Is Visible
     Click Element    ${NavMenu4}
     ${PDPProductName2Value} =    Get Product Name From PLP
     Click Element    ${CompareButtonFirstProduct}
-    Wait Until Element Is Visible    ${MessageSuccessAlert2}
+    Validate Message Success Alert Is Visible
     Click Element    //a[@id="compare-link"]
     ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
     ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
