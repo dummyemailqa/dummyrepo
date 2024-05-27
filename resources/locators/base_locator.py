@@ -1,5 +1,6 @@
 #Alert
 MessageErrorAlert                       = "//div[@ui-id='message-error']"
+CloseMessageBtn                         = "//button[@aria-label='Close message']"
 MessageSuccessAlert                    = "//div[@ui-id='message-success']"
 CloseMessageSuccessAlertButton         = "//div[@ui-id='message-success']//button[@aria-label='Close message']"
 RegisterAlertMessageFirtName            = "//ul[@id='accountcreate-1']"
@@ -10,3 +11,8 @@ AlertProductNotFound                    = "//div[@class='message notice']"
 NavMenu2                                = "//nav[@aria-label='Main menu']//li[contains(@class,'group/parent')][2]"
 NavMenu4                                = "//nav[@aria-label='Main menu']//li[contains(@class,'group/parent')][4]"
 MessageInfoEmty                         = "//div[@class='message info empty']"
+AlertProductNotFound                    = "//div[@class='message notice']"       
+HeaderShoppingCartButton                = "//button[@id='menu-cart-icon']"  
+
+#Loader
+LoadingPage                            = "//div[contains(@x-show, 'isLoading')]"
