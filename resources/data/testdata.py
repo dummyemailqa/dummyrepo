@@ -12,12 +12,22 @@ URLWEB                  = 'https://swift-hyva.testingnow.me/'
 URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
 
 #Product
-ProductSimpleSKUForSearch   = 'SP-01'
-ProductSimpleNameForSearch  = 'Simple Product Demo'
+ProductSimpleSKUForSearch    = 'irj-001'
+ProductConfigSKUForSearch    = 'WT07'
+ProductBundleSKUForSearch    = 'spb-01'
+ProductGroupSKUForSearch     = '24-WG085_Group'
+ProductVirtualSKUForSearch   = 'VP-01'
+
+ProductSimpleNameForSearch   = 'Ingrid Running Jacket'
+ProductConfigNameForSearch   = 'Maya Tunic'
+ProductBundleNameForSearch   = 'Swift Pear Bundle Kit'
+ProductGroupNameForSearch    = 'Set of Sprite Yoga Straps'
+ProductVirtualNameForSearch  = 'Virtual Product Demo'
+
 ProductSimpleSKUWithRandomCharacter     = 'irj-001PLO'
 ProductSimpleNameWithRandomCharacter    = 'Ingrid Running JacketJKL'
-ProductSpecialSKUForSearch   = 'irj-001;/*'
-ProductSpecialNameForSearch  = 'Ingrid Running Jacket&;*'
+ProductSpecialSKUForSearch              = 'irj-001;/*'
+ProductSpecialNameForSearch             = 'Ingrid Running Jacket&;*'
 
 # Product Review
 ProductReviewName   = "QA Automation"

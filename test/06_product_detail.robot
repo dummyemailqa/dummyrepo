@@ -71,6 +71,68 @@ TCPDP2-L.Validation Product Review Submission with Empty Required Fields
     Validate Popup Fail Alert Is Visible    elementjs=${ReviewDetailInputValidation}
     Cancel Review Product
 
+TCPDP4-1.Add To Cart Simple Product
+    Go To Home Page
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Go To PDP Product
+    Search Product Suggestion Validation PDP    ${ProductSimpleNameForSearch}
+    ${PDPProductNameValue} =    Get Product Name From PDP
+    Quantity Of Products    2
+    Add To Cart
+    Alert Success Validation
+    Open Minicart
+    ${MinicartProductNameValue} =    Get Product Name From Minicart
+    Validate The Similarity Of Item Added To Cart    ${PDPProductNameValue}    ${MinicartProductNameValue}
+    Close The Minicart
+
+TCPDP4-2.Add To Cart Configurable Product
+    Go To Home Page
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Wait Until Element Is Visible   ${ProductItemCard}
+    Search Product Suggestion Validation PDP    ${ProductConfigNameForSearch}
+    ${PDPProductNameValue} =    Get Product Name From PDP
+    Alert Success Validation
+    Quantity Of Products    1
+    Add To Cart
+    Alert Success Validation
+    Open Minicart
+    ${MinicartProductNameValue} =    Get Product Name From Minicart
+    Validate The Similarity Of Item Added To Cart    ${PDPProductNameValue}    ${MinicartProductNameValue}
+    Close The Minicart
+
+TCPDP4-3.Add To Cart Bundle Product
+    Go To Home Page
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductBundleSKUForSearch}
+    Wait Until Element Is Visible    ${ProductItemCard}
+    Search Product Suggestion Validation PDP    ${ProductBundleNameForSearch}
+    Alert Success Validation
+    ${PDPProductNameValue} =    Get Product Name From PDP
+    Add To Cart
+    Alert Success Validation
+    Open Minicart
+    ${MinicartProductNameValue} =    Get Product Name From Minicart
+    Validate The Similarity Of Item Added To Cart    ${PDPProductNameValue}    ${MinicartProductNameValue}
+    Close The Minicart
+
+TCPDP4-5.Add To Cart Virtual Product
+    Go To Home Page
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
+    Wait Until Element Is Visible    ${ProductItemCard}
+    Search Product Suggestion Validation PDP    ${ProductVirtualNameForSearch}
+    Alert Success Validation
+    ${PDPProductNameValue} =    Get Product Name From PDP
+    Quantity Of Products    2
+    Add To Cart
+    Alert Success Validation
+    Open Minicart
+    ${MinicartProductNameValue} =    Get Product Name From Minicart
+    Validate The Similarity Of Item Added To Cart    ${PDPProductNameValue}    ${MinicartProductNameValue}
+    Close The Minicart
+
 TCPDP5.Validation Maximum Quantity Validation During Adding Product to Cart
     [Tags]    pdp
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
