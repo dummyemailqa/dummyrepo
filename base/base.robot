@@ -83,3 +83,8 @@ Generate Random PhoneNumber
     ${randomString}=                    Generate Random String      10   [NUMBERS]
     ${PhoneNumber}=                     Set Variable                ${randomString}
     RETURN                            ${PhoneNumber}
+
+Generate Random Name
+    ${randomString}=                    Generate Random String      5   [LETTERS]
+    ${Name}=                     Set Variable                ${randomString}
+    RETURN                            ${SPACE}${Name}
