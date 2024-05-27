@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     String
 Variables   ../resources/data/testdata.py
 Variables   ../resources/locators/base_locator.py
-Variables   ../resources/locators/cart_locator.py
+Variables   ../resources/locators/cart_page_locator.py
 Resource    ../base/base.robot
 
 *** Keywords ***
@@ -39,3 +39,4 @@ Scroll To Element
     ${x}=        Get Horizontal Position  ${locator}
     ${y}=        Get Vertical Position    ${locator}
     Execute Javascript  window.scrollTo(${x}, ${y}-100)
+

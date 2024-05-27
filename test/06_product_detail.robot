@@ -72,6 +72,7 @@ TCPDP2-L.Validation Product Review Submission with Empty Required Fields
     Cancel Review Product
 
 TCPDP4-1.Add To Cart Simple Product
+    [Tags]    ATC
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
@@ -87,6 +88,7 @@ TCPDP4-1.Add To Cart Simple Product
     Close The Minicart
 
 TCPDP4-2.Add To Cart Configurable Product
+    [Tags]    ATC
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
@@ -103,6 +105,7 @@ TCPDP4-2.Add To Cart Configurable Product
     Close The Minicart
 
 TCPDP4-3.Add To Cart Bundle Product
+    [Tags]    ATC
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductBundleSKUForSearch}
@@ -118,6 +121,7 @@ TCPDP4-3.Add To Cart Bundle Product
     Close The Minicart
 
 TCPDP4-5.Add To Cart Virtual Product
+    [Tags]    ATC
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}

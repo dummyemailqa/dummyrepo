@@ -45,6 +45,12 @@ Quantity Of Products
     Press Keys    ${QTYInput}    BACKSPACE
     Input Text    ${QTYInput}    ${qty}
 
+Input Item Qty
+    [Arguments]    ${QTY}
+    Wait Until Element Is Visible With Long Time    ${ProductQuantity}
+    Clear Text Field    ${ProductQuantity}
+    Input Text    ${ProductQuantity}    ${QTY}
+    
 Search Product Suggestion Validation PDP
     [Arguments]    ${keyword}
     Wait Until Element Is Visible    ${TextSuggestedProduct}
@@ -99,3 +105,41 @@ Select Bundle Product Option
         Scroll To Element    ${ProductBundleOptionCheckboxContainer.format(${Option})}
         Click Element    ${ProductBundleOptionCheckboxContainer.format(${Option})}
     END
+
+Open Review Product Window
+    Wait Until Element Is Visible With Long Time    ${AddToCartButton}
+    Scroll Down To Element    ${ProductReviewButton}
+    Wait Until Element Is Visible With Long Time    ${ProductReviewButton}
+    Click Element    ${ProductReviewButton}
+    Wait Until Element Is Visible With Long Time    ${ReviewSubmitButton}
+
+Input Review Product
+    [Arguments]    ${Nickname}    ${Title}    ${Review}    ${Rate}
+    Input Text    ${ReviewNameInput}    ${Nickname}
+    Click Element  ${ReviewRatingButton.format(${Rate})}
+    IF  '${Rate}' != "0"
+        Click Element    ${ReviewRatingButton.format(${Rate})}
+    END
+    Input Text    ${ReviewTitleInput}    ${Title}
+    Input Text    ${ReviewDetailInput}    ${Review}
+    Click Element    ${ReviewSubmitButton}
+
+Cancel Review Product
+    Wait Until Element Is Visible With Long Time    ${ReviewCancelSubmitButton}
+    Click Element    ${ReviewCancelSubmitButton}
+    Wait Until Element Is Not Visible    ${ReviewCancelSubmitButton}
+
+Add To Wishlist From PDP
+    Wait Until Element Is Visible With Long Time    ${ProductNameOnPDP}
+    Scroll Down To Element    ${AddToWishListButton}
+    Click Element    ${AddToWishListButton}
+    Validate Message Success Alert Is Visible
+
+Validate Guest User Add To Wishlist
+    Validate Message Error Alert Is Visible
+    Wait Until Element Is Visible With Long Time    ${FromLogin}
+
+Get Product Name From PDP
+    Wait Until Element Is Visible With Long Time    ${ProductNameOnPDP}
+    ${PDPProductNameValue}    Get Text    ${ProductNameOnPDP}
+    RETURN    ${PDPProductNameValue}
