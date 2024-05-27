@@ -4,18 +4,50 @@ Documentation       Suite description
 Resource            ../base/setup.robot
 Resource            ../base/base.robot
 Resource            ../pages/home_page.robot
+Resource            ../pages/login_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/product_list_page.robot
 Resource            ../pages/login_page.robot
 Resource            ../pages/my_account_page.robot
 Variables           ../resources/locators/product_list_locator.py
 Variables           ../resources/data/testdata.py
+Variables           ../resources/locators/login_locator.py
 
 Test Setup          Start Test Case
 Test Teardown       End Test Case
 
 
 *** Test Cases ***
+TCPDP1-L.Customer submit product reviews
+    [Tags]  TCPDP1-L
+    #Login
+    To Login Page
+    Input Login Form    ${EmailAddressRegistered}  ${Password}
+    Submit Form Login
+    Login Validation
+    
+    #search Product Simple by SKU
+    Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time  ${ProductItemCard}
+    Element Should Be Visible  ${ProductItemCard}
+    Go To PDP Product By Index  1
+
+    Open Review Product Window
+    Input Review Product    Nickname=${ProductReviewName}    Title=${ProductReviewTitle}   Review=${ProductReviewDetail}  Rate=4
+    Alert Visible Validation  ${ReviewAlertSuccess} 
+
+TCPDP1-L.Customer submit product reviews
+    [Tags]   TCPDP1-G
+    #search Product Simple by SKU
+    Search Product by Keyword in Searchbox  ${ProductSimpleNameForSearch}
+    Wait Until Element Is Visible With Long Time  ${ProductItemCard}
+    Element Should Be Visible  ${ProductItemCard}
+    Go To PDP Product By Index  1
+
+    Open Review Product Window
+    Input Review Product    Nickname=${ProductReviewName}    Title=${ProductReviewTitle}   Review=${ProductReviewDetail}  Rate=4
+    Alert Visible Validation  ${ReviewAlertSuccess} 
+
 TCPDP2-L.Validation Product Review Submission with Empty Required Fields
     [Tags]    pdp
     # search Product Simple by SKU
