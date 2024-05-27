@@ -108,3 +108,12 @@ To My Order
 To Account Information by Main Menu
     Wait Until Element Is Visible With Long Time                ${AccountInformationMenu}
     Click Element                                               ${AccountInformationMenu}
+
+Change Phone Number and Whatsapp Number
+    [Arguments]                                                 ${PhoneNumber}            ${WhatsAppNumber} 
+    Wait Until Element Is Visible With Long Time                ${SaveInfoBtn}
+    Clear Text Field                                            ${RegisterPhoneNumber}
+    Input Text                                                  ${RegisterPhoneNumber}    ${PhoneNumber}
+    Unselect Phone Number Is Registered In WhatsApp
+    Clear Text Field                                            ${InfoWhatsAppNumber}
+    Input Text                                                  ${InfoWhatsAppNumber}     ${WhatsAppNumber}
