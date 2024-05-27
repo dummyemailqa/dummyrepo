@@ -15,6 +15,7 @@ Test Teardown       End Test Case
 *** Test Cases ***
 
 L-TCMy1.Logged In User Can Edit Information
+    [Tags]      account
     To Login Page
     Input Login Form    ${EmailAddressRegistered}    ${Password}
     Submit Form Login
@@ -27,13 +28,23 @@ L-TCMy1.Logged In User Can Edit Information
     Validate Message Success Alert Is Visible
 
 L-TCMy2.Logged In User Can Check History Order
+    [Tags]      account
     To Login Page
     Input Login Form                  ${EmailAddressRegistered}    ${Password}
     Submit Form Login
     My Account Page Validation        ${EmailAddressRegistered}
     To My Order
 
+L-TCMy3.Logged In User Can Access Wishlist Page
+    [Tags]      account
+    To Login Page
+    Input Login Form                  ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation        ${EmailAddressRegistered}
+    To My Wishlist From Nav Bar    
+
 L-TCMy4.Logged In User Can Edit Account Information
+    [Tags]      account
     To Login Page
     Input Login Form                  ${EmailAddressRegistered}    ${Password}
     Submit Form Login
@@ -46,6 +57,7 @@ L-TCMy4.Logged In User Can Edit Account Information
     Validate Message Success Alert Is Visible
 
 L-TCMy5.Logged In User Cannot Edit Account Information with Blank Fields
+    [Tags]      account
     To Login Page
     Input Login Form                  ${EmailAddressRegistered}    ${Password}
     Submit Form Login
