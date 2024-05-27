@@ -3,6 +3,7 @@ Library         SeleniumLibrary
 Library         Collections
 Variables       ../resources/locators/my_account_locator.py
 Variables       ../resources/locators/home_locator.py
+Variables       ../resources/locators/register_locator.py
 Resource        ../base/common.robot
 Resource        ../base/base.robot
 
@@ -56,3 +57,44 @@ Validate The Similarity Of Item Added To Wishlist
     IF    '${ValidateResult}'=='False'
         Run Keyword And Continue On Failure    Error Item Added To Wishlist Not Match    ${Argument1}    ${Argument2}
     END
+
+My Account Page Validation
+    [Arguments]    ${keyword}
+    ${txtMyAccountEmail}    Get Text    ${MyAccountEmail}
+    ${keyword}    Convert To Lower Case    ${keyword}
+    ${txtMyAccountEmail}    Convert To Lower Case    ${txtMyAccountEmail}
+    ${validasiEmail_Name}    Run Keyword And Return Status    Should Contain    ${txtMyAccountEmail}    ${keyword}
+    IF    '${validasiEmail_Name}'=='False'
+        Run Keyword And Continue On Failure    Search Product Not Match    ${keyword}    ${txtMyAccountEmail}
+    END 
+
+To Account Information 
+    Click Element                                               ${ChangeInfoBtn}
+
+Change Information With Args
+    [Arguments]                                                 ${FirstName}    ${last_name}    ${PhoneNumber}    ${WhatsAppNumber} 
+    Wait Until Element Is Visible With Long Time                ${SaveInfoBtn}
+    Clear Text Field                                            ${RegisterFirstName}
+    Input Text                                                  ${RegisterFirstName}            ${FirstName}
+    Clear Text Field                                            ${RegisterLastName}     
+    Input Text                                                  ${RegisterLastName}             ${last_name}
+    Clear Text Field                                            ${RegisterPhoneNumber}
+    Input Text                                                  ${RegisterPhoneNumber}          ${PhoneNumber}
+    Unselect Phone Number Is Registered In WhatsApp
+    Clear Text Field                                            ${InfoWhatsAppNumber}
+    Input Text                                                  ${InfoWhatsAppNumber}       ${WhatsAppNumber}
+
+Change Information 
+    [Arguments]                                                 ${FirstName}    ${last_name}    ${PhoneNumber}    ${WhatsAppNumber}
+    Change Information With Args                                ${FirstName}    ${last_name}    ${PhoneNumber}    ${WhatsAppNumber}      
+
+Unselect Phone Number Is Registered In WhatsApp
+    ${Status}=     Run Keyword And Return Status                Checkbox Should Be Selected    ${RegisterWhatsappCheckbox}
+    IF    ${Status}    
+        Click Element                                           ${RegisterWhatsappCheckbox}
+        Wait Until Element Is Visible With Long Time            ${InfoWhatsAppNumber}
+    END
+
+Save Information
+    Execute Javascript    window.scrollTo(0, 500)
+    Click Element                                               ${SaveInfoBtn}

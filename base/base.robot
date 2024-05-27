@@ -75,6 +75,11 @@ Validate Message Error Alert Is Visible
 
 Validate Message Success Alert Is Visible
 # digunakan untuk alert Message seperti https://prnt.sc/rLZil7KvCoDv
-    Wait Until Element Is Visible With Long Time    ${MessageSuccessAlert2}
-    Click Element    ${CloseMessageSuccessAlert2Button}
-    Wait Until Element Is Not Visible    ${MessageSuccessAlert2}
+    Wait Until Element Is Visible With Long Time    ${MessageSuccessAlert}
+    Click Element    ${CloseMessageSuccessAlertButton}
+    Wait Until Element Is Not Visible    ${MessageSuccessAlert}
+
+Generate Random PhoneNumber
+    ${randomString}=                    Generate Random String      10   [NUMBERS]
+    ${PhoneNumber}=                     Set Variable                ${randomString}
+    RETURN                            ${PhoneNumber}
