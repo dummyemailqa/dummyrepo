@@ -21,3 +21,4 @@ ReviewDetailInput           = "//form[@id='review_form']//textarea[@id='review_f
 ReviewDetailInputValidation = "textarea[name='detail']"
 ReviewSubmitButton          = "//form[@id='review_form']//button[2]"
 ReviewCancelSubmitButton    = "//form[@id='review_form']//div[2]//button[1]"
+ReviewAlertSuccess         = "//p[@x-show='displaySuccessMessage']"

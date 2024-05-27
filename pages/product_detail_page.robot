@@ -27,6 +27,7 @@ Open Review Product Window
 Input Review Product
     [Arguments]    ${Nickname}    ${Title}    ${Review}    ${Rate}
     Input Text    ${ReviewNameInput}    ${Nickname}
+    Click Element  ${ReviewRatingButton.format(${Rate})}
     IF  '${Rate}' != "0"
         Click Element    ${ReviewRatingButton.format(${Rate})}
     END
