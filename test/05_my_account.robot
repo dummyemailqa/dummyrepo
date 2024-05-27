@@ -24,7 +24,7 @@ L-TCMy1.Logged In User Can Edit Information
     ${NewWANumber}=    Generate Random Phonenumber
     Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
-    Alert Success Validation
+    Validate Message Success Alert Is Visible
 
 L-TCMy2.Logged In User Can Check History Order
     To Login Page
@@ -43,7 +43,7 @@ L-TCMy4.Logged In User Can Edit Account Information
     ${NewWANumber}=    Generate Random Phonenumber
     Change Information        ${EditName}    ${EditLastName}   ${NewPhoneNumber}    ${NewWANumber}
     Save Information
-    Alert Success Validation
+    Validate Message Success Alert Is Visible
 
 L-TCMy5.Logged In User Cannot Edit Account Information with Blank Fields
     To Login Page
@@ -51,8 +51,19 @@ L-TCMy5.Logged In User Cannot Edit Account Information with Blank Fields
     Submit Form Login
     My Account Page Validation        ${EmailAddressRegistered}
     To Account Information by Main Menu
-    ${NewPhoneNumber}=    Generate Random Phonenumber
-    ${NewWANumber}=    Generate Random Phonenumber
-    Change Information        ${EditName}    ${EMPTY}   ${EMPTY}    ${NewWANumber}
+    #Validate Empty First Name
+    Change Information        ${EMPTY}    ${LastName}   ${PhoneNumber}    ${PhoneNumber}
     Save Information
-    Alert Warning Validation Register    ${AlertMessage}      
+    Alert Warning Validation Register    ${AlertMessage}
+    #Validate Empty Last Name
+    Change Information        ${FirstName}    ${EMPTY}   ${PhoneNumber}    ${PhoneNumber}
+    Save Information
+    Alert Warning Validation Register    ${AlertMessage}
+    #Validate Empty Phone Number
+    Change Information        ${FirstName}    ${LastName}   ${EMPTY}    ${PhoneNumber}
+    Save Information
+    Alert Warning Validation Register    ${AlertMessage}
+    #Validate Empty WA Number
+    Change Information        ${FirstName}    ${LastName}   ${PhoneNumber}    ${EMPTY}
+    Save Information
+    Alert Warning Validation Register    ${AlertMessage}
