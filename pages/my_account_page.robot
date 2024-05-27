@@ -104,3 +104,7 @@ To My Order
     Click Element                                               ${MyOrdersMenu}
     Wait Until Element Is Visible With Long Time                ${MyOrderPage}
     Element Should Be Visible                                   ${MyOrderPage}
+
+To Account Information by Main Menu
+    Wait Until Element Is Visible With Long Time                ${AccountInformationMenu}
+    Click Element                                               ${AccountInformationMenu}

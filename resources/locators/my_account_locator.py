@@ -7,6 +7,7 @@ ChangeInfoBtn                   = "//div[@class='grow']//a[@aria-label='Edit con
 InfoWhatsAppNumber              = "//input[@id='whatsapp_number']"
 RegisterWhatsappCheckbox        = "//input[@id='isWhatsapp']"
 SaveInfoBtn                     = "//button[@title='Save']"
+AccountInformationMenu          = "//main[@id='maincontent']//a[normalize-space()='Account Information']"
 
 #MyOrder
 MyOrdersMenu                    = "//li[@class='nav item']//a[normalize-space()='My Orders']"
