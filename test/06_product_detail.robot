@@ -200,5 +200,3 @@ G-TCPDP9.Guest can add product and access comparison page
     Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
     Go To Home Page
-
-L-TCPDP9.Logged in user can add product and access comparison page
