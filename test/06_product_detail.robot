@@ -180,6 +180,8 @@ TCPDP8.Logged in user is able to add product to wish list and access the wishlis
 
 G-TCPDP9.Guest can add product and access comparison page
     Go To Home Page
+    Open Compare Page
+    Remove Products in Compare Page
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Go To PDP Product
     ${PDPProductName1Value} =    Get Product Name From PDP ATC
@@ -198,5 +200,5 @@ G-TCPDP9.Guest can add product and access comparison page
     Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
     Go To Home Page
-    Open Compare Page
-    Remove Products in Compare Page
+
+L-TCPDP9.Logged in user can add product and access comparison page
