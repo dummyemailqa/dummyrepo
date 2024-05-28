@@ -186,13 +186,11 @@ G-TCPDP9.Guest can add product and access comparison page
     Go To PDP Product
     ${PDPProductName1Value} =    Get Product Name From PDP ATC
     Click Element    ${CompareButtonPDP}
-    Sleep    2
     Validate Message Success Alert Is Visible
     Go To Home Page
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     ${PDPProductName2Value} =    Get Product Name From PDP ATC
     Click Element    ${CompareButtonPDP}
-    Sleep    2
     Validate Message Success Alert Is Visible
     Open Compare Page
     ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
