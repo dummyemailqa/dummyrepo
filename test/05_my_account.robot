@@ -99,3 +99,19 @@ L-TCMy7.Logged In User Review Page Access
     Submit Form Login
     My Account Page Validation                 ${EmailAddressRegistered}
     To My Product Review
+
+L-TCMy8.Logged In User Vew Store Credit & Refund Historical Transaction
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Store Credit & Refund
+
+L-TCMy9.Logged In User Vew Reward Points Historical Transaction
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Reward Points
