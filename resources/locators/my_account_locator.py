@@ -19,3 +19,7 @@ WishlishPage                    = "//body[contains(@class,'wishlist-index-index 
 WishlistPageProductName     	= "//a[contains(@class,'product-item-link')]"
 WishlistItemList                = "//form[@id='wishlist-view-form']"
 DeleteWishlistItemButton        = "//div[contains(@class,'product-item-info')]//a[@data-role='remove']"
+
+#MyProductReview
+MyProductReviewMenu             = "//div[@id='account-nav']//a[contains(@href,'review')]"
+MyProductReviewPage             = "//div[@class='columns']//div[@class='column main']//div[@class='mb-6 text-2xl']"

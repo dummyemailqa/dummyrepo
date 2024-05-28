@@ -91,3 +91,11 @@ L-TCMy6.Logged In User Updates Phone Number and WhatsApp Number in Account Infor
     To Account Information by Main Menu
     Change Phone Number and Whatsapp Number    ${FirstName}    ${Password}
     Alert Visible Validation                   ${AlertMessage}
+
+L-TCMy7.Logged In User Review Page Access
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To My Product Review

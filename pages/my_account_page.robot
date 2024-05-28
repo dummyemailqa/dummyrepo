@@ -117,3 +117,9 @@ Change Phone Number and Whatsapp Number
     Unselect Phone Number Is Registered In WhatsApp
     Clear Text Field                                            ${InfoWhatsAppNumber}
     Input Text                                                  ${InfoWhatsAppNumber}     ${WhatsAppNumber}
+
+To My Product Review
+    Wait Until Element Is Visible With Long Time                ${MyProductReviewMenu}
+    Click Element                                               ${MyProductReviewMenu}
+    Wait Until Element Is Visible With Long Time                ${MyProductReviewPage}
+    Element Should Be Visible                                   ${MyProductReviewPage}
