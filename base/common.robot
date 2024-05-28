@@ -38,6 +38,9 @@ Empty the items in MiniCart
 Open Minicart
     Click Element   ${HeaderShoppingCartButton}
 
+Open Compare Page
+    Click Element   ${HeaderCompareButton}
+
 Close The Minicart
     Wait Until Element Is Visible                           ${BtnCloseMiniCart}
     Click Element                                           ${BtnCloseMiniCart}

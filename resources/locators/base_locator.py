@@ -14,6 +14,7 @@ MessageInfoEmty                         = "//div[@class='message info empty']"
 AlertMessage                            = "//li[@ha='req-error']"
 AlertProductNotFound                    = "//div[@class='message notice']"       
 HeaderShoppingCartButton                = "//button[@id='menu-cart-icon']"  
+HeaderCompareButton                     = "//a[@id='compare-link']"
 
 #Loader
 LoadingPage                            = "//div[contains(@x-show, 'isLoading')]"

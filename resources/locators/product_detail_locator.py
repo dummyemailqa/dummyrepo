@@ -49,4 +49,9 @@ ReviewDetailInput           = "//form[@id='review_form']//textarea[@id='review_f
 ReviewDetailInputValidation = "textarea[name='detail']"
 ReviewSubmitButton          = "//form[@id='review_form']//button[2]"
 ReviewCancelSubmitButton    = "//form[@id='review_form']//div[2]//button[1]"
-ReviewAlertSuccess         = "//p[@x-show='displaySuccessMessage']"
+ReviewAlertSuccess          = "//p[@x-show='displaySuccessMessage']"
+
+# Product Detail Social Media Icon
+whatsappShareBtn    = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Whatsapp')]"
+FacebookShareBtn    = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Facebook')]"
+TwitterShareBtn     = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Twitter')"

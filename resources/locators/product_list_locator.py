@@ -5,6 +5,7 @@ ProductsGridViewIcon        = "//strong[@title='List']/following-sibling::button
 ProductGridViewContainer    = "//div[contains(@class,'mode-grid')]"
 PLPProductName              = "//form[contains(@class,'product-item')]//div[contains(@class,'product-info')]//a[contains(@class,'product-item-link')]"
 CompareButtonFirstProduct   = "//form[contains(@class,'product-item')][1]//div[contains(@class,'product-info')]//button[contains(@class,'tocompare')]"
+CompareButtonPDP            = "//button[@id='add-to-compare']"
 TextSuggestedProduct        = "//div[@class='product-info-main']//span[@data-ui-id='page-title-wrapper']"
 ProductNameTitle            = "//a[@class='product-item-link']"
 
