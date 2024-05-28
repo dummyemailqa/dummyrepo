@@ -127,6 +127,7 @@ To My Product Review
 To Store Credit & Refund
     Wait Until Element Is Visible With Long Time                ${StoreCreditMenu}
     Click Element                                               ${StoreCreditMenu}
+    Wait Until Element Is Visible With Long Time                ${StoreCreditPage}
     Element Should Be Visible                                   ${StoreCreditPage}
 
 To Reward Points
