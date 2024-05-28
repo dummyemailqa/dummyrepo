@@ -23,3 +23,7 @@ DeleteWishlistItemButton        = "//div[contains(@class,'product-item-info')]//
 #MyProductReview
 MyProductReviewMenu             = "//div[@id='account-nav']//a[contains(@href,'review')]"
 MyProductReviewPage             = "//div[@class='columns']//div[@class='column main']//div[@class='mb-6 text-2xl']"
+
+#StoreCredit&Refund
+StoreCreditMenu                 = "//div[@id='account-nav']//a[contains(@href,'aw_store_credit')]"
+StoreCreditPage                 = "//div[@class='column main']//div[@class='block store-credit']"

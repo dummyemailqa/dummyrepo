@@ -123,3 +123,9 @@ To My Product Review
     Click Element                                               ${MyProductReviewMenu}
     Wait Until Element Is Visible With Long Time                ${MyProductReviewPage}
     Element Should Be Visible                                   ${MyProductReviewPage}
+
+To Store Credit & Refund
+    Wait Until Element Is Visible With Long Time                ${StoreCreditMenu}
+    Click Element                                               ${StoreCreditMenu}
+    Wait Until Element Is Visible With Long Time                ${StoreCreditPage}
+    Element Should Be Visible                                   ${StoreCreditPage} 
