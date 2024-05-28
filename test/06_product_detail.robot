@@ -198,3 +198,25 @@ G-TCPDP9.Guest can add product and access comparison page
     Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
     Go To Home Page
+
+L-TCPDP10.Logged in user can add product and access comparison page
+    Login User
+    Go To Home Page
+    Open Compare Page
+    Remove Products in Compare Page
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Go To PDP Product
+    ${PDPProductName1Value} =    Get Product Name From PDP ATC
+    Click Element    ${CompareButtonPDP}
+    Validate Message Success Alert Is Visible
+    Go To Home Page
+    Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
+    ${PDPProductName2Value} =    Get Product Name From PDP ATC
+    Click Element    ${CompareButtonPDP}
+    Validate Message Success Alert Is Visible
+    Open Compare Page
+    ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
+    ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
+    Go To Home Page
