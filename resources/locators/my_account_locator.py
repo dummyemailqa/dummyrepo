@@ -27,3 +27,7 @@ MyProductReviewPage             = "//div[@class='columns']//div[@class='column m
 #StoreCredit&Refund
 StoreCreditMenu                 = "//div[@id='account-nav']//a[contains(@href,'aw_store_credit')]"
 StoreCreditPage                 = "//div[@class='column main']//div[@class='block store-credit']"
+
+#RewardPoint
+RewardPointsMenu                = "//div[@id='account-nav']//a[contains(@href,'aw_rewardpoints')]"
+RewardPointsPage                = "//div[@class='column main']//div[@class='block rewardpoints']"

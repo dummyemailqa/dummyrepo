@@ -107,3 +107,11 @@ L-TCMy8.Logged In User Vew Store Credit & Refund Historical Transaction
     Submit Form Login
     My Account Page Validation                 ${EmailAddressRegistered}
     To Store Credit & Refund
+
+L-TCMy9.Logged In User Vew Reward Points Historical Transaction
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Reward Points
