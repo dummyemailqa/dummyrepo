@@ -31,3 +31,7 @@ StoreCreditPage                 = "//div[@class='column main']//div[@class='bloc
 #RewardPoint
 RewardPointsMenu                = "//div[@id='account-nav']//a[contains(@href,'aw_rewardpoints')]"
 RewardPointsPage                = "//div[@class='column main']//div[@class='block rewardpoints']"
+
+#Newsletter Subscriptions
+NewsletterMenu                  = "//div[@id='account-nav']//a[contains(@href,'newsletter')]"
+NewsletterCheckBox              = "//input[@id='subscription']"

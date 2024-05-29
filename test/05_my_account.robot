@@ -115,3 +115,12 @@ L-TCMy9.Logged In User Vew Reward Points Historical Transaction
     Submit Form Login
     My Account Page Validation                 ${EmailAddressRegistered}
     To Reward Points
+
+L-TCMy10.1.Logged in users can subscribe to the newsletter through the My Account page
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Newsletter Subscriptions Page
+    Subcribe Newsletter Subscriptions
