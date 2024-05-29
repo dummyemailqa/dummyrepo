@@ -89,7 +89,7 @@ TCPDP4-2.Add To Cart Configurable Product
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
-    Wait Until Element Is Visible   ${ProductItemCard}
+    Wait Until Element Is Visible   ${ProductItemCardPDP}
     Search Product Suggestion Validation PDP    ${ProductConfigNameForSearch}
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Alert Success Validation
@@ -106,7 +106,7 @@ TCPDP4-3.Add To Cart Bundle Product
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductBundleSKUForSearch}
-    Wait Until Element Is Visible    ${ProductItemCard}
+    Wait Until Element Is Visible    ${ProductItemCardPDP}
     Search Product Suggestion Validation PDP    ${ProductBundleNameForSearch}
     Alert Success Validation
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
@@ -122,7 +122,7 @@ TCPDP4-5.Add To Cart Virtual Product
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
-    Wait Until Element Is Visible    ${ProductItemCard}
+    Wait Until Element Is Visible    ${ProductItemCardPDP}
     Search Product Suggestion Validation PDP    ${ProductVirtualNameForSearch}
     Alert Success Validation
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
