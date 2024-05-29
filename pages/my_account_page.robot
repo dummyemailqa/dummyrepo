@@ -135,3 +135,21 @@ To Reward Points
     Click Element                                               ${RewardPointsMenu}
     Wait Until Element Is Visible With Long Time                ${RewardPointsPage}
     Element Should Be Visible                                   ${RewardPointsPage}
+
+To Newsletter Subscriptions Page
+    Wait Until Element Is Visible With Long Time                ${NewsletterMenu}
+    Click Element                                               ${NewsletterMenu}
+    Wait Until Element Is Visible With Long Time                ${NewsletterCheckBox}
+    Element Should Be Visible                                   ${NewsletterCheckBox}
+
+Subcribe Newsletter Subscriptions
+    ${Status}=     Run Keyword And Return Status                Checkbox Should Be Selected    ${NewsletterCheckBox}
+    IF    ${Status}    
+        Click Element                                           ${NewsletterCheckBox}
+        Click Element                                           ${SaveInfoBtn}
+        Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
+        To Newsletter Subscriptions Page
+    END
+    Click Element                                           ${NewsletterCheckBox}
+    Click Element                                           ${SaveInfoBtn}
+    Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
