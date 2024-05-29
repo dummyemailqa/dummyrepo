@@ -133,3 +133,14 @@ L-TCMy10.2.Logged in users can unsubscribe to the newsletter through the My Acco
     My Account Page Validation                 ${EmailAddressRegistered}
     To Newsletter Subscriptions Page
     UnSubcribe Newsletter Subscriptions
+
+L-TCMy13.Verify Invalid Gift Card Code
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Gift Card
+    ${GiftCardRandom}=    Generate Random Name
+    Submit Gift Card Code Manually             ${GiftCardRandom}
+    Alert Visible Validation                   ${InvalidGiftCardAlertMessage}

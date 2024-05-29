@@ -165,3 +165,14 @@ UnSubcribe Newsletter Subscriptions
     Click Element                                           ${NewsletterCheckBox}
     Click Element                                           ${SaveInfoBtn}
     Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
+
+To Gift Card
+    Wait Until Element Is Visible With Long Time                ${GiftCardMenu}
+    Click Element                                               ${GiftCardMenu}
+    Wait Until Element Is Visible With Long Time                ${GiftcardCheckStatusandBalanceButton}
+    Element Should Be Visible                                   ${GiftcardCheckStatusandBalanceButton}
+
+Submit Gift Card Code Manually
+    [Arguments]    ${Argument}
+    Input Text                                                  ${EnterGiftCardCode}    ${Argument}
+    Click Element                                               ${GiftcardCheckStatusandBalanceButton}

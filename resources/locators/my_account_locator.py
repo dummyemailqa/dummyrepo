@@ -35,3 +35,9 @@ RewardPointsPage                = "//div[@class='column main']//div[@class='bloc
 #Newsletter Subscriptions
 NewsletterMenu                  = "//div[@id='account-nav']//a[contains(@href,'newsletter')]"
 NewsletterCheckBox              = "//input[@id='subscription']"
+
+#GiftCard
+GiftCardMenu                            = "//div[@id='account-nav']//a[contains(@href,'awgiftcard')]"
+GiftcardCheckStatusandBalanceButton     = "//div[@class='secondary m-1']//button[@data-role='aw-giftcard-check-code-action']"
+EnterGiftCardCode                       = "//div[@class='control']//input[@placeholder='Enter Gift Card code']"
+InvalidGiftCardAlertMessage             = "//div[@id='aw_giftcard__code_info']//div[@class='message error']"
