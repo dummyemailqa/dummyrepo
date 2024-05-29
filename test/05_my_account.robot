@@ -140,7 +140,7 @@ L-TCMy13.Verify Invalid Gift Card Code
     Input Login Form                           ${EmailAddressRegistered}    ${Password}
     Submit Form Login
     My Account Page Validation                 ${EmailAddressRegistered}
-    To Gift Card
+    To Gift Card Page
     ${GiftCardRandom}=    Generate Random Name
     Submit Gift Card Code Manually             ${GiftCardRandom}
     Alert Visible Validation                   ${InvalidGiftCardAlertMessage}

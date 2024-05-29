@@ -166,7 +166,7 @@ UnSubcribe Newsletter Subscriptions
     Click Element                                           ${SaveInfoBtn}
     Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
 
-To Gift Card
+To Gift Card Page
     Wait Until Element Is Visible With Long Time                ${GiftCardMenu}
     Click Element                                               ${GiftCardMenu}
     Wait Until Element Is Visible With Long Time                ${GiftcardCheckStatusandBalanceButton}
