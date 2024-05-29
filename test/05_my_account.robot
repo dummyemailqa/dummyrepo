@@ -124,3 +124,12 @@ L-TCMy10.1.Logged in users can subscribe to the newsletter through the My Accoun
     My Account Page Validation                 ${EmailAddressRegistered}
     To Newsletter Subscriptions Page
     Subcribe Newsletter Subscriptions
+
+L-TCMy10.2.Logged in users can unsubscribe to the newsletter through the My Account page
+    [Tags]      account
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Newsletter Subscriptions Page
+    UnSubcribe Newsletter Subscriptions

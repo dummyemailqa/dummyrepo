@@ -153,3 +153,15 @@ Subcribe Newsletter Subscriptions
     Click Element                                           ${NewsletterCheckBox}
     Click Element                                           ${SaveInfoBtn}
     Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
+
+UnSubcribe Newsletter Subscriptions
+    ${Status}=     Run Keyword And Return Status                Checkbox Should Not Be Selected    ${NewsletterCheckBox}
+    IF    ${Status}    
+        Click Element                                           ${NewsletterCheckBox}
+        Click Element                                           ${SaveInfoBtn}
+        Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
+        To Newsletter Subscriptions Page
+    END
+    Click Element                                           ${NewsletterCheckBox}
+    Click Element                                           ${SaveInfoBtn}
+    Wait Until Element Is Visible With Long Time            ${MessageSuccessAlert}
