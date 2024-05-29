@@ -8,6 +8,7 @@ Resource            ../pages/login_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/product_list_page.robot
 Resource            ../pages/cart_page.robot
+Resource            ../pages/home_page.robot
 Resource            ../pages/compare_page.robot
 Resource            ../pages/my_account_page.robot
 Variables           ../resources/locators/compare_locator.py
@@ -74,7 +75,7 @@ TCPDP4-1.Add To Cart Simple Product
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Go To PDP Product
-    Search Product Suggestion Validation PDP    ${ProductSimpleNameForSearch}
+    Search Product result Validation    ${ProductSimpleNameForSearch}
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Quantity Of Products    2
     Add To Cart
@@ -89,8 +90,7 @@ TCPDP4-2.Add To Cart Configurable Product
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
-    Wait Until Element Is Visible   ${ProductItemCardPDP}
-    Search Product Suggestion Validation PDP    ${ProductConfigNameForSearch}
+    Search Product result Validation    ${ProductConfigNameForSearch}
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Alert Success Validation
     Quantity Of Products    1
@@ -106,8 +106,7 @@ TCPDP4-3.Add To Cart Bundle Product
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductBundleSKUForSearch}
-    Wait Until Element Is Visible    ${ProductItemCardPDP}
-    Search Product Suggestion Validation PDP    ${ProductBundleNameForSearch}
+    Search Product result Validation    ${ProductBundleNameForSearch}
     Alert Success Validation
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Add To Cart
@@ -122,9 +121,7 @@ TCPDP4-5.Add To Cart Virtual Product
     Go To Home Page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
-    Wait Until Element Is Visible    ${ProductItemCardPDP}
-    Search Product Suggestion Validation PDP    ${ProductVirtualNameForSearch}
-    Alert Success Validation
+    Search Product result Validation    ${ProductVirtualNameForSearch}
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Quantity Of Products    2
     Add To Cart

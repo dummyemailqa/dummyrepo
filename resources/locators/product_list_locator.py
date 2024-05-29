@@ -1,5 +1,4 @@
 ProductItemCard             = "//main[@id='maincontent']//form[1]"
-ProductItemCardPDP          = "//div[@class='product-info-main']"
 ProductsListViewIcon        = "//strong[@title='Grid']/preceding-sibling::button[@title='List']"
 ProductListViewContainer    = "//div[contains(@class,'mode-list')]"
 ProductsGridViewIcon        = "//strong[@title='List']/following-sibling::button[@title='Grid']"
