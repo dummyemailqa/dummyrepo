@@ -29,8 +29,6 @@ Add Product to Wishlist
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Go To PDP Product
-    Search Product result Validation    ${ProductSimpleNameForSearch}
-    ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Click Button    ${BtnWishlist}
     Validate Message Success Alert Is Visible
 
@@ -47,3 +45,13 @@ Remove Wishlist Product
     Scroll Down To Element    ${BtnRemoveWishlist}
     Click Element    ${BtnRemoveWishlist}
     Validate Message Success Alert Is Visible
+
+Add To Cart Product from Wishlist
+    Wait Until Element Is Enabled    ${ProductWishlist}
+    Scroll Down To Element    ${WishFieldQty}
+    Clear Text Field    ${WishFieldQty}
+    Input text          ${WishFieldQty}    2
+    Scroll Down To Element    ${BtnATCWishlist}
+    Click Button        ${BtnATCWishlist}
+    Validate Message Success Alert Is Visible
+    

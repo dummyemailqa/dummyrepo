@@ -21,3 +21,9 @@ TCWL2-L.Logged In user is able to delete product from wishlist page
     To My Wishlist From Nav Bar
     Check Product on Wishlist
     Remove Wishlist Product
+
+TCWL3-L.Logged In User is able to Add to Cart product from wishlist page (single product)
+    Login User
+    To My Wishlist From Nav Bar
+    Check Product on Wishlist
+    Add To Cart Product from Wishlist
