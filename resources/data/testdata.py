@@ -38,3 +38,11 @@ ProductReviewDetail = "Lorem Ipsum is simply dummy text of the printing and type
 
 # Gift Card
 GiftCardCodeManually        = 'QA8568495182'
+
+# Sosial Media platforms
+WhatsappWindows         = "title:Share on WhatsApp"
+FacebookWindows         = "title:Facebook"
+TwitterWindows          = "title:X"
+URLWhatsapp             = "https://api.whatsapp.com"
+URLFacebook             = "https://www.facebook.com"
+URLTwitter              = 'https://x.com'

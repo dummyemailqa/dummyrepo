@@ -52,6 +52,6 @@ ReviewCancelSubmitButton    = "//form[@id='review_form']//div[2]//button[1]"
 ReviewAlertSuccess          = "//p[@x-show='displaySuccessMessage']"
 
 # Product Detail Social Media Icon
-whatsappShareBtn    = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Whatsapp')]"
-FacebookShareBtn    = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Facebook')]"
-TwitterShareBtn     = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Twitter')"
+whatsappShareBtn    = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Whatsapp')]/ancestor::div[contains(@class,'social-share-button')]"
+FacebookShareBtn    = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Facebook')]/ancestor::div[contains(@class,'social-share-button')]"
+TwitterShareBtn     = "//div[contains(@class,'social-share')]//a[contains(@title,'Share on Twitter')]/ancestor::div[contains(@class,'social-share-button')]"
