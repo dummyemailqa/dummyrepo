@@ -17,13 +17,13 @@ TCSe1.Search for Product Categories using Website's Search Box
     [Tags]    header    search
     # search Product Simple by SKU
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
-    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
-    Search Product result Validation    ${ProductSimpleSKUForSearch}
+    Search Product result Validation    ${ProductSimpleNameForSearch}
+
     # search Product Simple by Name
     Clear Element Text    ${SearchBox}
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
-    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
     Search Product result Validation    ${ProductSimpleNameForSearch}
+
     # search Product Suggestion
     Click On Product Suggestion    ${ProductSimpleNameForSearch}
     Search Product result Validation    ${ProductSimpleNameForSearch}
@@ -32,13 +32,12 @@ TCSe3.Successful Specific Product Search using Website's Search Box
     [Tags]    header    search
     # search Product Simple by SKU
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
-    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
-    Element Should Be Visible    ${ProductItemCard}
+    Search Product result Validation    ${ProductSimpleNameForSearch}
     # search Product Simple by Name
     Clear Element Text    ${SearchBox}
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
-    Wait Until Element Is Visible With Long Time    ${ProductItemCard}
-    Element Should Be Visible    ${ProductItemCard}
+    Search Product result Validation    ${ProductSimpleNameForSearch}
+
 
 TCSe4.Validation of Unsuccessful Product Search with Random Characters Appended to Product Name
     [Tags]    header    search

@@ -3,8 +3,10 @@ Library         SeleniumLibrary
 Library         Collections
 Variables       ../resources/locators/home_locator.py
 Variables       ../resources/locators/product_list_locator.py
+Variables       ../resources/locators/product_detail_locator.py
 Resource        ../base/common.robot
 Resource        ../base/base.robot
+
 
 *** Keywords ***
 Search Product by Keyword in Searchbox
@@ -28,6 +30,7 @@ Search Product result Validation
     ${ShowPDP}    Run Keyword And Return Status    Element Should Be Visible    ${PDPProductName}
     ${keyword}    Convert To Lower Case    ${keyword}
     IF    ${ShowPDP}
+        Validate Message Success Alert Is Visible
         Wait Until Element Is Visible    ${TextSuggestedProduct}
         ${txtProductresult}    Get Text    ${TextSuggestedProduct}
         ${txtProductresult}    Convert To Lower Case    ${txtProductresult}
@@ -49,7 +52,7 @@ Search Product result Validation
             Run Keyword And Continue On Failure    Search Product Not Match    ${keyword}    ${txtProductresult}
         END
     END
-    
+
 Click On Product Suggestion
     [Arguments]    ${keyword}
     Clear Element Text    ${SearchBox}
