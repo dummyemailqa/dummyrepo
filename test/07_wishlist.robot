@@ -15,3 +15,9 @@ TCWL1-L.Logged In user is able to add comment to the product at wishlist page
     To My Wishlist From Nav Bar
     Check Product on Wishlist
     Add Comment to Wishlist Product
+    
+TCWL2-L.Logged In user is able to delete product from wishlist page
+    Login User
+    To My Wishlist From Nav Bar
+    Check Product on Wishlist
+    Remove Wishlist Product

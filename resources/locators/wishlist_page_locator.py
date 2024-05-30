@@ -2,3 +2,4 @@ ProductWishlist         = "//div[@class='products-grid wishlist']//div[contains(
 BtnWishlist             = "//div[contains(@class,'add-to-wishlist')]//button[@id='add-to-wishlist']"
 WishFieldComment        = "//li[@data-row='product-item']//textarea[contains(@class,'product-item-comment')]"
 BtnUpdateWishlist       = "//div[contains(@class,'actions-toolbar ')]//button[contains(@class,'update')]"
+BtnRemoveWishlist       = "//div[@class='products-grid wishlist']//li[@data-row='product-item'][1]//div[contains(@class,'product-item-info')]//div[contains(@class,'product-item-actions')]//a[@data-role='remove']"

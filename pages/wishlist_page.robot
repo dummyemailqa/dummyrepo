@@ -32,7 +32,7 @@ Add Product to Wishlist
     Search Product result Validation    ${ProductSimpleNameForSearch}
     ${PDPProductNameValue} =    Get Product Name From PDP ATC
     Click Button    ${BtnWishlist}
-    To My Wishlist From Nav Bar
+    Validate Message Success Alert Is Visible
 
 Add Comment to Wishlist Product
     Wait Until Element Is Enabled    ${WishFieldComment}
@@ -40,3 +40,10 @@ Add Comment to Wishlist Product
     ${CommentWishlist}=    Generate Random Comment
     Input text    ${WishFieldComment}    ${CommentWishlist}
     Click Button    ${BtnUpdateWishlist}
+    Validate Message Success Alert Is Visible
+
+Remove Wishlist Product
+    Wait Until Element Is Enabled    ${ProductWishlist}
+    Scroll Down To Element    ${BtnRemoveWishlist}
+    Click Element    ${BtnRemoveWishlist}
+    Validate Message Success Alert Is Visible
