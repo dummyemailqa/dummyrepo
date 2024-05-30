@@ -199,3 +199,7 @@ Error To Gift Card Not Match
     [Arguments]    ${Argument1}    ${Argument2}
     Fail
     ...    Value Kode Giftcard Tidak Sesuai Antara : -'${Argument1}'- Dengan : -'${Argument2}'-
+
+Check Existing Gift Card Code
+    Click Element                                               ${ExistingGiftCode}
+    Wait Until Element Is Visible With Long Time                ${GiftCardCodeInformationForm}

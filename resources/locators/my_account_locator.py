@@ -43,3 +43,5 @@ EnterGiftCardCode                       = "//div[@class='control']//input[@place
 InvalidGiftCardAlertMessage             = "//div[@id='aw_giftcard__code_info']//div[@class='message error']"
 BalanceGiftcardAmount                   = "//div[@id='aw_giftcard__code_info']//span[@class='price']"
 GiftCardCodeInformation                 = "//div[@id='aw_giftcard__code_info']//td[@ha='gc-code']"
+GiftCardCodeInformationForm             = "//div[@id='aw_giftcard__code_info_block']"
+ExistingGiftCode                        = "//div[@x-data='awGiftCardManagement()']//li//button[@ha='giftcard-code']"
