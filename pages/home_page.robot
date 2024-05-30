@@ -86,3 +86,34 @@ Get Product Name From PLP
     Wait Until Element Is Visible With Long Time    ${PLPProductName}
     ${PLPProductNameValue}    Get Text    ${PLPProductName}
     RETURN    ${PLPProductNameValue}
+
+Change Currency
+    Wait Until Element Is Visible                           ${ToggleCurrency}
+    Click Element                                           ${ToggleCurrency}
+    ${SelectedCurrency}    Get Text                         ${CurrencyItem}
+    ${SelectedCurrency} =   Convert To Lower Case           ${SelectedCurrency}
+    Wait Until Element Is Visible                           ${CurrencyItem}
+    Click Element                                           ${CurrencyItem}
+    Currency Validation                                     ${SelectedCurrency}
+
+Currency Validation
+    [Arguments]                                             ${SelectedCurrency}
+    Wait Until Element Is Visible                           ${ProductPriceInHomePage}
+    IF  '${BROWSER}'=="Safari"
+        Press Keys    None    COMMAND+ARROW_DOWN
+    ELSE
+        Scroll Down To Element                              ${ProductPriceInHomePage}
+    END
+    ${ProductPriceCurrency}     Get Text                    ${ProductPriceInHomePage}
+    ${ProductPriceCurrency} =   Convert To Lower Case       ${ProductPriceCurrency}
+    IF  "${SelectedCurrency}"== "idr - indonesian rupiah" 
+            Should Contain  ${ProductPriceCurrency}  rp
+    ELSE IF    "${SelectedCurrency}" == "usd - us dollar"
+            Should Contain  ${ProductPriceCurrency}  $
+    ELSE
+            Selected Currency Not Found    ${SelectedCurrency} 
+    END
+
+Selected Currency Not Found
+    [Arguments]    ${SelectedCurrency}
+    Fail    The currency(${SelectedCurrency}) data entered is not registered. Please update the Currency list data

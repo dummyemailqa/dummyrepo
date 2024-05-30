@@ -7,6 +7,7 @@ Variables           ../resources/data/testdata.py
 Resource            ../base/setup.robot
 Resource            ../base/base.robot
 Resource            ../pages/home_page.robot
+Resource            ../pages/login_page.robot
 Resource            ../pages/compare_page.robot
 Test Setup          Start Test Case
 Test Teardown       End Test Case
@@ -76,3 +77,22 @@ G-TCH1.Guest customers can access the "Compare Product" page
     ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
+
+TCH3.Customers can access the header menu on the website
+    # Guest User
+    Open Minicart
+    Close The Minicart
+    Go To Home Page
+    Open Compare Page
+    Go To Home Page
+    Change Currency
+    Go To Home Page
+    #LoggedIn User
+    Login User
+    Go To Home Page
+    Open Minicart
+    Close The Minicart
+    Go To Home Page
+    Open Compare Page
+    Go To Home Page
+    Change Currency

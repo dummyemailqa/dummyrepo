@@ -41,3 +41,5 @@ GiftCardMenu                            = "//div[@id='account-nav']//a[contains(
 GiftcardCheckStatusandBalanceButton     = "//div[@class='secondary m-1']//button[@data-role='aw-giftcard-check-code-action']"
 EnterGiftCardCode                       = "//div[@class='control']//input[@placeholder='Enter Gift Card code']"
 InvalidGiftCardAlertMessage             = "//div[@id='aw_giftcard__code_info']//div[@class='message error']"
+BalanceGiftcardAmount                   = "//div[@id='aw_giftcard__code_info']//span[@class='price']"
+GiftCardCodeInformation                 = "//div[@id='aw_giftcard__code_info']//td[@ha='gc-code']"
