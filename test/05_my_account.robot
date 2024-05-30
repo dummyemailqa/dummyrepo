@@ -134,6 +134,18 @@ L-TCMy10.2.Logged in users can unsubscribe to the newsletter through the My Acco
     To Newsletter Subscriptions Page
     UnSubcribe Newsletter Subscriptions
 
+L-TCMy11.Logged In User View Available Gift Cards and Check Balance
+    [Tags]      account
+    Log    "Please To Create GiftCard in the Backoffice with amount total is Rp 100.000 and update 'GiftCardCodeManually'!"
+    To Login Page
+    Input Login Form                           ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation                 ${EmailAddressRegistered}
+    To Gift Card Page
+    Submit Gift Card Code Manually             ${GiftCardCodeManually}
+    Validation of Gift Card from the My Account page    ${GiftCardCodeManually}
+
+
 L-TCMy13.Verify Invalid Gift Card Code
     [Tags]      account
     To Login Page
