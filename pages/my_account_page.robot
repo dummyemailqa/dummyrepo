@@ -182,7 +182,7 @@ Validation of Gift Card from the My Account page
     #Validate Gift Card Code
     [Arguments]    ${Keyword}
     ${valueGiftCode}    Get Text    ${GiftCardCodeInformation}
-    ${Keyword}    Convert To Lower Case    ${GiftCardCodeManually}
+    ${Keyword}    Convert To Lower Case    ${Keyword}
     ${valueGiftCode}    Convert To Lower Case    ${valueGiftCode}
         ${ValidateResultCode}=        Validate Similarity Of 2 Arguments    ${valueGiftCode}    ${Keyword}
             IF    '${ValidateResultCode}'=='False'
