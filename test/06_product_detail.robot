@@ -219,11 +219,14 @@ L-TCPDP10.Logged in user can add product and access comparison page
     Go To Home Page
 
 TCPDP11.Customers can share content through social media platforms
+    [Tags]    pdp
     # Login User
     Go To Home Page
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Go To PDP Product
     # Share to WhatsApp
+    Wait Until Element Is Visible With Long Time    ${PDPProductName}
+    Scroll Down To Element    ${whatsappShareBtn}
     Click Element    ${whatsappShareBtn}
     Switch Window    ${WhatsappWindows}
     ${CurrentURL} =  Execute Javascript  return window.location.href;
