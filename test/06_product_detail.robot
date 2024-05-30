@@ -217,3 +217,36 @@ L-TCPDP10.Logged in user can add product and access comparison page
     Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
     Go To Home Page
+
+TCPDP11.Customers can share content through social media platforms
+    [Tags]    pdp
+    # Login User
+    Go To Home Page
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Go To PDP Product
+    # Share to WhatsApp
+    Wait Until Element Is Visible With Long Time    ${PDPProductName}
+    Scroll Down To Element    ${whatsappShareBtn}
+    Click Element    ${whatsappShareBtn}
+    Switch Window    ${WhatsappWindows}
+    ${CurrentURL} =  Execute Javascript  return window.location.href;
+    Close Window
+    Switch Window    MAIN
+    Log To Console    ${CurrentURL}
+    Should Contain    ${CurrentURL}    ${URLwhatsapp} 
+    # Share to Facebook
+    Click Element    ${FacebookShareBtn}
+    Switch Window    ${FacebookWindows}
+    ${CurrentURL} =  Execute Javascript  return window.location.href;
+    Close Window
+    Switch Window    MAIN
+    Log To Console    ${CurrentURL}
+    Should Contain    ${CurrentURL}    ${URLFacebook}
+    # Share to Twitter
+    Click Element    ${TwitterShareBtn}
+    Switch Window    ${TwitterWindows}
+    ${CurrentURL} =  Execute Javascript  return window.location.href;
+    Close Window
+    Switch Window    MAIN
+    Log To Console    ${CurrentURL}
+    Should Contain    ${CurrentURL}    ${URLTwitter}
