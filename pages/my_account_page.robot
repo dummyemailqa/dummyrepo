@@ -1,6 +1,7 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         Collections
+Variables       ../resources/data/testdata.py
 Variables       ../resources/locators/my_account_locator.py
 Variables       ../resources/locators/home_locator.py
 Variables       ../resources/locators/register_locator.py
@@ -176,3 +177,25 @@ Submit Gift Card Code Manually
     [Arguments]    ${Argument}
     Input Text                                                  ${EnterGiftCardCode}    ${Argument}
     Click Element                                               ${GiftcardCheckStatusandBalanceButton}
+
+Validation of Gift Card from the My Account page
+    #Validate Gift Card Code
+    [Arguments]    ${Keyword}
+    ${valueGiftCode}    Get Text    ${GiftCardCodeInformation}
+    ${Keyword}    Convert To Lower Case    ${GiftCardCodeManually}
+    ${valueGiftCode}    Convert To Lower Case    ${valueGiftCode}
+        ${ValidateResultCode}=        Validate Similarity Of 2 Arguments    ${valueGiftCode}    ${Keyword}
+            IF    '${ValidateResultCode}'=='False'
+                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${Keyword}    ${valueGiftCode}
+            END
+    #Validate Gift Card Amount
+    ${valueAmountGiftCard}=    Get Text    ${BalanceGiftcardAmount}
+        ${ValidateResultAmount}=    Validate Similarity Of 2 Arguments    ${valueAmountGiftCard}    Rp 100,000.00
+            IF    '${ValidateResultAmount}'=='False'
+                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${valueAmountGiftCard}    Rp 100,000.00
+            END
+            
+Error To Gift Card Not Match
+    [Arguments]    ${Argument1}    ${Argument2}
+    Fail
+    ...    Value Kode Giftcard Tidak Sesuai Antara : -'${Argument1}'- Dengan : -'${Argument2}'-
