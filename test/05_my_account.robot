@@ -168,7 +168,7 @@ L-TCMy13.Verify Invalid Gift Card Code
     Submit Gift Card Code Manually    ${GiftCardRandom}
     Alert Visible Validation    ${InvalidGiftCardAlertMessage}
 
-L-TCMy15.Sign Out from My Account Page (Logged-in User)
+L-TCMy14.Sign Out from My Account Page (Logged-in User)
     [Tags]    account
     To Login Page
     Input Login Form    ${EmailAddressRegistered}    ${Password}
