@@ -167,3 +167,12 @@ L-TCMy13.Verify Invalid Gift Card Code
     ${GiftCardRandom}=    Generate Random Name
     Submit Gift Card Code Manually    ${GiftCardRandom}
     Alert Visible Validation    ${InvalidGiftCardAlertMessage}
+
+L-TCMy15.Sign Out from My Account Page (Logged-in User)
+    [Tags]    account
+    To Login Page
+    Input Login Form    ${EmailAddressRegistered}    ${Password}
+    Submit Form Login
+    My Account Page Validation    ${EmailAddressRegistered}
+    Sign Out From My Account
+    

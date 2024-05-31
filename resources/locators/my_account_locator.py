@@ -45,3 +45,6 @@ BalanceGiftcardAmount                   = "//div[@id='aw_giftcard__code_info']//
 GiftCardCodeInformation                 = "//div[@id='aw_giftcard__code_info']//td[@ha='gc-code']"
 GiftCardCodeInformationForm             = "//div[@id='aw_giftcard__code_info_block']"
 ExistingGiftCode                        = "//div[@x-data='awGiftCardManagement()']//li//button[@ha='giftcard-code']"
+
+#SignOut
+SignOutMenu                             = "//div[@id='account-nav']//a[contains(@href,'logout')]"
