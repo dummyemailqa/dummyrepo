@@ -203,3 +203,7 @@ Error To Gift Card Not Match
 Check Existing Gift Card Code
     Click Element                                               ${ExistingGiftCode}
     Wait Until Element Is Visible With Long Time                ${GiftCardCodeInformationForm}
+
+Sign Out From My Account
+    Click Element                                               ${SignOutMenu}
+    Wait Until Element Is Visible With Long Time                ${HeaderLinkToLogin}
