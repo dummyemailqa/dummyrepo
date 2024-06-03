@@ -18,17 +18,18 @@ Resource            ../pages/my_account_page.robot
 
 
 *** Keywords ***
-Check Product on Wishlist
+Add Product To Wishlist if Empty
+    [Arguments]    ${VariabelProductName/SKU}
     ${status}=     Run Keyword and Return Status           Wait Until Page Contains Element        ${ProductWishlist}
     IF    '${status}'=='False'
-        Add Product to Wishlist
+        Add Product to Wishlist    ${VariabelProductName/SKU}
     END
 
 Add Product to Wishlist
+    [Arguments]    ${VariabelProductName/SKU}
     Go To Home Page
-    Empty the items in MiniCart
-    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
-    Go To PDP Product
+    Search Product by Keyword in Searchbox    ${VariabelProductName/SKU}
+    Validate Search Product And Go To PDP    ${VariabelProductName/SKU}
     Click Button    ${BtnWishlist}
     Validate Message Success Alert Is Visible
 
@@ -48,10 +49,30 @@ Remove Wishlist Product
 
 Add To Cart Product from Wishlist
     Wait Until Element Is Enabled    ${ProductWishlist}
-    Scroll Down To Element    ${WishFieldQty}
-    Clear Text Field    ${WishFieldQty}
-    Input text          ${WishFieldQty}    2
     Scroll Down To Element    ${BtnATCWishlist}
     Click Button        ${BtnATCWishlist}
     Validate Message Success Alert Is Visible
-    
+
+Add To Wishlist All Product Type
+    [Arguments]    ${Qty}
+    ${IsConfigurableProduct} =    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ProductConfigurable}
+    ${IsBundleProduct} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${ProductBundle}
+    ${IsGroupProduct} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${ProductGroup}
+    ${PDPProductNameValue} =    Get Product Name From PDP
+    ${ProductNameList} =    Create List
+    Append To List    ${ProductNameList}    ${PDPProductNameValue}
+    IF    ${IsConfigurableProduct}
+        Quantity Of Products    ${Qty}
+        Select Configurable Product Option
+    ELSE IF    ${IsBundleProduct}
+        Customize Bundle Product
+    ELSE IF    ${IsGroupProduct}
+        Customize Group Product    ${ProductNameList}    ${Qty}
+    ELSE
+        Quantity Of Products    ${Qty}
+    END
+        Scroll Down To Element    ${BtnWishlist}
+        Click Element    ${BtnWishlist}
+    RETURN    ${ProductNameList}
