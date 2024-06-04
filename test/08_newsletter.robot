@@ -8,7 +8,7 @@ Resource            ../pages/my_account_page.robot
 
 
 Test Setup          Start Test Case
-#Test Teardown       End Test Case
+Test Teardown       End Test Case
 
 *** Test Cases ***    
 TCNL1.Customer subscribes to newsletter
