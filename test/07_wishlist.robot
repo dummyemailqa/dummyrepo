@@ -41,8 +41,42 @@ L-TCWL3.1.Logged In User is able to Add to Cart Simple Product from wishlist pag
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Close The Minicart
 
+L-TCWL3.2.Logged In User is able to Add to Cart Configurable Product from wishlist page
+    [Tags]    wishlist
+    Login User
+    Empty the items in MiniCart
+    Go To My Account Page
+    Emty Item In Wishlish Page
+    Search Product by Keyword in Searchbox    ${ProductConfigNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+    Add To Cart Product from Wishlist
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=${ProductName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Close The Minicart
+
+L-TCWL3.3.Logged In User is able to Add to Cart Bundle Product from wishlist page
+    [Tags]    wishlist
+    Login User
+    Empty the items in MiniCart
+    Go To My Account Page
+    Emty Item In Wishlish Page
+    Search Product by Keyword in Searchbox    ${ProductBundleNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductBundleNameForSearch}
+    @{productName} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+    Add To Cart Product from Wishlist
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=${ProductName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Close The Minicart
+
 L-TCWL5.Logged In User is able to share wishlist by email
     Login User
     To My Wishlist From Nav Bar
     Share Wishlist To Email
-    #Validate Message Success Alert Is Visible
+    Validate Message Success Alert Is Visible
