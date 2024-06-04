@@ -7,6 +7,7 @@ Resource            ../pages/login_page.robot
 Resource            ../pages/my_account_page.robot
 
 
+
 Test Setup          Start Test Case
 Test Teardown       End Test Case
 
@@ -33,5 +34,11 @@ TCNL2.2 Customer subscribes to newsletter with invalid email
     [Tags]    newsletter
     ${InvalidEmail} =     Generate Random Invalid Email
     Input Email For Subcribe Newsletter    ${InvalidEmail}
+    Click Element    ${ButtonSubmitSubcribeNewsletter}
+    Validate Popup Fail Alert Is Visible    ${AllertMessageErrorNewsletter}
+
+TCNL3. Customer subscribes to newsletter with blank email
+    [Tags]    newsletter    run 
+    Scroll Down To Element    ${ButtonSubmitSubcribeNewsletter}
     Click Element    ${ButtonSubmitSubcribeNewsletter}
     Validate Popup Fail Alert Is Visible    ${AllertMessageErrorNewsletter}
