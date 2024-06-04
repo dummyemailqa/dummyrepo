@@ -34,4 +34,4 @@ TCNL2.2 Customer subscribes to newsletter with invalid email
     ${InvalidEmail} =     Generate Random Invalid Email
     Input Email For Subcribe Newsletter    ${InvalidEmail}
     Click Element    ${ButtonSubmitSubcribeNewsletter}
-    Validate Popup Fail Alert Is Visible    ${AllertMessageError}
+    Validate Popup Fail Alert Is Visible    ${AllertMessageErrorNewsletter}
