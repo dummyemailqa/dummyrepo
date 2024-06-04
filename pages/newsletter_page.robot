@@ -12,3 +12,4 @@ Input Email For Subcribe Newsletter
 Submit Subcribe Newsletter
     Wait Until Element Is Visible With Long Time    ${ButtonSubmitSubcribeNewsletter}
     Click Element    ${ButtonSubmitSubcribeNewsletter}
+    Input Text                                                      ${field_input}                      ${email}
