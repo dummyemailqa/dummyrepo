@@ -6,6 +6,8 @@ FirstName               = 'demo'
 LastName                = 'icube'
 PhoneNumber             = '085230233331'
 OtherPhoneNumber        = '123456789'
+EmailShareWishlist      = 'yosaphat.carlo@sirclo.com'
+MessageShareWishlist    = "share wishlist automation"
 
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'

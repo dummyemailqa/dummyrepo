@@ -40,3 +40,9 @@ L-TCWL3.1.Logged In User is able to Add to Cart Simple Product from wishlist pag
     &{Arguments} =    Create Dictionary    productName=${ProductName}    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Close The Minicart
+
+L-TCWL5.Logged In User is able to share wishlist by email
+    Login User
+    To My Wishlist From Nav Bar
+    Share Wishlist To Email
+    #Validate Message Success Alert Is Visible

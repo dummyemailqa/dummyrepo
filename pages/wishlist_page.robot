@@ -76,3 +76,11 @@ Add To Wishlist All Product Type
         Scroll Down To Element    ${BtnWishlist}
         Click Element    ${BtnWishlist}
     RETURN    ${ProductNameList}
+
+Share Wishlist To Email
+    Wait Until Element Is Enabled    ${ProductWishlist}
+    Click Element    ${ShareWishlistButton}
+    Wait Until Element Is Enabled    ${TextAreaEmailWishlist}
+    Input Text    ${TextAreaEmailWishlist}    ${EmailShareWishlist}
+    Input Text    ${TextAreaMessageWishlist}    ${MessageShareWishlist}
+    Click Element    ${ShareToEmail}
