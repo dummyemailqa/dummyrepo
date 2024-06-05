@@ -3,7 +3,6 @@ Library         SeleniumLibrary
 Library         Collections
 Resource        ../base/base.robot
 Variables       ../resources/locators/cart_page_locator.py
-Variables       ../resources/locators/scv2_locator.py
 
 
 *** Keywords ***
@@ -56,16 +55,3 @@ Open Minicart
 Close The Minicart
     Wait Until Element Is Visible    ${BtnCloseMiniCart}
     Click Element    ${BtnCloseMiniCart}
-
-Go To Shopping Cart
-    ${ShowMinicart}    Run Keyword And Return Status    Wait Until Element Is Visible With Long Time    ${BtnCloseMiniCart}
-    IF  not ${ShowMinicart}
-            Open Minicart
-    END
-    Click Element    ${ButtonViewCart}
-    Wait Until Element Is Visible With Long Time    ${ButtonToCheckout}
-
-Go To Checkout Page From Shopping Cart
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
-    Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
