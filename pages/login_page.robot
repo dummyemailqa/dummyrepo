@@ -9,9 +9,9 @@ Resource        ../base/common.robot
 
 *** Keywords ***
 To Login Page
-    Wait Until Element Is Visible    ${HeaderLinkToLogin}
-    Click element    ${HeaderLinkToLogin}
-    Wait Until Element Is Visible    ${ButtonSignIn}
+    Wait Until Element Is Visible With Long Time    ${HeaderLinkToLogin}
+    Click Element    ${HeaderLinkToLogin}
+    Wait Until Element Is Visible With Long Time    ${ButtonSignIn}
     Click element    ${ButtonSignIn}
     Wait Until Element Is Visible    ${FromLogin}
 

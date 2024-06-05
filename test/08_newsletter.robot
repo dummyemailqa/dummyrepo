@@ -38,7 +38,7 @@ TCNL2.2 Customer subscribes to newsletter with invalid email
     Validate Popup Fail Alert Is Visible    ${AllertMessageErrorNewsletter}
 
 TCNL3. Customer subscribes to newsletter with blank email
-    [Tags]    newsletter    run 
+    [Tags]    newsletter 
     Scroll Down To Element    ${ButtonSubmitSubcribeNewsletter}
     Click Element    ${ButtonSubmitSubcribeNewsletter}
     Validate Popup Fail Alert Is Visible    ${AllertMessageErrorNewsletter}

@@ -12,6 +12,7 @@ Test Teardown       End Test Case
 
 
 *** Test Cases ***
+
 L-TCMy1.Logged In User Can Edit Information
     [Tags]    account
     To Login Page
@@ -27,7 +28,7 @@ L-TCMy1.Logged In User Can Edit Information
     Validate Message Success Alert Is Visible
 
 L-TCMy2.Logged In User Can Check History Order
-    [Tags]    account
+    [Tags]    account 
     To Login Page
     Input Login Form    ${EmailAddressRegistered}    ${Password}
     Submit Form Login
@@ -175,4 +176,3 @@ L-TCMy14.Sign Out from My Account Page (Logged-in User)
     Submit Form Login
     My Account Page Validation    ${EmailAddressRegistered}
     Sign Out From My Account
-    
