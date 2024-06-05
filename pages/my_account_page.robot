@@ -61,6 +61,7 @@ Validate The Similarity Of Item Added To Wishlist
 
 My Account Page Validation
     [Arguments]    ${keyword}
+    Wait Until Element Is Visible With Long Time    ${MyAccountEmail}
     ${txtMyAccountEmail}    Get Text    ${MyAccountEmail}
     ${keyword}    Convert To Lower Case    ${keyword}
     ${txtMyAccountEmail}    Convert To Lower Case    ${txtMyAccountEmail}
@@ -74,6 +75,7 @@ To Account Information
 
 Change Information With Args
     [Arguments]                                                 ${FirstName}    ${last_name}    ${PhoneNumber}    ${WhatsAppNumber} 
+    Execute Javascript    window.scrollTo(0, 0)
     Wait Until Element Is Visible With Long Time                ${SaveInfoBtn}
     Clear Text Field                                            ${RegisterFirstName}
     Input Text                                                  ${RegisterFirstName}            ${FirstName}
@@ -192,7 +194,7 @@ Validation of Gift Card from the My Account page
     ${valueAmountGiftCard}=    Get Text    ${BalanceGiftcardAmount}
         ${ValidateResultAmount}=    Validate Similarity Of 2 Arguments    ${valueAmountGiftCard}    Rp 100,000.00
             IF    '${ValidateResultAmount}'=='False'
-                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${valueAmountGiftCard}    Rp 100,000.00
+                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${valueAmountGiftCard}    p 100,000.00
             END
             
 Error To Gift Card Not Match
