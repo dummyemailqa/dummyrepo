@@ -109,6 +109,51 @@ L-TCWL3.5.Logged In User is able to Add to Cart Variant Product from wishlist pa
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Close The Minicart
 
+L-TCWL4.Logged In User is able to Add to Cart all product from wishlist page
+    [Tags]    wishlist
+    Login User
+    Empty the items in MiniCart
+    Go To My Account Page
+    Emty Item In Wishlish Page
+
+    # Add Simple Product To Wishlist
+    Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName1} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+    
+    # Add Configurable Product To Wishlist
+    Search Product by Keyword in Searchbox    ${ProductConfigNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName2} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+
+    # Add Bundle Product To Wishlist
+    Search Product by Keyword in Searchbox    ${ProductBundleNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductBundleNameForSearch}
+    @{productName3} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+
+    # Add Group Product To Wishlist
+    Search Product by Keyword in Searchbox    ${ProductGroupNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductGroupNameForSearch}
+    @{productName4} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+
+    # Add Virtual Product To Wishlist
+    Search Product by Keyword in Searchbox    ${ProductVirtualNameForSearch}
+    Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
+    @{productName5} =    Add To Wishlist All Product Type    Qty=1
+    Validate Message Success Alert Is Visible
+
+    Add To Cart All Product from Wishlist
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    ${allProductNames} =    Create List    @{productName1}    @{productName2}    @{productName3}    @{productName4}    @{productName5}
+    &{Arguments} =    Create Dictionary    productName=${allProductNames}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Close The Minicart
+
 L-TCWL5.Logged In User is able to share wishlist by email
     Login User
     To My Wishlist From Nav Bar
