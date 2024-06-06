@@ -98,3 +98,12 @@ Generate Random Invalid Email
     ${randomString}=    Generate Random String    8    [LOWER]
     ${randomEmail}=    Set Variable    ${randomString}gmail.com
     RETURN    ${randomEmail}
+
+Convert Price String To Integer
+    #format string example: 	Rp 40,000.00
+    [Arguments]  ${value}
+    ${cleaned_string}  Replace String  ${value}  Rp    replace_with=
+    ${cleaned_string}  Replace String  ${cleaned_string}  ,    replace_with=
+    ${cleaned_string}  Replace String  ${cleaned_string}  .00    replace_with=
+    ${integer_value}=  Evaluate  int(${cleaned_string})
+    RETURN  ${integer_value}
