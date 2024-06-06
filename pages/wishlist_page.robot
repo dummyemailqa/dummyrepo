@@ -84,3 +84,9 @@ Share Wishlist To Email
     Input Text    ${TextAreaEmailWishlist}    ${EmailShareWishlist}
     Input Text    ${TextAreaMessageWishlist}    ${MessageShareWishlist}
     Click Element    ${ShareToEmail}
+
+Add To Cart All Product from Wishlist
+    Wait Until Element Is Enabled    ${ProductWishlist}
+    Scroll Down To Element    ${BtnATCAllProductWishlist}
+    Click Button        ${BtnATCAllProductWishlist}
+    Validate Message Success Alert Is Visible
