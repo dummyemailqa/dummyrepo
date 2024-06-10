@@ -8,6 +8,8 @@ Resource            ../pages/home_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/checkout_page.robot
 
+
+
 Test Setup          Start Test Case
 # Test Teardown       End Test Case
 
@@ -32,7 +34,6 @@ G-TCCHG1.Login with invalid whatsapp number format
     Input SCV2 Login Phone Number    PhoneNumber=0
     SCV2 Submit Login
     Invalid Login Validation
-
 G-TCCHG5.Change shipping address
     [Tags]    checkout
     Empty the items in MiniCart
