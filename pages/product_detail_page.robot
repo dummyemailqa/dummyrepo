@@ -63,8 +63,12 @@ Add To Cart
     ${IsConfigurableProduct} =    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ProductConfigurable}
-    ${IsBundleProduct} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${ProductBundle}
-    ${IsGroupProduct} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${ProductGroup}
+    ${IsBundleProduct} =    Run Keyword And Return Status
+    ...        Wait Until Element Is Visible    
+    ...    ${ProductBundle}
+    ${IsGroupProduct} =    Run Keyword And Return Status    
+    ...    Wait Until Element Is Visible    
+    ...    ${ProductGroup}
     ${PDPProductNameValue} =    Get Product Name From PDP
     ${ProductNameList} =    Create List
     Append To List    ${ProductNameList}    ${PDPProductNameValue}
