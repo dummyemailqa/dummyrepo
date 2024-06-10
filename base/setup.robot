@@ -5,8 +5,8 @@ Variables   ../resources/data/testdata.py
 
 *** Variables ***
 ${BROWSER}    Safari
-${CromeDriverPath}    ${CURDIR}/../../chromedriver-mac-x64/chromedriver
-${EdgeDriverPath}    ${CURDIR}/../../edgedriver_mac64/msedgedriver
+${CromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver_win64/chromedriver.exe
+${EdgeDriverPath}     ${CURDIR}/../../Drivers/edgedriver_win64/msedgedriver
 
 *** Keywords ***
 Start Test Case
@@ -62,7 +62,7 @@ Start Test
     Maximize Browser Window
     Go to   ${URLWEB}
     Execute JavaScript    document.body.style.zoom = "100%"
-    Set selenium speed  1    
+    Set selenium speed  0.8    
 
 Setup Browser Option Configuration
     [Arguments]    ${BrowserConfiguration}    ${ExecutablePath}

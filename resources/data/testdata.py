@@ -4,10 +4,11 @@ EmailAddressRegistered  = 'demo@icube.us'
 Password                = 'Password123'
 FirstName               = 'demo'
 LastName                = 'icube'
-PhoneNumber             = '085230233331'
+PhoneNumber             = '081234567890'
 OtherPhoneNumber        = '123456789'
+OTPPhoneNumber          = '081234567890'
 EmailShareWishlist      = 'yosaphat.carlo@sirclo.com'
-MessageShareWishlist    = "share wishlist automation"
+MessageShareWishlist    = 'share wishlist automation'
 
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
