@@ -32,7 +32,7 @@ ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
 
 # Select Shipping Method Page
-DropdownVirtualAccountMidtransMethodItem= "//img[contains(@alt,'Virtual Account (Via Midtranssnap)')]"
+DropdownVAMidtransMethodItem            = "//img[contains(@alt,'Virtual Account (Via Midtranssnap)')]"
 
 #Upsert Address Form
 ButtonSaveAddressInAddressForm          = "//button[@id='checkout-address-saveButton']"

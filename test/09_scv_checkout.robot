@@ -36,6 +36,64 @@ G-TCCHG1.Login with invalid whatsapp number format
     SCV2 Submit Login
     Invalid Login Validation
 
+G-TCCHG3.Add shipping address
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+    SCV2 Submit Login
+
+    Select First Item In Verification Method
+    ${GetOTP}    Generate SCV2 Password
+    Input SCV2 Login OTP    ${GetOTP}
+
+    SCV2 Submit Login
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    ${AddressIsEmty}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonAddAddressCheckoutPage}
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    IF    ${AddressIsEmty}
+        Click Element    ${ButtonAddAddressCheckoutPage}
+    ELSE
+        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    END
+        Click Element    ${ButtonAddNewAddressInAddressList}
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+
+    Chenge Selected Address
+    Save Selected Address
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Tankyou page Validation
+
 G-TCCHG5.Change shipping address
     [Tags]    checkout
     Empty the items in MiniCart
@@ -85,7 +143,7 @@ G-TCCHG5.Change shipping address
     Save Selected Address
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
-    Select Payment Method    ${EMPTY}
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation

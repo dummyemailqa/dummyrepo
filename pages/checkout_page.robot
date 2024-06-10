@@ -183,8 +183,8 @@ Select Payment Method
     Wait Until Element Is Visible With Long Time    ${ButtonSelectPaymentMethod}
     Click Element    ${ButtonSelectPaymentMethod}
 
-    Wait Until Element Is Visible With Long Time    ${DropdownVirtualAccountMidtransMethodItem}
-    Click Element    ${DropdownVirtualAccountMidtransMethodItem}
+    Wait Until Element Is Visible With Long Time    ${PaymentMethod}
+    Click Element    ${PaymentMethod}
 
 Submit Place Order
     Wait Until Element Is Visible With Long Time    ${LabelSelectPaymentMethod}
