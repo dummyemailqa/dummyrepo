@@ -199,3 +199,17 @@ Midtrans Virtual Account Transaction
 
 Thankyou page Validation
     Wait Until Element Is Visible With Long Time    ${ThankyouPageHeader}
+
+Input Promo Code
+    [Arguments]    ${PromoCode}
+    Wait Until Element Is Visible With Long Time    ${InputPromoCode}
+    Clear Text Field    ${InputPromoCode}
+    Input Text    ${InputPromoCode}    ${PromoCode}
+
+Select Button Apply Promo
+    Wait Until Element Is Enabled    ${ButtonApplyPromo}
+    Click Element    ${ButtonApplyPromo}
+
+Validate Message Success Alert Is Visible On Checkout Page
+    Wait Until Element Is Visible With Long Time    ${CheckoutSuccessAllert}
+    Wait Until Element Is Not Visible With Long Time    ${CheckoutSuccessAllert}
