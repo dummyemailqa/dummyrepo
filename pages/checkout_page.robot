@@ -14,7 +14,7 @@ Input SCV2 Login Phone Number
     [Arguments]    ${PhoneNumber}
     Wait Until Element Is Visible With Long Time    ${InputPhoneNumberLogin}
     Input Text    ${InputPhoneNumberLogin}    ${PhoneNumber}
-    Click Button    //button[@id='checkout-login-continueButton']
+    Click Button    ${ButtonCheckoutogInSCV}
 
 SCV2 Submit Login
     Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
