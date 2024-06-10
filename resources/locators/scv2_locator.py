@@ -1,11 +1,23 @@
 #login
-ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
-InputPhoneNumberLogin       = "//input[@id='checkout-loginPhoneNumber-textField']"
-AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
-InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
-FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
+ButtonCheckoutogInSCV                   = "//button[@id='checkout-login-continueButton']"
+InputPhoneNumberLogin                   = "//input[@id='checkout-loginPhoneNumber-textField']"
+AlertMessageLoginFaild                  = "//p[contains(@class,'textField-errorLabel')]"
+InputOTPLogin                           = "//input[@id='checkout-loginOtp-textField']"
+FirstOtpVerificationMethod              = "//div[@role='dialog']//ul//div[@role='button']"
 
-# checkoutpage
+#address
+SCVAddAddressWhileBlank                 = "//img[@class='checkout-shipping-pin-img']"
+SCVSaveNewAddress                       = "//button[@id='checkout-address-saveButton']"
+SendWAOTPButton                         = "//div[@role='button']"
+SCVOTPField                             = "//input[@name='otp']"
+SCVContinueToCheckout                   = "//button[@id='checkout-login-continueButton']"
+SCVErrorMessageAddressBlank             = "//div[contains(@class,'column-pinpoint')]//p"
+
+#home delivery
+SCVHomeDeliveryButton                   = "//div[@id='checkout-delivery-pickupInStore']"
+
+#checkout page
+SCVPayButton                            = "//button[@id='checkout-payButton']"
 ValidateEmailAddressIsEmty              = "//input[@id='checkout-email-textField'][@value='']"
 InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField']"
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
