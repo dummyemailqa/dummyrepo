@@ -102,7 +102,6 @@ Generate Random Invalid Email
 Convert Price String To Integer
     #format string example: 	Rp 40,000.00
     [Arguments]  ${value}
-    ${cleaned_string}  Replace String  ${value}  $    replace_with=
     ${cleaned_string}  Replace String  ${value}  Rp    replace_with=
     ${cleaned_string}  Replace String  ${cleaned_string}  ,    replace_with=
     ${cleaned_string}  Replace String  ${cleaned_string}  .00    replace_with=

@@ -3,6 +3,7 @@ BtnCloseMiniCart        = "//button[contains(@aria-label, 'Close minicart')]"
 MinicartProductItem     = "//div[contains(@aria-label, 'My Cart')]//div[contains(@class,'flex items-start')]"
 MinicartProductName     = "//div[contains(@aria-label, 'My Cart')]//div[contains(@class,'items-start')][{}]//p[@x-html='item.product_name']"
 MinicartQty             = "//span[@x-text='qty']"
+
 MinicartIncrease        = "//div[contains(@class,'items-start')]//div[contains(@class,'gap-2')]//button[2]"
 MinicartDecrease        = "//div[contains(@class,'items-start')]//div[contains(@class,'gap-2')]//button[1]"
 MinicartLoader          = "//div[@x-show='isLoading']"
