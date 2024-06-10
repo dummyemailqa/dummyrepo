@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation       Suite description
+
 Resource            ../base/setup.robot
 Resource            ../base/base.robot
 Resource            ../pages/cart_page.robot
@@ -13,18 +14,20 @@ Library             DateTime
 Test Setup          Start Test Case
 Test Teardown       End Test Case
 
-*** Test Cases ***
 
+*** Test Cases ***
 G-TCCHG1.Login with invalid whatsapp number format
     [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
-    @{productName} =    Add To Cart    Qty=1
+    @{productName}    Add To Cart    Qty=1
     Alert Success Validation
     Open Minicart
-    @{MinicartProductNameValue} =    Get Product Name From Minicart
-    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
 
@@ -46,10 +49,29 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    ${OTPPhoneNumber}
+    Input SCV2 Login Phone Number    ${OtpPhoneNumber}
     OTP Whatsapp Login for Dummy Phone Number SCV2 
     SCV2 Submit Login
   
+G-TCCHG5.Change shipping address
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+    SCV2 Submit Login
+
     Select First Item In Verification Method
     ${GetOTP}    Generate SCV2 Password
     Input SCV2 Login OTP    ${GetOTP}
@@ -83,4 +105,4 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     Select Payment Method    ${EMPTY}
     Submit Place Order
     Midtrans Virtual Account Transaction
-    Tankyou page Validation
+    Thankyou page Validation

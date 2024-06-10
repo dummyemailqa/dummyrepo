@@ -9,6 +9,7 @@ Resource            ../base/base.robot
 Resource            ../pages/home_page.robot
 Resource            ../pages/login_page.robot
 Resource            ../pages/compare_page.robot
+Resource            ../pages/cart_page.robot
 Test Setup          Start Test Case
 Test Teardown       End Test Case
 
