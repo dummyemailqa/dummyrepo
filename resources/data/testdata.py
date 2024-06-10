@@ -8,6 +8,7 @@ PhoneNumber             = '085230233331'
 OtherPhoneNumber        = '123456789'
 EmailShareWishlist      = 'yosaphat.carlo@sirclo.com'
 MessageShareWishlist    = "share wishlist automation"
+OtpPhonenumber          = "081234567890"
 
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
@@ -48,3 +49,9 @@ TwitterWindows          = "title:X"
 URLWhatsapp             = "https://api.whatsapp.com"
 URLFacebook             = "https://www.facebook.com"
 URLTwitter              = 'https://x.com'
+
+# SCV Address
+ShipmentAddressDetail   = "Dukuhsari RT06/RW02, Sidokerto, Purwomartani, Kalasan, Sleman Regency, Special Region of Yogyakarta"
+ShippingCity            = "Kalasan"
+ShipmentPostalCode      = "55571"
+ShipmentPinLocation     = "Icube Jogjas"
