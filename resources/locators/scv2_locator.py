@@ -2,6 +2,9 @@
 ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
 InputPhoneNumberLogin       = "//input[@id='checkout-loginPhoneNumber-textField']"
 AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
+
+#checkout
+FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 
@@ -54,3 +57,4 @@ CloseMitransPopup                       = "//div[@class='close-snap-button click
 
 # Thankyoupage
 ThankyouPageHeader                      = "//div[contains(@class,'success-header success-section')]"
+
