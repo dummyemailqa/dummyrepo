@@ -12,7 +12,7 @@ Test Teardown       End Test Case
 *** Test Cases ***
 G-TCL1.Succesful Login with Registered Email and Password
     To Login Page
-    Input Login Form    ${asdasd}    ${Password}
+    Input Login Form    ${EmailAddressRegistered}    ${Password}
     Submit Form Login
     Login Validation
 

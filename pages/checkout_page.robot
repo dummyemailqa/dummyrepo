@@ -20,13 +20,6 @@ SCV2 Submit Login
     Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
     Click Element    ${ButtonCheckoutogInSCV}
 
-OTP Whatsapp Login for Dummy Phone Number SCV2 
-    ${today}    Get Current Date
-    ${formatted_date}    Convert Date    ${today}    result_format=%d%m%y
-    Wait Until Element Is Visible    locator
-    Click Element  //*div[@class='MuiDialogContent-root jss7']/div[@class='MuiListItem-button']
-    Input Text    //div[@id='checkout-loginPhoneNumber-textField']    ${formatted_date}
-
 Invalid Login Validation
     Wait Until Element Is Visible With Long Time    ${AlertMessageLoginFaild}
 

@@ -37,7 +37,7 @@ G-TCCHG1.Login with invalid whatsapp number format
     Invalid Login Validation
 
 G-TCCHG5.Change shipping address
-    [Tags]    checkout5
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}

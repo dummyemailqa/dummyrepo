@@ -62,7 +62,7 @@ Start Test
     Maximize Browser Window
     Go to   ${URLWEB}
     Execute JavaScript    document.body.style.zoom = "100%"
-    Set selenium speed  0.8    
+    Set selenium speed  1    
 
 Setup Browser Option Configuration
     [Arguments]    ${BrowserConfiguration}    ${ExecutablePath}
