@@ -11,7 +11,7 @@ Resource            ../pages/checkout_page.robot
 
 
 Test Setup          Start Test Case
-# Test Teardown       End Test Case
+Test Teardown       End Test Case
 
 
 *** Test Cases ***
@@ -34,11 +34,12 @@ G-TCCHG1.Login with invalid whatsapp number format
     Input SCV2 Login Phone Number    PhoneNumber=0
     SCV2 Submit Login
     Invalid Login Validation
+
 G-TCCHG5.Change shipping address
     [Tags]    checkout
     Empty the items in MiniCart
-    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
-    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
     Alert Success Validation
     Open Minicart
@@ -50,7 +51,7 @@ G-TCCHG5.Change shipping address
     Go To Shopping Cart
 
     Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=081234567890
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
     SCV2 Submit Login
 
     Select First Item In Verification Method

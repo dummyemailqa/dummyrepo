@@ -8,6 +8,7 @@ PhoneNumber             = '085230233331'
 OtherPhoneNumber        = '123456789'
 EmailShareWishlist      = 'yosaphat.carlo@sirclo.com'
 MessageShareWishlist    = "share wishlist automation"
+OtpPhonenumber          = "081234567890"
 
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
