@@ -89,6 +89,11 @@ Generate Random Name
     ${Name}=                     Set Variable                ${randomString}
     RETURN                            ${SPACE}${Name}
 
+Generate Random Keyword
+    ${randomString}    Generate Random String      5   [LETTERS]
+    ${Name}    Set Variable    ${randomString}
+    RETURN  ${Name}${SPACE}Automation
+
 Generate Random Comment
     ${randomString}=                Generate Random String      50   [LETTERS]
     ${Comment}=                     Set Variable                ${randomString}

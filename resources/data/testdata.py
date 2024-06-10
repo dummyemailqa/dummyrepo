@@ -50,8 +50,7 @@ URLFacebook             = "https://www.facebook.com"
 URLTwitter              = 'https://x.com'
 
 # SCV Address
-ShippingOtherLabel      = "Rumah Orang Tua"
-ShippingRecipient       = "QA Automation"
 ShipmentAddressDetail   = "Dukuhsari RT06/RW02, Sidokerto, Purwomartani, Kalasan, Sleman Regency, Special Region of Yogyakarta"
 ShippingCity            = "Kalasan"
 ShipmentPostalCode      = "55571"
+ShipmentPinLocation     = "Icube Jogjas"
