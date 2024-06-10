@@ -6,7 +6,8 @@ Resource            ../pages/cart_page.robot
 Resource            ../pages/home_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/checkout_page.robot
-
+Library             BuiltIn
+Library             String
 
 
 Test Setup          Start Test Case
@@ -31,3 +32,36 @@ G-TCCHG1.Login with invalid whatsapp number format
     Input SCV2 Login Phone Number    PhoneNumber=0
     SCV2 Submit Login
     Invalid Login Validation
+
+TCSC1.Customers can access the shopping cart page
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
+    @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Wait Until Element Is Visible    ${ShoppingCartTotalPrice}
+    ${PriceInShoppingCart}    Get Text    ${ShoppingCartTotalPrice}
+    ${PriceShoppingCartInt}    Convert Price String To Integer    ${PriceInShoppingCart}
+    Click Button    ${ButtonIncrease}
+    Wait Until Element Is Not Visible With Long Time  ${ShoppingCartLoader}
+    Wait Until Element Is Visible    ${ShoppingCartTotalPrice}
+    ${PriceInShoppingCart}    Get Text    ${ShoppingCartTotalPrice}
+    ${PriceShoppingCartIntIncrement}    Convert Price String To Integer    ${PriceInShoppingCart}
+    Should Be True    ${PriceShoppingCartIntIncrement} > ${PriceShoppingCartInt}
+
+    Click Button    ${ButtonDecrease}
+    Wait Until Element Is Not Visible With Long Time    ${ShoppingCartLoader}
+    Wait Until Element Is Visible    ${ShoppingCartTotalPrice}
+    ${PriceInShoppingCart}    Get Text    ${ShoppingCartTotalPrice}
+    ${PriceShoppingCartIntDecrement}    Convert Price String To Integer    ${PriceInShoppingCart}
+    Should Be True    ${PriceShoppingCartIntDecrement} < ${PriceShoppingCartIntIncrement}
+
+    Wait Until Element Is Enabled    ${ShoppingCartDelete}
+    Click Button    ${ShoppingCartDelete}
+    Wait Until Element Is Visible With Long Time  ${ButtonStartShopping}
