@@ -64,4 +64,4 @@ CloseMitransPopup                       = "//div[@class='close-snap-button click
 
 # Thankyoupage
 ThankyouPageHeader                      = "//div[contains(@class,'success-header success-section')]"
-
+ButtonContinueShopping                  = "//button[@id='checkout-success-continueButton']"
