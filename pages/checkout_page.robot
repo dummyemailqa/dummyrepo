@@ -213,3 +213,7 @@ Select Button Apply Promo
 Validate Message Success Alert Is Visible On Checkout Page
     Wait Until Element Is Visible With Long Time    ${CheckoutSuccessAllert}
     Wait Until Element Is Not Visible With Long Time    ${CheckoutSuccessAllert}
+
+Select Billing Address Same As Shipping Address
+    ${BillingAddressSameAsShippingAddress}    Run Keyword And Return Status      Wait Until Element Is Visible    ${ButtonChangeBillingAddress}    timeout=10
+    Run Keyword If    ${BillingAddressSameAsShippingAddress}    Click Element    ${CheckboxBillingAddressSameAsShippingAddress}

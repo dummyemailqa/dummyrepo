@@ -15,6 +15,7 @@ CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//d
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[@class='checkout-shipping-pin-img']"
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
 ButtonAddPromo                          = "//div[contains(@class,'boxPromo')]"
+ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
 
 # Address List Page
 ItemInAddressList                       = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')]"
@@ -28,6 +29,7 @@ ButtonSelectShippingMethod              = "//button[@id='checkout-shippingMethod
 ButtonSelectPaymentMethod               = "//button[@id='checkout-paymentMethod-selectButton']"
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
+CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
