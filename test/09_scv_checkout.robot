@@ -9,6 +9,8 @@ Resource            ../pages/product_detail_page.robot
 Resource            ../pages/checkout_page.robot
 Library             DateTime
 
+
+
 Test Setup          Start Test Case
 Test Teardown       End Test Case
 
@@ -193,9 +195,8 @@ G-TCCHG6.Billing address same as Shipping address
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
-G-TCCHG17.Apply valid coupon code
+G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
-    Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
@@ -212,6 +213,7 @@ G-TCCHG17.Apply valid coupon code
     Go To Checkout Page From Shopping Cart
     Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
 
+
     Select First Item In Verification Method
     ${GetOTP}    Generate SCV2 Password
     Input SCV2 Login OTP    ${GetOTP}
@@ -220,17 +222,22 @@ G-TCCHG17.Apply valid coupon code
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
-
-    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
-    Click Element    ${ButtonAddPromo}    
-    Input Promo Code    ${PromoCode}
-    Select Button Apply Promo
-
-    Validate Message Success Alert Is Visible On Checkout Page
-
-
+    Select Payment Method    ${DropdownBRIVAMidtransMethodItem}
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation

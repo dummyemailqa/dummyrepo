@@ -36,6 +36,7 @@ DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shipp
 
 # Select Shipping Method Page
 DropdownVAMidtransMethodItem            = "//img[contains(@alt,'Virtual Account (Via Midtranssnap)')]"
+DropdownBRIVAMidtransMethodItem         = "//img[contains(@alt,'BRI Virtual Account (Via Midtranssnap)')]"
 
 #Upsert Address Form
 ButtonSaveAddressInAddressForm          = "//button[@id='checkout-address-saveButton']"
