@@ -112,3 +112,9 @@ Convert Price String To Integer
     ${cleaned_string}  Replace String  ${cleaned_string}  .00    replace_with=
     ${integer_value}=  Evaluate  int(${cleaned_string})
     RETURN  ${integer_value}
+
+Validate Alert Message Is Visible
+# digunakan untuk alert Message seperti https://somup.com/cZ111p5W6S
+    Wait Until Element Is Visible With Long Time    ${RegisterAlerrMessageInvalidRegister}
+    Click Element    ${CloseMessageBtn}
+    Wait Until Element Is Not Visible    ${RegisterAlerrMessageInvalidRegister}
