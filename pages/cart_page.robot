@@ -69,3 +69,8 @@ Go To Checkout Page From Shopping Cart
     Scroll Down To Element    ${ButtonToCheckout}
     Click Element    ${ButtonToCheckout}
     Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
+
+Go To Checkout Page From Shopping Cart Login User
+    Scroll Down To Element    ${ButtonToCheckout}
+    Click Element    ${ButtonToCheckout}
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
