@@ -3,14 +3,13 @@
 
 *** Settings ***
 Documentation       Suite description
-
+Library             DateTime
 Resource            ../base/setup.robot
 Resource            ../base/base.robot
 Resource            ../pages/cart_page.robot
 Resource            ../pages/home_page.robot
 Resource            ../pages/product_detail_page.robot
 Resource            ../pages/checkout_page.robot
-Library             DateTime
 Resource            ../pages/login_page.robot
 Variables           ../resources/locators/scv2_locator.py
 
@@ -398,6 +397,27 @@ G-TCCHG8.Use different billing address
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation
+
+G-TCCHG11.Home Delivery checkout with no shipping method
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=081234567890
+    SCV2 Submit Login
+    SCV2 Request OTP
+    SCV2 Send OTP
+    Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
+    Click Element    ${SCVHomeDeliveryButton}
+    Element Should Be Disabled    ${SCVPayButton}
 
 G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout

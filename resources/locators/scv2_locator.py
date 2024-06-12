@@ -16,12 +16,16 @@ SCVPinpointBlank            = "//div[contains(@class,'column-pinpoint')]//p"
 SCVCityBlank                = "//div[contains(@class,'MuiDialogContent-root')]//div[@class='column']//p"
 SCVButtonAddressList        = "//button[contains(@class,'MuiAutocomplete-popupIndicator')]"
 
+#home delivery
+SCVHomeDeliveryButton                   = "//div[@id='checkout-delivery-pickupInStore']"
+
 #checkout
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 
 # checkoutpage
+SCVPayButton                            = "//button[@id='checkout-payButton']"
 ValidateEmailAddressIsEmty              = "//input[@id='checkout-email-textField'][@value='']"
 InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField']"
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
