@@ -242,6 +242,53 @@ G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Registered
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+
+
+    Select First Item In Verification Method
+    ${GetOTP}    Generate SCV2 Password
+    Input SCV2 Login OTP    ${GetOTP}
+
+    SCV2 Submit Login
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 G-TCCHG25.Successful Checkout Test with simple product using registered account
     [Tags]    Checkout25
     Empty the items in MiniCart
