@@ -155,7 +155,7 @@ Add User Address If Emty
         Save Address
     END
 
-Chenge Selected Address
+Change Selected Address
     Wait Until Element Is Visible With Long Time    ${ButtonAddNewAddressInAddressList}
     ${FistAddressIsSelected}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
@@ -252,3 +252,9 @@ Adding New a Billing Address
     Save Address
     Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}
     Close Address List
+
+Selecting or Adding New a Billing Address
+    Click Element    ${ButtonChangeBillingAddress}
+    Count and Add address If Less Than Two
+    Change Selected Address
+    Save Selected Address
