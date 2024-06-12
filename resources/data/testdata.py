@@ -57,3 +57,6 @@ ShipmentAddressDetail   = "Dukuhsari RT06/RW02, Sidokerto, Purwomartani, Kalasan
 ShippingCity            = "Kalasan"
 ShipmentPostalCode      = "55571"
 ShipmentPinLocation     = "Icube Jogja"
+
+# promotion
+PromoCode          = "PROMO10K"

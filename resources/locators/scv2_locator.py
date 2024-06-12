@@ -14,6 +14,8 @@ InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[@class='checkout-shipping-pin-img']"
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
+ButtonAddPromo                          = "//div[contains(@class,'boxPromo')]"
+ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
 
 # Address List Page
 ItemInAddressList                       = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')]"
@@ -27,12 +29,15 @@ ButtonSelectShippingMethod              = "//button[@id='checkout-shippingMethod
 ButtonSelectPaymentMethod               = "//button[@id='checkout-paymentMethod-selectButton']"
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
+CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
 
 # Select Shipping Method Page
 DropdownVAMidtransMethodItem            = "//img[contains(@alt,'Virtual Account (Via Midtranssnap)')]"
+DropdownBRIVAMidtransMethodItem         = "//img[contains(@alt,'BRI Virtual Account (Via Midtranssnap)')]"
+DropdownBNIVAMidtransMethodItem         = "//img[@alt='BNI Virtual Account (Via Midtranssnap)']"
 
 #Upsert Address Form
 ButtonSaveAddressInAddressForm          = "//button[@id='checkout-address-saveButton']"
@@ -65,3 +70,9 @@ CloseMitransPopup                       = "//div[@class='close-snap-button click
 # Thankyoupage
 ThankyouPageHeader                      = "//div[contains(@class,'success-header success-section')]"
 
+# Allert
+CheckoutSuccessAllert                   = "//div[contains(@class,'toast-message')]//div[contains(@class,'MuiAlert-standardSuccess')]"
+
+# Promo Page
+InputPromoCode                          = "//input[@id='coupon']"
+ButtonApplyPromo                        = "//div[@aria-labelledby='promotion-dialog-title']//div[contains(@class,'MuiDialogContent-root')]//button"
