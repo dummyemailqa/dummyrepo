@@ -100,9 +100,6 @@ Input Address Form
             Click Element    ${ListAddressCityFirstItem} 
         END
     END
-    
-    # Wait Until Element Is Visible With Long Time    ${ListAddressCityFirstItem}
-    # Click Element    ${ListAddressCityFirstItem}  
 
     Clear Text Field    ${InputAddressPostalCode}
     Input Text    ${InputAddressPostalCode}    ${ShipmentPostalCode}

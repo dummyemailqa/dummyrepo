@@ -90,3 +90,9 @@ Add To Cart All Product from Wishlist
     Scroll Down To Element    ${BtnATCAllProductWishlist}
     Click Button        ${BtnATCAllProductWishlist}
     Validate Message Success Alert Is Visible
+
+Add to Cart a variant product from the Wishlist without selecting a variant
+    Wait Until Element Is Enabled    ${ProductWishlist}
+    Scroll Down To Element    ${BtnATCWishlist}
+    Click Button        ${BtnATCWishlist}
+    Validate Alert Message Is Visible
