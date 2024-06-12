@@ -389,7 +389,7 @@ G-TCCHG18.Apply invalid coupon code
     Invalid Promo Code Validation
 
 G-TCCHG22.Continue shopping after checkout
-    [Tags]    checkout    ragil
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
