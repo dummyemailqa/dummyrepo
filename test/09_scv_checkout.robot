@@ -338,12 +338,9 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
-Tets
-    [Tags]    ragil
-    Go To Home Page
 
 G-TCCHG18.Apply invalid coupon code 
-    [Tags]    checkout    ragil
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
