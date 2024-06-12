@@ -178,3 +178,22 @@ L-TCWL6.1.Logged In users are able to add a Configurable product to the cart fro
     &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Close The Minicart
+
+L-TCWL6.3.Logged In users are able to add a Group product to the cart from the wishlist page without selecting a product variant
+    [Tags]    wishlist
+    Login User
+    Empty the items in MiniCart
+    Go To My Account Page
+    Emty Item In Wishlish Page
+    Add Product to Wishlist    ${ProductGroupNameForSearch}
+
+    #Add To Cart Configurable Product From Wishlist
+    Add to Cart a variant product from the Wishlist without selecting a variant
+     @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Close The Minicart
