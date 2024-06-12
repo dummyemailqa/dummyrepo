@@ -1,3 +1,4 @@
+
 *** Settings ***
 Library         DateTime
 Resource        ../base/common.robot
@@ -231,6 +232,10 @@ Midtrans Virtual Account Transaction
 
 Thankyou page Validation
     Wait Until Element Is Visible With Long Time    ${ThankyouPageHeader}
+
+Continue Shopping
+    Wait Until Element Is Visible With Long Time    ${ButtonContinueShopping}
+    Click Element    ${ButtonContinueShopping}
 
 SCV Validate Blank Pinpoint New Address
     Wait Until Element Is Visible With Long Time    ${SCVPinpointBlank}
