@@ -1,4 +1,3 @@
-
 *** Settings ***
 Library         DateTime
 Resource        ../base/common.robot

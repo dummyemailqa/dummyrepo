@@ -1,7 +1,9 @@
+
 #login
 ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
 InputPhoneNumberLogin       = "//input[@id='checkout-loginPhoneNumber-textField']"
 AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
+InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 
 #address
 SCVAddAddressWhileBlank     = "//img[@class='checkout-shipping-pin-img']"

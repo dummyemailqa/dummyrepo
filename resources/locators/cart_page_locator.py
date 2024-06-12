@@ -8,6 +8,11 @@ ButtonViewCart          = "//a[contains(@href,'/checkout/cart/')]"
 ButtonToCheckout        = "//a[@id='checkout-link-button']"
 MinicartQty             = "//span[@x-text='qty']"
 
+MinicartIncrease        = "//div[contains(@class,'items-start')]//div[contains(@class,'gap-2')]//button[2]"
+MinicartDecrease        = "//div[contains(@class,'items-start')]//div[contains(@class,'gap-2')]//button[1]"
+MinicartLoader          = "//div[@x-show='isLoading']"
+MinicartSubtotal        = "//span[@x-html='cart.subtotal']"
+
 #Shopping Cart
 ButtonViewCart          = "//a[contains(@href,'/checkout/cart/')]"
 ButtonToCheckout        = "//a[@id='checkout-link-button']"
