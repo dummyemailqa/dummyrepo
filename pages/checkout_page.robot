@@ -217,3 +217,29 @@ Validate Message Success Alert Is Visible On Checkout Page
 Select Billing Address Same As Shipping Address
     ${BillingAddressSameAsShippingAddress}    Run Keyword And Return Status      Wait Until Element Is Visible    ${ButtonChangeBillingAddress}    timeout=10
     Run Keyword If    ${BillingAddressSameAsShippingAddress}    Click Element    ${CheckboxBillingAddressSameAsShippingAddress}
+
+UnSelect Billing Address Same As Shipping Address
+    ${Status}=     Run Keyword And Return Status                Checkbox Should Be Selected    ${CheckboxBillingAddressSameAsShippingAddress}
+    IF    ${Status}    
+        Click Element    ${CheckboxBillingAddressSameAsShippingAddress}
+        Scroll Down To Element    ${ButtonChangeBillingAddress}
+        Wait Until Element Is Visible With Long Time    ${ButtonChangeBillingAddress}
+    END
+
+Adding New a Billing Address
+    Click Element    ${ButtonChangeBillingAddress}
+    Wait Until Element Is Visible With Long Time    ${ButtonAddNewAddressInAddressList}
+    Click Element    ${ButtonAddNewAddressInAddressList}
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}
+    Close Address List
