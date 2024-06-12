@@ -5,7 +5,7 @@ Variables   ../resources/data/testdata.py
 
 *** Variables ***
 ${BROWSER}    Safari
-${CromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver_win64/chromedriver.exe
+${CromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver_win64/chromedriver
 ${EdgeDriverPath}     ${CURDIR}/../../Drivers/edgedriver_win64/msedgedriver
 
 *** Keywords ***
