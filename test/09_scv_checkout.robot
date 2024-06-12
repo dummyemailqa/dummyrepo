@@ -1,4 +1,5 @@
 
+
 *** Settings ***
 Documentation       Suite description
 
@@ -86,7 +87,7 @@ G-TCCHG3.Add shipping address
     ...    ${ShipmentPinLocation}
     Save Address
 
-    Chenge Selected Address
+    Change Selected Address
     Save Selected Address
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
@@ -94,6 +95,111 @@ G-TCCHG3.Add shipping address
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation
+
+G-TCCHG4.Add shipping address with empty fields
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+
+
+    Select First Item In Verification Method
+    ${GetOTP}    Generate SCV2 Password
+    Input SCV2 Login OTP    ${GetOTP}
+
+    SCV2 Submit Login
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressIsEmty}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonAddAddressCheckoutPage}
+    IF    ${AddressIsEmty}
+        Click Element    ${ButtonAddAddressCheckoutPage}
+    ELSE
+        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    END
+        Click Element    ${ButtonAddNewAddressInAddressList}
+    Validate Blank Pinpoint
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${EMPTY}
+    Save Address
+    SCV Validate Blank Pinpoint New Address
+    
+    Input Address Form
+    ...    ${EMPTY}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${EMPTY}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${EMPTY}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${EMPTY}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${EMPTY}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
 
 G-TCCHG5.Change shipping address
     [Tags]    checkout
@@ -140,7 +246,7 @@ G-TCCHG5.Change shipping address
     Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
     Count and Add address If Less Than Two
 
-    Chenge Selected Address
+    Change Selected Address
     Save Selected Address
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
@@ -237,6 +343,54 @@ G-TCCHG7.Add New Billing Address
     
     UnSelect Billing Address Same As Shipping Address
     Adding New a Billing Address
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
+G-TCCHG8.Use different billing address
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+
+    Select First Item In Verification Method
+    ${GetOTP}    Generate SCV2 Password
+    Input SCV2 Login OTP    ${GetOTP}
+
+    SCV2 Submit Login
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    
+    UnSelect Billing Address Same As Shipping Address
+    Selecting or Adding New a Billing Address
 
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
@@ -475,7 +629,7 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
     Count and Add address If Less Than Two
 
-    Chenge Selected Address
+    Change Selected Address
     Save Selected Address
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
