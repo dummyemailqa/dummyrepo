@@ -338,8 +338,12 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+Tets
+    [Tags]    ragil
+    Go To Home Page
+
 G-TCCHG18.Apply invalid coupon code 
-    [Tags]    checkout
+    [Tags]    checkout    ragil
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
@@ -377,19 +381,14 @@ G-TCCHG18.Apply invalid coupon code
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
-
-    # Melakukan pengechekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
-    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
-    Count and Add address If Less Than Two
-
-    Chenge Selected Address
-    Save Selected Address
+    
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Select Promotion
-    Input Promotion Code
+    ${PromotionCode}    Generate Random Keyword
+    Input Promo Code    ${PromotionCode}
+    Select Button Apply Promo    
     Invalid Promo Code Validation
 
 G-TCCHG25.Successful Checkout Test with simple product using registered account
