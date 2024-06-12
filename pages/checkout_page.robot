@@ -91,7 +91,7 @@ Input Address Form
     ${ListItemIsVisible}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ListAddressCityFirstItem}
-    IF  '${ShippingCity}'=='${EMPTY}'
+    IF  '${ShippingCity}'!='${EMPTY}'
         IF  ${ListItemIsVisible}
             Click Element    ${ListAddressCityFirstItem} 
         ELSE
