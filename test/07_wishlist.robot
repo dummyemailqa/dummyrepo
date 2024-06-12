@@ -159,3 +159,22 @@ L-TCWL5.Logged In User is able to share wishlist by email
     To My Wishlist From Nav Bar
     Share Wishlist To Email
     Validate Message Success Alert Is Visible
+
+L-TCWL6.1.Logged In users are able to add a Configurable product to the cart from the wishlist page without selecting a product variant
+    [Tags]    wishlist
+    Login User
+    Empty the items in MiniCart
+    Go To My Account Page
+    Emty Item In Wishlish Page
+    Add Product to Wishlist    ${ProductConfigNameForSearch}
+
+    #Add To Cart Configurable Product From Wishlist
+    Add to Cart a variant product from the Wishlist without selecting a variant
+     @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Close The Minicart
