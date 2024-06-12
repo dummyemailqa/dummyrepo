@@ -54,4 +54,7 @@ URLTwitter              = 'https://x.com'
 ShipmentAddressDetail   = "Dukuhsari RT06/RW02, Sidokerto, Purwomartani, Kalasan, Sleman Regency, Special Region of Yogyakarta"
 ShippingCity            = "Kalasan"
 ShipmentPostalCode      = "55571"
-ShipmentPinLocation     = "Icube Jogjas"
+ShipmentPinLocation     = "Icube Jogja"
+
+# promotion
+PromoCode          = "PROMO10K"
