@@ -190,14 +190,6 @@ Select Promotion
     Wait Until Element Is Visible With Long Time    ${AddAvailPromo}
     Click Element    ${AddAvailPromo}
 
-Input Promotion Code
-    Wait Until Element Is Visible With Long Time    ${InputPromoCode}
-    Click Element    ${InputPromoCode}
-    ${PromotionCode}    Generate Random Keyword
-    Input Text    ${InputPromoCode}    ${PromotionCode}
-    Wait Until Element Is Visible With Long Time    ${ButtonPasang}
-    Click Element    ${ButtonPasang}
-
 Invalid Promo Code Validation
     Wait Until Element Is Visible With Long Time    ${AllertMessage}
     Wait Until Element Is Not Visible With Long Time    ${AllertMessage}
@@ -220,3 +212,49 @@ Thankyou page Validation
 Continue Shopping
     Wait Until Element Is Visible With Long Time    ${ButtonContinueShopping}
     Click Element    ${ButtonContinueShopping}
+
+Input Promo Code
+    [Arguments]    ${PromoCode}
+    Wait Until Element Is Visible With Long Time    ${InputPromoCode}
+    Clear Text Field    ${InputPromoCode}
+    Input Text    ${InputPromoCode}    ${PromoCode}
+
+Select Button Apply Promo
+    Wait Until Element Is Enabled    ${ButtonApplyPromo}
+    Click Element    ${ButtonApplyPromo}
+
+Validate Message Success Alert Is Visible On Checkout Page
+    Wait Until Element Is Visible With Long Time    ${CheckoutSuccessAllert}
+    Wait Until Element Is Not Visible With Long Time    ${CheckoutSuccessAllert}
+
+Select Billing Address Same As Shipping Address
+    ${BillingAddressSameAsShippingAddress}    Run Keyword And Return Status      Wait Until Element Is Visible    ${ButtonChangeBillingAddress}    timeout=10
+    Run Keyword If    ${BillingAddressSameAsShippingAddress}    Click Element    ${CheckboxBillingAddressSameAsShippingAddress}
+
+UnSelect Billing Address Same As Shipping Address
+    ${Status}=     Run Keyword And Return Status                Checkbox Should Be Selected    ${CheckboxBillingAddressSameAsShippingAddress}
+    IF    ${Status}    
+        Click Element    ${CheckboxBillingAddressSameAsShippingAddress}
+        Scroll Down To Element    ${ButtonChangeBillingAddress}
+        Wait Until Element Is Visible With Long Time    ${ButtonChangeBillingAddress}
+    END
+
+Adding New a Billing Address
+    Click Element    ${ButtonChangeBillingAddress}
+    Wait Until Element Is Visible With Long Time    ${ButtonAddNewAddressInAddressList}
+    Click Element    ${ButtonAddNewAddressInAddressList}
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}
+    Close Address List
+
+    
