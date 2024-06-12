@@ -3,6 +3,17 @@ ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
 InputPhoneNumberLogin       = "//input[@id='checkout-loginPhoneNumber-textField']"
 AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
 
+#address
+SCVAddAddressWhileBlank     = "//img[@class='checkout-shipping-pin-img']"
+SCVSaveNewAddress           = "//button[@id='checkout-address-saveButton']"
+SendWAOTPButton             = "//div[@role='button']"
+SCVOTPField                 = "//input[@name='otp']"
+SCVContinueToCheckout       = "//button[@id='checkout-login-continueButton']"
+SCVErrorMessageAddressBlank = "//div[contains(@class,'MuiInputBase-root Mui-error')]"
+SCVPinpointBlank            = "//div[contains(@class,'column-pinpoint')]//p"
+SCVCityBlank                = "//div[contains(@class,'MuiDialogContent-root')]//div[@class='column']//p"
+SCVButtonAddressList        = "//button[contains(@class,'MuiAutocomplete-popupIndicator')]"
+
 #checkout
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"

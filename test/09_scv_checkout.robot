@@ -1,4 +1,5 @@
 
+
 *** Settings ***
 Documentation       Suite description
 
@@ -94,6 +95,111 @@ G-TCCHG3.Add shipping address
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation
+
+G-TCCHG4.Add shipping address with empty fields
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+
+
+    Select First Item In Verification Method
+    ${GetOTP}    Generate SCV2 Password
+    Input SCV2 Login OTP    ${GetOTP}
+
+    SCV2 Submit Login
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressIsEmty}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonAddAddressCheckoutPage}
+    IF    ${AddressIsEmty}
+        Click Element    ${ButtonAddAddressCheckoutPage}
+    ELSE
+        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    END
+        Click Element    ${ButtonAddNewAddressInAddressList}
+    Validate Blank Pinpoint
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${EMPTY}
+    Save Address
+    SCV Validate Blank Pinpoint New Address
+    
+    Input Address Form
+    ...    ${EMPTY}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${EMPTY}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${EMPTY}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${EMPTY}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${EMPTY}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    SCV Validate Blank Field New Address
 
 G-TCCHG5.Change shipping address
     [Tags]    checkout
