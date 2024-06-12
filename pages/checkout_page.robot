@@ -186,6 +186,15 @@ Select Payment Method
     Wait Until Element Is Visible With Long Time    ${PaymentMethod}
     Click Element    ${PaymentMethod}
 
+Select Promotion
+    Wait Until Element Is Visible With Long Time    ${AddAvailPromo}
+    Click Element    ${AddAvailPromo}
+
+Invalid Promo Code Validation
+    Wait Until Element Is Visible With Long Time    ${AllertMessage}
+    Wait Until Element Is Not Visible With Long Time    ${AllertMessage}
+    Click Element    ${ButtonClosePromo}
+
 Submit Place Order
     Wait Until Element Is Visible With Long Time    ${LabelSelectPaymentMethod}
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}

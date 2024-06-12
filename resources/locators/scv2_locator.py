@@ -55,6 +55,13 @@ ButtonToPinpoinLocationForm             = "//button[@id='checkout-addressPinPoin
 InputGoogleMapSearchPinPointLocation    = "//input[@id='googleMaps-search-textField']"
 ButtonSavePinPointLocation              = "//button[@id='checkout-addressPinPoint-saveButton']"
 
+# Promotion
+AddAvailPromo                          = "//div[contains(@class,'boxPromo')]"
+InputPromoCode                         = "//input[@id='coupon']"
+ButtonPasang                           = "//div[contains(@class,'MuiDialogContent')]//button"
+AllertMessage                          = "//div[@class='MuiAlert-icon']"
+ButtonClosePromo                       = "//img[@alt='Close Modal']"
+
 # Mitrans
 MidtransFrame                           = 'snap-midtrans'
 MidtransPopup                           = 'id:application'
