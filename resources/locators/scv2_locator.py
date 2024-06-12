@@ -1,7 +1,23 @@
+
 #login
 ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
 InputPhoneNumberLogin       = "//input[@id='checkout-loginPhoneNumber-textField']"
 AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
+InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
+
+#address
+SCVAddAddressWhileBlank     = "//img[@class='checkout-shipping-pin-img']"
+SCVSaveNewAddress           = "//button[@id='checkout-address-saveButton']"
+SendWAOTPButton             = "//div[@role='button']"
+SCVOTPField                 = "//input[@name='otp']"
+SCVContinueToCheckout       = "//button[@id='checkout-login-continueButton']"
+SCVErrorMessageAddressBlank = "//div[contains(@class,'MuiInputBase-root Mui-error')]"
+SCVPinpointBlank            = "//div[contains(@class,'column-pinpoint')]//p"
+SCVCityBlank                = "//div[contains(@class,'MuiDialogContent-root')]//div[@class='column']//p"
+SCVButtonAddressList        = "//button[contains(@class,'MuiAutocomplete-popupIndicator')]"
+
+#home delivery
+SCVHomeDeliveryButton                   = "//div[@id='checkout-delivery-pickupInStore']"
 
 #checkout
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
@@ -9,11 +25,14 @@ InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 
 # checkoutpage
+SCVPayButton                            = "//button[@id='checkout-payButton']"
 ValidateEmailAddressIsEmty              = "//input[@id='checkout-email-textField'][@value='']"
 InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField']"
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[@class='checkout-shipping-pin-img']"
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
+ButtonAddPromo                          = "//div[contains(@class,'boxPromo')]"
+ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
 
 # Address List Page
 ItemInAddressList                       = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')]"
@@ -27,13 +46,15 @@ ButtonSelectShippingMethod              = "//button[@id='checkout-shippingMethod
 ButtonSelectPaymentMethod               = "//button[@id='checkout-paymentMethod-selectButton']"
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
+CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
 
 # Select Shipping Method Page
 DropdownVAMidtransMethodItem            = "//img[contains(@alt,'Virtual Account (Via Midtranssnap)')]"
-DropdownPermataVAMidtransMethodItem     = "//img[contains(@alt,'Permata Virtual Account (Via Midtranssnap)')]"
+DropdownBRIVAMidtransMethodItem         = "//img[contains(@alt,'BRI Virtual Account (Via Midtranssnap)')]"
+DropdownBNIVAMidtransMethodItem         = "//img[@alt='BNI Virtual Account (Via Midtranssnap)']"
 
 #Upsert Address Form
 ButtonSaveAddressInAddressForm          = "//button[@id='checkout-address-saveButton']"
@@ -51,6 +72,13 @@ ButtonToPinpoinLocationForm             = "//button[@id='checkout-addressPinPoin
 InputGoogleMapSearchPinPointLocation    = "//input[@id='googleMaps-search-textField']"
 ButtonSavePinPointLocation              = "//button[@id='checkout-addressPinPoint-saveButton']"
 
+# Promotion
+AddAvailPromo                          = "//div[contains(@class,'boxPromo')]"
+InputPromoCode                         = "//input[@id='coupon']"
+ButtonPasang                           = "//div[contains(@class,'MuiDialogContent')]//button"
+AllertMessage                          = "//div[@class='MuiAlert-icon']"
+ButtonClosePromo                       = "//img[@alt='Close Modal']"
+
 # Mitrans
 MidtransFrame                           = 'snap-midtrans'
 MidtransPopup                           = 'id:application'
@@ -58,4 +86,11 @@ CloseMitransPopup                       = "//div[@class='close-snap-button click
 
 # Thankyoupage
 ThankyouPageHeader                      = "//div[contains(@class,'success-header success-section')]"
+ButtonContinueShopping                  = "//button[@id='checkout-success-continueButton']"
 
+# Allert
+CheckoutSuccessAllert                   = "//div[contains(@class,'toast-message')]//div[contains(@class,'MuiAlert-standardSuccess')]"
+
+# Promo Page
+InputPromoCode                          = "//input[@id='coupon']"
+ButtonApplyPromo                        = "//div[@aria-labelledby='promotion-dialog-title']//div[contains(@class,'MuiDialogContent-root')]//button"
