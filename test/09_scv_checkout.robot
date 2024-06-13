@@ -884,7 +884,7 @@ L-TCCHR9.Add Billing address
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
-L-TCCHR10.Use different billing address
+ L-TCCHR10.Use different billing address
     [Tags]    checkout
     Login User
     Empty the items in MiniCart
@@ -920,7 +920,7 @@ L-TCCHR10.Use different billing address
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Submit Place Order
     Midtrans Virtual Account Transaction
-    Thankyou page Validation
+    Thankyou page Validation   
 
 L-TCCHR14.Home Delivery checkout without selected payment method
     [Tags]    checkout
@@ -940,3 +940,42 @@ L-TCCHR14.Home Delivery checkout without selected payment method
     Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
     Click Element    ${SCVHomeDeliveryButton}
     Element Should Be Disabled    ${SCVPayButton}
+
+L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    # Go To Checkout Page From Shopping Cart
+    # Select First Item In Verification Method
+    Scroll Down To Element    ${ButtonToCheckout}
+    Click Element    ${ButtonToCheckout}
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownBRIVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
