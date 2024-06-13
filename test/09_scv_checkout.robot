@@ -921,7 +921,7 @@ L-TCCHR9.Add Billing address
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
- L-TCCHR10.Use different billing address
+L-TCCHR10.Use different billing address
     [Tags]    checkout
     Login User
     Empty the items in MiniCart
@@ -993,8 +993,6 @@ L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    # Go To Checkout Page From Shopping Cart
-    # Select First Item In Verification Method
     Scroll Down To Element    ${ButtonToCheckout}
     Click Element    ${ButtonToCheckout}
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
