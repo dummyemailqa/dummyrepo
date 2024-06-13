@@ -899,8 +899,19 @@ L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
     Go To Checkout Page From Shopping Cart Login User
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
 
     Select Shipping Method
     Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
