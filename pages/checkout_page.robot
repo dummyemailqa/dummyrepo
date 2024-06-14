@@ -180,12 +180,12 @@ Add User Address If Emty
 
 Change Selected Address
     Wait Until Element Is Visible With Long Time    ${ButtonAddNewAddressInAddressList}
-    ${FistAddressIsSelected}    Run Keyword And Return Status
-    ...    Wait Until Element Is Visible
-    ...    ${FirstItemInAddresListIsChecked}
-    ...    10
-    IF    ${FistAddressIsSelected}
+    ${first_selected}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${RadioButtonSelectFirstAddressInList}
+    ${second_selected}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${RadioButtonSelectSecondAddressInList}
+    IF    ${first_selected}
         Click Element    ${RadioButtonSelectSecondAddressInList}
+    ELSE IF    ${second_selected}
+        Click Element    ${RadioButtonSelectFirstAddressInList}
     ELSE
         Click Element    ${RadioButtonSelectFirstAddressInList}
     END
