@@ -49,16 +49,7 @@ G-TCCHG3.Add shipping address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -106,17 +97,7 @@ G-TCCHG4.Add shipping address with empty fields
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
     
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
     
@@ -211,17 +192,7 @@ G-TCCHG5.Change shipping address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -265,16 +236,7 @@ G-TCCHG6.Billing address same as Shipping address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -312,16 +274,7 @@ G-TCCHG7.Add New Billing Address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -360,16 +313,7 @@ G-TCCHG8.Use different billing address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -406,11 +350,8 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=081234567890
-    SCV2 Submit Login
-    SCV2 Request OTP
-    SCV2 Send OTP
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
     Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
     Click Element    ${SCVHomeDeliveryButton}
     Element Should Be Disabled    ${SCVPayButton}
@@ -429,17 +370,7 @@ G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -476,16 +407,7 @@ G-TCCHG14.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
     Select Shipping Method
@@ -508,17 +430,7 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -555,17 +467,7 @@ G-TCCHG18.Apply invalid coupon code
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -604,15 +506,7 @@ G-TCCHG22.Continue shopping after checkout
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -648,15 +542,7 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-
-    Select First Item In Verification Method
-    ${GetOTP}    Generate SCV2 Password
-    Input SCV2 Login OTP    ${GetOTP}
-
-    SCV2 Submit Login
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
@@ -762,10 +648,7 @@ L-TCCHR6.Add shipping address with empty fields
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
     
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
     
@@ -861,7 +744,7 @@ L-TCCHR8. Billing address same as Shipping address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -898,7 +781,7 @@ L-TCCHR9.Add Billing address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -936,7 +819,7 @@ L-TCCHR10.Use different billing address
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -972,8 +855,7 @@ L-TCCHR14.Home Delivery checkout without selected payment method
     &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
+    Go To Checkout Page From Shopping Cart Guest and Login User
     Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
     Click Element    ${SCVHomeDeliveryButton}
     Element Should Be Disabled    ${SCVPayButton}
@@ -993,9 +875,8 @@ L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -1030,7 +911,7 @@ L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -1065,7 +946,7 @@ L-TCCHR17.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -1101,7 +982,7 @@ L-TCCHR19.Apply valid coupon code
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
@@ -1146,7 +1027,7 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Go To Checkout Page From Shopping Cart Login User
+    Go To Checkout Page From Shopping Cart Guest and Login User
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     Add User Address If Emty
@@ -1181,9 +1062,7 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Go To Checkout Page From Shopping Cart Guest and Login User
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
