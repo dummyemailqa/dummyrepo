@@ -118,3 +118,12 @@ Validate Alert Message Is Visible
     Wait Until Element Is Visible With Long Time    ${RegisterAlerrMessageInvalidRegister}
     Click Element    ${CloseMessageBtn}
     Wait Until Element Is Not Visible    ${RegisterAlerrMessageInvalidRegister}
+
+Convert Grandtotal String to Integer
+    #format string example:     IDR 133,000.00
+    [Arguments]  ${value}
+    ${cleaned_string}  Replace String  ${value}  IDR    replace_with=
+    ${cleaned_string}  Replace String  ${cleaned_string}  ,    replace_with=
+    ${cleaned_string}  Replace String  ${cleaned_string}  .00    replace_with=
+    ${integer_value}=  Evaluate  int(${cleaned_string})
+    RETURN  ${integer_value}

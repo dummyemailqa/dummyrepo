@@ -1,6 +1,7 @@
 #Account Detail
 EmailAddress            = 'jellyseller@yopmail.com'
 EmailAddressRegistered  = 'demo@icube.us'
+EmailAddressRegistered2 = 'egi.gusniawan@yopmail.com'
 Password                = 'Password123'
 FirstName               = 'demo'
 LastName                = 'icube'
@@ -41,6 +42,7 @@ ProductReviewDetail = "Lorem Ipsum is simply dummy text of the printing and type
 
 # Gift Card
 GiftCardCodeManually        = 'QA8568495182'
+GiftCardToZero              = 'TUQHQD0CYT05'
 
 # Sosial Media platforms
 WhatsappWindows         = "title:Share on WhatsApp"

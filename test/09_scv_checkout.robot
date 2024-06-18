@@ -1047,6 +1047,38 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     Select Button Apply Promo
     Invalid Promo Code Validation
 
+L-TCCHR22.Giftcard balance more than Total order
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    Submit Giftcard Code    ${GiftCardToZero}
+    Validate Grandtotal Is Zero
+
 L-TCCHR28.Successful Checkout Test with Configurable product using registered account
     [Tags]    checkout
     Login User

@@ -96,3 +96,11 @@ CheckoutSuccessAllert                   = "//div[contains(@class,'toast-message'
 # Promo Page
 InputPromoCode                          = "//input[@id='coupon']"
 ButtonApplyPromo                        = "//div[@aria-labelledby='promotion-dialog-title']//div[contains(@class,'MuiDialogContent-root')]//button"
+
+#giftcard
+GiftCardInput                           = "//input[@id='checkout-giftcard-textField']"
+GiftCardPasangButton                    = "//div[contains(@class,'giftcart-box')]//div[contains(@class,'MuiInputAdornment-positionEnd')]//span[contains(@class,'MuiTypography-root')]"
+GiftCardLoader                          = "//div[contains(@class,'MuiCircularProgress-root')]"
+
+#summary
+GrandTotalInSummary                     = "//div[@id='checkoutOrderSummary']//div[contains(@class,'summary-total')]//span[2]"
