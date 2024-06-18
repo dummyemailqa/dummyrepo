@@ -1111,17 +1111,7 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    # Go To Checkout Page From Shopping Cart
-    # Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-    # Select First Item In Verification Method
-    # ${GetOTP}    Generate SCV2 Password
-    # Input SCV2 Login OTP    ${GetOTP}
-    # SCV2 Submit Login
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
-    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    Go To Checkout Page From Shopping Cart Login User
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     Add User Address If Emty
@@ -1136,8 +1126,8 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Select Promotion
-    ${PromotionCode}    Generate Random Keyword
-    Input Promo Code    ${PromotionCode}
+    ${InvalidPromotionCode}    Generate Random Keyword
+    Input Promo Code    ${InvalidPromotionCode}
     Select Button Apply Promo
     Invalid Promo Code Validation
 
