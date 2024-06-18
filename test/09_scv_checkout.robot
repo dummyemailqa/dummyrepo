@@ -1076,7 +1076,7 @@ L-TCCHR22.Giftcard balance more than Total order
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
-    Submit Giftcard Code    ${TryGiftCardToZero}
+    Submit Giftcard Code    ${GiftCardToZero}
     Validate Grandtotal Is Zero
 
 L-TCCHR28.Successful Checkout Test with Configurable product using registered account
