@@ -27,7 +27,7 @@ Search Product Suggestion Validation
 
 Search Product result Validation
     [Arguments]    ${keyword}
-    ${ShowPDP}    Run Keyword And Return Status    Element Should Be Visible    ${PDPProductName}
+    ${ShowPDP}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s    ${PDPProductName}
     ${keyword}    Convert To Lower Case    ${keyword}
     IF    ${ShowPDP}
         Validate Message Success Alert Is Visible
