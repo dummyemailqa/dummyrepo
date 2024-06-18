@@ -394,7 +394,8 @@ Login at the Checkout Page for Guest Users
     SCV2 Submit Login
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
 
-Set Giftcard
+Submit Giftcard Code
+    [Arguments]    ${TryGiftCardToZero}
     Input Text    ${GiftCardInput}    ${TryGiftCardToZero}
     Click Element    ${GiftCardPasangButton}
     Wait Until Element Is Not Visible    ${GiftCardLoader}
