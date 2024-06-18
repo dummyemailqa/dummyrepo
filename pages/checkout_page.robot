@@ -385,3 +385,11 @@ Selecting or Adding New a Billing Address
     Count and Add address If Less Than Two
     Change Selected Address
     Save Selected Address
+
+Login at the Checkout Page for Guest Users
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+    Select First Item In Verification Method
+    ${GetOTP}    Generate SCV2 Password
+    Input SCV2 Login OTP    ${GetOTP}
+    SCV2 Submit Login
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
