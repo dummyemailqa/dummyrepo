@@ -393,3 +393,13 @@ Login at the Checkout Page for Guest Users
     Input SCV2 Login OTP    ${GetOTP}
     SCV2 Submit Login
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+
+Set Giftcard
+    Input Text    ${GiftCardInput}    ${TryGiftCardToZero}
+    Click Element    ${GiftCardPasangButton}
+    Wait Until Element Is Not Visible    ${GiftCardLoader}
+
+Validate Grandtotal Is Zero
+    ${GrandTotalText}    Get Text    ${GrandTotal}
+    ${GrandTotalAfterPromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    Should Be Equal As Integers    ${GrandTotalAfterPromo}    0
