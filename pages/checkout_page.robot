@@ -395,8 +395,8 @@ Login at the Checkout Page for Guest Users
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
 
 Submit Giftcard Code
-    [Arguments]    ${TryGiftCardToZero}
-    Input Text    ${GiftCardInput}    ${TryGiftCardToZero}
+    [Arguments]    ${GiftCard}
+    Input Text    ${GiftCardInput}    ${GiftCard}
     Click Element    ${GiftCardPasangButton}
     Wait Until Element Is Not Visible    ${GiftCardLoader}
 
