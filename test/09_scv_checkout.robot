@@ -1050,6 +1050,52 @@ L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+L-TCCHR19.Apply valid coupon code
+    [Tags]    checkout
+    Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Login User
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Add User Email If Emty    ${EmailAddressRegistered}
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+
+    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
+    Click Element    ${ButtonAddPromo}    
+    Input Promo Code    ${PromoCode}
+    Select Button Apply Promo
+
+    Validate Message Success Alert Is Visible On Checkout Page
+
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 L-TCCHR28.Successful Checkout Test with Configurable product using registered account
     [Tags]    checkout
     Login User
