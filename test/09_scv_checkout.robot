@@ -876,7 +876,36 @@ L-TCCHR10.Use different billing address
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Submit Place Order
     Midtrans Virtual Account Transaction
-    Thankyou page Validation   
+    Thankyou page Validation
+
+L-TCCHR013.Home Delivery checkout without selected shipping method
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
+    Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 L-TCCHR14.Home Delivery checkout without selected payment method
     [Tags]    checkout
