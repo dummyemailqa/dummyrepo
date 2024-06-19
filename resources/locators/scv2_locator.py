@@ -103,4 +103,4 @@ GiftCardPasangButton                    = "//div[contains(@class,'giftcart-box')
 GiftCardLoader                          = "//div[contains(@class,'MuiCircularProgress-root')]"
 
 #summary
-GrandTotalInSummary                     = "//div[@id='checkoutOrderSummary']//div[contains(@class,'summary-total')]//span[2]"
+GrandTotal                              = "//div[@id='checkoutOrderSummary']//div[contains(@class,'summary-total')]//span[2]"
