@@ -526,7 +526,7 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
     Submit Giftcard Code    ${GiftCardToZero}
     Validate Grandtotal Is Zero
-    Submit Place Order 0 Subtotal
+    Submit Place Order Zero Subtotal
     Thankyou page Validation
 
 G-TCCHG22.Continue shopping after checkout
