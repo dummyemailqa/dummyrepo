@@ -401,6 +401,6 @@ Submit Giftcard Code
     Wait Until Element Is Not Visible    ${GiftCardLoader}
 
 Validate Grandtotal Is Zero
-    ${GrandTotalText}    Get Text    ${GrandTotal}
+    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
     Should Be Equal As Integers    ${GrandTotalAfterPromo}    0
