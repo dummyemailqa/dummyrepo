@@ -223,6 +223,11 @@ Submit Place Order
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Click Element    ${ButtonCheckoutPlaceOrder}
 
+Submit Place Order Zero Subtotal
+    Wait Until Element Is Not Visible With Long Time    ${LabelSelectPaymentMethod}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
+    Click Element    ${ButtonCheckoutPlaceOrder}
+
 Midtrans Virtual Account Transaction
     Select Frame    ${MidtransFrame}
     Wait Until Page Contains Element    ${MidtransPopup}    10
