@@ -223,7 +223,7 @@ Submit Place Order
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Click Element    ${ButtonCheckoutPlaceOrder}
 
-Submit Place Order 0 Subtotal
+Submit Place Order Zero Subtotal
     Wait Until Element Is Not Visible With Long Time    ${LabelSelectPaymentMethod}
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Click Element    ${ButtonCheckoutPlaceOrder}
