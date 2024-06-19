@@ -522,7 +522,6 @@ G-TCCHG22.Continue shopping after checkout
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
 
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Submit Place Order
@@ -1078,6 +1077,42 @@ L-TCCHR22.Giftcard balance more than Total order
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
     Submit Giftcard Code    ${GiftCardToZero}
     Validate Grandtotal Is Zero
+
+L-TCCHR24.Continue shopping after checkout
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+    Continue Shopping
 
 L-TCCHR28.Successful Checkout Test with Configurable product using registered account
     [Tags]    checkout
