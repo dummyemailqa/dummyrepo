@@ -53,6 +53,7 @@ CheckboxShippingInsurance               = "//input[@id='checkout-shipping-method
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
+CloseFormSelectShippingMethod           = "//div[@id='shipping-method-dialog-title']//button[contains(@class,'checkout-close-btn')]"
 
 # Select Shipping Method Page
 DropdownVAMidtransMethodItem            = "//img[contains(@alt,'Virtual Account (Via Midtranssnap)')]"
