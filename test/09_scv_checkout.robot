@@ -369,10 +369,10 @@ G-TCCHG9.Home Delivery with Insurance
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     
-    Select Or Unselest Insurance shipping    ${InsuranceStatus}
+    Select Or Unselect Insurance shipping    ${InsuranceStatus}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
-    Select Or Unselest Insurance shipping Validation    ${InsuranceStatus}
+    Select Or Unselect Insurance shipping Validation    ${InsuranceStatus}
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation

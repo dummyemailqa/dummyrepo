@@ -201,7 +201,7 @@ Select Shipping Method
     Wait Until Element Is Visible With Long Time    ${DropdownShippingMethodItem}
     Click Element    ${DropdownShippingMethodItem}
 
-Select Or Unselest Insurance shipping
+Select Or Unselect Insurance shipping
     [Arguments]    ${InsuranceStatus}
     Wait Until Element Is Visible With Long Time    ${ButtonSelectShippingMethod}
     Click Element    ${ButtonSelectShippingMethod}
@@ -216,7 +216,7 @@ Select Or Unselest Insurance shipping
     END
     Click Element    //div[@id='shipping-method-dialog-title']//button[contains(@class,'checkout-close-btn')]
 
-Select Or Unselest Insurance shipping Validation
+Select Or Unselect Insurance shipping Validation
     [Arguments]    ${InsuranceStatus}
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Wait Until Element Is Visible in 10s    ${ButtonCheckoutPlaceOrder}
