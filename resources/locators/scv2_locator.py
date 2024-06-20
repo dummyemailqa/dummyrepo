@@ -33,6 +33,8 @@ ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHom
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
 ButtonAddPromo                          = "//div[contains(@class,'boxPromo')]"
 ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
+LabelInsuranceBillingId                 = "//span[normalize-space()='Asuransi pengiriman']"
+LabelInsuranceBillingEn                 = "//span[normalize-space()='Shipping insurance']"
 
 # Address List Page
 ItemInAddressList                       = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')]"
@@ -47,6 +49,7 @@ ButtonSelectPaymentMethod               = "//button[@id='checkout-paymentMethod-
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
 CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
+CheckboxShippingInsurance               = "//input[@id='checkout-shipping-method-insurance']"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"

@@ -201,6 +201,46 @@ Select Shipping Method
     Wait Until Element Is Visible With Long Time    ${DropdownShippingMethodItem}
     Click Element    ${DropdownShippingMethodItem}
 
+Select Or Unselect Insurance shipping
+    [Arguments]    ${InsuranceStatus}
+    Wait Until Element Is Visible With Long Time    ${ButtonSelectShippingMethod}
+    Click Element    ${ButtonSelectShippingMethod}
+
+    Wait Until Element Is Visible With Long Time    ${DropdownShippingMethodItem}
+    ${CurarentInsuranceStatus}=    Get Element Attribute    ${CheckboxShippingInsurance}    value
+    Log To Console     ${CurarentInsuranceStatus}
+    IF    '${InsuranceStatus}' == 'Select'
+        Run Keyword If    '${CurarentInsuranceStatus}' == 'false'    Click Element    ${CheckboxShippingInsurance}
+    ELSE IF    '${InsuranceStatus}' == 'Unselect'
+        Run Keyword If    '${CurarentInsuranceStatus}' == 'true'    Click Element    ${CheckboxShippingInsurance}
+    END
+    Click Element    //div[@id='shipping-method-dialog-title']//button[contains(@class,'checkout-close-btn')]
+
+Select Or Unselect Insurance shipping Validation
+    [Arguments]    ${InsuranceStatus}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
+    Wait Until Element Is Visible in 10s    ${ButtonCheckoutPlaceOrder}
+    ${InsuranceBillingVisibleId}    Run Keyword And Return Status    Wait Until Element Is Visible    ${LabelInsuranceBillingId}
+    ${InsuranceBillingVisibleEn}    Run Keyword And Return Status    Wait Until Element Is Visible    ${LabelInsuranceBillingEn}
+
+    IF    '${InsuranceStatus}' == 'Select'  
+        IF  ${InsuranceBillingVisibleId}
+            RETURN    Pass
+        ELSE IF    ${InsuranceBillingVisibleId}
+            RETURN    Pass
+        ELSE
+            Fail    Insurance shipping not visible
+        END
+    ELSE IF    '${InsuranceStatus}' == 'Unselect'
+        IF  not ${InsuranceBillingVisibleId}
+            RETURN    Pass
+        ELSE IF  not ${InsuranceBillingVisibleId}
+            RETURN    Pass
+        ELSE
+            Fail    Insurance shipping Is visible
+        END
+    END
+
 Select Payment Method
     [Arguments]    ${PaymentMethod}
     Wait Until Element Is Visible With Long Time    ${ButtonSelectPaymentMethod}
