@@ -95,6 +95,7 @@ ButtonContinueShopping                  = "//button[@id='checkout-success-contin
 
 # Allert
 CheckoutSuccessAllert                   = "//div[contains(@class,'toast-message')]//div[contains(@class,'MuiAlert-standardSuccess')]"
+InvalidSCVOTPAlert                      = "//div[@role='alert']"
 
 # Promo Page
 InputPromoCode                          = "//input[@id='coupon']"
