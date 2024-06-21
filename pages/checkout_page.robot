@@ -214,7 +214,7 @@ Select Or Unselect Insurance shipping
     ELSE IF    '${InsuranceStatus}' == 'Unselect'
         Run Keyword If    '${CurarentInsuranceStatus}' == 'true'    Click Element    ${CheckboxShippingInsurance}
     END
-    Click Element    //div[@id='shipping-method-dialog-title']//button[contains(@class,'checkout-close-btn')]
+    Click Element    ${CloseFormSelectShippingMethod}
 
 Select Or Unselect Insurance shipping Validation
     [Arguments]    ${InsuranceStatus}
