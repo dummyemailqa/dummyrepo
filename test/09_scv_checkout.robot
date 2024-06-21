@@ -1283,6 +1283,41 @@ L-TCCHR24.Continue shopping after checkout
     Thankyou page Validation
     Continue Shopping
 
+L-TCCHR27.Successful Checkout with simple product using registered account
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName}    Add To Cart    Qty=2
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 L-TCCHR28.Successful Checkout Test with Configurable product using registered account
     [Tags]    checkout
     Login User
