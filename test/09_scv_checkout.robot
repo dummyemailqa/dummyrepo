@@ -35,6 +35,27 @@ G-TCCHG1.Login with invalid whatsapp number format
     SCV2 Submit Login
     Invalid Login Validation
 
+G-TCCHG2.Login with invalid OTP code
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+    Select First Item In Verification Method
+    Input SCV2 Login OTP    ${InvalidOTP}
+    SCV2 Submit Login
+    Element Should Be Visible    ${InvalidSCVOTPAlert}
+
 G-TCCHG3.Add shipping address
     [Tags]    checkout
     Empty the items in MiniCart
