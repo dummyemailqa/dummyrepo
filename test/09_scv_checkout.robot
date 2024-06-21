@@ -49,13 +49,7 @@ G-TCCHG2.Login with invalid OTP code
     ...    MinicartProductNameValue=@{MinicartProductNameValue}
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
-    Scroll Down To Element    ${ButtonToCheckout}
-    Click Element    ${ButtonToCheckout}
-    Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
-    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
-    Select First Item In Verification Method
-    Input SCV2 Login OTP    ${InvalidOTP}
-    SCV2 Submit Login
+    Login SCV With Invalid OTP
 
 G-TCCHG3.Add shipping address
     [Tags]    checkout

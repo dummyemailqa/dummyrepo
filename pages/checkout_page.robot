@@ -449,3 +449,12 @@ Validate Grandtotal Is Zero
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
     Should Be Equal As Integers    ${GrandTotalAfterPromo}    0
+
+Login SCV With Invalid OTP
+    Scroll Down To Element    ${ButtonToCheckout}
+    Click Element    ${ButtonToCheckout}
+    Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
+    Input SCV2 Login Phone Number    PhoneNumber=${OtpPhonenumber}
+    Select First Item In Verification Method
+    Input SCV2 Login OTP    ${InvalidOTP}
+    SCV2 Submit Login
