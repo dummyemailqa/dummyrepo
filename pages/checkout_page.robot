@@ -452,7 +452,7 @@ Validate Grandtotal Is Zero
 
 Get Grand Total And Convert To Integer
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotal}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotal}    Convert Price With String to Integer    ${GrandTotalText}
     RETURN    ${GrandTotal}
 
 Remove Used Promo
