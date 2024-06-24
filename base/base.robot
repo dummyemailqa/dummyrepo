@@ -136,17 +136,12 @@ Convert Price With String to Integer
     ${Rp}    Run Keyword And Return Status    Should Contain    ${cleaned_string}    Rp
     ${IDR}    Run Keyword And Return Status    Should Contain    ${cleaned_string}    IDR
     ${$}    Run Keyword And Return Status    Should Contain    ${cleaned_string}    $
-    Log    1-${cleaned_string}
     IF  ${Rp}
         ${integer_value}    Evaluate    ${cleaned_string}[3:]
-        Log    2-${integer_value}
     ELSE IF  ${IDR}
         ${integer_value}    Evaluate    ${cleaned_string}[4:]
-        Log    3-${integer_value}
     ELSE IF  ${$}
         ${integer_value}    Evaluate    ${cleaned_string}[2:]
-        Log    4-${integer_value}
     END
     ${integer_value}=  Evaluate  int(${integer_value})
-    Log    5-${integer_value}
     RETURN  ${integer_value}
