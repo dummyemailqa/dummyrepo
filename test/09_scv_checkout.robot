@@ -620,23 +620,16 @@ G-TCCHG19.Apply valid coupon code then remove coupon code
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalBeforePromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
     Click Element    ${ButtonAddPromo}
     Input Promo Code    ${PromoCode}
     Select Button Apply Promo
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterPromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
-    Click Element    ${ButtonAddPromo}
-    Wait Until Element Is Visible    ${CheckedPromo}
-    Click Element    ${CheckedPromo}
-    Wait Until Element Is Enabled    ${ButtonRemovePromo}
-    Click Element    ${ButtonRemovePromo}
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterRemovePromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    Remove Used Promo
+    ${GrandTotalAfterRemovePromo}    Get Grand Total And Convert To Integer
     Should Be Equal    ${GrandTotalBeforePromo}    ${GrandTotalAfterRemovePromo}
 
 G-TCCHG20.Giftcard balance more than Total order, grand total 0
