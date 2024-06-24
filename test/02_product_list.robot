@@ -23,15 +23,15 @@ Test Teardown       End Test Case
 TCPLP1.Customers able to Change product view as Grid on PLP
     [Tags]    plp
     # View as List
-Wait Until Element Is Visible in 10s    ${MenuWoman}
+    Wait Until Element Is Visible in 10s    ${MenuWoman}
     CLick Element    ${MenuWoman}
-Wait Until Element Is Visible in 10s    ${ProductsListViewIcon}
+    Wait Until Element Is Visible in 10s    ${ProductsListViewIcon}
     Click Element    ${ProductsListViewIcon}
-Wait Until Element Is Visible    ${ProductListViewContainer}
+    Wait Until Element Is Visible    ${ProductListViewContainer}
     Element Should Be Visible    ${ProductListViewContainer}
 
     # View as Grid
-Wait Until Element Is Visible in 10s    ${ProductsGridViewIcon}
+    Wait Until Element Is Visible in 10s    ${ProductsGridViewIcon}
     Click Element    ${ProductsGridViewIcon}
     Wait Until Page Contains Element    ${ProductGridViewContainer}
 
