@@ -101,6 +101,8 @@ InvalidSCVOTPAlert                      = "//div[@role='alert']"
 # Promo Page
 InputPromoCode                          = "//input[@id='coupon']"
 ButtonApplyPromo                        = "//div[@aria-labelledby='promotion-dialog-title']//div[contains(@class,'MuiDialogContent-root')]//button"
+CheckedPromo                            = "//div[@aria-labelledby='promotion-dialog-title']//span[contains(@class,'Mui-checked')]"
+ButtonRemovePromo                       = "//button[@id='checkout-promo-applyPromoButton']"
 
 #giftcard
 GiftCardInput                           = "//input[@id='checkout-giftcard-textField']"

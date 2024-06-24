@@ -591,6 +591,47 @@ G-TCCHG18.Apply invalid coupon code
     Select Button Apply Promo    
     Invalid Promo Code Validation
 
+G-TCCHG19.Apply valid coupon code then remove coupon code
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
+    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
+    Click Element    ${ButtonAddPromo}
+    Input Promo Code    ${PromoCode}
+    Select Button Apply Promo
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
+    Remove Used Promo
+    ${GrandTotalAfterRemovePromo}    Get Grand Total And Convert To Integer
+    Should Be Equal    ${GrandTotalBeforePromo}    ${GrandTotalAfterRemovePromo}
+
 G-TCCHG20.Giftcard balance more than Total order, grand total 0
     [Tags]    checkout
     Empty the items in MiniCart
