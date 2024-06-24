@@ -127,3 +127,26 @@ Convert Grandtotal String to Integer
     ${cleaned_string}  Replace String  ${cleaned_string}  .00    replace_with=
     ${integer_value}=  Evaluate  int(${cleaned_string})
     RETURN  ${integer_value}
+
+Convert Price With String to Integer
+    [Arguments]  ${value}
+    ${cleaned_string}  Replace String  ${value}  ,    replace_with=${EMPTY}
+    ${cleaned_string}  Replace String  ${cleaned_string}  ,    replace_with=${EMPTY}
+    ${cleaned_string}  Replace String  ${cleaned_string}  .00    replace_with=${EMPTY}
+    ${Rp}    Run Keyword And Return Status    Should Contain    ${cleaned_string}    Rp
+    ${IDR}    Run Keyword And Return Status    Should Contain    ${cleaned_string}    IDR
+    ${$}    Run Keyword And Return Status    Should Contain    ${cleaned_string}    $
+    Log    1-${cleaned_string}
+    IF  ${Rp}
+        ${integer_value}    Evaluate    ${cleaned_string}[3:]
+        Log    2-${integer_value}
+    ELSE IF  ${IDR}
+        ${integer_value}    Evaluate    ${cleaned_string}[4:]
+        Log    3-${integer_value}
+    ELSE IF  ${$}
+        ${integer_value}    Evaluate    ${cleaned_string}[2:]
+        Log    4-${integer_value}
+    END
+    ${integer_value}=  Evaluate  int(${integer_value})
+    Log    5-${integer_value}
+    RETURN  ${integer_value}

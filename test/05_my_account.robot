@@ -137,13 +137,15 @@ L-TCMy11.Logged In User View Available Gift Cards and Check Balance
     [Tags]    account
     Log
     ...    "Please To Create GiftCard in the Backoffice with amount total is Rp 100.000 and update 'GiftCardCodeManually'!"
+    ${GiftcartValue}    Set Variable    100000
+    ${GiftcartValue}=  Evaluate  int(${GiftcartValue})
     To Login Page
     Input Login Form    ${EmailAddressRegistered}    ${Password}
     Submit Form Login
     My Account Page Validation    ${EmailAddressRegistered}
     To Gift Card Page
     Submit Gift Card Code Manually    ${GiftCardCodeManually}
-    Validation of Gift Card from the My Account page    ${GiftCardCodeManually}
+    Validation of Gift Card from the My Account page    ${GiftCardCodeManually}    ${GiftcartValue}
 
 L-TCMy12.Check Available Gift Cards from Your Gift Card Codes Section
     [Tags]    account

@@ -182,21 +182,22 @@ Submit Gift Card Code Manually
 
 Validation of Gift Card from the My Account page
     #Validate Gift Card Code
-    [Arguments]    ${Keyword}
+    [Arguments]    ${GiftcartCode}    ${GiftcartValue}
+    Wait Until Element Is Visible    ${GiftCardCodeInformation}
     ${valueGiftCode}    Get Text    ${GiftCardCodeInformation}
-    ${Keyword}    Convert To Lower Case    ${Keyword}
+    ${Keyword}    Convert To Lower Case    ${GiftcartCode}
     ${valueGiftCode}    Convert To Lower Case    ${valueGiftCode}
-        ${ValidateResultCode}=        Validate Similarity Of 2 Arguments    ${valueGiftCode}    ${Keyword}
+        ${ValidateResultCode}=        Validate Similarity Of 2 Arguments    ${valueGiftCode}    ${GiftcartCode}
             IF    '${ValidateResultCode}'=='False'
-                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${Keyword}    ${valueGiftCode}
+                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${GiftcartCode}    ${valueGiftCode}
             END
     #Validate Gift Card Amount
     ${valueAmountGiftCard}=    Get Text    ${BalanceGiftcardAmount}
-        ${ValidateResultAmount}=    Validate Similarity Of 2 Arguments    ${valueAmountGiftCard}    Rp 100,000.00
-            IF    '${ValidateResultAmount}'=='False'
-                Run Keyword And Continue On Failure   Error To Gift Card Not Match   ${valueAmountGiftCard}    p 100,000.00
-            END
-            
+    ${IntvalueAmountGiftCard}    Convert Price With String to Integer    ${valueAmountGiftCard}
+    ${ValidateSimilarity}=    Run Keyword And Return Status    Should Be Equal    ${IntvalueAmountGiftCard}    ${GiftcartValue}
+    IF  not ${ValidateSimilarity}    Fail
+    
+
 Error To Gift Card Not Match
     [Arguments]    ${Argument1}    ${Argument2}
     Fail
