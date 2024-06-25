@@ -479,16 +479,16 @@ Select Button Apply Existing Promotion
 
 Input Recipient Form
     [Arguments]
-    ...    ${PISRecipientName}
-    ...    ${PISRecipientPhone}
-    ...    ${PISRecipientEmail}
+    ...    ${PickUpRecipientName}
+    ...    ${PickUpRecipientPhone}
+    ...    ${PickUpRecipientEmail}
     Wait Until Element Is Visible With Long Time    ${PickUpButtonSaveRecipient}
     Clear Text Field    ${PickUpRecipientNameField}
-    Input Text    ${PickUpRecipientNameField}    ${PISRecipientName}
+    Input Text    ${PickUpRecipientNameField}    ${PickUpRecipientName}
     Clear Text Field    ${PickUpRecipientPhoneField}
-    Input Text    ${PickUpRecipientPhoneField}    ${PISRecipientPhone}
+    Input Text    ${PickUpRecipientPhoneField}    ${PickUpRecipientPhone}
     Clear Text Field    ${PickUpRecipientEmailField}
-    Input Text    ${PickUpRecipientEmailField}    ${PISRecipientEmail}
+    Input Text    ${PickUpRecipientEmailField}    ${PickUpRecipientEmail}
     Click Element    ${PickUpButtonSaveRecipient}
 
 Validate Pickup In Store Recipient Blanks
