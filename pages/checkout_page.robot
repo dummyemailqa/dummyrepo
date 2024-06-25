@@ -476,3 +476,33 @@ Select Promo From Promotion List
 Select Button Apply Existing Promotion
     Wait Until Element Is Visible    ${ButtonApplyExistingPromo}
     Click Element    ${ButtonApplyExistingPromo}
+
+Input Recipient Form
+    [Arguments]
+    ...    ${PickUpRecipientName}
+    ...    ${PickUpRecipientPhone}
+    ...    ${PickUpRecipientEmail}
+    Wait Until Element Is Visible With Long Time    ${PickUpButtonSaveRecipient}
+    Clear Text Field    ${PickUpRecipientNameField}
+    Input Text    ${PickUpRecipientNameField}    ${PickUpRecipientName}
+    Clear Text Field    ${PickUpRecipientPhoneField}
+    Input Text    ${PickUpRecipientPhoneField}    ${PickUpRecipientPhone}
+    Clear Text Field    ${PickUpRecipientEmailField}
+    Input Text    ${PickUpRecipientEmailField}    ${PickUpRecipientEmail}
+    Click Element    ${PickUpButtonSaveRecipient}
+
+Validate Pickup In Store Recipient Blanks
+    Wait Until Element Is Visible With Long Time    ${PickUpErrorMessageAlert}
+
+Go To Recipient Form
+    ${PickUpHasNoAddress}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${ButtonPickUpNewRecipient}
+    IF  ${PickUpHasNoAddress}
+        Click Element    ${ButtonPickUpNewRecipient} 
+    ELSE
+        Wait Until Element Is Visible With Long Time    ${ButtonUbahRecipient}
+        Click Element    ${ButtonUbahRecipient}
+    END
+
+Select Pickup In Store Delivery Method
+    Wait Until Element Is Visible With Long Time    ${ButtonPickupInStore}
+    Click Element    ${ButtonPickupInStore}

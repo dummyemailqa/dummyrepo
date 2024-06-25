@@ -793,6 +793,45 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    Input Recipient Form
+    ...    ${EMPTY}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Validate Pickup In Store Recipient Blanks
+
+    Input Recipient Form
+    ...    ${PickUpName}
+    ...    ${EMPTY}
+    ...    ${EmailAddressRegistered}
+    Validate Pickup In Store Recipient Blanks
+
+    Input Recipient Form
+    ...    ${PickUpName}
+    ...    ${OtpPhonenumber}
+    ...    ${EMPTY}
+    Validate Pickup In Store Recipient Blanks
+
 TCSC1.Customers can access the shopping cart page
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}

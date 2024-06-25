@@ -114,3 +114,13 @@ GiftCardLoader                          = "//div[contains(@class,'MuiCircularPro
 
 #summary
 GrandTotalInSummary                     = "//div[@id='checkoutOrderSummary']//div[contains(@class,'summary-total')]//span[2]"
+
+#Pickup In Store
+PickUpRecipientNameField                = "//input[@id='checkout-pickUpPerson-textField']"
+PickUpRecipientPhoneField               = "//input[@id='checkout-pickUpPhoneNumber-textField']"
+PickUpRecipientEmailField               = "//input[@id='checkout-pickUpEmail-textField']"
+PickUpButtonSaveRecipient               = "//button[@id='checkout-pickUpInfo-saveButton']"
+PickUpErrorMessageAlert                 = "//div[contains(@class,'Mui-error')]"
+ButtonPickupInStore                     = "//div[@id='checkout-delivery-pickupInStore']"
+ButtonPickUpNewRecipient                = "//button[@id='checkout-pickUpStore-changeInfoButton']"
+ButtonUbahRecipient                     = "//span[contains(@class,'pickup-btn-text')]"
