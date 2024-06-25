@@ -495,11 +495,14 @@ Validate Pickup In Store Recipient Blanks
     Wait Until Element Is Visible With Long Time    ${PISErrorMessageAlert}
 
 Go To Recipient Form
-    ${PISHasNoAddress}=    Run Keyword And Return Status    Element Should Be Visible    ${ButtonPISNewRecipient}
+    ${PISHasNoAddress}=    Run Keyword And Return Status    Wait Until Element Is Visible With Long Time    ${ButtonPISNewRecipient}
     IF  ${PISHasNoAddress}
         Click Element    ${ButtonPISNewRecipient} 
     ELSE
         Wait Until Element Is Visible With Long Time    ${ButtonUbahRecipient}
         Click Element    ${ButtonUbahRecipient}
     END
-    
+
+Select Pickup In Store Delivery Method
+    Wait Until Element Is Visible With Long Time    ${ButtonPickupInStore}
+    Click Element    ${ButtonPickupInStore}

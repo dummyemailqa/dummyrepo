@@ -811,25 +811,24 @@ G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
 
-    Wait Until Element Is Visible With Long Time    ${ButtonPickupInStore}
-    Click Element    ${ButtonPickupInStore}
+    Select Pickup In Store Delivery Method
     Go To Recipient Form
 
     Input Recipient Form
     ...    ${EMPTY}
-    ...    ${PISPhone}
-    ...    ${PISEmail}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
     Validate Pickup In Store Recipient Blanks
 
     Input Recipient Form
     ...    ${PISName}
     ...    ${EMPTY}
-    ...    ${PISEmail}
+    ...    ${EmailAddressRegistered}
     Validate Pickup In Store Recipient Blanks
 
     Input Recipient Form
     ...    ${PISName}
-    ...    ${PISPhone}
+    ...    ${OtpPhonenumber}
     ...    ${EMPTY}
     Validate Pickup In Store Recipient Blanks
 
