@@ -111,6 +111,7 @@ CheckBoxSecondExistingPromo             = "//li[2]//span[@class='MuiIconButton-l
 GiftCardInput                           = "//input[@id='checkout-giftcard-textField']"
 GiftCardPasangButton                    = "//div[contains(@class,'giftcart-box')]//div[contains(@class,'MuiInputAdornment-positionEnd')]//span[contains(@class,'MuiTypography-root')]"
 GiftCardLoader                          = "//div[contains(@class,'MuiCircularProgress-root')]"
+ButtonExistingGiftCard                  = "//div[contains(@class,'item-giftcard')][1]//div[@role='button']"
 
 #summary
 GrandTotalInSummary                     = "//div[@id='checkoutOrderSummary']//div[contains(@class,'summary-total')]//span[2]"

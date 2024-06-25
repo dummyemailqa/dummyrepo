@@ -1572,6 +1572,58 @@ L-TCCHR25.Apply coupon with existing code in list promo
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+L-TCCHR26.Apply coupon with existing code in list promo and giftcard
+    [Tags]    checkout
+    Log
+    ...    "Please create a Gift Card in the Backoffice and assign it to the Buyer account that will be used to apply the Gift Card!"
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=3
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
+
+    Select Promo From Promotion List
+    Select Button Apply Existing Promotion
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+
+    Select Existing Giftcard Code
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 L-TCCHR27.Successful Checkout with simple product using registered account
     [Tags]    checkout
     Login User

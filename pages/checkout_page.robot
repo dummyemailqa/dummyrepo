@@ -506,3 +506,8 @@ Go To Recipient Form
 Select Pickup In Store Delivery Method
     Wait Until Element Is Visible With Long Time    ${ButtonPickupInStore}
     Click Element    ${ButtonPickupInStore}
+
+Select Existing Giftcard Code
+    Wait Until Element Is Visible    ${ButtonExistingGiftCard}
+    Click Element    ${ButtonExistingGiftCard}
+    Wait Until Element Is Not Visible    ${GiftCardLoader}
