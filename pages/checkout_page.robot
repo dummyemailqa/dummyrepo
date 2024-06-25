@@ -461,3 +461,18 @@ Remove Used Promo
     Click Element    ${CheckedPromo}
     Wait Until Element Is Enabled    ${ButtonRemovePromo}
     Click Element    ${ButtonRemovePromo}
+
+Select Promo From Promotion List
+    Scroll Down To Element    ${ButtonAddPromo}
+    Click Element    ${ButtonAddPromo}
+    Wait Until Element Is Visible With Long Time    ${CheckBoxFirstExistingPromo}
+    ${first_selected}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${CheckBoxFirstExistingPromo}
+    IF    ${first_selected}
+        Click Element    ${CheckBoxSecondExistingPromo}
+    ELSE
+        Click Element    ${CheckBoxFirstExistingPromo}
+    END  
+
+Select Button Apply Existing Promotion
+    Wait Until Element Is Visible    ${ButtonApplyExistingPromo}
+    Click Element    ${ButtonApplyExistingPromo}

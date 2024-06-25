@@ -31,7 +31,7 @@ InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[contains(@class,'checkout-shipping-pin-img')]"
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
-ButtonAddPromo                          = "//div[contains(@class,'boxPromo')]"
+ButtonAddPromo                          = "//div[@id='checkoutFeePromotionsHome']//div[@class='iconAndLabel']"
 ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
 LabelInsuranceBillingId                 = "//span[normalize-space()='Asuransi pengiriman']"
 LabelInsuranceBillingEn                 = "//span[normalize-space()='Shipping insurance']"
@@ -101,8 +101,11 @@ InvalidSCVOTPAlert                      = "//div[@role='alert']"
 # Promo Page
 InputPromoCode                          = "//input[@id='coupon']"
 ButtonApplyPromo                        = "//div[@aria-labelledby='promotion-dialog-title']//div[contains(@class,'MuiDialogContent-root')]//button"
+ButtonApplyExistingPromo                = "//button[@id='checkout-promo-applyPromoButton']//span[@class='MuiButton-label']"
 CheckedPromo                            = "//div[@aria-labelledby='promotion-dialog-title']//span[contains(@class,'Mui-checked')]"
 ButtonRemovePromo                       = "//button[@id='checkout-promo-applyPromoButton']"
+CheckBoxFirstExistingPromo              = "//li[1]//span[@class='MuiIconButton-label']"
+CheckBoxSecondExistingPromo             = "//li[2]//span[@class='MuiIconButton-label']"
 
 #giftcard
 GiftCardInput                           = "//input[@id='checkout-giftcard-textField']"
