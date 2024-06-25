@@ -1443,12 +1443,12 @@ L-TCCHR23.Giftcard balance less than Total order
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalBeforeGiftCard}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
 
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterGiftCard}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
     Submit Place Order
 

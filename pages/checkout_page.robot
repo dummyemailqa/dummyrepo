@@ -447,12 +447,12 @@ Submit Giftcard Code
 
 Validate Grandtotal Is Zero
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterPromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalAfterPromo}    Convert Price With String to Integer    ${GrandTotalText}
     Should Be Equal As Integers    ${GrandTotalAfterPromo}    0
 
 Get Grand Total And Convert To Integer
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotal}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotal}    Convert Price With String to Integer    ${GrandTotalText}
     RETURN    ${GrandTotal}
 
 Remove Used Promo
