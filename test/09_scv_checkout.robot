@@ -1416,6 +1416,52 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     Select Button Apply Promo
     Invalid Promo Code Validation
 
+L-TCCHR21.Apply valid coupon code then remove coupon code
+    [Tags]    checkout
+    Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Add User Email If Emty    ${EmailAddressRegistered}
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+
+    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}   
+    Select Promo From Promotion List
+    Select Button Apply Existing Promotion
+    Remove Used Promo
+
+    Validate Message Success Alert Is Visible On Checkout Page
+
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 L-TCCHR22.Giftcard balance more than Total order
     [Tags]    checkout
     Login User
