@@ -476,3 +476,30 @@ Select Promo From Promotion List
 Select Button Apply Existing Promotion
     Wait Until Element Is Visible    ${ButtonApplyExistingPromo}
     Click Element    ${ButtonApplyExistingPromo}
+
+Input Recipient Form
+    [Arguments]
+    ...    ${PISRecipientName}
+    ...    ${PISRecipientPhone}
+    ...    ${PISRecipientEmail}
+    Wait Until Element Is Visible With Long Time    ${PISButtonSaveRecipient}
+    Clear Text Field    ${PISRecipientNameField}
+    Input Text    ${PISRecipientNameField}    ${PISRecipientName}
+    Clear Text Field    ${PISRecipientPhoneField}
+    Input Text    ${PISRecipientPhoneField}    ${PISRecipientPhone}
+    Clear Text Field    ${PISRecipientEmailField}
+    Input Text    ${PISRecipientEmailField}    ${PISRecipientEmail}
+    Click Element    ${PISButtonSaveRecipient}
+
+Validate Pickup In Store Recipient Blanks
+    Wait Until Element Is Visible With Long Time    ${PISErrorMessageAlert}
+
+Go To Recipient Form
+    ${PISHasNoAddress}=    Run Keyword And Return Status    Element Should Be Visible    ${ButtonPISNewRecipient}
+    IF  ${PISHasNoAddress}
+        Click Element    ${ButtonPISNewRecipient} 
+    ELSE
+        Wait Until Element Is Visible With Long Time    ${ButtonUbahRecipient}
+        Click Element    ${ButtonUbahRecipient}
+    END
+    

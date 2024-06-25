@@ -62,3 +62,8 @@ ShipmentPinLocation     = "Icube Jogja"
 
 # promotion
 PromoCode          = "PROMO10K"
+
+#Pickup In Store
+PISName                 = "DemoIcube"
+PISPhone                = "081234567890"
+PISEmail                = "demo@icube.us"
