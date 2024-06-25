@@ -821,13 +821,13 @@ G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
     Validate Pickup In Store Recipient Blanks
 
     Input Recipient Form
-    ...    ${PISName}
+    ...    ${PickUpName}
     ...    ${EMPTY}
     ...    ${EmailAddressRegistered}
     Validate Pickup In Store Recipient Blanks
 
     Input Recipient Form
-    ...    ${PISName}
+    ...    ${PickUpName}
     ...    ${OtpPhonenumber}
     ...    ${EMPTY}
     Validate Pickup In Store Recipient Blanks

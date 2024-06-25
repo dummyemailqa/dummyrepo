@@ -482,22 +482,22 @@ Input Recipient Form
     ...    ${PISRecipientName}
     ...    ${PISRecipientPhone}
     ...    ${PISRecipientEmail}
-    Wait Until Element Is Visible With Long Time    ${PISButtonSaveRecipient}
-    Clear Text Field    ${PISRecipientNameField}
-    Input Text    ${PISRecipientNameField}    ${PISRecipientName}
-    Clear Text Field    ${PISRecipientPhoneField}
-    Input Text    ${PISRecipientPhoneField}    ${PISRecipientPhone}
-    Clear Text Field    ${PISRecipientEmailField}
-    Input Text    ${PISRecipientEmailField}    ${PISRecipientEmail}
-    Click Element    ${PISButtonSaveRecipient}
+    Wait Until Element Is Visible With Long Time    ${PickUpButtonSaveRecipient}
+    Clear Text Field    ${PickUpRecipientNameField}
+    Input Text    ${PickUpRecipientNameField}    ${PISRecipientName}
+    Clear Text Field    ${PickUpRecipientPhoneField}
+    Input Text    ${PickUpRecipientPhoneField}    ${PISRecipientPhone}
+    Clear Text Field    ${PickUpRecipientEmailField}
+    Input Text    ${PickUpRecipientEmailField}    ${PISRecipientEmail}
+    Click Element    ${PickUpButtonSaveRecipient}
 
 Validate Pickup In Store Recipient Blanks
-    Wait Until Element Is Visible With Long Time    ${PISErrorMessageAlert}
+    Wait Until Element Is Visible With Long Time    ${PickUpErrorMessageAlert}
 
 Go To Recipient Form
-    ${PISHasNoAddress}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${ButtonPISNewRecipient}
-    IF  ${PISHasNoAddress}
-        Click Element    ${ButtonPISNewRecipient} 
+    ${PickUpHasNoAddress}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${ButtonPickUpNewRecipient}
+    IF  ${PickUpHasNoAddress}
+        Click Element    ${ButtonPickUpNewRecipient} 
     ELSE
         Wait Until Element Is Visible With Long Time    ${ButtonUbahRecipient}
         Click Element    ${ButtonUbahRecipient}

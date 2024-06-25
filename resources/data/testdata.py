@@ -64,4 +64,4 @@ ShipmentPinLocation     = "Icube Jogja"
 PromoCode          = "PROMO10K"
 
 #Pickup In Store
-PISName                 = "DemoIcube"
+PickUpName                 = "DemoIcube"
