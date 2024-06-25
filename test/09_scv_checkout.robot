@@ -1574,6 +1574,8 @@ L-TCCHR25.Apply coupon with existing code in list promo
 
 L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     [Tags]    checkout
+    Log
+    ...    "Please create a Gift Card in the Backoffice and assign it to the Buyer account that will be used to apply the Gift Card!"
     Login User
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
