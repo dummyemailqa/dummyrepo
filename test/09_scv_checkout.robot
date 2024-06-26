@@ -83,8 +83,10 @@ G-TCCHG3.Add shipping address
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
         Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
-    END
+        Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
         Click Element    ${ButtonAddNewAddressInAddressList}
+    END
+
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
@@ -974,6 +976,61 @@ TCSC2.Customer deleted the item
     Should Be True    ${PriceMinicartIntDecrement} < ${PriceMinicartIntIncrement}
     Empty the items in MiniCart
     Wait Until Element Is Visible With Long Time  ${ButtonStartShopping}
+
+L-TCCHR5.Add shipping address
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    ${AddressIsEmty}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonAddAddressCheckoutPage}
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    IF    ${AddressIsEmty}
+        Click Element    ${ButtonAddAddressCheckoutPage}
+    ELSE
+        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
+        Click Element    ${ButtonAddNewAddressInAddressList}
+    END
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    ${ButtonSelectAddressVisible}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonSaveSelectedAddress}
+    IF   ${ButtonSelectAddressVisible}    
+        Click Element    ${ButtonSaveSelectedAddress}
+    END
+
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
 
 L-TCCHR6.Add shipping address with empty fields
     [Tags]    checkout
