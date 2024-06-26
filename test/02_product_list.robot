@@ -41,8 +41,18 @@ TCPLP2.Customers add product to the cart from PLP
     Search Product by Keyword in Searchbox                  Ingrid Running Jacket
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
-    Click Element    //button[@class='btn-primary']/parent::div[@class='product-item-actions']
-    Element Should Be Visible    //div[@ui-id='messages success']child::/div[@class='leading-none']
+    
+    ${IsConfigurableProduct} =    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${VarianConfigurableInPLP}
+
+    IF    ${IsConfigurableProduct}
+      Click Element    xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[2]
+    ELSE
+      Click Element    xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[1]
+    END
+  
+    Element Should Be Visible    ${SuccessAddToCartAllert}
     
 
 TCPLP4.Customers sort products
