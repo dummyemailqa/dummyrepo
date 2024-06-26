@@ -670,6 +670,51 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     Submit Place Order Zero Subtotal
     Thankyou page Validation
 
+G-TCCHG21.Giftcard balance less than Total order
+    [Tags]    checkout
+    Log
+    ...    "Please To Create GiftCard in the Backoffice with amount total is less than 'ProductConfigSKUForSearch' amount and update 'GiftCardSmallAmount'!"
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+
+    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
+    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+
+    Submit Giftcard Code    ${GiftCardSmallAmount}
+    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
+    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
+    
+    Submit Place Order
+
 G-TCCHG22.Continue shopping after checkout
     [Tags]    checkout
     Empty the items in MiniCart
