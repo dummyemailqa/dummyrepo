@@ -1998,7 +1998,7 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
-L-TCCHR32.Guest user add recipient for Pickup In Store
+L-TCCHR32.Registered user add recipient for Pickup In Store
     [Tags]    checkout
     Login User
     Empty the items in MiniCart
