@@ -879,6 +879,34 @@ G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest Use
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+G-TCCHG30.Guest user add recipient for Pickup In Store
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    ${FullName}=    Generate Random Name
+    Input Recipient Form
+    ...    ${FirstName}${FullName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}
+
 G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
     [Tags]    checkout
     Empty the items in MiniCart
