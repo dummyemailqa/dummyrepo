@@ -457,6 +457,41 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     Click Element    ${SCVHomeDeliveryButton}
     Element Should Be Disabled    ${SCVPayButton}
 
+G-TCCHG12.Home Delivery checkout with no payment method
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Homedelivery Delivery Method
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Scroll Down To Element    ${SCVPayButton}
+    Select Shipping Method
+    Scroll Down To Element    ${SCVPayButton}
+    Element Should Be Disabled    ${SCVPayButton}
+
 G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
     Empty the items in MiniCart

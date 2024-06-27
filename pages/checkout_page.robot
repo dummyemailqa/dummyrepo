@@ -507,6 +507,10 @@ Select Pickup In Store Delivery Method
     Wait Until Element Is Visible With Long Time    ${ButtonPickupInStore}
     Click Element    ${ButtonPickupInStore}
 
+Select Homedelivery Delivery Method
+    Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
+    Click Element    ${SCVHomeDeliveryButton}
+
 Select Existing Giftcard Code
     Wait Until Element Is Visible    ${ButtonExistingGiftCard}
     Click Element    ${ButtonExistingGiftCard}
