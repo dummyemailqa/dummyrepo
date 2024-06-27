@@ -1962,3 +1962,32 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation
+
+L-TCCHR32.Guest user add recipient for Pickup In Store
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    ${FullName}=    Generate Random Name
+    Input Recipient Form
+    ...    ${FirstName}${FullName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}
