@@ -155,8 +155,13 @@ L-TCWL4.Logged In User is able to Add to Cart all product from wishlist page
     Close The Minicart
 
 L-TCWL5.Logged In User is able to share wishlist by email
+    [Tags]    wishlist
     Login User
     To My Wishlist From Nav Bar
+    ${WishListProductIsEmpty}    Run Keyword And Return Status    Wait Until Element Is Not Visible    ${ProductWishlist}
+    IF  ${WishListProductIsEmpty}
+        Add Product to Wishlist    ${ProductConfigNameForSearch}
+    END
     Share Wishlist To Email
     Validate Message Success Alert Is Visible
 
