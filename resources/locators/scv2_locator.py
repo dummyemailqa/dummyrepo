@@ -17,7 +17,7 @@ SCVCityBlank                = "//div[contains(@class,'MuiDialogContent-root')]//
 SCVButtonAddressList        = "//button[contains(@class,'MuiAutocomplete-popupIndicator')]"
 
 #home delivery
-SCVHomeDeliveryButton                   = "//div[@id='checkout-delivery-pickupInStore']"
+SCVHomeDeliveryButton       = "//div[@id='checkout-method-homeDelivery']"
 
 #checkout
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
