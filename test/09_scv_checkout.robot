@@ -579,9 +579,7 @@ G-TCCHG17.Apply valid coupon code
     Click Element    ${ButtonAddPromo}    
     Input Promo Code    ${PromoCode}
     Select Button Apply Promo
-
     Validate Message Success Alert Is Visible On Checkout Page
-
 
     Submit Place Order
     Midtrans Virtual Account Transaction
