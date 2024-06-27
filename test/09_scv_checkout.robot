@@ -756,6 +756,8 @@ G-TCCHG22.Continue shopping after checkout
 
 G-TCCHG23.Apply coupon with existing code in list promo
     [Tags]    checkout
+    Log
+    ...    "Please create a Coupon in the Backoffice and guest user that will be used to apply the Coupon!"
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
@@ -917,6 +919,7 @@ G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
     Validate Pickup In Store Recipient Blanks
 
 TCSC1.Customers can access the shopping cart page
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
@@ -950,6 +953,7 @@ TCSC1.Customers can access the shopping cart page
     Wait Until Element Is Visible With Long Time  ${ButtonStartShopping}
 
 TCSC2.Customer deleted the item
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
@@ -1648,6 +1652,8 @@ L-TCCHR21.Apply valid coupon code then remove coupon code
 
 L-TCCHR22.Giftcard balance more than Total order
     [Tags]    checkout
+    Log
+    ...    "Please To Create GiftCard in the Backoffice with amount total is grather than 'ProductConfigSKUForSearch' amount and update 'GiftCardToZero'!"
     Login User
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
@@ -1680,6 +1686,9 @@ L-TCCHR22.Giftcard balance more than Total order
 
 L-TCCHR23.Giftcard balance less than Total order
     [Tags]    checkout
+    Log
+    ...    "Please To Create GiftCard in the Backoffice with amount total is less than 'ProductConfigSKUForSearch' amount and update 'GiftCardSmallAmount'!"
+    Login User
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
@@ -1759,6 +1768,8 @@ L-TCCHR24.Continue shopping after checkout
 
 L-TCCHR25.Apply coupon with existing code in list promo
     [Tags]    checkout
+    Log
+    ...    "Please create a Coupon in the Backoffice and assign it to the Buyer account that will be used to apply the Coupon!"
     Login User
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
