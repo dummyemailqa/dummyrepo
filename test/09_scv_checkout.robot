@@ -572,6 +572,19 @@ G-TCCHG17.Apply valid coupon code
     Go To Checkout Page From Shopping Cart Guest and Login User
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
 
