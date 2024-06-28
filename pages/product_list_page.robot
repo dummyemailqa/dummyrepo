@@ -21,3 +21,14 @@ Check If On Product Detail Page
     ${IsOnProductDetailPage} =    Run Keyword And Return Status    Element Should Be Visible    ${PLPProductName}
     RETURN    ${IsOnProductDetailPage}
 
+Search Result Counter in PLP
+    ${totalOption} =    Get Element Count    ${SummaryProductSearchResult}
+    FOR    ${Option}    IN RANGE    1    ${totalOption+1}
+            ${IsConfigurableProduct} =    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${VarianConfigurableInPLP}
+        RETURN    ${Option}
+        Exit For Loop If    ${VarianConfigurableInPLP}==TRUE
+    END
+ 
+

@@ -9,6 +9,9 @@ CompareButtonPDP            = "//button[@id='add-to-compare']"
 TextSuggestedProduct        = "//div[@class='product-info-main']//span[@data-ui-id='page-title-wrapper']"
 ProductNameTitle            = "//a[@class='product-item-link']"
 VarianConfigurableInPLP     = "//div[contains(@x-data,'initConfigurableSwatchOptions_1268')]"
+SummaryProductSearchResult  = "//form"
+ProductSearchResultIndex    = "//form[{}]//div[contains(@x-data,'initConfigurableSwatchOptions_1268')]"
+
 
 #Button
 AddToCartButton             = "//button[@id='product-addtocart-button']"
@@ -20,6 +23,9 @@ productItemPrice    =   "//section[@id='product-list']//form[{}]//div[contains(@
 # Product Card Detail
 ProductItemCardName         = "//form[contains(@class,'product-item')][{}]//a[@class='product-item-link']"
 ProductItemAddToCartButton  = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])"
+ProductOption               = "//form[{}]//div[@class='swatch-wrapper']/div[{}]//div[contains(@x-id,'attribute-option')]"
+SummarySwatchOption         = "//div[@class='swatch-wrapper']"
+AddToCartButtonInPLP        = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[{}]"
 
 #Allert
 SuccessAddToCartAllert = "//div[@ui-id='message-success']"

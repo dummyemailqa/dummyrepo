@@ -32,28 +32,36 @@ TCPLP1.Customers able to Change product view as Grid on PLP
 
     # View as Grid
     Wait Until Element Is Visible in 10s    ${ProductsGridViewIcon}
-    Click Element    ${ProductsGridViewIcon}
+    Click $locatorElement    ${ProductsGridViewIcon}
     Wait Until Page Contains Element    ${ProductGridViewContainer}
 
-TCPLP2.Customers add product to the cart from PLP
+TCPLP2.1.Customers add simple product to the cart from PLP
     [Tags]    PLP  TCPLP2
     #search Product Simple by SKU
     Search Product by Keyword in Searchbox                  Ingrid Running Jacket
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
     
-    ${IsConfigurableProduct} =    Run Keyword And Return Status
-    ...    Wait Until Element Is Visible
-    ...    ${VarianConfigurableInPLP}
-
-    IF    ${IsConfigurableProduct}
-      Click Element    xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[2]
-    ELSE
-      Click Element    xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[1]
-    END
-  
+    ${IndexButton}    Search Result Counter in PLP
+    Click Element    xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[${IndexButton}]
     Element Should Be Visible    ${SuccessAddToCartAllert}
     
+TCPLP2.2.Customers add configurable product to the cart from PLP
+    [Tags]    PLP  TCPLP2.2
+    #search Product Simple by SKU
+    Search Product by Keyword in Searchbox                  Ingrid Running Jacket
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
+    
+    ${IndexButton}    Search Result Counter in PLP
+    Scroll Down To Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+    ${totalOption} =    Get Element Count    ${SummarySwatchOption}
+    FOR    ${Option}    IN RANGE    1    ${totalOption+1}
+        Click Element    ${ProductOption.format(${Option},${Option})}
+        Click Element    ${ProductOption.format(${Option},${Option+1})}
+    END
+    Click Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+    Element Should Be Visible    ${SuccessAddToCartAllert}
 
 TCPLP4.Customers sort products
     [Tags]    PLP  TCPLP4
