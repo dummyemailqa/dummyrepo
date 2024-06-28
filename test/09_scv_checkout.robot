@@ -1037,21 +1037,21 @@ TCSC1.Customers can access the shopping cart page
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
 
-    Wait Until Element Is Visible    ${ShoppingCartTotalPrice}
-    ${PriceInShoppingCart}    Get Text    ${ShoppingCartTotalPrice}
-    ${PriceShoppingCartInt}    Convert Price String To Integer    ${PriceInShoppingCart}
+    Wait Until Element Is Visible    ${ShopingCartSubTotalPrice}
+    ${PriceInShoppingCart}    Get Text    ${ShopingCartSubTotalPrice}
+    ${PriceShoppingCartInt}    Convert Price With String to Integer  ${PriceInShoppingCart}
     Click Button    ${ButtonIncrease}
     Wait Until Element Is Not Visible With Long Time  ${ShoppingCartLoader}
-    Wait Until Element Is Visible    ${ShoppingCartTotalPrice}
-    ${PriceInShoppingCart}    Get Text    ${ShoppingCartTotalPrice}
-    ${PriceShoppingCartIntIncrement}    Convert Price String To Integer    ${PriceInShoppingCart}
+    Wait Until Element Is Visible    ${ShopingCartSubTotalPrice}
+    ${PriceInShoppingCart}    Get Text    ${ShopingCartSubTotalPrice}
+    ${PriceShoppingCartIntIncrement}    Convert Price With String to Integer     ${PriceInShoppingCart}
     Should Be True    ${PriceShoppingCartIntIncrement} > ${PriceShoppingCartInt}
 
     Click Button    ${ButtonDecrease}
     Wait Until Element Is Not Visible With Long Time    ${ShoppingCartLoader}
-    Wait Until Element Is Visible    ${ShoppingCartTotalPrice}
-    ${PriceInShoppingCart}    Get Text    ${ShoppingCartTotalPrice}
-    ${PriceShoppingCartIntDecrement}    Convert Price String To Integer    ${PriceInShoppingCart}
+    Wait Until Element Is Visible    ${ShopingCartSubTotalPrice}
+    ${PriceInShoppingCart}    Get Text    ${ShopingCartSubTotalPrice}
+    ${PriceShoppingCartIntDecrement}    Convert Price With String to Integer    ${PriceInShoppingCart}
     Should Be True    ${PriceShoppingCartIntDecrement} < ${PriceShoppingCartIntIncrement}
 
     Wait Until Element Is Enabled    ${ShoppingCartDelete}
