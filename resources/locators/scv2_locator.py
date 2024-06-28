@@ -17,7 +17,7 @@ SCVCityBlank                = "//div[contains(@class,'MuiDialogContent-root')]//
 SCVButtonAddressList        = "//button[contains(@class,'MuiAutocomplete-popupIndicator')]"
 
 #home delivery
-SCVHomeDeliveryButton                   = "//div[@id='checkout-delivery-pickupInStore']"
+SCVHomeDeliveryButton       = "//div[@id='checkout-method-homeDelivery']"
 
 #checkout
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
@@ -31,7 +31,7 @@ InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[contains(@class,'checkout-shipping-pin-img')]"
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
-ButtonAddPromo                          = "//div[contains(@class,'boxPromo')]"
+ButtonAddPromo                          = "//div[@id='checkoutFeePromotionsHome']//div[@class='iconAndLabel']"
 ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
 LabelInsuranceBillingId                 = "//span[normalize-space()='Asuransi pengiriman']"
 LabelInsuranceBillingEn                 = "//span[normalize-space()='Shipping insurance']"
@@ -101,13 +101,27 @@ InvalidSCVOTPAlert                      = "//div[@role='alert']"
 # Promo Page
 InputPromoCode                          = "//input[@id='coupon']"
 ButtonApplyPromo                        = "//div[@aria-labelledby='promotion-dialog-title']//div[contains(@class,'MuiDialogContent-root')]//button"
+ButtonApplyExistingPromo                = "//button[@id='checkout-promo-applyPromoButton']//span[@class='MuiButton-label']"
 CheckedPromo                            = "//div[@aria-labelledby='promotion-dialog-title']//span[contains(@class,'Mui-checked')]"
 ButtonRemovePromo                       = "//button[@id='checkout-promo-applyPromoButton']"
+CheckBoxFirstExistingPromo              = "//li[1]//span[@class='MuiIconButton-label']"
+CheckBoxSecondExistingPromo             = "//li[2]//span[@class='MuiIconButton-label']"
 
 #giftcard
 GiftCardInput                           = "//input[@id='checkout-giftcard-textField']"
 GiftCardPasangButton                    = "//div[contains(@class,'giftcart-box')]//div[contains(@class,'MuiInputAdornment-positionEnd')]//span[contains(@class,'MuiTypography-root')]"
 GiftCardLoader                          = "//div[contains(@class,'MuiCircularProgress-root')]"
+ButtonExistingGiftCard                  = "//div[contains(@class,'item-giftcard')][1]//div[@role='button']"
 
 #summary
 GrandTotalInSummary                     = "//div[@id='checkoutOrderSummary']//div[contains(@class,'summary-total')]//span[2]"
+
+#Pickup In Store
+PickUpRecipientNameField                = "//input[@id='checkout-pickUpPerson-textField']"
+PickUpRecipientPhoneField               = "//input[@id='checkout-pickUpPhoneNumber-textField']"
+PickUpRecipientEmailField               = "//input[@id='checkout-pickUpEmail-textField']"
+PickUpButtonSaveRecipient               = "//button[@id='checkout-pickUpInfo-saveButton']"
+PickUpErrorMessageAlert                 = "//div[contains(@class,'Mui-error')]"
+ButtonPickupInStore                     = "//div[@id='checkout-delivery-pickupInStore']"
+ButtonPickUpNewRecipient                = "//button[@id='checkout-pickUpStore-changeInfoButton']"
+ButtonUbahRecipient                     = "//span[contains(@class,'pickup-btn-text')]"

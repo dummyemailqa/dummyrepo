@@ -83,8 +83,10 @@ G-TCCHG3.Add shipping address
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
         Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
-    END
+        Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
         Click Element    ${ButtonAddNewAddressInAddressList}
+    END
+
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
@@ -229,7 +231,7 @@ G-TCCHG5.Change shipping address
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
 
-    # Melakukan pengechekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
+    # Melakukan pengecekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
     Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
     Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
     Count and Add address If Less Than Two
@@ -455,6 +457,41 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     Click Element    ${SCVHomeDeliveryButton}
     Element Should Be Disabled    ${SCVPayButton}
 
+G-TCCHG12.Home Delivery checkout with no payment method
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName} =    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue} =    Get Product Name From Minicart
+    &{Arguments} =    Create Dictionary    productName=@{productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Homedelivery Delivery Method
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Scroll Down To Element    ${SCVPayButton}
+    Select Shipping Method
+    Scroll Down To Element    ${SCVPayButton}
+    Element Should Be Disabled    ${SCVPayButton}
+
 G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
     Empty the items in MiniCart
@@ -552,6 +589,49 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+G-TCCHG17.Apply valid coupon code
+    [Tags]    checkout
+    Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+
+    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
+    Click Element    ${ButtonAddPromo}    
+    Input Promo Code    ${PromoCode}
+    Select Button Apply Promo
+    Validate Message Success Alert Is Visible On Checkout Page
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 G-TCCHG18.Apply invalid coupon code 
     [Tags]    checkout
     Empty the items in MiniCart
@@ -592,6 +672,7 @@ G-TCCHG18.Apply invalid coupon code
     Invalid Promo Code Validation
 
 G-TCCHG19.Apply valid coupon code then remove coupon code
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
@@ -669,6 +750,51 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     Submit Place Order Zero Subtotal
     Thankyou page Validation
 
+G-TCCHG21.Giftcard balance less than Total order
+    [Tags]    checkout
+    Log
+    ...    "Please To Create GiftCard in the Backoffice with amount total is less than 'ProductConfigSKUForSearch' amount and update 'GiftCardSmallAmount'!"
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+
+    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
+    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+
+    Submit Giftcard Code    ${GiftCardSmallAmount}
+    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
+    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
+    
+    Submit Place Order
+
 G-TCCHG22.Continue shopping after checkout
     [Tags]    checkout
     Empty the items in MiniCart
@@ -705,6 +831,52 @@ G-TCCHG22.Continue shopping after checkout
     Midtrans Virtual Account Transaction
     Thankyou page Validation
     Continue Shopping
+
+G-TCCHG23.Apply coupon with existing code in list promo
+    [Tags]    checkout
+    Log
+    ...    "Please create a Coupon in the Backoffice and guest user that will be used to apply the Coupon!"
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=3
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
+
+    Select Promo From Promotion List
+    Select Button Apply Existing Promotion
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
 
 G-TCCHG25.Successful Checkout Test with simple product using registered account
     [Tags]    Checkout
@@ -748,7 +920,112 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest User
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+    
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
+G-TCCHG30.Guest user add recipient for Pickup In Store
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    ${FullName}=    Generate Random Name
+    Input Recipient Form
+    ...    ${FirstName}${FullName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}
+
+G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    Input Recipient Form
+    ...    ${EMPTY}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Validate Pickup In Store Recipient Blanks
+
+    Input Recipient Form
+    ...    ${PickUpName}
+    ...    ${EMPTY}
+    ...    ${EmailAddressRegistered}
+    Validate Pickup In Store Recipient Blanks
+
+    Input Recipient Form
+    ...    ${PickUpName}
+    ...    ${OtpPhonenumber}
+    ...    ${EMPTY}
+    Validate Pickup In Store Recipient Blanks
+
 TCSC1.Customers can access the shopping cart page
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
@@ -782,6 +1059,7 @@ TCSC1.Customers can access the shopping cart page
     Wait Until Element Is Visible With Long Time  ${ButtonStartShopping}
 
 TCSC2.Customer deleted the item
+    [Tags]    checkout
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
@@ -808,6 +1086,61 @@ TCSC2.Customer deleted the item
     Should Be True    ${PriceMinicartIntDecrement} < ${PriceMinicartIntIncrement}
     Empty the items in MiniCart
     Wait Until Element Is Visible With Long Time  ${ButtonStartShopping}
+
+L-TCCHR5.Add shipping address
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    ${AddressIsEmty}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonAddAddressCheckoutPage}
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    IF    ${AddressIsEmty}
+        Click Element    ${ButtonAddAddressCheckoutPage}
+    ELSE
+        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
+        Click Element    ${ButtonAddNewAddressInAddressList}
+    END
+
+    Input Address Form
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+    Save Address
+    ${ButtonSelectAddressVisible}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ButtonSaveSelectedAddress}
+    IF   ${ButtonSelectAddressVisible}    
+        Click Element    ${ButtonSaveSelectedAddress}
+    END
+
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
 
 L-TCCHR6.Add shipping address with empty fields
     [Tags]    checkout
@@ -904,6 +1237,51 @@ L-TCCHR6.Add shipping address with empty fields
     ...    ${ShipmentPinLocation}
     Save Address
     SCV Validate Blank Field New Address
+
+L-TCCHR7.Change shipping address
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    # Melakukan pengecekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
+    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
+    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Count and Add address If Less Than Two
+
+    Change Selected Address
+    Save Selected Address
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
 
 L-TCCHR8. Billing address same as Shipping address
     [Tags]    checkout
@@ -1332,8 +1710,56 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     Select Button Apply Promo
     Invalid Promo Code Validation
 
+L-TCCHR21.Apply valid coupon code then remove coupon code
+    [Tags]    checkout
+    Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Add User Email If Emty    ${EmailAddressRegistered}
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+
+    Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}   
+    Select Promo From Promotion List
+    Select Button Apply Existing Promotion
+    Remove Used Promo
+
+    Validate Message Success Alert Is Visible On Checkout Page
+
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 L-TCCHR22.Giftcard balance more than Total order
     [Tags]    checkout
+    Log
+    ...    "Please To Create GiftCard in the Backoffice with amount total is grather than 'ProductConfigSKUForSearch' amount and update 'GiftCardToZero'!"
     Login User
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
@@ -1366,6 +1792,9 @@ L-TCCHR22.Giftcard balance more than Total order
 
 L-TCCHR23.Giftcard balance less than Total order
     [Tags]    checkout
+    Log
+    ...    "Please To Create GiftCard in the Backoffice with amount total is less than 'ProductConfigSKUForSearch' amount and update 'GiftCardSmallAmount'!"
+    Login User
     Empty the items in MiniCart
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
@@ -1398,12 +1827,12 @@ L-TCCHR23.Giftcard balance less than Total order
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalBeforeGiftCard}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
 
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterGiftCard}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
     Submit Place Order
 
@@ -1442,6 +1871,105 @@ L-TCCHR24.Continue shopping after checkout
     Midtrans Virtual Account Transaction
     Thankyou page Validation
     Continue Shopping
+
+L-TCCHR25.Apply coupon with existing code in list promo
+    [Tags]    checkout
+    Log
+    ...    "Please create a Coupon in the Backoffice and assign it to the Buyer account that will be used to apply the Coupon!"
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=3
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
+
+    Select Promo From Promotion List
+    Select Button Apply Existing Promotion
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
+L-TCCHR26.Apply coupon with existing code in list promo and giftcard
+    [Tags]    checkout
+    Log
+    ...    "Please create a Gift Card in the Backoffice and assign it to the Buyer account that will be used to apply the Gift Card!"
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=3
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Shipping Method
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
+
+    Select Promo From Promotion List
+    Select Button Apply Existing Promotion
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+
+    Select Existing Giftcard Code
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
+    ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
+    Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
+
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
 
 L-TCCHR27.Successful Checkout with simple product using registered account
     [Tags]    checkout
@@ -1512,3 +2040,32 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     Submit Place Order
     Midtrans Virtual Account Transaction
     Thankyou page Validation
+
+L-TCCHR32.Registered user add recipient for Pickup In Store
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    ${FullName}=    Generate Random Name
+    Input Recipient Form
+    ...    ${FirstName}${FullName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}

@@ -447,12 +447,12 @@ Submit Giftcard Code
 
 Validate Grandtotal Is Zero
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterPromo}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotalAfterPromo}    Convert Price With String to Integer    ${GrandTotalText}
     Should Be Equal As Integers    ${GrandTotalAfterPromo}    0
 
 Get Grand Total And Convert To Integer
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotal}    Convert Grandtotal String to Integer    ${GrandTotalText}
+    ${GrandTotal}    Convert Price With String to Integer    ${GrandTotalText}
     RETURN    ${GrandTotal}
 
 Remove Used Promo
@@ -461,3 +461,57 @@ Remove Used Promo
     Click Element    ${CheckedPromo}
     Wait Until Element Is Enabled    ${ButtonRemovePromo}
     Click Element    ${ButtonRemovePromo}
+
+Select Promo From Promotion List
+    Scroll Down To Element    ${ButtonAddPromo}
+    Click Element    ${ButtonAddPromo}
+    Wait Until Element Is Visible With Long Time    ${CheckBoxFirstExistingPromo}
+    ${first_selected}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${CheckBoxFirstExistingPromo}
+    IF    ${first_selected}
+        Click Element    ${CheckBoxSecondExistingPromo}
+    ELSE
+        Click Element    ${CheckBoxFirstExistingPromo}
+    END  
+
+Select Button Apply Existing Promotion
+    Wait Until Element Is Visible    ${ButtonApplyExistingPromo}
+    Click Element    ${ButtonApplyExistingPromo}
+
+Input Recipient Form
+    [Arguments]
+    ...    ${PickUpRecipientName}
+    ...    ${PickUpRecipientPhone}
+    ...    ${PickUpRecipientEmail}
+    Wait Until Element Is Visible With Long Time    ${PickUpButtonSaveRecipient}
+    Clear Text Field    ${PickUpRecipientNameField}
+    Input Text    ${PickUpRecipientNameField}    ${PickUpRecipientName}
+    Clear Text Field    ${PickUpRecipientPhoneField}
+    Input Text    ${PickUpRecipientPhoneField}    ${PickUpRecipientPhone}
+    Clear Text Field    ${PickUpRecipientEmailField}
+    Input Text    ${PickUpRecipientEmailField}    ${PickUpRecipientEmail}
+    Click Element    ${PickUpButtonSaveRecipient}
+
+Validate Pickup In Store Recipient Blanks
+    Wait Until Element Is Visible With Long Time    ${PickUpErrorMessageAlert}
+
+Go To Recipient Form
+    ${PickUpHasNoAddress}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${ButtonPickUpNewRecipient}
+    IF  ${PickUpHasNoAddress}
+        Click Element    ${ButtonPickUpNewRecipient} 
+    ELSE
+        Wait Until Element Is Visible With Long Time    ${ButtonUbahRecipient}
+        Click Element    ${ButtonUbahRecipient}
+    END
+
+Select Pickup In Store Delivery Method
+    Wait Until Element Is Visible With Long Time    ${ButtonPickupInStore}
+    Click Element    ${ButtonPickupInStore}
+
+Select Homedelivery Delivery Method
+    Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
+    Click Element    ${SCVHomeDeliveryButton}
+
+Select Existing Giftcard Code
+    Wait Until Element Is Visible    ${ButtonExistingGiftCard}
+    Click Element    ${ButtonExistingGiftCard}
+    Wait Until Element Is Not Visible    ${GiftCardLoader}
