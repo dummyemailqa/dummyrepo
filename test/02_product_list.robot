@@ -55,16 +55,14 @@ TCPLP2.2.Customers add configurable product to the cart from PLP
     
     ${IndexButton}    Search Result Counter in PLP
     Scroll Down To Element    ${AddToCartButtonInPLP.format(${IndexButton})}
- 
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
         FOR    ${Option}    IN RANGE    1    ${totalOption+1}
-            
            ${IsConfigurable}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s     ${SummarySwatchOption.format(${Option})}
             IF     ${IsConfigurable}
             Click Element    ${ProductOption.format(${Option},${Option})}
             Click Element    ${ProductOption.format(${Option},${Option+1})}
             Click Element    ${AddToCartButtonInPLP.format(${IndexButton})}
-            Element Should Be Visible    ${SuccessAddToCartAllert} 
+            Wait Until Element Is Visible in 10s    ${SuccessAddToCartAllert} 
             Pass Execution    'Passed'     
             ELSE
             Fail
