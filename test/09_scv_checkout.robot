@@ -1071,21 +1071,22 @@ TCSC2.Customer deleted the item
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Wait Until Element Is Visible    ${MinicartSubtotal}
     ${PriceInMinicart}    Get Text    ${MinicartSubtotal}
-    ${PriceMinicartInt}    Convert Price String To Integer    ${PriceInMinicart}
+    ${PriceMinicartInt}    Convert Price With String to Integer    ${PriceInMinicart}
     Click Button    ${MinicartIncrease}
     Wait Until Element Is Not Visible With Long Time  ${MinicartLoader}
     Wait Until Element Is Visible    ${MinicartSubtotal}
     ${PriceInMinicart}    Get Text    ${MinicartSubtotal}
-    ${PriceMinicartIntIncrement}    Convert Price String To Integer    ${PriceInMinicart}
+    ${PriceMinicartIntIncrement}    Convert Price With String to Integer    ${PriceInMinicart}
     Should Be True    ${PriceMinicartIntIncrement} > ${PriceMinicartInt}
     Click Button    ${MinicartDecrease}
     Wait Until Element Is Not Visible With Long Time    ${MinicartLoader}
     Wait Until Element Is Visible    ${MinicartSubtotal}
     ${PriceInMinicart}    Get Text    ${MinicartSubtotal}
-    ${PriceMinicartIntDecrement}    Convert Price String To Integer    ${PriceInMinicart}
+    ${PriceMinicartIntDecrement}    Convert Price With String to Integer    ${PriceInMinicart}
     Should Be True    ${PriceMinicartIntDecrement} < ${PriceMinicartIntIncrement}
     Empty the items in MiniCart
-    Wait Until Element Is Visible With Long Time  ${ButtonStartShopping}
+    Open Minicart
+    Wait Until Element Is Visible With Long Time  ${ButtonStartShoppingInMiniCart}
 
 L-TCCHR5.Add shipping address
     [Tags]    checkout
