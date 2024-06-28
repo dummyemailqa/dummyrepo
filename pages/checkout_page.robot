@@ -279,7 +279,11 @@ Thankyou page Validation
 
 Continue Shopping
     Wait Until Element Is Visible With Long Time    ${ButtonContinueShopping}
+    Wait Until Element Is Enabled    ${ButtonContinueShopping}    10
     Click Element    ${ButtonContinueShopping}
+    Wait Until Element Is Visible With Long Time    ${BannerCarousel}
+    ${current_url}    Get Location
+    Should Be Equal    ${current_url}    ${URLWEB}
 
 SCV Validate Blank Pinpoint New Address
     Wait Until Element Is Visible With Long Time    ${SCVPinpointBlank}

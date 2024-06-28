@@ -7,7 +7,7 @@ UserLoggedInIcon    = "//div[contains(@class,'header-icons-wrapper')]//button[@i
 MenuWoman           = "//a[@title='Women']/span[@class='inline items-center']"
 ToggleCurrency      = "//div[@x-data='initCurrency()']//button"
 CurrencyItem        = "//div[@x-data='initCurrency()']//div[@role='menu']//a[1]"
-
+BannerCarousel      = "//a[@class='mgz-carousel-custom_link']"
 #Search
 SearchBox           = "//input[@id='search']"
 SuggestedProduct    = "//a[@class='w-full block p-2']//span[@x-text='searchResult.title']"
