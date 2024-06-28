@@ -570,6 +570,7 @@ G-TCCHG17.Apply valid coupon code
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
+    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
 
     Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
@@ -584,7 +585,6 @@ G-TCCHG17.Apply valid coupon code
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     
-    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
 
