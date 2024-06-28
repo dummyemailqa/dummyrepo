@@ -63,8 +63,31 @@ TCSe5.Validation of Successful Product Search with Special Characters Appended t
     Search Product by Keyword in Searchbox    ${ProductSpecialNameForSearch}
     Wait Until Element Is Visible With Long Time    ${ProductItemCard}
     Element Should Be Visible    ${ProductItemCard}
+
+L-TCH1.Logged-in customers can access the Compare Product page
+    [Tags]    header    compare
+    Login User
+    Empty the items in Compare Page
     
-G-TCH1.Guest customers can access the "Compare Product" page
+    Click Element    ${NavMenu2}
+    ${PDPProductName1Value} =    Get Product Name From PLP
+    Click Element    ${CompareButtonFirstProduct}
+    Validate Message Success Alert Is Visible
+    
+    Click Element    ${NavMenu4}
+    ${PDPProductName2Value} =    Get Product Name From PLP
+    Click Element    ${CompareButtonFirstProduct}
+    Validate Message Success Alert Is Visible
+    
+    Click Element    ${HeaderCompareButton}
+    
+    ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
+    ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
+    Validate The Similarity Of Item Added To Compare    ${PDPProductName2Value}    ${CompareProductName1Value}
+    
+G-TCH1.Guest customers can access the Compare Product page
+    [Tags]    header    compare
     Click Element    ${NavMenu2}
     ${PDPProductName1Value} =    Get Product Name From PLP
     Click Element    ${CompareButtonFirstProduct}
@@ -73,7 +96,7 @@ G-TCH1.Guest customers can access the "Compare Product" page
     ${PDPProductName2Value} =    Get Product Name From PLP
     Click Element    ${CompareButtonFirstProduct}
     Validate Message Success Alert Is Visible
-    Click Element    //a[@id="compare-link"]
+    Click Element    ${HeaderCompareButton}
     ${CompareProductName1Value} =    Get Text From Locator    ${CompareProductName1}
     ${CompareProductName2Value} =    Get Text From Locator    ${CompareProductName2}
     Validate The Similarity Of Item Added To Compare    ${PDPProductName1Value}    ${CompareProductName2Value}
