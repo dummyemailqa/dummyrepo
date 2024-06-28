@@ -790,6 +790,7 @@ G-TCCHG21.Giftcard balance less than Total order
     ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
+    Validate Message Success Alert Is Visible On Checkout Page
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
     ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
