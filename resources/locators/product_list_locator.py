@@ -21,10 +21,11 @@ SortAsc  = "ASC"
 productItemPrice    =   "//section[@id='product-list']//form[{}]//div[contains(@class,'product-info')]//span[@class='price']"
 
 # Product Card Detail
+ProductItemBasedForm        = "//div[@class='products wrapper mode-grid products-grid']//form"
 ProductItemCardName         = "//form[contains(@class,'product-item')][{}]//a[@class='product-item-link']"
 ProductItemAddToCartButton  = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])"
+SummarySwatchOption         = "//form[{}]//div[@class='swatch-wrapper']"
 ProductOption               = "//form[{}]//div[@class='swatch-wrapper']/div[{}]//div[contains(@x-id,'attribute-option')]"
-SummarySwatchOption         = "//div[@class='swatch-wrapper']"
 AddToCartButtonInPLP        = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[{}]"
 
 #Allert
