@@ -31,4 +31,21 @@ Search Result Counter in PLP
         Exit For Loop If    ${VarianConfigurableInPLP}==TRUE
     END
  
-
+Sorting Correct Validation
+    [Arguments]                                                 ${sort_by}  ${product_item_1}  ${product_item_2}  ${product_item_3}
+    Execute Javascript                                          window.scrollTo(0, 200)
+    ${ProductItem1}                 Get Text                    ${product_item_1}
+    ${ProductItem2}                 Get Text                    ${product_item_2}
+    ${ProductItem3}                 Get Text                    ${product_item_3}
+    @{products}=    Create List    ${ProductItem1}    ${ProductItem2}    ${ProductItem3}
+    IF  "${sort_by}" == "ASC"
+        Log      ${products}
+        ${SortedASC}    Execute Javascript      const asc = (b, i, { [i - 1]: a }) => !i || a <= b, array_asc = ${products}; return array_asc.every(asc);
+        Log      ${SortedASC}
+        Should Be True                  ${SortedASC}
+    ELSE IF  "${sort_by}" == "DESC"
+        Log      ${products}
+        ${SortedDESC}    Execute Javascript      const desc = (b, i, { [i - 1]: a }) => !i || a >= b, array_desc = ${products};return array_desc.every(desc);
+        Log      ${SortedDESC}
+        Should Be True                  ${SortedDESC}
+    END
