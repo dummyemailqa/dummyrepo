@@ -20,6 +20,8 @@ Test Teardown       End Test Case
 
 
 *** Test Cases ***
+TCPLPDUMMY
+    Pass Execution    "Dummy Testcase"
 TCPLP1.Customers able to Change product view as Grid on PLP
     [Tags]    plp
     # View as List
@@ -32,23 +34,58 @@ TCPLP1.Customers able to Change product view as Grid on PLP
 
     # View as Grid
     Wait Until Element Is Visible in 10s    ${ProductsGridViewIcon}
-    Click Element    ${ProductsGridViewIcon}
+    Click Element   ${ProductsGridViewIcon}
     Wait Until Page Contains Element    ${ProductGridViewContainer}
 
-TCPLP2.Customers add product to the cart from PLP
-    [Tags]    PLP  TCPLP2
+TCPLP2.1.Customers add simple product to the cart from PLP
+    [Tags]    PLP  TCPLP2.1
     #search Product Simple by SKU
     Search Product by Keyword in Searchbox                  Ingrid Running Jacket
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
-    Click Element    //button[@class='btn-primary']/parent::div[@class='product-item-actions']
-    Element Should Be Visible    //div[@ui-id='messages success']child::/div[@class='leading-none']
     
+     ${IndexButton}    Search Result Counter in PLP
+    Scroll Down To Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+        ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
+        FOR    ${Option}    IN RANGE    1    ${totalOption+1}
+           ${IsSimple}    Run Keyword And Return Status    Wait Until Element Is Not Visible      ${SummarySwatchOption.format(${Option})}    3s
+            IF     ${IsSimple}
+                Click Element    ${AddToCartButtonInPLP.format(${IndexButton+1})}
+                Wait Until Element Is Visible in 10s    ${SuccessAddToCartAllert} 
+                Pass Execution    'Passed'     
+            END
+        END
+    Fail
+    
+TCPLP2.2.Customers add configurable product to the cart from PLP
+    [Tags]    PLP  TCPLP2.2
+    #search Product Configurable by SKU
+    Search Product by Keyword in Searchbox                  Ingrid Running Jacket
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
+    Element Should Be Visible                               ${ProductItemCard}
+    
+    ${IndexButton}    Search Result Counter in PLP
+    Scroll Down To Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+        ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
+        FOR    ${Option}    IN RANGE    1    ${totalOption+1}
+           ${IsConfigurable}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s     ${SummarySwatchOption.format(${Option})}
+            IF     ${IsConfigurable}
+            Click Element    ${ProductOption.format(${Option},${Option})}
+            Click Element    ${ProductOption.format(${Option},${Option+1})}
+            Click Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+            Wait Until Element Is Visible in 10s    ${SuccessAddToCartAllert} 
+            Pass Execution    'Passed'     
+            END
+        END
+    Fail
+    
+
 
 TCPLP4.Customers sort products
     [Tags]    PLP  TCPLP4
     #Sort by Low Price
     Search Product by Keyword in Searchbox                  Women
+    Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
     Click Element    //select[@aria-label='Sort By']
     Click Element    //select[@aria-label='Sort By']//option[@value='price']
