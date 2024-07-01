@@ -4,6 +4,7 @@ Library         Collections
 Variables       ../resources/locators/home_locator.py
 Variables       ../resources/locators/product_list_locator.py
 Variables       ../resources/locators/product_detail_locator.py
+Variables       ../resources/locators/compare_locator.py
 Resource        ../base/common.robot
 Resource        ../base/base.robot
 
@@ -117,3 +118,14 @@ Currency Validation
 Selected Currency Not Found
     [Arguments]    ${SelectedCurrency}
     Fail    The currency(${SelectedCurrency}) data entered is not registered. Please update the Currency list data
+
+Empty the items in Compare Page
+    Go To Home Page
+    Click Element    ${HeaderCompareButton}
+    ${present}=    Run Keyword and Return Status    Wait Until Page Contains Element    ${CompareProductName1}
+    WHILE    ${present}
+        Click Element    ${BtnDeleteCompareItem}
+        Handle Alert    ACCEPT
+        Alert Success Validation
+        ${present}=    Run Keyword and Return Status    Wait Until Page Contains Element    ${CompareProductName1}
+    END
