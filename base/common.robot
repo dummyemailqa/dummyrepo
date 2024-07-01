@@ -9,7 +9,7 @@ Resource        ../base/base.robot
 
 *** Keywords ***
 Alert Success Validation
-    Wait Until Element Is Visible    ${MessageSuccessAlert}
+    Wait Until Element Is Visible With Long Time  ${MessageSuccessAlert}
     Click Element    ${CloseMessageBtn}
 
 Wait Until Element Is Visible With Long Time
