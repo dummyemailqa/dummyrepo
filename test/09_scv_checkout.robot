@@ -2096,7 +2096,7 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
 
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
-    
+
 L-TCCHR32.Registered user add recipient for Pickup In Store
     [Tags]    checkout
     Login User
