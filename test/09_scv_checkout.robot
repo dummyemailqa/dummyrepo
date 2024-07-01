@@ -2044,6 +2044,29 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+L-TCCHR30.Registered user cannot use Pickup In Store when recipient is empty
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Select Location For Pick Up In Store
+    Element Should Be Disabled    ${SCVPayButton}
+
 L-TCCHR32.Registered user add recipient for Pickup In Store
     [Tags]    checkout
     Login User
