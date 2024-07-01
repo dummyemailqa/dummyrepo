@@ -519,3 +519,9 @@ Select Existing Giftcard Code
     Wait Until Element Is Visible    ${ButtonExistingGiftCard}
     Click Element    ${ButtonExistingGiftCard}
     Wait Until Element Is Not Visible    ${GiftCardLoader}
+
+Select Location For Pick Up In Store
+    Click Element    ${ButtonPickUpNewLocation}
+    Wait Until Element Is Visible    ${PickUpLocationDetail}
+    Click Element    ${PickUpLocationDetail}
+    Click Element    ${ButtonPickUpSaveLocation}
