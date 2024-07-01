@@ -2088,9 +2088,8 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
     Select Pickup In Store Delivery Method
     Go To Recipient Form
 
-    ${FullName}=    Generate Random Name
     Input Recipient Form
-    ...    ${FirstName}${FullName}
+    ...    ${FirstName}
     ...    ${OtpPhonenumber}
     ...    ${EmailAddressRegistered}
     Wait Until Element Is Visible    ${ButtonUbahRecipient}
