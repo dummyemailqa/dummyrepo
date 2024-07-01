@@ -126,5 +126,5 @@ ButtonPickupInStore                     = "//div[@id='checkout-delivery-pickupIn
 ButtonPickUpNewRecipient                = "//button[@id='checkout-pickUpStore-changeInfoButton']"
 ButtonUbahRecipient                     = "//span[contains(@class,'pickup-btn-text')]"
 ButtonPickUpNewLocation                 = "//button[@id='checkout-pickUpStore-changeLocationButton']"
-PickUpLocationDetail                    = "//div[contains(@class,'body')]//div[2]"
+PickUpLocationDetail                    = "//div[contains(@class,'store-card')]"
 ButtonPickUpSaveLocation                = "//button[@id='checkout-pickUpStore-saveButton']"
