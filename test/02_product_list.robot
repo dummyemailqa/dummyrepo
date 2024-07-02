@@ -9,6 +9,7 @@ Resource    ../base/setup.robot
 Resource    ../base/base.robot
 Resource    ../base/common.robot
 Resource    ../pages/home_page.robot
+Resource    ../pages/cart_page.robot
 Resource    ../pages/product_list_page.robot
 
 Test Setup          Start Test Case
@@ -17,13 +18,12 @@ Test Teardown       End Test Case
 
 
 *** Keywords ***
-
+*** Variables ***
+@{productName}
 
 *** Test Cases ***
-TCPLPDUMMY
-    Pass Execution    "Dummy Testcase"
 TCPLP1.Customers able to Change product view as Grid on PLP
-    [Tags]    plp
+    [Tags]    PLP
     # View as List
     Wait Until Element Is Visible in 10s    ${MenuWoman}
     CLick Element    ${MenuWoman}
@@ -38,27 +38,33 @@ TCPLP1.Customers able to Change product view as Grid on PLP
     Wait Until Page Contains Element    ${ProductGridViewContainer}
 
 TCPLP2.1.Customers add simple product to the cart from PLP
-    [Tags]    PLP  TCPLP2.1
+    [Tags]    PLP  
     #search Product Simple by SKU
     Search Product by Keyword in Searchbox                  Ingrid Running Jacket
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
-    
-     ${IndexButton}    Search Result Counter in PLP
-    Scroll Down To Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+    Scroll Down To Element    ${AddToCartButtonInPLP.format(1)}
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
         FOR    ${Option}    IN RANGE    1    ${totalOption+1}
            ${IsSimple}    Run Keyword And Return Status    Wait Until Element Is Not Visible      ${SummarySwatchOption.format(${Option})}    3s
             IF     ${IsSimple}
-                Click Element    ${AddToCartButtonInPLP.format(${IndexButton+1})}
+                Click Element    ${AddToCartButtonInPLP.format(${Option})}
                 Wait Until Element Is Visible in 10s    ${SuccessAddToCartAllert} 
+                Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
+                ${TempProductName} =   Get Text    ${ProductItemCardName.format(${Option})}
+                Append To List     ${productName}    ${TempProductName}
+               
+                Open Minicart
+                @{MinicartProductNameValue} =    Get Product Name From Minicart
+                &{Arguments} =    Create Dictionary    productName=${productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+                Validate The Similarity Of Item Added To Cart    &{Arguments}
                 Pass Execution    'Passed'     
             END
         END
     Fail
     
 TCPLP2.2.Customers add configurable product to the cart from PLP
-    [Tags]    PLP  TCPLP2.2
+    [Tags]    PLP  
     #search Product Configurable by SKU
     Search Product by Keyword in Searchbox                  Ingrid Running Jacket
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
@@ -67,14 +73,28 @@ TCPLP2.2.Customers add configurable product to the cart from PLP
     ${IndexButton}    Search Result Counter in PLP
     Scroll Down To Element    ${AddToCartButtonInPLP.format(${IndexButton})}
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
+
+        ${productName}    Create List
+
         FOR    ${Option}    IN RANGE    1    ${totalOption+1}
            ${IsConfigurable}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s     ${SummarySwatchOption.format(${Option})}
-            IF     ${IsConfigurable}
-            Click Element    ${ProductOption.format(${Option},${Option})}
-            Click Element    ${ProductOption.format(${Option},${Option+1})}
-            Click Element    ${AddToCartButtonInPLP.format(${IndexButton})}
-            Wait Until Element Is Visible in 10s    ${SuccessAddToCartAllert} 
-            Pass Execution    'Passed'     
+            IF    ${IsConfigurable}
+                ${totalOptionVariant} =  Get Element Count  ${SummarySwatchOption.format(${Option})}
+                Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
+                ${TempProductName} =   Get Text    ${ProductItemCardName.format(${Option})}
+                Append To List     ${productName}    ${TempProductName}
+                
+                FOR  ${OptionVarian}  IN RANGE  1  ${totalOptionVariant+1}
+                    Click Element    ${ProductOption.format(${Option},${OptionVarian})}
+                END
+                Click Element    ${AddToCartButtonInPLP.format(${IndexButton})}
+                Wait Until Element Is Visible in 10s    ${SuccessAddToCartAllert} 
+                    
+                Open Minicart
+                @{MinicartProductNameValue} =    Get Product Name From Minicart
+                &{Arguments} =    Create Dictionary    productName=${productName}    MinicartProductNameValue=@{MinicartProductNameValue}
+                Validate The Similarity Of Item Added To Cart    &{Arguments}
+                Pass Execution    'Passed' 
             END
         END
     Fail
@@ -82,13 +102,13 @@ TCPLP2.2.Customers add configurable product to the cart from PLP
 
 
 TCPLP4.Customers sort products
-    [Tags]    PLP  TCPLP4
+    [Tags]    PLP  
     #Sort by Low Price
     Search Product by Keyword in Searchbox                  Women
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
-    Click Element    //select[@aria-label='Sort By']
-    Click Element    //select[@aria-label='Sort By']//option[@value='price']
+    Click Element    ${SortButton} 
+    Click Element    ${SortOptionPrice} 
     Sorting Correct Validation  ${SortAsc}    ${productItemPrice.format(1)}   ${productItemPrice.format(2)}    ${productItemPrice.format(3)}
    
 
