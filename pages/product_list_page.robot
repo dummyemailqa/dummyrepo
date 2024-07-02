@@ -6,20 +6,20 @@ Resource        ../pages/home_page.robot
 Variables       ../resources/locators/product_list_locator.py
 
 *** Keywords ***
-Go To PDP Product By Index
+Go To PLP Product By Index
     [Arguments]    ${index}
     Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
     Click Element    ${ProductItemCardName.format(${index})}
 
-Validate Search Product Is Simple Product
+Validate Search Product Is Simple Product in PLP
     [Arguments]    ${keyword}
     Search Product result Validation    ${keyword}
-    ${IsProductInListingPage} =    Check If On Product Detail Page
-    IF    not ${IsProductInListingPage}    Go To PDP Product By Index    1
+    ${IsProductInListingPage} =    Check If On Product Listing Page
+    IF    not ${IsProductInListingPage}    Go To PLP Product By Index   1
 
-Check If On Product Detail Page
-    ${IsOnProductDetailPage} =    Run Keyword And Return Status    Element Should Be Visible    ${PLPProductName}
-    RETURN    ${IsOnProductDetailPage}
+Check If On Product Listing Page
+    ${IsProductInListingPage} =    Run Keyword And Return Status    Element Should Be Visible    ${PLPProductName}
+    RETURN    ${IsProductInListingPage}
 
 Search Result Counter in PLP
     ${totalOption} =    Get Element Count    ${SummaryProductSearchResult}
