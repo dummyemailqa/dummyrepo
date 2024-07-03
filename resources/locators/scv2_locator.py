@@ -1,9 +1,12 @@
 
 #login
 ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
-InputPhoneNumberLogin       = "//input[@id='checkout-loginPhoneNumber-textField']"
+InputPhoneNumberLogin       = "//input[@id='field-phonenumber-login']"
 AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
+ButtonInputCountryCode      = "//div[contains(@class,'flag-dropdown')]//div[@role='button']"
+InputCountryCodeID          = "//ul[@class='country-list ']//li[@data-country-code='id']"
+
 
 #address
 SCVAddAddressWhileBlank     = "//img[@class='checkout-shipping-pin-img']"
