@@ -54,6 +54,25 @@ Search Product result Validation
         END
     END
 
+Search Category Product result Validation
+    [Arguments]    ${keyword}
+    ${CategoryName}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s    ${CategoryNamePage}
+    ${keyword}    Convert To Lower Case    ${keyword}
+    IF    ${CategoryName}
+        Wait Until Element Is Visible    ${CategoryNamePage}
+        ${txtCategoryresult}    Get Text    ${CategoryNamePage}
+        ${txtCategoryresult}    Convert To Lower Case    ${txtCategoryresult}
+        ${validasiCategory_name}    Run Keyword And Return Status
+        ...    Should Contain
+        ...    ${txtCategoryresult}
+        ...    ${keyword}
+        IF    '${validasiCategory_name}'=='False'
+            Run Keyword And Continue On Failure    Search Product Not Match    ${keyword}    ${txtCategoryresult}
+        END
+    ELSE
+       Search Product result Validation    ${keyword}
+    END
+
 Click On Product Suggestion
     [Arguments]    ${keyword}
     Clear Element Text    ${SearchBox}
@@ -62,6 +81,16 @@ Click On Product Suggestion
     Wait Until Element Is Visible With Long Time    ${SuggestedProduct}
     Search Product Suggestion Validation    ${keyword}
     Click Element    ${SuggestedProduct}
+
+Click On Category Suggestion
+    [Arguments]    ${keyword}
+    Clear Element Text    ${SearchBox}
+    Click Element    ${SearchBox}
+    Input Text    ${SearchBox}    ${keyword}
+    Wait Until Element Is Visible With Long Time    ${SuggestedProduct}
+    Search Product Suggestion Validation    ${keyword}
+    Scroll Element Into View    ${SuggestionCategorySearch}
+    Click Element    ${SuggestionCategorySearch}
 
 Get Text From Locator
     [Arguments]    ${Locator}

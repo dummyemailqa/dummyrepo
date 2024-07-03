@@ -16,18 +16,8 @@ Test Teardown       End Test Case
 *** Test Cases ***
 TCSe1.Search for Product Categories using Website's Search Box
     [Tags]    header    search
-    # search Product Simple by SKU
-    Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
-    Search Product result Validation    ${ProductSimpleNameForSearch}
-
-    # search Product Simple by Name
-    Clear Element Text    ${SearchBox}
-    Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
-    Search Product result Validation    ${ProductSimpleNameForSearch}
-
-    # search Product Suggestion
-    Click On Product Suggestion    ${ProductSimpleNameForSearch}
-    Search Product result Validation    ${ProductSimpleNameForSearch}
+    Click On Category Suggestion    Tee
+    Search Category Product result Validation    Tee
 
 TCSe3.Successful Specific Product Search using Website's Search Box
     [Tags]    header    search
