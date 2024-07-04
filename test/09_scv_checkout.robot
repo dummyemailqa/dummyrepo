@@ -959,6 +959,77 @@ G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest Use
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+G-TCCHG27.Guest user checkout using Pickup In Store
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    Input Recipient Form
+    ...    ${FirstName}${LastName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}
+
+    Select Location For Pick Up In Store
+    Wait Until Element Is Visible With Long Time    ${ButtonUbahSelectStore}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
+G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
+    [Tags]    checkout
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+
+    Select Pickup In Store Delivery Method
+    Select Location For Pick Up In Store
+
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
+    Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
+
 G-TCCHG30.Guest user add recipient for Pickup In Store
     [Tags]    checkout
     Empty the items in MiniCart
@@ -2044,6 +2115,53 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     Midtrans Virtual Account Transaction
     Thankyou page Validation
 
+L-TCCHR29.Registered user checkout using Pickup In Store
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Select Pickup In Store Delivery Method
+    
+    Go To Recipient Form
+    Input Recipient Form
+    ...    ${PickUpName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+
+    Select Location For Pick Up In Store
+    Wait Until Element Is Visible With Long Time    ${ButtonUbahSelectStore}
+
+    # Melakukan Add Adrees jika user belum pernah menambahkan alamat
+    ${ShippingRecipient}    Generate Random Keyword
+    ${ShippingOtherLabel}    Generate Random Keyword
+    Add User Address If Emty
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${PhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${ShipmentPinLocation}
+
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    
+    Submit Place Order
+    Midtrans Virtual Account Transaction
+    Thankyou page Validation
+
 L-TCCHR30.Registered user cannot use Pickup In Store when recipient is empty
     [Tags]    checkout
     Login User
@@ -2066,6 +2184,36 @@ L-TCCHR30.Registered user cannot use Pickup In Store when recipient is empty
     Select Pickup In Store Delivery Method
     Select Location For Pick Up In Store
     Element Should Be Disabled    ${SCVPayButton}
+
+L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
+    [Tags]    checkout
+    Login User
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    Input Recipient Form
+    ...    ${FirstName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}
+
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 L-TCCHR32.Registered user add recipient for Pickup In Store
     [Tags]    checkout

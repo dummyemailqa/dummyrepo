@@ -128,3 +128,4 @@ ButtonUbahRecipient                     = "//span[contains(@class,'pickup-btn-te
 ButtonPickUpNewLocation                 = "//button[@id='checkout-pickUpStore-changeLocationButton']"
 PickUpLocationDetail                    = "//div[contains(@class,'store-card')]"
 ButtonPickUpSaveLocation                = "//button[@id='checkout-pickUpStore-saveButton']"
+ButtonUbahSelectStore                   = "//div[@id='card-pickup']//div[2]//span[contains(@class,'pickup-btn-text')]"
