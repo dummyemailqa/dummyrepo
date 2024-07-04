@@ -56,22 +56,18 @@ Search Product result Validation
 
 Search Category Product result Validation
     [Arguments]    ${keyword}
-    ${CategoryName}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s    ${CategoryNamePage}
-    ${keyword}    Convert To Lower Case    ${keyword}
-    IF    ${CategoryName}
-        Wait Until Element Is Visible    ${CategoryNamePage}
-        ${txtCategoryresult}    Get Text    ${CategoryNamePage}
-        ${txtCategoryresult}    Convert To Lower Case    ${txtCategoryresult}
-        ${validasiCategory_name}    Run Keyword And Return Status
-        ...    Should Contain
-        ...    ${txtCategoryresult}
-        ...    ${keyword}
-        IF    '${validasiCategory_name}'=='False'
-            Run Keyword And Continue On Failure    Search Product Not Match    ${keyword}    ${txtCategoryresult}
+    Wait Until Element Is Visible in 10s    ${BreadcrumbListName}
+    ${keyword}    Convert To Lower Case    ${CategoryName}
+    ${totalBreadcrumb} =    Get Element Count    ${BreadcrumbListName}
+    FOR    ${Varian}    IN RANGE    1    ${totalBreadcrumb+1}
+        ${BreadcrumbName} =    Get Text    ${BreadcrumbListName.format(${Varian})}
+        ${BreadcrumbName}    Convert To Lower Case    ${BreadcrumbName}
+        ${Status}    Run Keyword And Return Status    Should Contain    ${BreadcrumbName}    ${keyword}
+        IF  ${Status}
+            Pass Execution    'Passed'
         END
-    ELSE
-       Search Product result Validation    ${keyword}
     END
+    Fail
 
 Click On Product Suggestion
     [Arguments]    ${keyword}
@@ -84,7 +80,7 @@ Click On Product Suggestion
 
 Click On Category Suggestion
     [Arguments]    ${keyword}
-    Clear Element Text    ${SearchBox}
+    Clear Text Field    ${SearchBox}
     Click Element    ${SearchBox}
     Input Text    ${SearchBox}    ${keyword}
     Wait Until Element Is Visible With Long Time    ${SuggestedProduct}

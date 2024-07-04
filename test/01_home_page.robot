@@ -3,6 +3,7 @@ Documentation       Suite description
 Variables           ../resources/locators/product_list_locator.py
 Variables           ../resources/locators/base_locator.py
 Variables           ../resources/locators/compare_locator.py
+Variables           ../resources/locators/product_detail_locator.py
 Variables           ../resources/data/testdata.py
 Resource            ../base/setup.robot
 Resource            ../base/base.robot
@@ -16,8 +17,8 @@ Test Teardown       End Test Case
 *** Test Cases ***
 TCSe1.Search for Product Categories using Website's Search Box
     [Tags]    header    search
-    Click On Category Suggestion    Tee
-    Search Category Product result Validation    Tee
+    Click On Category Suggestion    ${CategoryName}
+    Search Category Product result Validation    ${CategoryName}
 
 TCSe3.Successful Specific Product Search using Website's Search Box
     [Tags]    header    search

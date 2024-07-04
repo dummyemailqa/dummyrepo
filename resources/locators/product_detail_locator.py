@@ -5,6 +5,7 @@ ProductReviewButton                     = "//div[@class='review-modal-wrapper']/
 QTYInput                                = "//div[contains(@class,'product-info-main')]//input[contains(@name,'qty')]" 
 PDPProductName                          = "//div[contains(@class,'product-info-main')]//div[contains(@class,'container')]//h1[contains(@class,'page-title')]//span[contains(@data-ui-id,'page-title-wrapper')]"
 ProductNameOnPDP                        = "//h1[contains(@class,'page-title')]//span"
+BreadcrumbListName                      = "//li[contains(@class,'category')]"
 
 # Manage Configurable Product
 ProductConfigurable                     = "//body[contains(@class,'page-product-configurable')]"
