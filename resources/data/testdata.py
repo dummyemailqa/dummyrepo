@@ -29,6 +29,7 @@ ProductConfigNameForSearch   = 'Maya Tunic'
 ProductBundleNameForSearch   = 'Swift Pear Bundle Kit'
 ProductGroupNameForSearch    = 'Set of Sprite Yoga Straps'
 ProductVirtualNameForSearch  = 'Virtual Product Demo'
+CategoryForSearch            = 'Women'
 
 # Product Random Name
 ProductSimpleSKUWithRandomCharacter     = 'irj-001PLO'

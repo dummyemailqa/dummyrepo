@@ -40,7 +40,7 @@ TCPLP1.Customers able to Change product view as Grid on PLP
 TCPLP2.1.Customers add simple product to the cart from PLP
     [Tags]    PLP  
     #search Product Simple by SKU
-    Search Product by Keyword in Searchbox                  Ingrid Running Jacket
+    Search Product by Keyword in Searchbox                  ${ProductSimpleSKUForSearch}
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
     Scroll Down To Element    ${AddToCartButtonInPLP.format(1)}
@@ -66,7 +66,7 @@ TCPLP2.1.Customers add simple product to the cart from PLP
 TCPLP2.2.Customers add configurable product to the cart from PLP
     [Tags]    PLP  
     #search Product Configurable by SKU
-    Search Product by Keyword in Searchbox                  Ingrid Running Jacket
+    Search Product by Keyword in Searchbox                  ${ProductConfigSKUForSearch}
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
     
@@ -104,7 +104,7 @@ TCPLP2.2.Customers add configurable product to the cart from PLP
 TCPLP4.Customers sort products
     [Tags]    PLP  
     #Sort by Low Price
-    Search Product by Keyword in Searchbox                  Women
+    Search Product by Keyword in Searchbox                  ${CategoryForSearch}
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
     Element Should Be Visible                               ${ProductItemCard}
     Click Element    ${SortButton} 
