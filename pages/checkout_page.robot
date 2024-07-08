@@ -8,9 +8,17 @@ Variables       ../resources/locators/scv2_locator.py
 ${DATE_FORMAT}      %d%m%y
 
 *** Keywords ***
+Select Phone Number Country Code
+    Wait Until Element Is Visible    ${ButtonInputCountryCode}
+    Click Element    ${ButtonInputCountryCode}
+    Wait Until Element Is Visible  ${InputCountryCodeID}
+    Click Element    ${InputCountryCodeID}
+
 Input SCV2 Login Phone Number
     [Arguments]    ${PhoneNumber}
+    Select Phone Number Country Code
     Wait Until Element Is Visible With Long Time    ${InputPhoneNumberLogin}
+    Clear Text Field    ${InputPhoneNumberLogin}
     Input Text    ${InputPhoneNumberLogin}    ${PhoneNumber}
     Click Button    ${ButtonCheckoutogInSCV}
 

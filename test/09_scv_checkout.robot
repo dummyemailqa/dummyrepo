@@ -1004,7 +1004,35 @@ G-TCCHG27.Guest user checkout using Pickup In Store
     Select Payment Method    ${DropdownVAMidtransMethodItem}
     Submit Place Order
     Midtrans Virtual Account Transaction
-    Thankyou page Validation
+
+G-TCCHG29.Guest user cannot use Pickup In Store when location is empty
+    [Tags]    checkout    test
+    Empty the items in MiniCart
+    Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
+    Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
+    @{productName}    Add To Cart    Qty=1
+    Alert Success Validation
+    Open Minicart
+    @{MinicartProductNameValue}    Get Product Name From Minicart
+    &{Arguments}    Create Dictionary
+    ...    productName=@{productName}
+    ...    MinicartProductNameValue=@{MinicartProductNameValue}
+    Validate The Similarity Of Item Added To Cart    &{Arguments}
+    Go To Shopping Cart
+    Go To Checkout Page From Shopping Cart Guest and Login User
+
+    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Select Pickup In Store Delivery Method
+    Go To Recipient Form
+
+    Input Recipient Form
+    ...    ${FirstName}
+    ...    ${OtpPhonenumber}
+    ...    ${EmailAddressRegistered}
+    Wait Until Element Is Visible    ${ButtonUbahRecipient}
+
+    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
     [Tags]    checkout
