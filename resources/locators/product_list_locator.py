@@ -11,7 +11,7 @@ ProductNameTitle            = "//a[@class='product-item-link']"
 VarianConfigurableInPLP     = "//div[contains(@x-data,'initConfigurableSwatchOptions_1268')]"
 SummaryProductSearchResult  = "//form"
 ProductSearchResultIndex    = "//form[{}]//div[contains(@x-data,'initConfigurableSwatchOptions_1268')]"
-
+CategoryNamePage            = "//span[@data-ui-id='page-title-wrapper']"
 
 #Button
 AddToCartButton             = "//button[@id='product-addtocart-button']"
