@@ -18,7 +18,9 @@ AddToCartButton             = "//button[@id='product-addtocart-button']"
 
 # Sorting
 SortAsc  = "ASC"
+SortDesc  = "DESC"
 productItemPrice    =   "//section[@id='product-list']//form[{}]//div[contains(@class,'product-info')]//span[@class='price']"
+ButtonDescOption = "//a[@title='Set Descending Direction']"
 
 # Product Card Detail
 ProductItemBasedForm        = "//div[@class='products wrapper mode-grid products-grid']//form"
@@ -29,6 +31,5 @@ ProductOption               = "//form[{}]//div[@class='swatch-wrapper']/div[{}]/
 AddToCartButtonInPLP        = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[{}]"
 
 #Allert
-SuccessAddToCartAllert = "//div[@ui-id='message-success']"
 SortButton = "//select[@aria-label='Sort By']"
 SortOptionPrice = "//select[@aria-label='Sort By']//option[@value='price']"
