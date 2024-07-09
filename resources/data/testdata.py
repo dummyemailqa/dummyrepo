@@ -66,3 +66,6 @@ PromoCode          = "PROMO10K"
 
 #Pickup In Store
 PickUpName                 = "DemoIcube"
+
+#Product Category
+CategoryName            = "Men"

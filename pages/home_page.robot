@@ -54,6 +54,21 @@ Search Product result Validation
         END
     END
 
+Search Category Product result Validation
+    [Arguments]    ${keyword}
+    Wait Until Element Is Visible in 10s    ${BreadcrumbListName}
+    ${keyword}    Convert To Lower Case    ${CategoryName}
+    ${totalBreadcrumb} =    Get Element Count    ${BreadcrumbListName}
+    FOR    ${Varian}    IN RANGE    1    ${totalBreadcrumb+1}
+        ${BreadcrumbName} =    Get Text    ${BreadcrumbListName.format(${Varian})}
+        ${BreadcrumbName}    Convert To Lower Case    ${BreadcrumbName}
+        ${Status}    Run Keyword And Return Status    Should Contain    ${BreadcrumbName}    ${keyword}
+        IF  ${Status}
+            Pass Execution    'Passed'
+        END
+    END
+    Fail
+
 Click On Product Suggestion
     [Arguments]    ${keyword}
     Clear Element Text    ${SearchBox}
@@ -62,6 +77,16 @@ Click On Product Suggestion
     Wait Until Element Is Visible With Long Time    ${SuggestedProduct}
     Search Product Suggestion Validation    ${keyword}
     Click Element    ${SuggestedProduct}
+
+Click On Category Suggestion
+    [Arguments]    ${keyword}
+    Clear Text Field    ${SearchBox}
+    Click Element    ${SearchBox}
+    Input Text    ${SearchBox}    ${keyword}
+    Wait Until Element Is Visible With Long Time    ${SuggestedProduct}
+    Search Product Suggestion Validation    ${keyword}
+    Scroll Element Into View    ${SuggestionCategorySearch}
+    Click Element    ${SuggestionCategorySearch}
 
 Get Text From Locator
     [Arguments]    ${Locator}
