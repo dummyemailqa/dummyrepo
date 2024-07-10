@@ -73,7 +73,7 @@ TCPLP2.2.Customers add configurable product to the cart from PLP
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
         ${productName}    Create List
         FOR    ${Option}    IN RANGE    1    ${totalOption+1}
-            Scroll Down To Specifict Element    ${ProductItemCardName.format(${Option})}
+            Scroll Up To Element    ${ProductItemCardName.format(${Option})}
             ${IsConfigurable}    Run Keyword And Return Status   Wait Until Element Is Visible in 10s  ${SummarySwatchOption.format(${Option})}
             IF    ${IsConfigurable}
                 ${totalOptionVariant} =  Get Element Count  ${SummarySwatchOption.format(${Option})}
