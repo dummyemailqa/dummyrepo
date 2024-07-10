@@ -39,11 +39,13 @@ Sorting Correct Validation
     ${ProductItem3}                 Get Text                    ${product_item_3}
     @{products}=    Create List    ${ProductItem1}    ${ProductItem2}    ${ProductItem3}
     IF  "${sort_by}" == "ASC"
+        Log    "array product:"
         Log      ${products}
         ${SortedASC}    Execute Javascript      const asc = (b, i, { [i - 1]: a }) => !i || a <= b, array_asc = ${products}; return array_asc.every(asc);
         Log      ${SortedASC}
         Should Be True                  ${SortedASC}
     ELSE IF  "${sort_by}" == "DESC"
+        Log    "array product:"
         Log      ${products}
         ${SortedDESC}    Execute Javascript      const desc = (b, i, { [i - 1]: a }) => !i || a >= b, array_desc = ${products};return array_desc.every(desc);
         Log      ${SortedDESC}
@@ -54,3 +56,4 @@ Go To PDP Product By Index
     [Arguments]    ${index}
     Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
     Click Element    ${ProductItemCardName.format(${index})}
+

@@ -190,3 +190,8 @@ Validate Search Product And Go To PDP
     Search Product result Validation    ${keyword}
     ${IsOnProductDetailPage} =    Check If On Product Detail Page
     IF    not ${IsOnProductDetailPage}    Go To PDP Product By Index    1
+
+Go To PDP Product By Index
+    [Arguments]    ${index}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
+    Click Element    ${ProductItemCardName.format(${index})}

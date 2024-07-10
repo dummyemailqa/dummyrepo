@@ -17,16 +17,17 @@ CategoryNamePage            = "//span[@data-ui-id='page-title-wrapper']"
 AddToCartButton             = "//button[@id='product-addtocart-button']"
 
 # Sorting
-SortAsc  = "ASC"
 productItemPrice    =   "//section[@id='product-list']//form[{}]//div[contains(@class,'product-info')]//span[@class='price']"
+ButtonDescOption = "//a[@title='Set Descending Direction']"
 
 # Product Card Detail
 ProductItemBasedForm        = "//div[@class='products wrapper mode-grid products-grid']//form"
 ProductItemCardName         = "//form[contains(@class,'product-item')][{}]//a[@class='product-item-link']"
 ProductItemAddToCartButton  = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])"
-SummarySwatchOption         = "//form[{}]//div[@class='swatch-wrapper']"
+SummarySwatchOption         = "//form[{}]//div[@class='swatch-wrapper']/div"
 ProductOption               = "//form[{}]//div[@class='swatch-wrapper']/div[{}]//div[contains(@x-id,'attribute-option')]"
 AddToCartButtonInPLP        = "xpath=(//button[contains(@class,'btn-primary') and contains(@aria-label,'Add to Cart')])[{}]"
 
 #Allert
-SuccessAddToCartAllert = "//div[@ui-id='message-success']"
+SortButton = "//select[@aria-label='Sort By']"
+SortOptionPrice = "//select[@aria-label='Sort By']//option[@value='price']"
