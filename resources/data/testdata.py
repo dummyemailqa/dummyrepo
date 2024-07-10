@@ -69,3 +69,7 @@ PickUpName                 = "DemoIcube"
 
 #Product Category
 CategoryName            = "Men"
+
+#Sorting
+SortAsc  = "ASC"
+SortDesc  = "DESC"

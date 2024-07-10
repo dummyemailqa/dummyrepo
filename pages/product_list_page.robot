@@ -52,8 +52,8 @@ Sorting Correct Validation
         Should Be True                  ${SortedDESC}
     END
 
-Get Product Name
-    [Arguments]    ${Option}   
-    Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
-    ${TempProductName} =   Get Text    ${ProductItemCardName.format(${Option})}
-    RETURN    ${TempProductName}
+Go To PDP Product By Index
+    [Arguments]    ${index}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
+    Click Element    ${ProductItemCardName.format(${index})}
+

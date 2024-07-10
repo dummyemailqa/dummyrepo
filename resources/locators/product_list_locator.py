@@ -17,8 +17,6 @@ CategoryNamePage            = "//span[@data-ui-id='page-title-wrapper']"
 AddToCartButton             = "//button[@id='product-addtocart-button']"
 
 # Sorting
-SortAsc  = "ASC"
-SortDesc  = "DESC"
 productItemPrice    =   "//section[@id='product-list']//form[{}]//div[contains(@class,'product-info')]//span[@class='price']"
 ButtonDescOption = "//a[@title='Set Descending Direction']"
 

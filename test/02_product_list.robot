@@ -46,13 +46,14 @@ TCPLP2.1.Customers add simple product to the cart from PLP
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
         FOR    ${Option}    IN RANGE    1    ${totalOption+1}
             Scroll Down To Element    ${AddToCartButtonInPLP.format(${Option})}   
-           ${IsSimple}    Run Keyword And Return Status   Wait Until Element Is Not Visible  ${SummarySwatchOption.format(${Option})}    3s
+            ${IsSimple}    Run Keyword And Return Status   Wait Until Element Is Not Visible  ${SummarySwatchOption.format(${Option})}    3s
             IF     ${IsSimple}
                 Click Element    ${AddToCartButtonInPLP.format(${Option})}
-                Validate Message Success Alert Is Visible
+                Validate Message Success Alert Is Visible 
+                
                 Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
                 ${TempProductName} =   Get Text    ${ProductItemCardName.format(${Option})}
-                Append To List     ${productName}    ${TempProductName}
+                Append To List     ${productName}    
                
                 Open Minicart
                 @{MinicartProductNameValue} =    Get Product Name From Minicart
@@ -73,7 +74,7 @@ TCPLP2.2.Customers add configurable product to the cart from PLP
         ${productName}    Create List
         FOR    ${Option}    IN RANGE    1    ${totalOption+1}
             Scroll Down To Specifict Element    ${ProductItemCardName.format(${Option})}
-           ${IsConfigurable}    Run Keyword And Return Status   Wait Until Element Is Visible in 10s  ${SummarySwatchOption.format(${Option})}
+            ${IsConfigurable}    Run Keyword And Return Status   Wait Until Element Is Visible in 10s  ${SummarySwatchOption.format(${Option})}
             IF    ${IsConfigurable}
                 ${totalOptionVariant} =  Get Element Count  ${SummarySwatchOption.format(${Option})}
                 Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
