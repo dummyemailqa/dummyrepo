@@ -49,3 +49,8 @@ Sorting Correct Validation
         Log      ${SortedDESC}
         Should Be True                  ${SortedDESC}
     END
+
+Go To PDP Product By Index
+    [Arguments]    ${index}
+    Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
+    Click Element    ${ProductItemCardName.format(${index})}
