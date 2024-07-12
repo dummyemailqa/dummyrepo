@@ -53,7 +53,7 @@ TCPLP2.1.Customers add simple product to the cart from PLP
                 
                 Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
                 ${TempProductName} =   Get Text    ${ProductItemCardName.format(${Option})}
-                Append To List     ${productName}    
+                Append To List     ${productName}    ${TempProductName}
                
                 Open Minicart
                 @{MinicartProductNameValue} =    Get Product Name From Minicart
