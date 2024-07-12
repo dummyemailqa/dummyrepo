@@ -79,6 +79,7 @@ G-TCCHG3.Add shipping address
     ...    ${ButtonAddAddressCheckoutPage}
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
@@ -90,7 +91,7 @@ G-TCCHG3.Add shipping address
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -126,6 +127,7 @@ G-TCCHG4.Add shipping address with empty fields
     
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     ${AddressIsEmty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
@@ -138,7 +140,7 @@ G-TCCHG4.Add shipping address with empty fields
     Validate Blank Pinpoint
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -149,7 +151,7 @@ G-TCCHG4.Add shipping address with empty fields
     Input Address Form
     ...    ${EMPTY}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -160,7 +162,7 @@ G-TCCHG4.Add shipping address with empty fields
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${EMPTY}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -182,7 +184,7 @@ G-TCCHG4.Add shipping address with empty fields
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${EMPTY}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -193,7 +195,7 @@ G-TCCHG4.Add shipping address with empty fields
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${EMPTY}
@@ -222,10 +224,11 @@ G-TCCHG5.Change shipping address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -266,10 +269,11 @@ G-TCCHG6.Billing address same as Shipping address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -304,10 +308,11 @@ G-TCCHG7.Add New Billing Address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -343,10 +348,11 @@ G-TCCHG8.Use different billing address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -383,10 +389,11 @@ G-TCCHG9.Home Delivery with Insurance
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -422,10 +429,11 @@ G-TCCHG10.Home Delivery without insurance
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -477,10 +485,11 @@ G-TCCHG12.Home Delivery checkout with no payment method
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -513,10 +522,11 @@ G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -573,10 +583,11 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -610,10 +621,11 @@ G-TCCHG17.Apply valid coupon code
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -653,10 +665,11 @@ G-TCCHG18.Apply invalid coupon code
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -690,10 +703,11 @@ G-TCCHG19.Apply valid coupon code then remove coupon code
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -734,10 +748,11 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -774,10 +789,11 @@ G-TCCHG21.Giftcard balance less than Total order
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -818,10 +834,11 @@ G-TCCHG22.Continue shopping after checkout
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -857,10 +874,11 @@ G-TCCHG23.Apply coupon with existing code in list promo
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -899,10 +917,11 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -943,10 +962,11 @@ G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest Use
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -992,10 +1012,11 @@ G-TCCHG27.Guest user checkout using Pickup In Store
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1213,6 +1234,7 @@ L-TCCHR5.Add shipping address
     ...    ${ButtonAddAddressCheckoutPage}
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
@@ -1224,7 +1246,7 @@ L-TCCHR5.Add shipping address
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1265,6 +1287,7 @@ L-TCCHR6.Add shipping address with empty fields
     
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     ${AddressIsEmty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
@@ -1277,7 +1300,7 @@ L-TCCHR6.Add shipping address with empty fields
     Validate Blank Pinpoint
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1288,7 +1311,7 @@ L-TCCHR6.Add shipping address with empty fields
     Input Address Form
     ...    ${EMPTY}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1299,7 +1322,7 @@ L-TCCHR6.Add shipping address with empty fields
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${EMPTY}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1321,7 +1344,7 @@ L-TCCHR6.Add shipping address with empty fields
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${EMPTY}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1332,7 +1355,7 @@ L-TCCHR6.Add shipping address with empty fields
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${EMPTY}
@@ -1362,10 +1385,11 @@ L-TCCHR7.Change shipping address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1405,10 +1429,11 @@ L-TCCHR8. Billing address same as Shipping address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1442,10 +1467,11 @@ L-TCCHR9.Add Billing address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1480,10 +1506,11 @@ L-TCCHR10.Use different billing address
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1521,10 +1548,11 @@ L-TCCHR11.Home Delivery with Insurance
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1561,10 +1589,11 @@ L-TCCHR012.Home Delivery without insurance
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1595,10 +1624,11 @@ L-TCCHR013.Home Delivery checkout without selected shipping method
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1646,10 +1676,11 @@ L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1681,10 +1712,11 @@ L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1716,10 +1748,11 @@ L-TCCHR17.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1752,10 +1785,11 @@ L-TCCHR19.Apply valid coupon code
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1795,10 +1829,11 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     Go To Checkout Page From Shopping Cart Guest and Login User
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1833,10 +1868,11 @@ L-TCCHR21.Apply valid coupon code then remove coupon code
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1878,10 +1914,11 @@ L-TCCHR22.Giftcard balance more than Total order
     Go To Checkout Page From Shopping Cart Guest and Login User
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1916,10 +1953,11 @@ L-TCCHR23.Giftcard balance less than Total order
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1958,10 +1996,11 @@ L-TCCHR24.Continue shopping after checkout
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -1998,10 +2037,11 @@ L-TCCHR25.Apply coupon with existing code in list promo
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -2045,10 +2085,11 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -2093,10 +2134,11 @@ L-TCCHR27.Successful Checkout with simple product using registered account
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -2128,10 +2170,11 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
@@ -2175,10 +2218,11 @@ L-TCCHR29.Registered user checkout using Pickup In Store
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Add User Address If Emty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
