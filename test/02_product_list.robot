@@ -26,6 +26,7 @@ TCPLP1.Customers able to Change product view as Grid on PLP
     [Tags]    plp    guest-user
     # View as List
     Wait Until Element Is Visible in 10s    ${MenuWoman}
+    Wait Until Element Is Enabled    ${MenuWoman}
     CLick Element    ${MenuWoman}
     Wait Until Element Is Visible in 10s    ${ProductsListViewIcon}
     Click Element    ${ProductsListViewIcon}
