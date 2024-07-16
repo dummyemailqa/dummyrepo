@@ -25,22 +25,15 @@ Test Teardown       End Test Case
 TCPLP1.Customers able to Change product view as Grid on PLP
     [Tags]    plp    guest-user
     # View as List
-    Wait Until Element Is Visible in 10s    ${MenuWoman}
-    CLick Element    ${MenuWoman}
-    Wait Until Element Is Visible in 10s    ${ProductsListViewIcon}
-    Click Element    ${ProductsListViewIcon}
-    Wait Until Element Is Visible    ${ProductListViewContainer}
+    Click Category Menu   ${MenuWoman}
+    View Products as List in PLP
 
     # View as Grid
-    Wait Until Element Is Visible in 10s    ${ProductsGridViewIcon}
-    Click Element   ${ProductsGridViewIcon}
-    Wait Until Page Contains Element    ${ProductGridViewContainer}
+    View Products Grid in PLP
 
 TCPLP2.1.Customers add simple product to the cart from PLP
     [Tags]    plp    guest-user  
-    #search Product Simple by SKU
-    Wait Until Element Is Visible in 10s    ${MenuWoman}
-    CLick Element    ${MenuWoman}
+    Click Category Menu   ${MenuWoman}
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
 
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
@@ -53,7 +46,7 @@ TCPLP2.1.Customers add simple product to the cart from PLP
                 
                 Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${Option})}
                 ${TempProductName} =   Get Text    ${ProductItemCardName.format(${Option})}
-                Append To List     ${productName}    
+                Append To List     ${productName}    ${TempProductName}
                
                 Open Minicart
                 @{MinicartProductNameValue} =    Get Product Name From Minicart
@@ -66,9 +59,7 @@ TCPLP2.1.Customers add simple product to the cart from PLP
     
 TCPLP2.2.Customers add configurable product to the cart from PLP
     [Tags]    plp    guest-user  
-    #search Product Configurable by SKU
-    Wait Until Element Is Visible in 10s    ${MenuWoman}
-    CLick Element    ${MenuWoman}
+    Click Category Menu   ${MenuWoman}
     
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
         ${productName}    Create List

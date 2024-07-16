@@ -11,6 +11,7 @@ Variables       ../resources/locators/my_account_locator.py
 Variables       ../resources/locators/product_list_locator.py
 
 
+
 *** Keywords ***
 Input Item Qty
     [Arguments]    ${QTY}
@@ -191,7 +192,3 @@ Validate Search Product And Go To PDP
     ${IsOnProductDetailPage} =    Check If On Product Detail Page
     IF    not ${IsOnProductDetailPage}    Go To PDP Product By Index    1
 
-Go To PDP Product By Index
-    [Arguments]    ${index}
-    Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
-    Click Element    ${ProductItemCardName.format(${index})}
