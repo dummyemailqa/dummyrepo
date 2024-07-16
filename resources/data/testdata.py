@@ -9,7 +9,7 @@ PhoneNumber             = '085230233331'
 OtherPhoneNumber        = '123456789'
 EmailShareWishlist      = 'yosaphat.carlo@sirclo.com'
 MessageShareWishlist    = "share wishlist automation"
-OtpPhonenumber          = "081234567890"
+OtpPhonenumber          = "81234567890"
 InvalidOTP              = '1'
 
 #URL List

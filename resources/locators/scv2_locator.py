@@ -2,7 +2,7 @@
 #login
 ButtonCheckoutogInSCV       = "//button[@id='checkout-login-continueButton']"
 InputPhoneNumberLogin       = "//input[@id='field-phonenumber-login']"
-AlertMessageLoginFaild      = "//p[contains(@class,'textField-errorLabel')]"
+AlertMessageLoginFaild      = "/div[@class='field-input-number']//span[contains(@class,'MuiTypography-caption')]"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 ButtonInputCountryCode      = "//div[contains(@class,'flag-dropdown')]//div[@role='button']"
 InputCountryCodeID          = "//ul[@class='country-list ']//li[@data-country-code='id']"

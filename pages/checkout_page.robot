@@ -138,10 +138,11 @@ Count and Add address If Less Than Two
         Click Element    ${ButtonAddNewAddressInAddressList}
         ${ShippingRecipient}    Generate Random Keyword
         ${ShippingOtherLabel}    Generate Random Keyword
+        ${AddressPhoneNumber}    Generate Random PhoneNumber
         Input Address Form
         ...    ${ShippingOtherLabel}
         ...    ${ShippingRecipient}
-        ...    ${PhoneNumber}
+        ...    ${AddressPhoneNumber}
         ...    ${ShipmentAddressDetail}
         ...    ${ShippingCity}
         ...    ${ShipmentPostalCode}
@@ -425,10 +426,11 @@ Adding New a Billing Address
     Click Element    ${ButtonAddNewAddressInAddressList}
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
+    ${AddressPhoneNumber}    Generate Random PhoneNumber
     Input Address Form
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
-    ...    ${PhoneNumber}
+    ...    ${AddressPhoneNumber}
     ...    ${ShipmentAddressDetail}
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
