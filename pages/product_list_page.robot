@@ -6,30 +6,24 @@ Resource        ../pages/home_page.robot
 Variables       ../resources/locators/product_list_locator.py
 
 *** Keywords ***
-Go To PLP Product By Index
+Go To PDP Product By Index
     [Arguments]    ${index}
     Wait Until Element Is Visible With Long Time    ${ProductItemCardName.format(${index})}
     Click Element    ${ProductItemCardName.format(${index})}
-
-Validate Search Product Is Simple Product in PLP
-    [Arguments]    ${keyword}
-    Search Product result Validation    ${keyword}
-    ${IsProductInListingPage} =    Check If On Product Listing Page
-    IF    not ${IsProductInListingPage}    Go To PLP Product By Index   1
 
 Check If On Product Listing Page
     ${IsProductInListingPage} =    Run Keyword And Return Status    Element Should Be Visible    ${PLPProductName}
     RETURN    ${IsProductInListingPage}
 
-Search Result Counter in PLP
-    ${totalOption} =    Get Element Count    ${SummaryProductSearchResult}
-    FOR    ${Option}    IN RANGE    1    ${totalOption+1}
-            ${IsConfigurableProduct} =    Run Keyword And Return Status
-    ...    Wait Until Element Is Visible
-    ...    ${VarianConfigurableInPLP}
-        RETURN    ${Option}
-        Exit For Loop If    ${VarianConfigurableInPLP}==TRUE
-    END
+# Search Result Counter in PLP
+#     ${totalOption} =    Get Element Count    ${SummaryProductSearchResult}
+#     FOR    ${Option}    IN RANGE    1    ${totalOption+1}
+#             ${IsConfigurableProduct} =    Run Keyword And Return Status
+#     ...    Wait Until Element Is Visible
+#     ...    ${VarianConfigurableInPLP}
+#         RETURN    ${Option}
+#         Exit For Loop If    ${VarianConfigurableInPLP}==TRUE
+#     END
  
 Sorting Correct Validation
     [Arguments]                                                 ${sort_by}  ${product_item_1}  ${product_item_2}  ${product_item_3}
@@ -52,4 +46,18 @@ Sorting Correct Validation
         Should Be True                  ${SortedDESC}
     END
 
+Click Category Menu    
+     [Arguments]   ${CategoryMenu}
+    Wait Until Element Is Visible in 10s    ${CategoryMenu}
+    Wait Until Element Is Enabled    ${CategoryMenu}
+    CLick Element    ${CategoryMenu}
 
+View Products as List in PLP
+    Wait Until Element Is Visible in 10s    ${ProductsListViewIcon}
+    Click Element    ${ProductsListViewIcon}
+    Wait Until Element Is Visible in 10s     ${ProductListViewContainer}
+
+View Products Grid in PLP
+    Wait Until Element Is Visible in 10s    ${ProductsGridViewIcon}
+    Click Element   ${ProductsGridViewIcon}
+    Wait Until Element Is Visible in 10s    ${ProductGridViewContainer}
