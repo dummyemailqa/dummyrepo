@@ -25,7 +25,7 @@ Test Teardown       End Test Case
 TCPLP1.Customers able to Change product view as Grid on PLP
     [Tags]    plp    guest-user
     # View as List
-    Click Category Menu   ${MenuWoman}
+    Click Category Menu by Index    2
     View Products as List in PLP
 
     # View as Grid
@@ -33,7 +33,7 @@ TCPLP1.Customers able to Change product view as Grid on PLP
 
 TCPLP2.1.Customers add simple product to the cart from PLP
     [Tags]    plp    guest-user  
-    Click Category Menu   ${MenuWoman}
+    Click Category Menu by Index    2
     Wait Until Element Is Visible With Long Time            ${ProductItemCard}
 
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
@@ -59,7 +59,7 @@ TCPLP2.1.Customers add simple product to the cart from PLP
     
 TCPLP2.2.Customers add configurable product to the cart from PLP
     [Tags]    plp    guest-user  
-    Click Category Menu   ${MenuWoman}
+    Click Category Menu by Index    2
     
         ${totalOption} =    Get Element Count    ${ProductItemBasedForm}
         ${productName}    Create List
