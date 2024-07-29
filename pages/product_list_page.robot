@@ -46,11 +46,11 @@ Sorting Correct Validation
         Should Be True                  ${SortedDESC}
     END
 
-Click Category Menu    
-     [Arguments]   ${CategoryMenu}
-    Wait Until Element Is Visible in 10s    ${CategoryMenu}
-    Wait Until Element Is Enabled    ${CategoryMenu}
-    CLick Element    ${CategoryMenu}
+Click Category Menu by Index  
+     [Arguments]   ${CategoryIndex}
+    Wait Until Element Is Visible in 10s    ${CategoryMenuByIndex.format(${CategoryIndex})}
+    Wait Until Element Is Enabled    ${CategoryMenuByIndex.format(${CategoryIndex})}
+    CLick Element    ${CategoryMenuByIndex.format(${CategoryIndex})}
 
 View Products as List in PLP
     Wait Until Element Is Visible in 10s    ${ProductsListViewIcon}
