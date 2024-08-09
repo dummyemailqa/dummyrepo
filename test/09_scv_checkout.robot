@@ -1339,7 +1339,7 @@ L-TCCHR6.Add shipping address with empty fields
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     Save Address
-    SCV Validate Blank Field New Address
+    Wait Until Element Is Visible    ${AlertMessageLoginFaild}
 
     Input Address Form
     ...    ${ShippingOtherLabel}
