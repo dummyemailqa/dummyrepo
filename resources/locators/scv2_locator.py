@@ -26,6 +26,7 @@ SCVHomeDeliveryButton       = "//div[@id='checkout-method-homeDelivery']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
+OTPField                    = "//div[contains(@style,'display: flex')]//input[{}]"
 
 # checkoutpage
 SCVPayButton                            = "//button[@id='checkout-payButton']"
