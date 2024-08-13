@@ -98,8 +98,7 @@ G-TCCHG3.Add shipping address
     ...    ${ShipmentPinLocation}
     Save Address
 
-    Change Selected Address
-    Save Selected Address
+    
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
