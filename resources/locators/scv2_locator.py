@@ -48,12 +48,13 @@ RadioButtonSelectSecondAddressInList    = "//div[contains(@class,'MuiDialogConte
 ButtonAddNewAddressInAddressList        = "//button[@id='checkout-address-addButton']"
 ButtonSaveSelectedAddress               = "//button[@id='checkout-addressList-saveButton']"
 ButtonCloseAddressList                  = "//div[contains(@class,'row btn-close')]//button"
-ButtonSelectShippingMethod              = "//button[@id='checkout-shippingMethod-selectButton']"
-ButtonSelectPaymentMethod               = "//button[@id='checkout-paymentMethod-selectButton']"
+ButtonSelectShippingMethod              = "//div[@id='checkout-shippingMethod-selectButton']"
+ButtonSelectPaymentMethod               = "//div[@class='first-label']//span[contains(@class,'label-placeholder')]"
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
 CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
 CheckboxShippingInsurance               = "//input[@id='checkout-shipping-method-insurance']"
+ButtonGoToExistingAddressList           = "//div[@class='column']//div[@class='first-label']"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
