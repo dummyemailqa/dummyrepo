@@ -54,8 +54,13 @@ SCV Validate Blank City New Address
 
 Input SCV2 Login OTP
     [Arguments]    ${OTP}
-    Wait Until Element Is Visible With Long Time    ${InputOTPLogin}
-    Input Text    ${InputOTPLogin}    ${OTP}
+    Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
+    ${OTPCharactersSplit}=    Split String To Characters    ${OTP}
+    ${count}=    Get Length    ${OTPCharactersSplit}
+    FOR  ${index}  IN RANGE    1    ${count+1}
+        ${locator}=    Set Variable    ${OTPField.format(${index})}
+        Input Text    ${locator}    ${OTPCharactersSplit}[${index-1}]
+    END
 
 Input Address Form
     [Arguments]
