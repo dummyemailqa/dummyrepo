@@ -133,7 +133,7 @@ G-TCCHG4.Add shipping address with empty fields
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
-        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Click Element    ${ButtonGoToExistingAddressList}
     END
         Click Element    ${ButtonAddNewAddressInAddressList}
     Validate Blank Pinpoint
