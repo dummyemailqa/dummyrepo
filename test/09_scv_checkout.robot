@@ -460,8 +460,8 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
-    Click Element    ${SCVHomeDeliveryButton}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Scroll Down To Element    ${SCVPayButton}
     Element Should Be Disabled    ${SCVPayButton}
 
 G-TCCHG12.Home Delivery checkout with no payment method
