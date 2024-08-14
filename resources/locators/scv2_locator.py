@@ -43,8 +43,8 @@ LabelInsuranceBillingEn                 = "//span[normalize-space()='Shipping in
 # Address List Page
 ItemInAddressList                       = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')]"
 FirstItemInAddresListIsChecked          = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')][1]//input[@checked]"
-RadioButtonSelectFirstAddressInList     = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')][1]//input"
-RadioButtonSelectSecondAddressInList    = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')][2]//input"
+RadioButtonSelectFirstAddressInList     = "//div[contains(@class,'MuiPaper-elevation1 MuiPaper-rounded')][1]//input[@name='select-address']"
+RadioButtonSelectSecondAddressInList    = "//div[contains(@class,'MuiPaper-elevation1 MuiPaper-rounded')][2]//input[@name='select-address']"
 ButtonAddNewAddressInAddressList        = "//button[@id='checkout-address-addButton']"
 ButtonSaveSelectedAddress               = "//button[@id='checkout-addressList-saveButton']"
 ButtonCloseAddressList                  = "//div[contains(@class,'row btn-close')]//button"
