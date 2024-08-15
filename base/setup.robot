@@ -42,7 +42,9 @@ Setup WebDriver ExecutablePath
     ELSE IF  '${BROWSER}'=='Edge'
         ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
     END
-    ${ExecutablePath}    Set Variable If    '${OS}'=="Windows"    ${ExecutablePath}.exe
+    IF    '${OS}'=="Windows"
+        ${ExecutablePath}    Set Variable        ${ExecutablePath}.exe
+    END
     ${ExecutablePath}    Replace String    ${ExecutablePath}    \\    /
     RETURN    ${ExecutablePath}
 
