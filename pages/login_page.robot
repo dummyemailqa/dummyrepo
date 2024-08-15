@@ -1,6 +1,7 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         Collections
+Library         pabot.PabotLib
 Variables       ../resources/locators/login_locator.py
 Variables       ../resources/locators/home_locator.py
 Variables       ../resources/locators/my_account_locator.py
@@ -44,8 +45,17 @@ Submit Request OTP
     Click Element    ${ButtonRequestOTP}
 
 Login User
+    ${isParallel}    Setup Account Data Set
+    IF    ${isParallel}
+        ${userEmail}    Get Value From Set    USERNAME
+        ${userPassword}    Get Value From Set    PASSWORD
+    ELSE
+        ${userEmail}    Set Variable    ${EmailAddressRegistered}
+        ${userPassword}    Set Variable    ${Password}
+    END
     To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
+    Input Login Form    ${userEmail}    ${userPassword}
+    Run Keyword If    ${isParallel}    Release Value Set
     Submit Form Login
     ${LoggedIn}    Login Validation
     RETURN    ${LoggedIn}
