@@ -55,7 +55,6 @@ Login User
     END
     To Login Page
     Input Login Form    ${userEmail}    ${userPassword}
-    Run Keyword If    ${isParallel}    Release Value Set
     Submit Form Login
     ${LoggedIn}    Login Validation
     RETURN    ${LoggedIn}
