@@ -15,10 +15,7 @@ Test Teardown       End Test Case
 
 L-TCMy1.Logged In User Can Edit Information
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Account Information
     ${NewPhoneNumber}=    Generate Random Phonenumber
     ${NewWANumber}=    Generate Random Phonenumber
@@ -29,26 +26,17 @@ L-TCMy1.Logged In User Can Edit Information
 
 L-TCMy2.Logged In User Can Check History Order
     [Tags]    account 
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To My Order
 
 L-TCMy3.Logged In User Can Access Wishlist Page
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To My Wishlist From Nav Bar
 
 L-TCMy4.Logged In User Can Edit Account Information
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Account Information by Main Menu
     ${NewPhoneNumber}=    Generate Random Phonenumber
     ${NewWANumber}=    Generate Random Phonenumber
@@ -59,10 +47,7 @@ L-TCMy4.Logged In User Can Edit Account Information
 
 L-TCMy5.Logged In User Cannot Edit Account Information with Blank Fields
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Account Information by Main Menu
     # Validate Empty First Name
     Change Information    ${EMPTY}    ${LastName}    ${PhoneNumber}    ${PhoneNumber}
@@ -83,53 +68,35 @@ L-TCMy5.Logged In User Cannot Edit Account Information with Blank Fields
 
 L-TCMy6.Logged In User Updates Phone Number and WhatsApp Number in Account Information By Filling Random Characters
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Account Information by Main Menu
     Change Phone Number and Whatsapp Number    ${FirstName}    ${Password}
     Alert Visible Validation    ${AlertMessage}
 
 L-TCMy7.Logged In User Review Page Access
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To My Product Review
 
 L-TCMy8.Logged In User Vew Store Credit & Refund Historical Transaction
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Store Credit & Refund
 
 L-TCMy9.Logged In User Vew Reward Points Historical Transaction
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Reward Points
 
 L-TCMy10.1.Logged in users can subscribe to the newsletter through the My Account page
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Newsletter Subscriptions Page
     Subcribe Newsletter Subscriptions
 
 L-TCMy10.2.Logged in users can unsubscribe to the newsletter through the My Account page
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     To Newsletter Subscriptions Page
     UnSubcribe Newsletter Subscriptions
 
@@ -175,9 +142,6 @@ L-TCMy13.Verify Invalid Gift Card Code
 
 L-TCMy14.Sign Out from My Account Page (Logged-in User)
     [Tags]    account
-    To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
-    Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    Login User
     Sign Out From My Account
     
