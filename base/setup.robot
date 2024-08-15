@@ -4,72 +4,70 @@ Library     String
 Variables   ../resources/data/testdata.py
 
 *** Variables ***
-${BROWSER}    Safari
-${CromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver-win64/chromedriver
-${EdgeDriverPath}     ${CURDIR}/../../Drivers/edgedriver_win64/msedgedriver
+${BROWSER}    Edge
+${isHeadless}
+
+${ChromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver-win64/chromedriver
+${EdgeDriverPath}     ${CURDIR}/../../Drivers/edgedriver-win64/msedgedriver
 
 *** Keywords ***
 Start Test Case
     ${OS}=    Evaluate    platform.system()    platform
+    Log To Console    "running on ${OS}-${BROWSER}"
     Log    "running on ${OS}-${BROWSER}"
     @{Browser_id}=    Get Browser Ids
     Run Keyword if    @{Browser_id}==[]    Start Test
 
 Start Test
+    Setup WebDriver
+    Setup Browser
+
+Setup WebDriver
     ${OS}=    Evaluate    platform.system()    platform
-    IF  '${OS}'=="Linux"
-        IF  '${BROWSER}'=='Chrome'
-            Log To Console    "running on Linux - Chrome"
-            ${BrowserConfiguration}    Set Variable    chrome_options
-            ${ExecutablePath}    Set Variable    ${CromeDriverPath}
-            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-        ELSE IF  '${BROWSER}'=='Edge'
-            Log To Console    "running on Linux - Edge"
-            ${BrowserConfiguration}    Set Variable    options
-            ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
-            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-        END
-        
-    ELSE IF    '${OS}'=="Windows"
-        IF  '${BROWSER}'=='Chrome'
-            Log To Console    "running on Windows - Chrome"
-            ${BrowserConfiguration}    Set Variable    chrome_options
-            ${ExecutablePath}    Set Variable    ${CromeDriverPath}
-            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-       ELSE IF  '${BROWSER}'=='Edge'
-            Log To Console    "running on Windows - Edge"
-            ${BrowserConfiguration}    Set Variable    options
-            ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
-            Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-        END
-     ELSE IF    '${OS}'=="Darwin"
-            IF  '${BROWSER}'=='Chrome'
-                Log To Console    "running on MacOS - Chrome"
-                ${BrowserConfiguration}    Set Variable    chrome_options
-                ${ExecutablePath}    Set Variable    ${CromeDriverPath}
-                Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-            ELSE IF  '${BROWSER}'=='Edge'
-                Log To Console    "running on MacOS - Edge"
-                ${BrowserConfiguration}    Set Variable    options
-                ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
-                Setup Browser Option Configuration    ${BrowserConfiguration}    ${ExecutablePath}
-            ELSE IF  '${BROWSER}'=='Safari'
-                Log To Console    "running on MacOS - Safari"
-                ${BrowserConfiguration}    Set Variable    options
-                Create WebDriver    ${BROWSER}
-            END
-    END
+    ${ExecutablePath}    Setup WebDriver ExecutablePath    ${OS}
+    Create WebDriver with Config    ${ExecutablePath}
+
+Setup Browser
     Maximize Browser Window
     Go to   ${URLWEB}
     Execute JavaScript    document.body.style.zoom = "100%"
-    Set selenium speed  1
+    Set selenium speed  0.3
 
-Setup Browser Option Configuration
-    [Arguments]    ${BrowserConfiguration}    ${ExecutablePath}
+Setup WebDriver ExecutablePath
+    [Arguments]    ${OS}
+    IF    '${BROWSER}'=='Safari'
+        RETURN    ${False}
+    ELSE IF  '${BROWSER}'=='Chrome'
+        ${ExecutablePath}    Set Variable    ${ChromeDriverPath} 
+    ELSE IF  '${BROWSER}'=='Edge'
+        ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
+    END
+    ${ExecutablePath}    Set Variable If    '${OS}'=="Windows"    ${ExecutablePath}.exe
+    ${ExecutablePath}    Replace String    ${ExecutablePath}    \\    /
+    RETURN    ${ExecutablePath}
+
+Create WebDriver with Config
+    [Arguments]    ${ExecutablePath}
+    IF    '${BROWSER}'=='Safari'
+        Create WebDriver    ${BROWSER}
+    ELSE
+        ${options}    Setup Browser Options Configuration
+        ${service}    Setup Browser Service Configuration    ${ExecutablePath}
+        Create WebDriver    ${BROWSER}    options=${options}   service=${service}
+    END
+
+Setup Browser Options Configuration
     ${options}=  Evaluate  sys.modules['selenium.webdriver'].${BROWSER}Options()  sys, selenium.webdriver
     Call Method    ${options}    add_argument    --disable-extensions
     Call Method    ${options}    add_argument    --disable-gpu
     Call Method    ${options}    add_argument    window-size\=1920,1080
+    Run Keyword If    bool('${isHeadless}')    Call Method    ${options}    add_argument    headless
     ${options.prefs}    Create Dictionary    profile.default_content_setting_values.geolocation     1
     Call Method    ${options}    add_experimental_option    prefs       ${options.prefs}
-    Create WebDriver    ${BROWSER}    ${BrowserConfiguration}=${options}   executable_path=${ExecutablePath}
+    RETURN    ${options}
+
+Setup Browser Service Configuration
+    [Arguments]    ${ExecutablePath}
+    ${browserLower}    Convert To Lower Case    ${BROWSER}
+    ${service}=    Evaluate    sys.modules['selenium.webdriver.${browserLower}.service'].Service('${ExecutablePath}')    sys, selenium
+    RETURN    ${service}
