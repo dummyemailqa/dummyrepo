@@ -85,7 +85,6 @@ Click On Category Suggestion
     Input Text    ${SearchBox}    ${keyword}
     Wait Until Element Is Visible With Long Time    ${SuggestedProduct}
     Search Product Suggestion Validation    ${keyword}
-    Scroll Element Into View    ${SuggestionCategorySearch}
     Click Element    ${SuggestionCategorySearch}
 
 Get Text From Locator

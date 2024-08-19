@@ -98,8 +98,7 @@ G-TCCHG3.Add shipping address
     ...    ${ShipmentPinLocation}
     Save Address
 
-    Change Selected Address
-    Save Selected Address
+    
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownVAMidtransMethodItem}
@@ -134,7 +133,7 @@ G-TCCHG4.Add shipping address with empty fields
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
-        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Click Element    ${ButtonGoToExistingAddressList}
     END
         Click Element    ${ButtonAddNewAddressInAddressList}
     Validate Blank Pinpoint
@@ -235,8 +234,8 @@ G-TCCHG5.Change shipping address
     ...    ${ShipmentPinLocation}
 
     # Melakukan pengecekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
-    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Click Element    ${ButtonGoToExistingAddressList}
     Count and Add address If Less Than Two
 
     Change Selected Address
@@ -461,8 +460,8 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Wait Until Element Is Visible With Long Time    ${SCVHomeDeliveryButton}
-    Click Element    ${SCVHomeDeliveryButton}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Scroll Down To Element    ${SCVPayButton}
     Element Should Be Disabled    ${SCVPayButton}
 
 G-TCCHG12.Home Delivery checkout with no payment method
@@ -1339,7 +1338,7 @@ L-TCCHR6.Add shipping address with empty fields
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     Save Address
-    SCV Validate Blank Field New Address
+    Wait Until Element Is Visible    ${AlertMessageLoginFaild}
 
     Input Address Form
     ...    ${ShippingOtherLabel}

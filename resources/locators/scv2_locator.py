@@ -26,6 +26,7 @@ SCVHomeDeliveryButton       = "//div[@id='checkout-method-homeDelivery']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
 InputOTPLogin               = "//input[@id='checkout-loginOtp-textField']"
 FirstOtpVerificationMethod  = "//div[@role='dialog']//ul//div[@role='button']"
+OTPField                    = "//div[contains(@style,'display: flex')]//input[{}]"
 
 # checkoutpage
 SCVPayButton                            = "//button[@id='checkout-payButton']"
@@ -42,17 +43,18 @@ LabelInsuranceBillingEn                 = "//span[normalize-space()='Shipping in
 # Address List Page
 ItemInAddressList                       = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')]"
 FirstItemInAddresListIsChecked          = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')][1]//input[@checked]"
-RadioButtonSelectFirstAddressInList     = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')][1]//input"
-RadioButtonSelectSecondAddressInList    = "//div[contains(@class,'MuiDialogContent-root')]//div[contains(@class,'MuiPaper-root MuiCard-root')]//div[contains(@class,'jss')][2]//input"
+RadioButtonSelectFirstAddressInList     = "//div[contains(@class,'MuiPaper-elevation1 MuiPaper-rounded')][1]//input[@name='select-address']"
+RadioButtonSelectSecondAddressInList    = "//div[contains(@class,'MuiPaper-elevation1 MuiPaper-rounded')][2]//input[@name='select-address']"
 ButtonAddNewAddressInAddressList        = "//button[@id='checkout-address-addButton']"
 ButtonSaveSelectedAddress               = "//button[@id='checkout-addressList-saveButton']"
 ButtonCloseAddressList                  = "//div[contains(@class,'row btn-close')]//button"
-ButtonSelectShippingMethod              = "//button[@id='checkout-shippingMethod-selectButton']"
-ButtonSelectPaymentMethod               = "//button[@id='checkout-paymentMethod-selectButton']"
+ButtonSelectShippingMethod              = "//div[@id='checkout-shippingMethod-selectButton']"
+ButtonSelectPaymentMethod               = "//div[@class='first-label']//span[contains(@class,'label-placeholder')]"
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
 CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
 CheckboxShippingInsurance               = "//input[@id='checkout-shipping-method-insurance']"
+ButtonGoToExistingAddressList           = "//div[@class='column']//div[@class='first-label']"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"

@@ -10,7 +10,7 @@ OtherPhoneNumber        = '123456789'
 EmailShareWishlist      = 'yosaphat.carlo@sirclo.com'
 MessageShareWishlist    = "share wishlist automation"
 OtpPhonenumber          = "81234567890"
-InvalidOTP              = '1'
+InvalidOTP              = '123456'
 
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
