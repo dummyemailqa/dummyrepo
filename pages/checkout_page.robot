@@ -421,12 +421,12 @@ UnSelect Billing Address Same As Shipping Address
     ${Status}=     Run Keyword And Return Status                Checkbox Should Be Selected    ${CheckboxBillingAddressSameAsShippingAddress}
     IF    ${Status}    
         Click Element    ${CheckboxBillingAddressSameAsShippingAddress}
-        Scroll Down To Element    ${ButtonChangeBillingAddress}
-        Wait Until Element Is Visible With Long Time    ${ButtonChangeBillingAddress}
+        Scroll Down To Element    ${ButtonGoToExistingBillingAddressList}
+        Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingBillingAddressList}
     END
 
 Adding New a Billing Address
-    Click Element    ${ButtonChangeBillingAddress}
+    Click Element    ${ButtonGoToExistingBillingAddressList}
     Wait Until Element Is Visible With Long Time    ${ButtonAddNewAddressInAddressList}
     Click Element    ${ButtonAddNewAddressInAddressList}
     ${ShippingRecipient}    Generate Random Keyword

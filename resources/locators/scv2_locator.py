@@ -55,6 +55,7 @@ ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
 CheckboxBillingAddressSameAsShippingAddress = "//input[@id='checkout-billingAddress-sameAddressCheckBox']"
 CheckboxShippingInsurance               = "//input[@id='checkout-shipping-method-insurance']"
 ButtonGoToExistingAddressList           = "//div[@class='column']//div[@class='first-label']"
+ButtonGoToExistingBillingAddressList    = "//div[@id='checkoutShippingAddressHome']//div[contains(@class,'column')][2]"
 
 # Select Shipping Method Page
 DropdownShippingMethodItem              = "//div[contains(@class,'checkout-shippingMethod-dropDownItem')][@aria-disabled='false']"
