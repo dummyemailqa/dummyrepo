@@ -218,7 +218,8 @@ TCPDP11.Customers can share content through social media platforms
     Wait Until Element Is Visible With Long Time    ${PDPProductName}
     Scroll Down To Element    ${whatsappShareBtn}
     Click Element    ${whatsappShareBtn}
-    Switch Window    ${WhatsappWindows}
+    ${window_handles}=    Get Window Handles
+    Switch Window         ${window_handles[1]}
     ${CurrentURL} =  Execute Javascript  return window.location.href;
     Close Window
     Switch Window    MAIN
