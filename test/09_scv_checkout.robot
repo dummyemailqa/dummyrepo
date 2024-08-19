@@ -1395,8 +1395,8 @@ L-TCCHR7.Change shipping address
     ...    ${ShipmentPinLocation}
 
     # Melakukan pengecekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
-    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Click Element    ${ButtonGoToExistingAddressList}
     Count and Add address If Less Than Two
 
     Change Selected Address
