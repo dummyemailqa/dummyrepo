@@ -445,7 +445,7 @@ Adding New a Billing Address
     Close Address List
 
 Selecting or Adding New a Billing Address
-    Click Element    ${ButtonChangeBillingAddress}
+    Click Element    ${ButtonGoToExistingBillingAddressList}
     Count and Add address If Less Than Two
     Change Selected Address
     Save Selected Address
