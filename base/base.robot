@@ -1,6 +1,7 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         String
+Library         pabot.PabotLib
 Variables       ../resources/data/testdata.py
 Variables       ../resources/locators/home_locator.py
 Resource        ../base/common.robot
@@ -17,6 +18,11 @@ End Test Case
     IF    ${present}    Logout Account
     Delete All Cookies
     Go to Home Page
+    TRY
+        Release Value Set
+    EXCEPT
+        Log    No Value Set to Release
+    END
 
 Go To My Account Page
     Go To    ${URLAccount}

@@ -1,6 +1,7 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         String
+Library         pabot.PabotLib
 Variables       ../resources/data/testdata.py
 Variables       ../resources/locators/base_locator.py
 Variables       ../resources/locators/cart_page_locator.py
@@ -27,3 +28,14 @@ Wait Until Element Is Not Visible With Long Time
 Alert Warning Validation Register
     [Arguments]    ${AlertMessage}
     Wait Until Element Is Visible    ${AlertMessage}
+
+Setup Account Data Set
+    TRY
+        Acquire Lock    AccountLock
+        Release Lock    AccountLock
+        Acquire Value Set    user
+        RETURN    ${True}
+    EXCEPT
+        Log    Failed Acquire Value Set
+        RETURN    ${False}
+    END
