@@ -80,7 +80,7 @@ InputAddressDetail                      = "//input[@id='checkout-addressDetail-t
 InputAddressCity                        = "//input[@id='checkout-addressCity-autoCompleteField']"
 ListAddressCityFirstItem                = "//li[@id='checkout-addressCity-autoCompleteField-option-0']"
 InputAddressPostalCode                  = "//input[@id='checkout-addressPostalCode-textField']"
-ButtonToPinpoinLocationForm             = "//button[@id='checkout-addressPinPoint-button']"
+ButtonToPinpoinLocationForm             = "//button[@class='button-select-map-point']"
 InputGoogleMapSearchPinPointLocation    = "//input[@id='googleMaps-search-textField']"
 ButtonSavePinPointLocation              = "//button[@id='checkout-addressPinPoint-saveButton']"
 
