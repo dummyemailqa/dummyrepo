@@ -278,6 +278,8 @@ Submit Place Order
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     TRY
         Wait Until Element Is Disabled    ${ButtonCheckoutPlaceOrder}
+    EXCEPT
+        Log    Order button is always enabled
     FINALLY
         Wait Until Element Is Enabled    ${ButtonCheckoutPlaceOrder}
     END
