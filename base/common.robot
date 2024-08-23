@@ -39,3 +39,12 @@ Setup Account Data Set
         Log    Failed Acquire Value Set
         RETURN    ${False}
     END
+
+Wait Until Element Is Disabled
+    [Arguments]    ${locator}
+    Wait Until Keyword Succeeds    10    0.3    Element Should Be Disabled    ${locator}
+
+Element Should Be Disabled
+    [Arguments]    ${locator}
+    ${is_enabled}=    Get Element Attribute    ${locator}    disabled
+    Run Keyword If    '${is_enabled}'=='None'    Fail    Element '${locator}' is still enabled

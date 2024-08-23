@@ -274,7 +274,13 @@ Invalid Promo Code Validation
 
 Submit Place Order
     Wait Until Element Is Visible With Long Time    ${LabelSelectPaymentMethod}
+    Wait Until Element Is Visible    ${ButtonCheckoutPlaceOrder}
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
+    TRY
+        Wait Until Element Is Disabled    ${ButtonCheckoutPlaceOrder}
+    FINALLY
+        Wait Until Element Is Enabled    ${ButtonCheckoutPlaceOrder}
+    END
     Click Element    ${ButtonCheckoutPlaceOrder}
 
 Submit Place Order Zero Subtotal
@@ -285,6 +291,7 @@ Submit Place Order Zero Subtotal
 Midtrans Virtual Account Transaction
     Select Frame    ${MidtransFrame}
     Wait Until Page Contains Element    ${MidtransPopup}    10
+    Wait Until Page Contains Element    ${MidtransVANumberField}
     Click Element    ${CloseMitransPopup}
     Unselect Frame
 
