@@ -1,4 +1,5 @@
 #!/bin/sh
+processes=4
 
 DAY=$(date +"%d")
 MONTH=$(date +"%b")
@@ -27,17 +28,17 @@ esac
 
 case "${unameOut}" in
     Linux*)
-        pabot --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
+        pabot --processes $processes --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
     ;;
     Darwin*)
-        python3 -m pabot --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
+        python3 -m pabot --processes $processes --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
 
     ;;
     MINGW*)
-        pabot --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
+        pabot --processes $processes --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
     ;;
     Msys*)
-        pabot --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
+        pabot --processes $processes --pabotlib --resourcefile accountdataset.dat --testlevelsplit -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml ${1:-test}
     ;;
     *)              
         echo "UNKNOWN SISTEM OPERATION: ${unameOut}"
