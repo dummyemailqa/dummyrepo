@@ -36,6 +36,7 @@ CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//d
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[contains(@class,'checkout-shipping-pin-img')]"
 ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
 ButtonAddPromo                          = "//div[@id='checkoutFeePromotionsHome']//div[@class='iconAndLabel']"
+ButtonAddPromoSkeleton                  = "//div[@id='checkoutFeePromotionsHome']//*[contains(@class,'MuiSkeleton-root')]"
 ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"
 LabelInsuranceBillingId                 = "//span[normalize-space()='Asuransi pengiriman']"
 LabelInsuranceBillingEn                 = "//span[normalize-space()='Shipping insurance']"

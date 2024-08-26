@@ -410,6 +410,13 @@ Validate Blank Pinpoint
 
 Input Promo Code
     [Arguments]    ${PromoCode}
+    TRY
+        Wait Until Element Is Visible    ${ButtonAddPromoSkeleton}
+        Wait Until Element Is Not Visible    ${ButtonAddPromoSkeleton}
+        Click Element    ${ButtonAddPromo}
+    EXCEPT
+        Log    Promo button skeleton is not visible or button already clicked
+    END
     Wait Until Element Is Visible With Long Time    ${InputPromoCode}
     Clear Text Field    ${InputPromoCode}
     Input Text    ${InputPromoCode}    ${PromoCode}
