@@ -416,8 +416,12 @@ Input Promo Code
         Click Element    ${ButtonAddPromo}
     EXCEPT
         Log    Promo button skeleton is not visible or button already clicked
+    FINALLY
+        ${isPromoOpen}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s    ${InputPromoCode}
+        IF    not ${isPromoOpen}
+            Click Element    ${ButtonAddPromo}
+        END
     END
-    Wait Until Element Is Visible With Long Time    ${InputPromoCode}
     Clear Text Field    ${InputPromoCode}
     Input Text    ${InputPromoCode}    ${PromoCode}
 
