@@ -264,8 +264,18 @@ Select Payment Method
     Click Element    ${PaymentMethod}
 
 Select Promotion
-    Wait Until Element Is Visible With Long Time    ${AddAvailPromo}
-    Click Element    ${AddAvailPromo}
+    TRY
+        Wait Until Element Is Visible    ${ButtonAddPromoSkeleton}
+        Wait Until Element Is Not Visible    ${ButtonAddPromoSkeleton}
+        Click Element    ${ButtonAddPromo}
+    EXCEPT
+        Log    Promo button skeleton is not visible or button already clicked
+    FINALLY
+        ${isPromoOpen}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s    ${InputPromoCode}
+        IF    not ${isPromoOpen}
+            Click Element    ${ButtonAddPromo}
+        END
+    END
 
 Invalid Promo Code Validation
     Wait Until Element Is Visible With Long Time    ${AllertMessage}
@@ -410,18 +420,7 @@ Validate Blank Pinpoint
 
 Input Promo Code
     [Arguments]    ${PromoCode}
-    TRY
-        Wait Until Element Is Visible    ${ButtonAddPromoSkeleton}
-        Wait Until Element Is Not Visible    ${ButtonAddPromoSkeleton}
-        Click Element    ${ButtonAddPromo}
-    EXCEPT
-        Log    Promo button skeleton is not visible or button already clicked
-    FINALLY
-        ${isPromoOpen}    Run Keyword And Return Status    Wait Until Element Is Visible in 10s    ${InputPromoCode}
-        IF    not ${isPromoOpen}
-            Click Element    ${ButtonAddPromo}
-        END
-    END
+    Select Promotion
     Clear Text Field    ${InputPromoCode}
     Input Text    ${InputPromoCode}    ${PromoCode}
 
@@ -502,8 +501,7 @@ Remove Used Promo
     Click Element    ${ButtonRemovePromo}
 
 Select Promo From Promotion List
-    Scroll Down To Element    ${ButtonAddPromo}
-    Click Element    ${ButtonAddPromo}
+    Select Promotion
     Wait Until Element Is Visible With Long Time    ${CheckBoxFirstExistingPromo}
     ${first_selected}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${CheckBoxFirstExistingPromo}
     IF    ${first_selected}
