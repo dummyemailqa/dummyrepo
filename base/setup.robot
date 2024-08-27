@@ -7,8 +7,8 @@ Variables   ../resources/data/testdata.py
 ${BROWSER}    Edge
 ${isHeadless}
 
-${ChromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver-win64/chromedriver
-${EdgeDriverPath}     ${CURDIR}/../../Drivers/edgedriver-win64/msedgedriver
+${ChromeDriverPath}    ${CURDIR}/../../Drivers/chromedriver/chromedriver
+${EdgeDriverPath}     ${CURDIR}/../../Drivers/edgedriver/msedgedriver
 
 *** Keywords ***
 Start Test Case
@@ -43,10 +43,19 @@ Setup WebDriver ExecutablePath
         ${ExecutablePath}    Set Variable    ${EdgeDriverPath}
     END
     IF    '${OS}'=="Windows"
-        ${ExecutablePath}    Set Variable        ${ExecutablePath}.exe
+        ${isContainExe}=    Check Driver Path Contains Exe Extension    ${ExecutablePath}
+        IF    not ${isContainExe}
+            ${ExecutablePath}    Set Variable        ${ExecutablePath}.exe
+        END
     END
     ${ExecutablePath}    Replace String    ${ExecutablePath}    \\    /
     RETURN    ${ExecutablePath}
+
+Check Driver Path Contains Exe Extension
+    [Arguments]    ${ExecutablePath}
+    ${last4Chars}    Set Variable    ${ExecutablePath[-4:]}
+    ${isContainExe}    Run Keyword And Return Status    Should Be Equal As Strings    ${last4Chars}    .exe
+    RETURN    ${isContainExe}
 
 Create WebDriver with Config
     [Arguments]    ${ExecutablePath}
