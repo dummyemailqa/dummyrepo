@@ -95,6 +95,7 @@ ButtonClosePromo                       = "//img[@alt='Close Modal']"
 MidtransFrame                           = 'snap-midtrans'
 MidtransPopup                           = 'id:application'
 CloseMitransPopup                       = "//div[@class='close-snap-button clickable']"
+MidtransVANumberField                   = 'id:vaField'
 
 # Thankyoupage
 ThankyouPageHeader                      = "//div[contains(@class,'success-header success-section')]"
