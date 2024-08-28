@@ -1,4 +1,5 @@
 #!/bin/sh
+processes=4
 
 DAY=$(date +"%d")
 MONTH=$(date +"%b")
@@ -27,17 +28,17 @@ esac
 
 case "${unameOut}" in
     Linux*)
-        pabot --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
+        pabot --processes $processes --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
     ;;
     Darwin*)
-        python3 -m pabot --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
+        python3 -m pabot --processes $processes --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
 
     ;;
     MINGW*)
-        pabot --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
+        pabot --processes $processes --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
     ;;
     Msys*)
-        pabot --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
+        pabot --processes $processes --pabotlib --resourcefile accountdataset.dat -v isHeadless:true -d $OUTDIR --output $DAY$MONTH$YEAR-alltestcase.xml test
     ;;
     *)              
         echo "UNKNOWN SISTEM OPERATION: ${unameOut}"
