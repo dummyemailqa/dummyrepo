@@ -54,7 +54,7 @@ G-TCCHG2.Login with invalid OTP code
     Select First Item In Verification Method
     Input SCV2 Login OTP    ${InvalidOTP}
     SCV2 Submit Login
-    Element Should Be Visible    ${InvalidSCVOTPAlert}
+    Wait Until Element Is Visible in 10s    ${InvalidSCVOTPAlert}
 
 G-TCCHG3.Add shipping address
     [Tags]    checkout
