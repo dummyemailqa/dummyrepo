@@ -62,7 +62,7 @@ ShipmentPostalCode      = "55571"
 ShipmentPinLocation     = "Icube Jogja"
 
 # promotion
-PromoCode          = "PROMO10K"
+PromoCode          = "testqacoupon"
 
 #Pickup In Store
 PickUpName                 = "DemoIcube"
