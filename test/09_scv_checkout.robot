@@ -97,7 +97,8 @@ G-TCCHG3.Add shipping address
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     Save Address
-
+    Change Selected Address
+    Save Selected Address
     
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
