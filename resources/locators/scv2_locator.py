@@ -49,7 +49,7 @@ RadioButtonSelectSecondAddressInList    = "//div[contains(@class,'MuiPaper-eleva
 ButtonAddNewAddressInAddressList        = "//button[@id='checkout-address-addButton']"
 ButtonSaveSelectedAddress               = "//button[@id='checkout-addressList-saveButton']"
 ButtonCloseAddressList                  = "//div[contains(@class,'row btn-close')]//button"
-ButtonSelectShippingMethod              = "//div[@id='checkout-shippingMethod-selectButton']"
+ButtonSelectShippingMethod              = "//div[@id='checkoutShippingMethodHome']"
 ButtonSelectPaymentMethod               = "//div[@class='first-label']//span[contains(@class,'label-placeholder')]"
 LabelSelectPaymentMethod                = "//div[@id='checkoutPaymentMethodHome']"
 ButtonCheckoutPlaceOrder                = "//button[@id='checkout-payButton']"
