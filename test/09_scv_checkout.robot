@@ -459,7 +459,8 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
-
+    
+    Add User Email If Emty    ${EmailAddressRegistered}
     Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
     Scroll Down To Element    ${SCVPayButton}
     Element Should Be Disabled    ${SCVPayButton}
