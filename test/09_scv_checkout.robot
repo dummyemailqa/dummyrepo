@@ -927,8 +927,8 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     ...    ${ShipmentPinLocation}
 
     # Melakukan pengechekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
-    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Click Element    ${ButtonGoToExistingAddressList}
     Count and Add address If Less Than Two
 
     Change Selected Address
