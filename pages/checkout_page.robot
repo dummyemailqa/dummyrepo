@@ -460,7 +460,7 @@ Adding New a Billing Address
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     Save Address
-    Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}
+    Wait Until Element Is Not Visible    ${ButtonSaveAddressInAddressForm}
     Close Address List
 
 Selecting or Adding New a Billing Address
