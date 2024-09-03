@@ -1237,7 +1237,7 @@ L-TCCHR5.Add shipping address
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
-        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Click Element    ${ButtonGoToExistingAddressList}
         Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
         Click Element    ${ButtonAddNewAddressInAddressList}
     END
@@ -1254,7 +1254,8 @@ L-TCCHR5.Add shipping address
     ${ButtonSelectAddressVisible}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonSaveSelectedAddress}
-    IF   ${ButtonSelectAddressVisible}    
+    IF   ${ButtonSelectAddressVisible}
+        Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}   
         Click Element    ${ButtonSaveSelectedAddress}
     END
 
