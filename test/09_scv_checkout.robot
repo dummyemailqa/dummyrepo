@@ -97,7 +97,8 @@ G-TCCHG3.Add shipping address
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     Save Address
-
+    Change Selected Address
+    Save Selected Address
     
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
@@ -714,15 +715,19 @@ G-TCCHG19.Apply valid coupon code then remove coupon code
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    ${GrandTotalBeforePromoString}    Get Grand Total String
     ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
     Click Element    ${ButtonAddPromo}
     Input Promo Code    ${PromoCode}
     Select Button Apply Promo
+    Wait Until Grand Total Price is Changed    ${GrandTotalBeforePromoString}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
+    ${GrandTotalAfterPromoString}    Get Grand Total String
     Remove Used Promo
+    Wait Until Grand Total Price is Changed    ${GrandTotalAfterPromoString}
     ${GrandTotalAfterRemovePromo}    Get Grand Total And Convert To Integer
     Should Be Equal    ${GrandTotalBeforePromo}    ${GrandTotalAfterRemovePromo}
 

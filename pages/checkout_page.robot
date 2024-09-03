@@ -54,7 +54,7 @@ SCV Validate Blank City New Address
 
 Input SCV2 Login OTP
     [Arguments]    ${OTP}
-    Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
+    Wait Until Element Is Enabled    ${OTPField.format(1)}    10
     ${OTPCharactersSplit}=    Split String To Characters    ${OTP}
     ${count}=    Get Length    ${OTPCharactersSplit}
     FOR  ${index}  IN RANGE    1    ${count+1}
@@ -491,8 +491,13 @@ Validate Grandtotal Is Zero
     ${GrandTotalAfterPromo}    Convert Price With String to Integer    ${GrandTotalText}
     Should Be Equal As Integers    ${GrandTotalAfterPromo}    0
 
-Get Grand Total And Convert To Integer
+Get Grand Total String
+    Wait Until Element Is Visible    ${GrandTotalInSummary}
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
+    RETURN    ${GrandTotalText}
+
+Get Grand Total And Convert To Integer
+    ${GrandTotalText}    Get Grand Total String
     ${GrandTotal}    Convert Price With String to Integer    ${GrandTotalText}
     RETURN    ${GrandTotal}
 
@@ -561,3 +566,7 @@ Select Location For Pick Up In Store
     Wait Until Element Is Visible    ${PickUpLocationDetail}
     Click Element    ${PickUpLocationDetail}
     Click Element    ${ButtonPickUpSaveLocation}
+
+Wait Until Grand Total Price is Changed
+    [Arguments]    ${initialPrice}
+    Wait Until Element Does Not Contain    ${GrandTotalInSummary}    ${initialPrice}
