@@ -2284,7 +2284,7 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
     ...    ${EmailAddressRegistered}
     Wait Until Element Is Visible    ${ButtonUbahRecipient}
 
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 L-TCCHR32.Registered user add recipient for Pickup In Store
