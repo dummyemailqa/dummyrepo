@@ -806,13 +806,13 @@ G-TCCHG21.Giftcard balance less than Total order
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    ${GrandTotalText}    Get Grand Total String
+    ${GrandTotalBeforeGiftCard}    Get Grand Total And Convert To Integer
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
-    Validate Message Success Alert Is Visible On Checkout Page
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    Wait Until Grand Total Price is Changed    ${GrandTotalText}
+
+    ${GrandTotalAfterGiftCard}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
     
     Submit Place Order
