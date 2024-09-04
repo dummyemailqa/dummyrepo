@@ -1056,7 +1056,7 @@ G-TCCHG29.Guest user cannot use Pickup In Store when location is empty
     ...    ${EmailAddressRegistered}
     Wait Until Element Is Visible    ${ButtonUbahRecipient}
 
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
