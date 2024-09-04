@@ -932,8 +932,8 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     ...    ${ShipmentPinLocation}
 
     # Melakukan pengechekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
-    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Click Element    ${ButtonGoToExistingAddressList}
     Count and Add address If Less Than Two
 
     Change Selected Address
@@ -1242,7 +1242,7 @@ L-TCCHR5.Add shipping address
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
-        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Click Element    ${ButtonGoToExistingAddressList}
         Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
         Click Element    ${ButtonAddNewAddressInAddressList}
     END
@@ -1259,7 +1259,8 @@ L-TCCHR5.Add shipping address
     ${ButtonSelectAddressVisible}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonSaveSelectedAddress}
-    IF   ${ButtonSelectAddressVisible}    
+    IF   ${ButtonSelectAddressVisible}
+        Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}   
         Click Element    ${ButtonSaveSelectedAddress}
     END
 
@@ -2289,7 +2290,7 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
     ...    ${EmailAddressRegistered}
     Wait Until Element Is Visible    ${ButtonUbahRecipient}
 
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 L-TCCHR32.Registered user add recipient for Pickup In Store
