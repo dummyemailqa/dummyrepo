@@ -72,15 +72,15 @@ G-TCCHG3.Add shipping address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
-    ${AddressIsEmty}    Run Keyword And Return Status
+    ${AddressIsEmpty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    IF    ${AddressIsEmty}
+    IF    ${AddressIsEmpty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
         Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
@@ -123,15 +123,15 @@ G-TCCHG4.Add shipping address with empty fields
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
     
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    ${AddressIsEmty}    Run Keyword And Return Status
+    ${AddressIsEmpty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
-    IF    ${AddressIsEmty}
+    IF    ${AddressIsEmpty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
         Click Element    ${ButtonGoToExistingAddressList}
@@ -219,13 +219,13 @@ G-TCCHG5.Change shipping address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -264,13 +264,13 @@ G-TCCHG6.Billing address same as Shipping address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -303,13 +303,13 @@ G-TCCHG7.Add New Billing Address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -343,13 +343,13 @@ G-TCCHG8.Use different billing address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -384,13 +384,13 @@ G-TCCHG9.Home Delivery with Insurance
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -424,13 +424,13 @@ G-TCCHG10.Home Delivery without insurance
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -461,7 +461,7 @@ G-TCCHG11.Home Delivery checkout with no shipping method
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
     
-    Add User Email If Emty    ${EmailAddressRegistered}
+    Add User Email If Empty    ${EmailAddressRegistered}
     Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
     Scroll Down To Element    ${SCVPayButton}
     Element Should Be Disabled    ${SCVPayButton}
@@ -480,14 +480,14 @@ G-TCCHG12.Home Delivery checkout with no payment method
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Homedelivery Delivery Method
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -518,13 +518,13 @@ G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -556,7 +556,7 @@ G-TCCHG14.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     Select Shipping Method
     Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
     Submit Place Order
@@ -579,13 +579,13 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -618,12 +618,12 @@ G-TCCHG17.Apply valid coupon code
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -661,13 +661,13 @@ G-TCCHG18.Apply invalid coupon code
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -700,12 +700,12 @@ G-TCCHG19.Apply valid coupon code then remove coupon code
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -748,13 +748,13 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -789,13 +789,13 @@ G-TCCHG21.Giftcard balance less than Total order
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -834,13 +834,13 @@ G-TCCHG22.Continue shopping after checkout
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -874,13 +874,13 @@ G-TCCHG23.Apply coupon with existing code in list promo
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -917,13 +917,13 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -962,13 +962,13 @@ G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest Use
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
     
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1000,7 +1000,7 @@ G-TCCHG27.Guest user checkout using Pickup In Store
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Go To Recipient Form
@@ -1018,7 +1018,7 @@ G-TCCHG27.Guest user checkout using Pickup In Store
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1047,7 +1047,7 @@ G-TCCHG29.Guest user cannot use Pickup In Store when location is empty
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     Select Pickup In Store Delivery Method
     Go To Recipient Form
 
@@ -1076,7 +1076,7 @@ G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Select Location For Pick Up In Store
@@ -1100,7 +1100,7 @@ G-TCCHG30.Guest user add recipient for Pickup In Store
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Go To Recipient Form
@@ -1128,7 +1128,7 @@ G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Go To Recipient Form
@@ -1232,15 +1232,15 @@ L-TCCHR5.Add shipping address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
-    ${AddressIsEmty}    Run Keyword And Return Status
+    ${AddressIsEmpty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    IF    ${AddressIsEmty}
+    IF    ${AddressIsEmpty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
         Click Element    ${ButtonGoToExistingAddressList}
@@ -1289,15 +1289,15 @@ L-TCCHR6.Add shipping address with empty fields
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
     
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    ${AddressIsEmty}    Run Keyword And Return Status
+    ${AddressIsEmpty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
-    IF    ${AddressIsEmty}
+    IF    ${AddressIsEmpty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
         Click Element    ${ButtonGoToExistingAddressList}
@@ -1386,13 +1386,13 @@ L-TCCHR7.Change shipping address
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1436,7 +1436,7 @@ L-TCCHR8. Billing address same as Shipping address
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1474,7 +1474,7 @@ L-TCCHR9.Add Billing address
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1513,7 +1513,7 @@ L-TCCHR10.Use different billing address
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1549,13 +1549,13 @@ L-TCCHR11.Home Delivery with Insurance
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1590,13 +1590,13 @@ L-TCCHR012.Home Delivery without insurance
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1631,7 +1631,7 @@ L-TCCHR013.Home Delivery checkout without selected shipping method
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1678,12 +1678,12 @@ L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1719,7 +1719,7 @@ L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1755,7 +1755,7 @@ L-TCCHR17.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1792,7 +1792,7 @@ L-TCCHR19.Apply valid coupon code
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1802,7 +1802,7 @@ L-TCCHR19.Apply valid coupon code
     ...    ${ShipmentPinLocation}
 
     Select Shipping Method
-    Add User Email If Emty    ${EmailAddressRegistered}
+    Add User Email If Empty    ${EmailAddressRegistered}
     Select Payment Method    ${DropdownVAMidtransMethodItem}
 
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
@@ -1836,7 +1836,7 @@ L-TCCHR20.Apply invalid coupon code - Logged In
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1875,7 +1875,7 @@ L-TCCHR21.Apply valid coupon code then remove coupon code
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1885,7 +1885,7 @@ L-TCCHR21.Apply valid coupon code then remove coupon code
     ...    ${ShipmentPinLocation}
 
     Select Shipping Method
-    Add User Email If Emty    ${EmailAddressRegistered}
+    Add User Email If Empty    ${EmailAddressRegistered}
     Select Payment Method    ${DropdownVAMidtransMethodItem}
 
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}   
@@ -1921,7 +1921,7 @@ L-TCCHR22.Giftcard balance more than Total order
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -1954,13 +1954,13 @@ L-TCCHR23.Giftcard balance less than Total order
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2004,7 +2004,7 @@ L-TCCHR24.Continue shopping after checkout
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2039,13 +2039,13 @@ L-TCCHR25.Apply coupon with existing code in list promo
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2087,13 +2087,13 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2142,7 +2142,7 @@ L-TCCHR27.Successful Checkout with simple product using registered account
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2173,12 +2173,12 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
     Validate The Similarity Of Item Added To Cart    &{Arguments}
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     # Melakukan Add Adrees jika user belum pernah menambahkan alamat
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2210,7 +2210,7 @@ L-TCCHR29.Registered user checkout using Pickup In Store
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     Select Pickup In Store Delivery Method
     
     Go To Recipient Form
@@ -2226,7 +2226,7 @@ L-TCCHR29.Registered user checkout using Pickup In Store
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Emty
+    Add User Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
@@ -2258,7 +2258,7 @@ L-TCCHR30.Registered user cannot use Pickup In Store when recipient is empty
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Select Location For Pick Up In Store
@@ -2281,7 +2281,7 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
     Select Pickup In Store Delivery Method
     Go To Recipient Form
 
@@ -2311,7 +2311,7 @@ L-TCCHR32.Registered user add recipient for Pickup In Store
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Go To Recipient Form
@@ -2340,7 +2340,7 @@ L-TCCHR33.Registered user cannot add recipient if mandatory field is empty
     Go To Shopping Cart
     Go To Checkout Page From Shopping Cart Guest and Login User
 
-    Add User Email If Emty    CheckoutEmail=${EmailAddressRegistered}
+    Add User Email If Empty    CheckoutEmail=${EmailAddressRegistered}
 
     Select Pickup In Store Delivery Method
     Go To Recipient Form

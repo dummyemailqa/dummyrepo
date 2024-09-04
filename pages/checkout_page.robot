@@ -157,17 +157,17 @@ Count and Add address If Less Than Two
         ${total_count}    Get Element Count    ${ItemInAddressList}
     END
 
-Add User Email If Emty
+Add User Email If Empty
     [Arguments]    ${CheckoutEmail}
-    ${EmailAddressIsEmty}    Run Keyword And Return Status
+    ${EmailAddressIsEmpty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
-    ...    locator=${ValidateEmailAddressIsEmty}
+    ...    locator=${ValidateEmailAddressIsEmpty}
     ...    timeout=10
-    IF    ${EmailAddressIsEmty}
+    IF    ${EmailAddressIsEmpty}
         Input Text    ${InputEmailCheckoutPage}    ${CheckoutEmail}
     END
 
-Add User Address If Emty
+Add User Address If Empty
     [Arguments]
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
@@ -176,10 +176,10 @@ Add User Address If Emty
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
     ...    ${PinLocation}
-    ${AddressIsEmty}    Run Keyword And Return Status
+    ${AddressIsEmpty}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonAddAddressCheckoutPage}
-    IF    ${AddressIsEmty}
+    IF    ${AddressIsEmpty}
         Click Element    ${ButtonAddAddressCheckoutPage}
         Input Address Form
         ...    ${ShippingOtherLabel}
