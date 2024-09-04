@@ -34,7 +34,7 @@ ValidateEmailAddressIsEmty              = "//input[@id='checkout-email-textField
 InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField']"
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[contains(@class,'checkout-shipping-pin-img')]"
-ButtonChangeSelectedAddressCheckoutPage = "//span[contains(@class,'checkout-address-changeButton')]"
+ButtonChangeSelectedAddressCheckoutPage = '//*[@id="checkoutShippingAddressHome"]/div[1]/div[2]'
 ButtonAddPromo                          = "//div[@id='checkoutFeePromotionsHome']//div[@class='iconAndLabel']"
 ButtonAddPromoSkeleton                  = "//div[@id='checkoutFeePromotionsHome']//*[contains(@class,'MuiSkeleton-root')]"
 ButtonChangeBillingAddress              = "//div[@id='checkoutShippingAddressHome']//div[@class='column'][2]//span[contains(@class,'checkout-address-changeButton')]"

@@ -97,7 +97,8 @@ G-TCCHG3.Add shipping address
     ...    ${ShipmentPostalCode}
     ...    ${ShipmentPinLocation}
     Save Address
-
+    Change Selected Address
+    Save Selected Address
     
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
@@ -715,15 +716,19 @@ G-TCCHG19.Apply valid coupon code then remove coupon code
     Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    ${GrandTotalBeforePromoString}    Get Grand Total String
     ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
     Click Element    ${ButtonAddPromo}
     Input Promo Code    ${PromoCode}
     Select Button Apply Promo
+    Wait Until Grand Total Price is Changed    ${GrandTotalBeforePromoString}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
     Wait Until Element Is Visible With Long Time    ${ButtonAddPromo}
+    ${GrandTotalAfterPromoString}    Get Grand Total String
     Remove Used Promo
+    Wait Until Grand Total Price is Changed    ${GrandTotalAfterPromoString}
     ${GrandTotalAfterRemovePromo}    Get Grand Total And Convert To Integer
     Should Be Equal    ${GrandTotalBeforePromo}    ${GrandTotalAfterRemovePromo}
 
@@ -802,13 +807,13 @@ G-TCCHG21.Giftcard balance less than Total order
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    ${GrandTotalText}    Get Grand Total String
+    ${GrandTotalBeforeGiftCard}    Get Grand Total And Convert To Integer
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
-    Validate Message Success Alert Is Visible On Checkout Page
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    Wait Until Grand Total Price is Changed    ${GrandTotalText}
+
+    ${GrandTotalAfterGiftCard}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
     
     Submit Place Order
@@ -928,8 +933,8 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
     ...    ${ShipmentPinLocation}
 
     # Melakukan pengechekan, jika alamat yang di miliki user kurang dari 2, maka akan melakukan penambahan data alamat
-    Wait Until Element Is Visible With Long Time    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Wait Until Element Is Visible With Long Time    ${ButtonGoToExistingAddressList}
+    Click Element    ${ButtonGoToExistingAddressList}
     Count and Add address If Less Than Two
 
     Change Selected Address
@@ -1052,7 +1057,7 @@ G-TCCHG29.Guest user cannot use Pickup In Store when location is empty
     ...    ${EmailAddressRegistered}
     Wait Until Element Is Visible    ${ButtonUbahRecipient}
 
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
@@ -1238,7 +1243,7 @@ L-TCCHR5.Add shipping address
     IF    ${AddressIsEmty}
         Click Element    ${ButtonAddAddressCheckoutPage}
     ELSE
-        Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+        Click Element    ${ButtonGoToExistingAddressList}
         Wait Until Element Is Visible    ${ButtonAddNewAddressInAddressList}
         Click Element    ${ButtonAddNewAddressInAddressList}
     END
@@ -1255,7 +1260,8 @@ L-TCCHR5.Add shipping address
     ${ButtonSelectAddressVisible}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
     ...    ${ButtonSaveSelectedAddress}
-    IF   ${ButtonSelectAddressVisible}    
+    IF   ${ButtonSelectAddressVisible}
+        Wait Until Element Is Visible With Long Time    ${ButtonSaveSelectedAddress}   
         Click Element    ${ButtonSaveSelectedAddress}
     END
 
@@ -1966,14 +1972,15 @@ L-TCCHR23.Giftcard balance less than Total order
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalBeforeGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    ${GrandTotalText}    Get Grand Total String
+    ${GrandTotalBeforeGiftCard}    Get Grand Total And Convert To Integer
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
+    Wait Until Grand Total Price is Changed    ${GrandTotalText}
 
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
-    ${GrandTotalAfterGiftCard}    Convert Price With String to Integer    ${GrandTotalText}
+    ${GrandTotalAfterGiftCard}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
+    
     Submit Place Order
 
 L-TCCHR24.Continue shopping after checkout
@@ -2284,7 +2291,7 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
     ...    ${EmailAddressRegistered}
     Wait Until Element Is Visible    ${ButtonUbahRecipient}
 
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     Element Should Be Disabled    ${ButtonCheckoutPlaceOrder}
 
 L-TCCHR32.Registered user add recipient for Pickup In Store
