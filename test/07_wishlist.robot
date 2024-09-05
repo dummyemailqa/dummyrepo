@@ -29,7 +29,7 @@ L-TCWL3.1.Logged In User is able to Add to Cart Simple Product from wishlist pag
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName} =    Add To Wishlist All Product Type    Qty=1
@@ -46,7 +46,7 @@ L-TCWL3.2.Logged In User is able to Add to Cart Configurable Product from wishli
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductConfigNameForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName} =    Add To Wishlist All Product Type    Qty=1
@@ -63,7 +63,7 @@ L-TCWL3.3.Logged In User is able to Add to Cart Bundle Product from wishlist pag
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductBundleNameForSearch}
     Validate Search Product And Go To PDP    ${ProductBundleNameForSearch}
     @{productName} =    Add To Wishlist All Product Type    Qty=1
@@ -80,7 +80,7 @@ L-TCWL3.4.Logged In User is able to Add to Cart Group Product from wishlist page
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductGroupNameForSearch}
     Validate Search Product And Go To PDP    ${ProductGroupNameForSearch}
     @{productName} =    Add To Wishlist All Product Type    Qty=1
@@ -97,7 +97,7 @@ L-TCWL3.5.Logged In User is able to Add to Cart Variant Product from wishlist pa
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductVirtualNameForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
     @{productName} =    Add To Wishlist All Product Type    Qty=1
@@ -114,7 +114,7 @@ L-TCWL4.Logged In User is able to Add to Cart all product from wishlist page
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
 
     # Add Simple Product To Wishlist
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
@@ -170,7 +170,7 @@ L-TCWL6.1.Logged In users are able to add a Configurable product to the cart fro
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Add Product to Wishlist    ${ProductConfigNameForSearch}
 
     #Add To Cart Configurable Product From Wishlist
@@ -189,7 +189,7 @@ L-TCWL6.3.Logged In users are able to add a Group product to the cart from the w
     Login User
     Empty the items in MiniCart
     Go To My Account Page
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Add Product to Wishlist    ${ProductGroupNameForSearch}
 
     #Add To Cart Configurable Product From Wishlist

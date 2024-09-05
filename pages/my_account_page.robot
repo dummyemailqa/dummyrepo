@@ -22,7 +22,7 @@ To My Wishlist From Nav Bar
     Click Element    ${MyWishlistMenu}
     Wait Until Element Is Visible With Long Time    ${WishlishPage}
 
-Emty Item In Wishlish Page
+Empty Item In Wishlish Page
     To My Wishlist From Nav Bar
     ${present}=    Run Keyword and Return Status
     ...    Wait Until Element Is Visible With Long Time
@@ -32,11 +32,11 @@ Emty Item In Wishlish Page
         Scroll Down To Element    ${DeleteWishlistItemButton}
         Click Element    ${DeleteWishlistItemButton}
         Validate Message Success Alert Is Visible
-        ${WishlistItemIsEmty}=
+        ${WishlistItemIsEmpty}=
         ...    Run Keyword and Return Status
         ...    Wait Until Element Is Visible
-        ...    ${MessageInfoEmty}
-        IF    ${WishlistItemIsEmty}    BREAK
+        ...    ${MessageInfoEmpty}
+        IF    ${WishlistItemIsEmpty}    BREAK
         ${present}=    Run Keyword and Return Status
         ...    Wait Until Element Is Visible With Long Time
         ...    ${DeleteWishlistItemButton}

@@ -30,7 +30,7 @@ OTPField                    = "//div[contains(@style,'display: flex')]//input[{}
 
 # checkoutpage
 SCVPayButton                            = "//button[@id='checkout-payButton']"
-ValidateEmailAddressIsEmty              = "//input[@id='checkout-email-textField'][@value='']"
+ValidateEmailAddressIsEmpty              = "//input[@id='checkout-email-textField'][@value='']"
 InputEmailCheckoutPage                  = "//input[@id='checkout-email-textField']"
 CheckoutPageCountdown                   = "//div[contains(@class,'checkout')]//div[contains(@class,'countdown')]"
 ButtonAddAddressCheckoutPage            = "//div[@id='checkoutShippingAddressHome']//button//img[contains(@class,'checkout-shipping-pin-img')]"

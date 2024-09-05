@@ -153,7 +153,7 @@ TCPDP7.cannot add product to wish list and cannot access the wishlist page
 TCPDP8.Logged in user is able to add product to wish list and access the wishlist page.
     [Tags]    pdp    wishlist
     Login User
-    Emty Item In Wishlish Page
+    Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP   ${ProductSimpleNameForSearch}
 
