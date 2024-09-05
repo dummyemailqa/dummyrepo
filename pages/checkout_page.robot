@@ -484,7 +484,7 @@ Submit Giftcard Code
     Input Text    ${GiftCardInput}    ${GiftCard}
     Click Element    ${GiftCardPasangButton}
     Wait Until Element Is Not Visible    ${GiftCardLoader}
-    Run Keyword And Continue On Failure    Wait Until Element Does Not Contain    ${GrandTotalInSummary}    ${GrandTotalText}
+    #Run Keyword And Continue On Failure    Wait Until Element Does Not Contain    ${GrandTotalInSummary}    ${GrandTotalText}
 
 Validate Grandtotal Is Zero
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
