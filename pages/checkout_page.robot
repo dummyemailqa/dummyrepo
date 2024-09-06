@@ -128,6 +128,7 @@ Input Address Form
 Save Address
     Wait Until Element Is Visible With Long Time    ${ButtonSaveAddressInAddressForm}
     Click Element    ${ButtonSaveAddressInAddressForm}
+    Wait Until Element Is Not Visible    ${ButtonSaveAddressInAddressForm}
 
 Close Address List
     Wait Until Element Is Visible With Long Time    ${ButtonCloseAddressList}
@@ -176,11 +177,16 @@ Add User Address If Empty
     ...    ${ShippingCity}
     ...    ${ShipmentPostalCode}
     ...    ${PinLocation}
-    ${AddressIsEmpty}    Run Keyword And Return Status
+    
+    Wait Until Element Is Enabled    ${ButtonChangeSelectedAddressCheckoutPage}
+    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+
+    ${AddressListVisible}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
-    ...    ${ButtonAddAddressCheckoutPage}
-    IF    ${AddressIsEmpty}
-        Click Element    ${ButtonAddAddressCheckoutPage}
+    ...    ${ItemInAddressList}
+    IF    ${AddressListVisible}
+        Click Element    ${ButtonCloseAddressList}
+    ELSE
         Input Address Form
         ...    ${ShippingOtherLabel}
         ...    ${ShippingRecipient}
