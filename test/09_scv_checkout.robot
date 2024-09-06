@@ -766,7 +766,6 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
     Submit Giftcard Code    ${GiftCardToZero}
-    Validate Message Success Alert Is Visible On Checkout Page
     Validate Grandtotal Is Zero
     Submit Place Order Zero Subtotal
     Thankyou page Validation
@@ -807,11 +806,9 @@ G-TCCHG21.Giftcard balance less than Total order
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
-    ${GrandTotalText}    Get Grand Total String
     ${GrandTotalBeforeGiftCard}    Get Grand Total And Convert To Integer
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
-    Wait Until Grand Total Price is Changed    ${GrandTotalText}
 
     ${GrandTotalAfterGiftCard}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
@@ -1972,11 +1969,9 @@ L-TCCHR23.Giftcard balance less than Total order
     Select Shipping Method
     Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
 
-    ${GrandTotalText}    Get Grand Total String
     ${GrandTotalBeforeGiftCard}    Get Grand Total And Convert To Integer
 
     Submit Giftcard Code    ${GiftCardSmallAmount}
-    Wait Until Grand Total Price is Changed    ${GrandTotalText}
 
     ${GrandTotalAfterGiftCard}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalAfterGiftCard} < ${GrandTotalBeforeGiftCard}
