@@ -2112,7 +2112,7 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
 
-    Select Existing Giftcard Code
+    Submit Giftcard Code    ${GiftCardCodeManually}
     Wait Until Element Is Visible    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
