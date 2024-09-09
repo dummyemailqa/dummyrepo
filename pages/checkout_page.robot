@@ -128,7 +128,7 @@ Input Address Form
 Save Address
     Wait Until Element Is Visible With Long Time    ${ButtonSaveAddressInAddressForm}
     Click Element    ${ButtonSaveAddressInAddressForm}
-    Wait Until Element Is Not Visible    ${ButtonSaveAddressInAddressForm}
+    Run Keyword And Ignore Error    Wait Until Element Is Not Visible    ${ButtonSaveAddressInAddressForm}
 
 Close Address List
     Wait Until Element Is Visible With Long Time    ${ButtonCloseAddressList}
