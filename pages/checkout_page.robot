@@ -178,8 +178,8 @@ Add User Address If Empty
     ...    ${ShipmentPostalCode}
     ...    ${PinLocation}
     
-    Wait Until Element Is Enabled    ${ButtonChangeSelectedAddressCheckoutPage}
-    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+    Wait Until Element Is Enabled    ${ButtonGoToExistingBillingAddressList}
+    Click Element    ${ButtonGoToExistingBillingAddressList}
 
     ${AddressListVisible}    Run Keyword And Return Status
     ...    Wait Until Element Is Visible
