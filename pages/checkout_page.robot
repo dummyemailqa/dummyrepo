@@ -178,6 +178,36 @@ Add User Address If Empty
     ...    ${ShipmentPostalCode}
     ...    ${PinLocation}
     
+    Wait Until Element Is Enabled    ${ButtonChangeSelectedAddressCheckoutPage}
+    Click Element    ${ButtonChangeSelectedAddressCheckoutPage}
+
+    ${AddressListVisible}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    ${ItemInAddressList}
+    IF    ${AddressListVisible}
+        Click Element    ${ButtonCloseAddressList}
+    ELSE
+        Input Address Form
+        ...    ${ShippingOtherLabel}
+        ...    ${ShippingRecipient}
+        ...    ${AddressPhoneNumber}
+        ...    ${ShipmentAddressDetail}
+        ...    ${ShippingCity}
+        ...    ${ShipmentPostalCode}
+        ...    ${PinLocation}
+        Save Address
+    END
+
+Add User Billing Address If Empty
+    [Arguments]
+    ...    ${ShippingOtherLabel}
+    ...    ${ShippingRecipient}
+    ...    ${AddressPhoneNumber}
+    ...    ${ShipmentAddressDetail}
+    ...    ${ShippingCity}
+    ...    ${ShipmentPostalCode}
+    ...    ${PinLocation}
+    
     Wait Until Element Is Enabled    ${ButtonGoToExistingBillingAddressList}
     Click Element    ${ButtonGoToExistingBillingAddressList}
 

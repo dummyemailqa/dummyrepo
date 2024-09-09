@@ -2221,7 +2221,7 @@ L-TCCHR29.Registered user checkout using Pickup In Store
     ${ShippingRecipient}    Generate Random Keyword
     ${ShippingOtherLabel}    Generate Random Keyword
     ${AddressPhoneNumber}    Generate Random PhoneNumber
-    Add User Address If Empty
+    Add User Billing Address If Empty
     ...    ${ShippingOtherLabel}
     ...    ${ShippingRecipient}
     ...    ${AddressPhoneNumber}
