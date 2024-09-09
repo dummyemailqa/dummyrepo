@@ -485,11 +485,12 @@ Login at the Checkout Page for Guest Users
 
 Submit Giftcard Code
     [Arguments]    ${GiftCard}
-    ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
+    ${GrandTotalText}    Get Grand Total String
     Wait Until Element Is Enabled    ${GiftCardInput}
     Input Text    ${GiftCardInput}    ${GiftCard}
     Click Element    ${GiftCardPasangButton}
     Wait Until Element Is Not Visible    ${GiftCardLoader}
+    Wait Until Grand Total Price is Changed    ${GrandTotalText}
 
 Validate Grandtotal Is Zero
     ${GrandTotalText}    Get Text    ${GrandTotalInSummary}
