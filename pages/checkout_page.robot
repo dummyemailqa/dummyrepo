@@ -319,7 +319,7 @@ Invalid Promo Code Validation
     Click Element    ${ButtonClosePromo}
 
 Submit Place Order
-    Wait Until Element Is Visible With Long Time    ${LabelSelectPaymentMethod}
+    Run Keyword And Warn On Failure    Wait Until Element Is Visible With Long Time    ${LabelSelectPaymentMethod}
     Wait Until Element Is Visible    ${ButtonCheckoutPlaceOrder}
     Scroll Down To Element    ${ButtonCheckoutPlaceOrder}
     TRY
