@@ -2098,7 +2098,7 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     ...    ${ShipmentPinLocation}
 
     Select Shipping Method
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
     ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
 
     Select Promo From Promotion List
@@ -2107,13 +2107,12 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
 
-    Submit Giftcard Code    ${GiftCardCodeManually}
+    Submit Giftcard Code    ${GiftCardToZero}
     Wait Until Element Is Visible    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
 
     Submit Place Order
-    Midtrans Virtual Account Transaction
     Thankyou page Validation
 
 L-TCCHR27.Successful Checkout with simple product using registered account
