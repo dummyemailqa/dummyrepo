@@ -887,11 +887,13 @@ G-TCCHG23.Apply coupon with existing code in list promo
     ...    ${ShipmentPinLocation}
 
     Select Shipping Method
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
     ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
 
+    ${initialPrice}    Get Grand Total String
     Select Promo From Promotion List
     Select Button Apply Existing Promotion
+    Wait Until Grand Total Price is Changed    ${initialPrice}
     Wait Until Element Is Visible    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
@@ -2050,11 +2052,13 @@ L-TCCHR25.Apply coupon with existing code in list promo
     ...    ${ShipmentPinLocation}
 
     Select Shipping Method
-    Select Payment Method    ${DropdownVAMidtransMethodItem}
+    Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
     ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
 
+    ${initialPrice}    Get Grand Total String
     Select Promo From Promotion List
     Select Button Apply Existing Promotion
+    Wait Until Grand Total Price is Changed    ${initialPrice}
     Wait Until Element Is Visible    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
@@ -2100,9 +2104,11 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     Select Shipping Method
     Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
     ${GrandTotalBeforePromo}    Get Grand Total And Convert To Integer
-
+    
+    ${initialPrice}    Get Grand Total String
     Select Promo From Promotion List
     Select Button Apply Existing Promotion
+    Wait Until Grand Total Price is Changed    ${initialPrice}
     Wait Until Element Is Visible    ${GrandTotalInSummary}
     ${GrandTotalAfterPromo}    Get Grand Total And Convert To Integer
     Should Be True    ${GrandTotalBeforePromo} > ${GrandTotalAfterPromo}
