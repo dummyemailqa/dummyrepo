@@ -567,6 +567,8 @@ Input Recipient Form
     Wait Until Element Is Visible With Long Time    ${PickUpButtonSaveRecipient}
     Clear Text Field    ${PickUpRecipientNameField}
     Input Text    ${PickUpRecipientNameField}    ${PickUpRecipientName}
+    #di Edge tidak bisa clear phone number sekali
+    Clear Text Field    ${PickUpRecipientPhoneField}
     Clear Text Field    ${PickUpRecipientPhoneField}
     Input Text    ${PickUpRecipientPhoneField}    ${PickUpRecipientPhone}
     Clear Text Field    ${PickUpRecipientEmailField}
