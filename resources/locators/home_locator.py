@@ -13,6 +13,7 @@ CategoryMenuByIndex = "//nav[@aria-label='Main menu']//ul[@class='flex flex-wrap
 SearchBox           = "//input[@id='search']"
 SuggestedProduct    = "//a[@class='w-full block p-2']//span[@x-text='searchResult.title']"
 SuggestionCategorySearch    = "//div[@id='search_autocomplete']//div[@ha='hyva-search-list'][3]//span[@x-text='searchResult.title']"
+ProductSuggestion   = "//span[@class='text-sm']"
 
 #Content
 ProductPriceInHomePage  = "//form[contains(@class,'item product product-item')]//span[@class='price']"

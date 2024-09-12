@@ -20,6 +20,14 @@ TCSe1.Search for Product Categories using Website's Search Box
     Click On Category Suggestion    ${CategoryName}
     Search Category Product result Validation    ${CategoryName}
 
+TCSe2.Successful Product Search using Website's Search Suggestion
+    [Tags]    header    search
+    Click Element    ${SearchBox}
+    Input Text    ${SearchBox}    ${ProductSimpleSKUForSearch}
+    Wait Until Element Is Visible With Long Time    ${ProductSuggestion}
+    Click Element    ${ProductSuggestion}
+    Search Product result Validation    ${ProductSimpleNameForSearch}    
+
 TCSe3.Successful Specific Product Search using Website's Search Box
     [Tags]    header    search
     # search Product Simple by SKU
