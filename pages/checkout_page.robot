@@ -565,14 +565,21 @@ Input Recipient Form
     ...    ${PickUpRecipientPhone}
     ...    ${PickUpRecipientEmail}
     Wait Until Element Is Visible With Long Time    ${PickUpButtonSaveRecipient}
+    
     Clear Text Field    ${PickUpRecipientNameField}
     Input Text    ${PickUpRecipientNameField}    ${PickUpRecipientName}
+    ${pickupName}=    Get Value    ${PickUpRecipientNameField}
+    
     #di Edge tidak bisa clear phone number sekali
     Clear Text Field    ${PickUpRecipientPhoneField}
     Clear Text Field    ${PickUpRecipientPhoneField}
     Input Text    ${PickUpRecipientPhoneField}    ${PickUpRecipientPhone}
+    ${pickupPhone}=    Get Value    ${PickUpRecipientPhoneField}
+    
     Clear Text Field    ${PickUpRecipientEmailField}
     Input Text    ${PickUpRecipientEmailField}    ${PickUpRecipientEmail}
+    ${pickupEmail}    Get Value    ${PickUpRecipientEmailField}
+
     Click Element    ${PickUpButtonSaveRecipient}
 
 Validate Pickup In Store Recipient Blanks
