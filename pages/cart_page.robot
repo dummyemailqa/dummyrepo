@@ -73,10 +73,11 @@ Go To Checkout Page From Shopping Cart
 
 Go To Checkout Page From Shopping Cart Guest and Login User
     # Digunakan untuk masuk kehalaman Checkout Page untuk Guest ataupun Login User
+    ${isGuest}=    Run Keyword And Return Status    
+    ...    Element Attribute Value Should Be    ${CustomerMenuFirstItem}    id    customer.header.sign.in.link
     Scroll Down To Element    ${ButtonToCheckout}
     Click Element    ${ButtonToCheckout}
-    ${CheckoutPagePresent}=    Run Keyword and Return Status    Wait Until Element Is Visible With Long Time    ${CheckoutPageCountdown}
-    IF    not ${CheckoutPagePresent}
+    IF    ${isGuest}
         Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
         Login at the Checkout Page for Guest Users
     END
