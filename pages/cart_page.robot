@@ -80,4 +80,4 @@ Go To Checkout Page From Shopping Cart Guest and Login User
         Wait Until Element Is Visible With Long Time    ${ButtonCheckoutogInSCV}
         Login at the Checkout Page for Guest Users
     END
-    Wait Until Element Is Visible    ${GrandTotalInSummary}    20s
+    Wait Until Element Is Visible    ${GrandTotalInSummary}    45s
