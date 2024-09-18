@@ -185,7 +185,13 @@ Add User Address If Empty
     ...    Wait Until Element Is Visible
     ...    ${ItemInAddressList}
     IF    ${AddressListVisible}
-        Click Element    ${ButtonCloseAddressList}
+        ${isAddressSelected}=    Run Keyword And Return Status    Element Should Be Enabled    ${ButtonSaveSelectedAddress}
+        IF    not ${isAddressSelected}
+            Change Selected Address
+            Save Selected Address
+        ELSE
+            Click Element    ${ButtonCloseAddressList}
+        END            
     ELSE
         Input Address Form
         ...    ${ShippingOtherLabel}
