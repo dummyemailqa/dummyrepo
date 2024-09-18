@@ -121,9 +121,9 @@ L-TCMy12.Check Available Gift Cards from Your Gift Card Codes Section
     ${GiftcartValue}    Set Variable    100000
     ${GiftcartValue}=  Evaluate  int(${GiftcartValue})
     To Login Page
-    Input Login Form    ${EmailAddressRegistered}    ${Password}
+    Input Login Form    ${EmailAddressWithGiftcard}    ${Password}
     Submit Form Login
-    My Account Page Validation    ${EmailAddressRegistered}
+    My Account Page Validation    ${EmailAddressWithGiftcard}
     To Gift Card Page
     Check Existing Gift Card Code
     ${ExistingGiftCardCodeResult}=    Get Text    ${ExistingGiftCode}
