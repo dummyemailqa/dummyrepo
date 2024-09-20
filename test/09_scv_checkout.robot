@@ -17,7 +17,7 @@ Test Teardown       End Test Case
 *** Test Cases ***
 G-TCCHG1.Login with invalid whatsapp number format
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -37,7 +37,7 @@ G-TCCHG1.Login with invalid whatsapp number format
 
 G-TCCHG2.Login with invalid OTP code
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -58,7 +58,7 @@ G-TCCHG2.Login with invalid OTP code
 
 G-TCCHG3.Add shipping address
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -109,7 +109,7 @@ G-TCCHG3.Add shipping address
 
 G-TCCHG4.Add shipping address with empty fields
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -205,7 +205,7 @@ G-TCCHG4.Add shipping address with empty fields
 
 G-TCCHG5.Change shipping address
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -250,7 +250,7 @@ G-TCCHG5.Change shipping address
 
 G-TCCHG6.Billing address same as Shipping address
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -289,7 +289,7 @@ G-TCCHG6.Billing address same as Shipping address
 
 G-TCCHG7.Add New Billing Address
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -329,7 +329,7 @@ G-TCCHG7.Add New Billing Address
 
 G-TCCHG8.Use different billing address
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -370,7 +370,7 @@ G-TCCHG8.Use different billing address
 G-TCCHG9.Home Delivery with Insurance
     [Tags]    checkout
     ${InsuranceStatus}    Set Variable    Select
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -410,7 +410,7 @@ G-TCCHG9.Home Delivery with Insurance
 G-TCCHG10.Home Delivery without insurance
     [Tags]    checkout
     ${InsuranceStatus}    Set Variable    Unselect
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -449,7 +449,7 @@ G-TCCHG10.Home Delivery without insurance
 
 G-TCCHG11.Home Delivery checkout with no shipping method
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName} =    Add To Cart    Qty=1
@@ -468,7 +468,7 @@ G-TCCHG11.Home Delivery checkout with no shipping method
 
 G-TCCHG12.Home Delivery checkout with no payment method
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName} =    Add To Cart    Qty=1
@@ -504,7 +504,7 @@ G-TCCHG12.Home Delivery checkout with no payment method
 
 G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -542,7 +542,7 @@ G.TCCHG13.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
 
 G-TCCHG14.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -565,7 +565,7 @@ G-TCCHG14.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
 
 G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -604,7 +604,7 @@ G-TCCHG15.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Reg
 G-TCCHG17.Apply valid coupon code
     [Tags]    checkout
     Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -647,7 +647,7 @@ G-TCCHG17.Apply valid coupon code
 
 G-TCCHG18.Apply invalid coupon code 
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -687,7 +687,7 @@ G-TCCHG18.Apply invalid coupon code
 
 G-TCCHG19.Apply valid coupon code then remove coupon code
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -734,7 +734,7 @@ G-TCCHG19.Apply valid coupon code then remove coupon code
 
 G-TCCHG20.Giftcard balance more than Total order, grand total 0
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -774,7 +774,7 @@ G-TCCHG21.Giftcard balance less than Total order
     [Tags]    checkout
     Log
     ...    "Please To Create GiftCard in the Backoffice with amount total is less than 'ProductConfigSKUForSearch' amount and update 'GiftCardSmallAmount'!"
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -817,7 +817,7 @@ G-TCCHG21.Giftcard balance less than Total order
 
 G-TCCHG22.Continue shopping after checkout
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=3
@@ -857,7 +857,7 @@ G-TCCHG23.Apply coupon with existing code in list promo
     [Tags]    checkout
     Log
     ...    "Please create a Coupon in the Backoffice and guest user that will be used to apply the Coupon!"
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=3
@@ -904,7 +904,7 @@ G-TCCHG23.Apply coupon with existing code in list promo
 
 G-TCCHG25.Successful Checkout Test with simple product using registered account
     [Tags]    Checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
      @{productName} =    Add To Cart    Qty=1
@@ -947,7 +947,7 @@ G-TCCHG25.Successful Checkout Test with simple product using registered account
 
 G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest User
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -985,7 +985,7 @@ G-TCCHG26.Successful Checkout Test with a Configurable Product using a Guest Use
 
 G-TCCHG27.Guest user checkout using Pickup In Store
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1032,7 +1032,7 @@ G-TCCHG27.Guest user checkout using Pickup In Store
 
 G-TCCHG29.Guest user cannot use Pickup In Store when location is empty
     [Tags]    checkout    test
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1061,7 +1061,7 @@ G-TCCHG29.Guest user cannot use Pickup In Store when location is empty
 
 G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1085,7 +1085,7 @@ G-TCCHG28.Guest user cannot use Pickup In Store when recipient is empty
 
 G-TCCHG30.Guest user add recipient for Pickup In Store
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1113,7 +1113,7 @@ G-TCCHG30.Guest user add recipient for Pickup In Store
 
 G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1152,7 +1152,7 @@ G-TCCHG31.Guest user cannot add recipient if mandatory field is empty
 
 TCSC1.Customers can access the shopping cart page
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
     @{productName} =    Add To Cart    Qty=1
@@ -1186,7 +1186,7 @@ TCSC1.Customers can access the shopping cart page
 
 TCSC2.Customer deleted the item
     [Tags]    checkout
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
     @{productName} =    Add To Cart    Qty=1
@@ -1217,7 +1217,7 @@ TCSC2.Customer deleted the item
 L-TCCHR5.Add shipping address
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1274,7 +1274,7 @@ L-TCCHR5.Add shipping address
 L-TCCHR6.Add shipping address with empty fields
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1371,7 +1371,7 @@ L-TCCHR6.Add shipping address with empty fields
 L-TCCHR7.Change shipping address
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1417,7 +1417,7 @@ L-TCCHR7.Change shipping address
 L-TCCHR8. Billing address same as Shipping address
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1455,7 +1455,7 @@ L-TCCHR8. Billing address same as Shipping address
 L-TCCHR9.Add Billing address
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1494,7 +1494,7 @@ L-TCCHR9.Add Billing address
 L-TCCHR10.Use different billing address
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1534,7 +1534,7 @@ L-TCCHR11.Home Delivery with Insurance
     [Tags]    checkout
     ${InsuranceStatus}    Set Variable    Select
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1575,7 +1575,7 @@ L-TCCHR012.Home Delivery without insurance
     [Tags]    checkout
     ${InsuranceStatus}    Set Variable    Unselect
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1615,7 +1615,7 @@ L-TCCHR012.Home Delivery without insurance
 L-TCCHR013.Home Delivery checkout without selected shipping method
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName} =    Add To Cart    Qty=1
@@ -1645,7 +1645,7 @@ L-TCCHR013.Home Delivery checkout without selected shipping method
 L-TCCHR14.Home Delivery checkout without selected payment method
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName} =    Add To Cart    Qty=1
@@ -1663,7 +1663,7 @@ L-TCCHR14.Home Delivery checkout without selected payment method
 L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1700,7 +1700,7 @@ L-TCCHR15.Checkout with Midtrans BRI Virtual Account (VA) Payment Method for Reg
 L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=2
@@ -1736,7 +1736,7 @@ L-TCCHR16.Checkout with Midtrans Permata Virtual Account (VA) Payment Method for
 L-TCCHR17.Checkout with Midtrans BNI Virtual Account (VA) Payment Method for Registered
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=2
@@ -1773,7 +1773,7 @@ L-TCCHR19.Apply valid coupon code
     [Tags]    checkout
     Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1819,7 +1819,7 @@ L-TCCHR19.Apply valid coupon code
 L-TCCHR20.Apply invalid coupon code - Logged In
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1856,7 +1856,7 @@ L-TCCHR21.Apply valid coupon code then remove coupon code
     [Tags]    checkout
     Log    "Tester Perlu Membuat Promotion Dengan Code yang disimpan pada variable --PromoCode--"
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1904,7 +1904,7 @@ L-TCCHR22.Giftcard balance more than Total order
     Log
     ...    "Please To Create GiftCard in the Backoffice with amount total is grather than 'ProductConfigSKUForSearch' amount and update 'GiftCardToZero'!"
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1939,7 +1939,7 @@ L-TCCHR23.Giftcard balance less than Total order
     Log
     ...    "Please To Create GiftCard in the Backoffice with amount total is less than 'ProductConfigSKUForSearch' amount and update 'GiftCardSmallAmount'!"
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -1983,7 +1983,7 @@ L-TCCHR23.Giftcard balance less than Total order
 L-TCCHR24.Continue shopping after checkout
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -2022,7 +2022,7 @@ L-TCCHR25.Apply coupon with existing code in list promo
     Log
     ...    "Please create a Coupon in the Backoffice and assign it to the Buyer account that will be used to apply the Coupon!"
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=3
@@ -2072,7 +2072,7 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
     Log
     ...    "Please create a Gift Card in the Backoffice and assign it to the Buyer account that will be used to apply the Gift Card!"
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=3
@@ -2124,7 +2124,7 @@ L-TCCHR26.Apply coupon with existing code in list promo and giftcard
 L-TCCHR27.Successful Checkout with simple product using registered account
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=2
@@ -2160,7 +2160,7 @@ L-TCCHR27.Successful Checkout with simple product using registered account
 L-TCCHR28.Successful Checkout Test with Configurable product using registered account
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -2196,7 +2196,7 @@ L-TCCHR28.Successful Checkout Test with Configurable product using registered ac
 L-TCCHR29.Registered user checkout using Pickup In Store
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -2244,7 +2244,7 @@ L-TCCHR29.Registered user checkout using Pickup In Store
 L-TCCHR30.Registered user cannot use Pickup In Store when recipient is empty
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -2267,7 +2267,7 @@ L-TCCHR30.Registered user cannot use Pickup In Store when recipient is empty
 L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -2297,7 +2297,7 @@ L-TCCHR31.Registered user cannot use Pickup In Store when location is empty
 L-TCCHR32.Registered user add recipient for Pickup In Store
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
     @{productName}    Add To Cart    Qty=1
@@ -2326,7 +2326,7 @@ L-TCCHR32.Registered user add recipient for Pickup In Store
 L-TCCHR33.Registered user cannot add recipient if mandatory field is empty
     [Tags]    checkout
     Login User
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
     @{productName}    Add To Cart    Qty=1

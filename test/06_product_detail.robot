@@ -62,7 +62,7 @@ L-TCPDP2.Validation Product Review Submission with Empty Required Fields
 
 TCPDP4-1.Add To Cart Simple Product
     [Tags]    ATC
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductSimpleNameForSearch}
      @{productName} =    Add To Cart    Qty=1
@@ -75,7 +75,7 @@ TCPDP4-1.Add To Cart Simple Product
 
 TCPDP4-2.Add To Cart Configurable Product
     [Tags]    ATC
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductConfigSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductConfigNameForSearch}
      @{productName} =    Add To Cart    Qty=1
@@ -88,7 +88,7 @@ TCPDP4-2.Add To Cart Configurable Product
 
 TCPDP4-3.Add To Cart Bundle Product
     [Tags]    ATC
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductBundleSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductBundleNameForSearch}
      @{productName} =    Add To Cart    Qty=1
@@ -101,7 +101,7 @@ TCPDP4-3.Add To Cart Bundle Product
 
 TCPDP4-4.Add To Cart Virtual Product
     [Tags]    pdp
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductVirtualSKUForSearch}
     Validate Search Product And Go To PDP    ${ProductVirtualNameForSearch}
      @{productName} =    Add To Cart    Qty=1
@@ -114,7 +114,7 @@ TCPDP4-4.Add To Cart Virtual Product
 
 TCPDP4.5.Customers add product Grouped to the cart from PDP
     [Tags]    pdp
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductGroupSKUForSearch}
     Validate Search Product And Go To PDP   ${ProductGroupNameForSearch}
     
@@ -128,7 +128,7 @@ TCPDP4.5.Customers add product Grouped to the cart from PDP
     
 TCPDP5.Validation Maximum Quantity Validation During Adding Product to Cart
     [Tags]    pdp
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP   ${ProductSimpleNameForSearch}
     Add To Cart    Qty=10001
@@ -136,7 +136,7 @@ TCPDP5.Validation Maximum Quantity Validation During Adding Product to Cart
 
 TCPDP6.Customers cannot add items to the cart
     [Tags]    pdp
-    Empty the items in MiniCart
+    
     Search Product by Keyword in Searchbox    ${ProductSimpleSKUForSearch}
     Validate Search Product And Go To PDP   ${ProductSimpleNameForSearch}
     Add To Cart    Qty=10001
