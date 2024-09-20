@@ -1,8 +1,12 @@
 *** Settings ***
 Library         SeleniumLibrary
+Library         RequestsLibrary
+Library         JSONLibrary
+Library         String
 Library         Collections
 Resource        ../base/base.robot
 Resource        ../pages/checkout_page.robot
+Variables       ../resources/data/testdata.py
 Variables       ../resources/locators/cart_page_locator.py
 Variables       ../resources/locators/scv2_locator.py
 
@@ -81,3 +85,57 @@ Go To Checkout Page From Shopping Cart Guest and Login User
         Login at the Checkout Page for Guest Users
     END
     Wait Until Element Is Visible    ${GrandTotalInSummary}    45s
+
+Generate Customer Token
+    [Arguments]    ${email}    ${password}
+    ${queryJSON}=    Load Json From File    ./resources/queries/generateCustomerToken.json
+    
+    Set To Dictionary    ${queryJSON['variables']}    email    ${email}
+    Set To Dictionary    ${queryJSON['variables']}    password    ${password}
+
+    ${res}=    POST    url=${graphqlURL}    json=${queryJSON}
+    ${token}=    Set Variable    ${res.json()}[data][generateCustomerToken][token]
+    RETURN    ${token}
+
+Get Customer Cart
+    [Arguments]    ${token}
+    ${queryJSON}=    Load Json From File    ./resources/queries/customerCart.json
+    ${headers}=    Create Dictionary    Authorization=Bearer ${token}
+
+    ${res}=    POST    url=${graphqlURL}    json=${queryJSON}    headers=${headers}
+    ${cart}=    Set Variable    ${res.json()}
+    
+    RETURN    ${cart}
+
+Get Customer Cart Id
+    [Arguments]    ${cart}
+    ${cartId}=    Set Variable    ${cart}[data][customerCart][id]
+
+    RETURN    ${cartId}
+
+Get Customer Cart Items
+    [Arguments]    ${cart}
+    ${cartItems}=    Set Variable    ${cart}[data][customerCart][items]
+
+    RETURN    ${cartItems}
+
+Remove Customer Cart Item
+    [Arguments]    ${token}    ${cartId}    ${cartItemId}
+    ${queryJSON}=    Load Json From File    ./resources/queries/removeItemFromCart.json
+    ${headers}=    Create Dictionary    Authorization=Bearer ${token}
+    
+    Set To Dictionary    ${queryJSON['variables']}    cart_id    ${cartId}
+    Set To Dictionary    ${queryJSON['variables']}    cart_item_uid    ${cartItemId}
+
+    ${res}=    POST    url=${graphqlURL}    json=${queryJSON}    headers=${headers}
+
+Clear Customer Cart Items
+    [Arguments]    ${email}    ${password}
+    ${token}=    Generate Customer Token    ${email}    ${password}
+    ${cart}=    Get Customer Cart    ${token}
+    ${cartId}=    Get Customer Cart Id    ${cart}
+    ${cartItems}=    Get Customer Cart Items    ${cart}
+    @{cartItems}=    Convert To List    ${cartItems}
+    FOR    ${item}    IN    @{cartItems}
+        Remove Customer Cart Item    ${token}    ${cartId}    ${item}[uid]
+    END

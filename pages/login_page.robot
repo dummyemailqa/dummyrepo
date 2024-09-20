@@ -6,6 +6,7 @@ Variables       ../resources/locators/login_locator.py
 Variables       ../resources/locators/home_locator.py
 Variables       ../resources/locators/my_account_locator.py
 Resource        ../base/common.robot
+Resource        cart_page.robot
 
 
 *** Keywords ***
@@ -57,4 +58,5 @@ Login User
     Input Login Form    ${userEmail}    ${userPassword}
     Submit Form Login
     ${LoggedIn}    Login Validation
+    Clear Customer Cart Items    ${userEmail}    ${userPassword}
     RETURN    ${LoggedIn}
