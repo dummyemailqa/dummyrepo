@@ -93,7 +93,7 @@ Input Address Form
             Input Text    ${InputAddressLabel}    ${ShippingOtherLabel}
         END
     END
-    Clear Text Field    ${InputAddressPhoneNumber}
+    Clear Field Character by Character    ${InputAddressPhoneNumber}
     Input Text    ${InputAddressPhoneNumber}    ${AddressPhoneNumber}
 
     Clear Text Field    ${InputAddressDetail}

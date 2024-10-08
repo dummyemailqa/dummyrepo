@@ -75,6 +75,14 @@ Clear Text Field
         press keys    ${Element}    CTRL+a+BACKSPACE
     END
 
+Clear Field Character by Character
+    [Arguments]    ${Element}
+    ${OS}=    Evaluate    platform.system()    platform
+    ${ElementhLength}    Get Length    ${Element}
+    FOR    ${index}    IN RANGE    ${ElementhLength}
+        press keys    ${Element}    BACKSPACE
+    END
+
 Validate Popup Fail Alert Is Visible
 # digunakan untuk alert Tooltip seperti https://prnt.sc/5tKzCYCVlSkd
     [Arguments]    ${elementjs}
