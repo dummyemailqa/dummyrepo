@@ -75,6 +75,13 @@ Clear Text Field
         press keys    ${Element}    CTRL+a+BACKSPACE
     END
 
+Clear SCV Add New Address Phone Number Text Field
+    [Arguments]    ${Element}
+    ${OS}=    Evaluate    platform.system()    platform
+    FOR    ${index}    IN RANGE    10
+        press keys    ${Element}    BACKSPACE
+    END
+
 Validate Popup Fail Alert Is Visible
 # digunakan untuk alert Tooltip seperti https://prnt.sc/5tKzCYCVlSkd
     [Arguments]    ${elementjs}
