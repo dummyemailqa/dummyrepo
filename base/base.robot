@@ -75,10 +75,11 @@ Clear Text Field
         press keys    ${Element}    CTRL+a+BACKSPACE
     END
 
-Clear SCV Add New Address Phone Number Text Field
+Clear Field Character by Character
     [Arguments]    ${Element}
     ${OS}=    Evaluate    platform.system()    platform
-    FOR    ${index}    IN RANGE    10
+    ${ElementhLength}    Get Length    ${Element}
+    FOR    ${index}    IN RANGE    ${ElementhLength}
         press keys    ${Element}    BACKSPACE
     END
 
