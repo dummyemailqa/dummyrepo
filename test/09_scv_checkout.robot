@@ -764,7 +764,7 @@ G-TCCHG20.Giftcard balance more than Total order, grand total 0
     ...    ${ShipmentPinLocation}
 
     Select Shipping Method
-    Select Payment Method    ${DropdownBNIVAMidtransMethodItem}
+    Select Payment Method    ${DropdownPermataVAMidtransMethodItem}
     Submit Giftcard Code    ${GiftCardToZero}
     Validate Grandtotal Is Zero
     Submit Place Order Zero Subtotal
