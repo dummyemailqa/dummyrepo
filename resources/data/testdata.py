@@ -2,6 +2,7 @@
 EmailAddress            = 'jellyseller@yopmail.com'
 EmailAddressRegistered  = 'demo@icube.us'
 EmailAddressRegistered2 = 'egi.gusniawan@yopmail.com'
+EmailAddressWithGiftcard = 'demo@icube.us'
 Password                = 'Password123'
 FirstName               = 'demo'
 LastName                = 'icube'
