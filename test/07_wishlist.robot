@@ -27,7 +27,7 @@ L-TCWL2.Logged In user is able to delete product from wishlist page
 L-TCWL3.1.Logged In User is able to Add to Cart Simple Product from wishlist page
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductSimpleNameForSearch}
@@ -44,7 +44,7 @@ L-TCWL3.1.Logged In User is able to Add to Cart Simple Product from wishlist pag
 L-TCWL3.2.Logged In User is able to Add to Cart Configurable Product from wishlist page
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductConfigNameForSearch}
@@ -61,7 +61,7 @@ L-TCWL3.2.Logged In User is able to Add to Cart Configurable Product from wishli
 L-TCWL3.3.Logged In User is able to Add to Cart Bundle Product from wishlist page
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductBundleNameForSearch}
@@ -78,7 +78,7 @@ L-TCWL3.3.Logged In User is able to Add to Cart Bundle Product from wishlist pag
 L-TCWL3.4.Logged In User is able to Add to Cart Group Product from wishlist page
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductGroupNameForSearch}
@@ -95,7 +95,7 @@ L-TCWL3.4.Logged In User is able to Add to Cart Group Product from wishlist page
 L-TCWL3.5.Logged In User is able to Add to Cart Variant Product from wishlist page
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Search Product by Keyword in Searchbox    ${ProductVirtualNameForSearch}
@@ -112,7 +112,7 @@ L-TCWL3.5.Logged In User is able to Add to Cart Variant Product from wishlist pa
 L-TCWL4.Logged In User is able to Add to Cart all product from wishlist page
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
 
@@ -168,7 +168,7 @@ L-TCWL5.Logged In User is able to share wishlist by email
 L-TCWL6.1.Logged In users are able to add a Configurable product to the cart from the wishlist page without selecting a product variant
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Add Product to Wishlist    ${ProductConfigNameForSearch}
@@ -187,7 +187,7 @@ L-TCWL6.1.Logged In users are able to add a Configurable product to the cart fro
 L-TCWL6.2.Logged In users are able to add a Bundle product to the cart from the wishlist page without selecting a product variant.
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Add Product to Wishlist    ${ProductBundleNameForSearch}
@@ -204,7 +204,7 @@ L-TCWL6.2.Logged In users are able to add a Bundle product to the cart from the 
 L-TCWL6.3.Logged In users are able to add a Group product to the cart from the wishlist page without selecting a product variant
     [Tags]    wishlist
     Login User
-    Empty the items in MiniCart
+    
     Go To My Account Page
     Empty Item In Wishlish Page
     Add Product to Wishlist    ${ProductGroupNameForSearch}

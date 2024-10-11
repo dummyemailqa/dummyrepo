@@ -16,6 +16,7 @@ InvalidOTP              = '123456'
 #URL List
 URLWEB                  = 'https://swift-hyva.testingnow.me/'
 URLAccount              = 'https://swift-hyva.testingnow.me/customer/account/'
+graphqlURL              = 'http://swift-hyva.testingnow.me/graphql'
 
 # Product SKU
 ProductSimpleSKUForSearch    = 'irj-001'
