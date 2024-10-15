@@ -1,7 +1,0 @@
-{
-    "query": "mutation($email: String!, $password: String!) { generateCustomerToken(email: $email, password: $password) { token } }",
-    "variables": {
-        "email": "",
-        "password": ""
-    }
-}

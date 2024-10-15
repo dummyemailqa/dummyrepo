@@ -4,8 +4,8 @@ Library           Collections
 
 *** Variables ***
 ${API_URL}        http://swift-hyva.testingnow.me/graphql
-${EMAIL}          demo@icube.us    # replace with actual email
-${PASSWORD}       Password123          # replace with actual password
+${EMAIL}          dummyemailqa@gmail.com    
+${PASSWORD}       PasswordStrength123         
 ${response_code} 
 
 *** Test Cases ***

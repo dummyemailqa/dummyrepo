@@ -1,7 +1,0 @@
-{
-    "query": "mutation($cart_id: String!, $cart_item_uid: ID!) { removeItemFromCart(input: { cart_id: $cart_id, cart_item_uid: $cart_item_uid } ) { cart { id, total_quantity } } }",
-    "variables": {
-        "cart_id": "",
-        "cart_item_uid": ""
-    }
-}

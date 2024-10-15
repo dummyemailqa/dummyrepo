@@ -1,3 +1,0 @@
-{
-    "query": "query { customerCart { email, id, items { uid, product { name } } total_quantity } }"
-}
