@@ -19,7 +19,8 @@ Generate Customer Token And Verify Response
 
     ${payload}=       Create Dictionary    query=${query}
     ${response}=      POST on Session    graphql    /    json=${payload}    headers=${headers}
-
+    Log    Response Code: ${response}
+    
     # Step 3: Extract and Verify Status Code manually
     ${response_code}=    Set Variable    ${response.status_code}
     Log    Response Code: ${response_code}
@@ -39,5 +40,6 @@ Generate Customer Token And Verify Response
     ${token}=    Get From Dictionary    ${generateCustomerToken}    token
 
     # Step 8: Verify the token is present
-    Should Not Be Empty    ${token}
     Log    Token generated: ${token}
+    Should Not Be Empty    ${token}
+  
